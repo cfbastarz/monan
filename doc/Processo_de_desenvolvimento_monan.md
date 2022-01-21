@@ -187,7 +187,7 @@ git commit -m 'Mensagem sobre esse commit'
 
 Os "pushs" para o branch criado não deve ser feito para qualquer modificação. O desenvolvedor deve usar seus procedimentos pessoais de edição de código e de testes funcionais até que tenha algum código considerado pronto para testes robustos. Ao fim de um processo de desenvolvimento o desenvolvedor deve fazer o **push** para o branch em edição. 
 
-
+Ao realizar o push uma mensagem 
 
  
 
