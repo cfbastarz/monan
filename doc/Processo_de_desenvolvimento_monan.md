@@ -84,6 +84,8 @@ O processo de desenvolvimento é mostrado na figura 1 abaixo e terá seus tópic
 
 <img src="https://i.ibb.co/rxbgLFd/fluxodedesenvolvimento.png" title="" alt="" width="769">
 
+#### 4.1 Grupos
+
 Existem dois tipos de grupos a considerar: 
 
 a) grupo de computação e 
@@ -104,7 +106,90 @@ Além desses 4 subgrupos há o grupo da gerência que mantem coesos todos os sub
 
 Os grupos de Pesquisa/Desenvolvimento são diversos e se dividem de acordo com as áreas de pesquisa envolvidas no desenvolvimento de modelos. Entre elas estão o grupo de dinâmica, grupo de radiação, grupo de superfície, grupo de oceano, etc. Para efeito desse documento trataremos todos esses grupos distintos como grupo de pesquisa apenas.
 
+#### 4.2 Ferramenta de Controle de processo e versionamento
 
+Para uso do projeto MONAN o controle de versionamento será baseado no GIT. A razão para a adoção encontra-se no fato de que o GIT permite que sejam realizados commits de código locais separados dos tronco principal de desenvolvimento (trunk) e dos galhos criados para cada fim (branchs). Assim é possível que apenas um pequeno grupo posso controlar os push (uploads de modificações ao trunk) e merge (mistura de códigos válidos entre desenvolvimentos) garantindo coerência e perpetuação dos códigos. 
+
+Para isso adotou-se como ferramenta integradora o Github que possui diversas funcionalidades altamente úteis para o controle do projeto e permite ainda que o código possa ser distribuído sem grandes problemas. O projeto está hospedado  no endereço [GitHub - monanadmin/monan: MONAN - Model for Ocean laNd and Atmosphere predictioN](https://github.com/monanadmin/monan)
+
+A página do Modelo está disponível em [MONAN | monan](https://monanadmin.github.io/monan/)
+
+#### 4.3 Regras de desenvolvimento do modelo
+
+##### 
+
+##### 4.3.0 Clone de desenvolvimento
+
+Para iniciar uma etapa de desenvolvimento torna-se necessário ter um clone do projeto. Para isso usa-se o comando de clone do git. Para isso basta executar o comando
+
+```bash
+git clone https://github.com/monanadmin/monan.git
+```
+
+##### 4.3.1 Criando uma requisição para um desenvolvimento
+
+Antes de começar um desenvolvimento é necessário criar no repositório do MONAN  ([[GitHub - monanadmin/monan: MONAN - Model for Ocean laNd and Atmosphere predictioN](https://github.com/monanadmin/monan)),  na aba Issues, a requisição. Para isso clique na aba **Issues** e no botão **New Issue**. Preencha então o nome da requisição (nome curto e bem indentificável) e logo depois descreva na aba **Write** de forma completa qual a tarefa a ser realizada. NO lado direito clique nas pessoas envolvidas (**Assignees**) e qual label é adequado para a tarefa (**Labels**) e o projeto **MONAN**. A descrição permite o uso da linguagem de texto [Markdown](https://www.markdownguide.org/basic-syntax/). Assim é possível usar figuras, links, apontar a um suário, etc. Não econonize na descrição da tarefa pois ela irá orientar o trabalho.
+
+Ao criar a requisição o gerente será notificado. O gerente irá entrar em contato com você para tratar do status do trabalho e determinar outras informações necessárias para sua realização e acompanhamento.
+
+##### 4.3.2 Geração do branch de desenvolvimento
+
+Todo novo desenvolvimento deverá receber um branch próprio que deve ser feito à partir do trunk principal do modelo. Assim o desenvolvedor poderá trabalhar em área distinta derivada de um ponto atual do trunk de desenvolvimento. Após ter um clone ativo, para a geração de um branch usa-se o comando
+
+```bash
+git branch radiation
+git checkout radiation
+Switched to branch 'radiation'
+```
+
+A partir desse ponto o ambiente passa para o branch de desenvolvimento solicitado. O git commit é feito sempre da mesma maneira mas o push para o branch irá pedir algumas opções. Por exemplo, imagine que você queira criar  um arquivo chamado file.txt, fazer o commit e o push. O processo fica então assim:
+
+```bash
+echo "Some text" > file.txt 
+git add file.txt
+git commit -m 'apenas um teste'
+git push --set-upstream origin teste
+```
+
+##### 4.3.3 Manipulação do código
+
+Para alterar ou criar novos códigos o pesquisador e/ou desenvolvedor, de agora em diante chamado apenas de desenvolvedor, deve estar atento ao [Padrão de codificação (Code patterns)](https://github.com/monanadmin/monan/wiki/Padr%C3%A3o-de-codifica%C3%A7%C3%A3o---(Code-patterns)) adotado pelo MONAN. Conhecer o documento DN01 é fundamental para realizar tal tarefa.
+
+##### 4.3.4 Commits locais constantes
+
+É importante que o desenvolvedor faça contantemente commits locais no código de forma a controlar o desenvolvimento e poder fazer rollback (voltar a edições anteriores do código) e manter a cópia segura fazendo backups constantes do código.
+
+Antes de fazer um commit é preciso estar atento ao status do trabalho. Saber antecipadamente quais os arquivos foram alterados e destes escolher aqueles que devem ser adicionados no commit.
+
+Para saber o status do git basta fazer
+
+```bash
+git status
+```
+
+Uma lista com o status dos arquivos será mostrada. Para cada arquivo que se deseja que façaa parte do commit deve-se usar o comando add
+
+```bash
+ git add arquivo1
+ git add arquivo2
+
+...
+
+```
+
+e depois pode-se fazer o commit passando a mensagem adequada.
+
+```bash
+git commit -m 'Mensagem sobre esse commit'
+```
+
+##### 4.3.5 Push nos branchs
+
+Os "pushs" para o branch criado não deve ser feito para qualquer modificação. O desenvolvedor deve usar seus procedimentos pessoais de edição de código e de testes funcionais até que tenha algum código considerado pronto para testes robustos. Ao fim de um processo de desenvolvimento o desenvolvedor deve fazer o **push** para o branch em edição. 
+
+
+
+ 
 
 ## Referências
 
