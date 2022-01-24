@@ -174,7 +174,6 @@ Uma lista com o status dos arquivos será mostrada. Para cada arquivo que se des
  git add arquivo2
 
 ...
-
 ```
 
 e depois pode-se fazer o commit passando a mensagem adequada.
@@ -182,6 +181,25 @@ e depois pode-se fazer o commit passando a mensagem adequada.
 ```bash
 git commit -m 'Mensagem sobre esse commit'
 ```
+
+
+
+##### 4.3.4.b Fazer periodicamente merge do branch principal (main/trunk) com o branch de trabalho local, sobretudo logo antes de fazer o push deste branch local
+
+O objetivo deste procedimento é minimizar o risco de conflitos ao se efetuar posteriormente o merge do branch atualizado com o branch principal (***main/trunk***).
+
+```bash
+git checkout main
+git pull
+git checkout branch_de_trabalho_local
+git merge main
+```
+
+
+
+###### 4.3.4.c Resolução de conflitos, se houver, com ferramenta adequada (*meld*, por exemplo), antes de realizar o push do branch local
+
+
 
 ##### 4.3.5 Push nos branchs
 
@@ -236,12 +254,6 @@ O grupo interage com os desenvolvedores e pode dar um parecer positivo a finaliz
 ##### 4.3.9 Versionamento e Releases
 
 O gerente informa ao subgrupo de versionamento e uma reunião é marcada entre os líderes de cada subgrupo e o desenvolvedor. Nessa etapa decide-se se será realizada apenas um merge do branch para o trunk ou se será efetuado um release de versão (tag).
-
-
-
-
-
-
 
 ## Referências
 
