@@ -9,12 +9,19 @@ O grupo de Revisão de Código tem a atribuição de avaliar todos os códigos q
 São atividades necessárias do grupo:
 
 **2.1 Avaliar todos os códigos** levados ao controle de versão de forma a considerá-los aptos ou inaptos para serem parte do fluxo normal de desenvolvimento do trunk do modelo e se tornarem ou fazer parte de uma possível e futura versão. A avaliação deve ser acompanhada de um documento de conformidade padronizado.
+
 **2.2 Pesquisar e utilizar de ferramentas opensources** existentes que auxiliem ou facilitem a tarefa de avaliação.
+
 **2.3 Analisar e pesquisar o mercado** e propor a compra de ferramentas existentes que auxiliem ou facilitem a tarefa de avaliação.
+
 **2.4 Desenvolver scripts, programas, ferramentas  ou aplicativos** que auxiliem na tarefa de avaliação tornando-as automáticas ou semi-automáticas.
+
 **2.5 Desenvolver ou usar ferramentas automáticas de correção** de inconsitências na conformidade de forma a evitar a inaptidão dos códigos e evitar a devolução do código aos desenvolvedores
+
 **2.6 Documentar todo o processo de avaliação** registrando as ferramentas, modelos, sub-processos e regras utilizadas na avaliação
+
 **2.7 Criar documentos eletrônicos de conformidade,** simples e acessíveis que permitam registrar as avaliações e seus resultados e informar aos desenvolvedores e subgrupo de teste se o código está apto, inapto, onde requer retrabalho e demais informações.
+
 
 ## 3. Estrutura de Pessoal
 
