@@ -30,6 +30,5 @@ São atividades necessárias do grupo:
 
 ## 3. Estrutura de Pessoal
 
-O subgrupo de Revisão será composto por um gerente e 2 analistas. Todos os membros, incluindo o gerente, podem atuar em todas as atividades necessárias e atribuidas ao subgrupo. Ao gerente cabe ainda distribuir e acompanhar as atividades, registrar o andamento no Kanban do projeto, fazer os relatórios e preencher documentos quando solicitado, preencher o documento de resultados de teste e cobrar da equipe as atividades e ações necessárias para os fins do subgrupo. 
+O subgrupo de Teste será composto por um gerente e 2 analistas. Todos os membros, incluindo o gerente, podem atuar em todas as atividades necessárias e atribuidas ao subgrupo. Ao gerente cabe ainda distribuir e acompanhar as atividades, registrar o andamento no Kanban do projeto, fazer os relatórios e preencher documentos quando solicitado, preencher o documento de resultados de teste e cobrar da equipe as atividades e ações necessárias para os fins do subgrupo. 
 
-2. 
