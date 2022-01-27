@@ -1,0 +1,8 @@
+[
+	{"keys": ["ctrl+shift+,"], "command": "add_date" },
+	{"keys": ["ctrl+shift+."], "command": "add_time" },
+	{"keys": ["ctrl+alt+n"], "command": "add_my_name" },
+	{"keys": ["ctrl+alt+m"], "command": "add_my_mail" },
+	{"keys": ["ctrl+alt+s"], "command": "add_my_site" },
+	{"keys": ["ctrl+alt+z"], "command": "add_my_project" }
+]
