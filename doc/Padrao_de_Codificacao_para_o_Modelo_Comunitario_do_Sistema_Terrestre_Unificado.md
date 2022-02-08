@@ -1,4 +1,4 @@
-# Padrão de Codificação para o Model for Ocean laNd and Atmosphere predictioN (MONAN)
+# Padrão de Codificação para o Model for Ocean-laNd-Atmosphere predictioN (MONAN)
 
 ## Documento Técnico Normativo - DTN.01 - Rev. Beta 0.2
 
