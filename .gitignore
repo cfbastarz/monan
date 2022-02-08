@@ -1,1 +1,6 @@
+*.mod
+*.a
+*.mod
+*.lib
+doc/src
 
