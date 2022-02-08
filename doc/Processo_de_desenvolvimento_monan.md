@@ -49,7 +49,7 @@ Em geral os testes não são automáticos ou padronizados. O pesquisador ou dese
 
 * O código funciona em outros compiladores?
 * O código tem desempenho mínimo esperado para ser usado em situação operacional?
-*  O código tem comportamento e funciona em arquiteturas distintas?
+* O código tem comportamento e funciona em arquiteturas distintas?
 * As modificações foram devidamente documentadas e versionadas?
 * Os manuais de uso, caso necessário, foram atualizados?  
 
@@ -105,6 +105,7 @@ A página principal do MONAN, também está hospedada no GitHub e está disponí
 Na Figura 1, estão diagramadas as etapas de desenvolvimento a serem adotadas para o MONAN. Cada etapa será descrita nas subseções a seguir.
 
 ##### ![Fluxo de desenvolvimento para o MONAN](https://i.ibb.co/rxbgLFd/fluxodedesenvolvimento.png)
+
 <figcaption>Figura 1 - Fluxo de desenvolvimento para o MONAN.</figcaption>
 
 ##### 4.3.1 Clone de desenvolvimento
@@ -189,7 +190,6 @@ Uma lista com o _status_ dos arquivos será mostrada. Para cada arquivo que se d
  git add arquivo2
 
 ...
-
 ```
 
 e depois pode-se fazer o `commit` passando a mensagem adequada com a opção `-m`:
@@ -251,6 +251,32 @@ O grupo interage com os desenvolvedores e pode dar um parecer positivo para a fi
 ##### 4.3.10 Versionamento e _releases_
 
 O gerente informa ao subgrupo de versionamento e uma reunião é marcada entre os líderes de cada subgrupo e o(s) desenvolvedor(es). Nessa etapa decide-se se será realizada apenas um _merge_ do _branch_ para o _trunk_ ou se será efetuado um _release_ da versão (_tag_).
+
+Esse novo release será um candidato a se tornar operacional, um release candidate (RC). Para isso a tag deverá receber um sufixo **.RCn** onde n é o número inteiro sequencial de candidatos a se tornarem operacionais. Por exemplo: monan-RC4, monan-RC5, etc.
+
+Um RC deve conter além dos códigos e bibliotecas uma documento de entrega para a operação. Esse documento deverá conter todas as informações sobre a compilação do código, sua configuração, namelists operacionais e uma tabela com os arquivos necessários para sua operação. Esse documento deverá ser elaborado em conjunto pelos desenvolvedores e equipe de computação.
+
+## 5. Etapas de testes operacionais
+
+Após a liberação de um RC cabe a operação realizar os testes contínuos diários para validar a nova versão. Esses testes devem ser feitos por um período de DD dias que serão determinados pelos especialistas na área. Para cada rodada diária um grupo ligado a operação fará a avaliação dos resultados de forma a comparar com a versão corrente em operação e a RC. Isso pode ser feito usnado ferramentas automáticas e avaliações subjetivas a critério da operação. Os resultados devem mostrar a comparação entre os erros entre os dados observados para os dois modelos e assim determinar se houve ganho ou perdas no acurácia da RC. Em caso de bugs ou erros funcionais deve ser comunicado imediatamente aos desenvolvedores e analistas de computação.
+
+Outro ponto a ser medido é a performance computacional do modelo, isto é, o tempo gasto para as rodadas do modelo corrente e do RC. 
+
+Ao fim do período de testes deverá ser gerado um relatório com os dados obtidos, com o aceite ou não da RC e em qualquer caso observações e recomendações. Em caso de rejeição por piora de resultados, tempos de rodadas muito longos ou combinações das duas informações o grupo de desenvolvimento e/ou o grupo de testes e computação serão informados de maneira a promoverem os ajustes na RC e dar continuidade no desenvolvimento/testes.
+
+Em caso de aceite a RC será liberada para a operação como uma versão estável e deverá receber seu versionamento com a mudança do número da versão no primeiro dígito. Por exemplo: monan-5, monan-6, etc
+
+O main (trunk) é então atualizado (merge) com a nova versão estável.
+
+## 6. Manutenção Contínua de Código
+
+O código, após ser levado a status operacional, deve receber manutenções contínuas. Essas manutenções podem ter caráter de ajustes na funcionalidade ou causados por bugs e mudanças no seu ambiente externo.
+
+Em casos de manutenção deverá ser aberto ou pelo grupo de desenvolvimento, ou pelo grupo computacional uma issue e um branch de manutenção.  Para facilitar pode-se usar uma referência base na versão de origem no nome do branch, por exemplo: monan-5-b1, monan-6.i5, etc. O trabalho deve ser realizado e a correção, ainda como um branch passar pelos testes internos e posteriormente pelos testes operacionais para validação.
+
+Após os testes serem aprovados tags de correção serão lançadas acrescentando um ponto a mais na versão. Por exemplo: monan-5.1, monan-6.4, etc.
+
+O main (trunk) é então atualizado (merge) com a nova versão estável e corrigida.
 
 ## Referências
 

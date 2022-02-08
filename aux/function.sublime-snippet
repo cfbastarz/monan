@@ -1,0 +1,46 @@
+<snippet>
+   <content><![CDATA[
+!=============================================================================================
+function ${1:funcName}() result()
+   !# ${2:Brief}
+   !#
+   !# @note
+   !#
+   !# **Project**  : ${3:project}
+   !# **Author(s)**: ${4:author} [${5:nickname}]
+   !# **e-mail**   : <${6:email}>
+   !# **Date**: ${7:date}
+   !#
+   !# **Full Description**: 
+   !# ${2:Brief}
+   !#
+   !# @endnote
+   !#
+   !# @warning
+   !# Under GNU GENERAL PUBLIC LICENSE - Version 3
+   !# @endwarning
+   !#
+    
+   !Uses
+
+   implicit none
+   
+   !Parameters
+   character(len=*),parameter :: procedureName='**${1:funcName}**' !Name of this procedure
+
+   !Variables intent(in/out)
+
+   !Local Variables
+
+   !Code area
+
+
+
+   
+end function ${1:funcName} 
+]]></content>
+   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+   <tabTrigger>function</tabTrigger> 
+   <!-- Optional: Set a scope to limit where the snippet will trigger -->
+   <!-- <scope>source.python</scope> -->
+</snippet>

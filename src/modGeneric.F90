@@ -133,7 +133,7 @@ module modGeneric
         write (outTerm,fmt = '(A)') '                               | |\/| | | | |  \| | / _ \ |  \| |'
         write (outTerm,fmt = '(A)') '                               | |  | | |_| | |\  |/ ___ \| |\  |'
         write (outTerm,fmt = '(A)') '                               |_|  |_|\___/|_| \_/_/   \_\_| \_|'
-        write (outTerm,fmt = '(A)') ''
+        write (outTerm,fmt = '(A)') '                         Model for Ocean laNd and Atmosphere predictioN'
         write (outTerm,fmt = '(A)') ''
         write (outTerm,fmt = '(A)') '                               Copyright (C) 2022 MONAN Community'
         write (outTerm,fmt = '(A)') ''

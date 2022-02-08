@@ -1,4 +1,4 @@
-# ![](https://i.ibb.co/MDjV5s3/simbolo-menor.png "Monan logo") MONAN
+# ![](https://i.ibb.co/LNqGy3S/logo-Monan-Color-75x75.png "Monan logo") MONAN
 ---
 
  *Model for Ocean-laNd-Atmosphere predictioN*

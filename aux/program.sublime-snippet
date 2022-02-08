@@ -1,0 +1,58 @@
+<snippet>
+   <content><![CDATA[
+program ${1:progName}
+   !# @note
+   !#
+   !# **Project**  : ${3:project}
+   !# **Homepage** : ${4:site}
+   !# **Author(s)**: ${5:author} [${6:nickname}]
+   !# **e-mail**   : <${7:email}>
+   !# **Date**: ${8:date}
+   !#
+   !# **Full Description**: 
+   !# ${2:Brief}
+   !#
+   !# @endnote
+   !#
+   !# @warning
+   !#
+   !#  (C) Copyright Instituto Nacional de Pesquisas Espaciais
+   !#      INPE - MCTI - Brasil - ${9:year}
+   !#
+   !#  See the ${4:site} for colaborations, papers, informations,
+   !#  "howto"'s, discussions, documentation, etc.
+   !#
+   !#  [](https://www.gnu.org/graphics/gplv3-127x51.png"")
+   !#
+   !#     This program is free software: you can redistribute it and/or modify
+   !#     it under the terms of the GNU General Public License as published by
+   !#     the Free Software Foundation, either version 3 of the License, or
+   !#     (at your option) any later version.
+   !#
+   !#     This program is distributed in the hope that it will be useful,
+   !#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+   !#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   !#     GNU General Public License for more details.
+   !#
+   !#     You should have received a copy of the GNU General Public License
+   !#     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+   !#
+   !# @endwarning
+       
+   use dump !Dump contains a lot of functions for debugs and formated printouts
+   implicit none
+   include "constants.h"
+   character(len=*),parameter :: sourceName='${TM_FILENAME}' !Name of this source code
+   character(len=*),parameter :: mainName='**${1:progName}**' !Name of this procedure
+
+
+   
+
+
+end program ${1:progName} 
+]]></content>
+   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+   <tabTrigger>program</tabTrigger> 
+   <!-- Optional: Set a scope to limit where the snippet will trigger -->
+   <!-- <scope>source.python</scope> -->
+</snippet>
