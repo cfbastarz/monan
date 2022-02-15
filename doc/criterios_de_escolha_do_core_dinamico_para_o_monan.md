@@ -6,9 +6,9 @@
 
 ### 1. Introdução
 
-A escolha do Core Dinâmico do MONAN deve ser feita levando em consideração alguns aspectos de qualidade de software. Segundo a norma ISO/IEC 9126, revisada pela norma ISO/IEC 25010:2011, quando a qualidade de software se refere ao produto, estas fornecem uma estrutura para especificar características de qualidade de software e realizar comparações entre produtos de software. Outras características e métricas de qualidade de software, encontrados em livros de engenharia de software, também foram introduzidas. Estas normas, características e métricas serão utilizadas como base para a construção dos critérios de escolha do core Dinâmico, descritos neste documento.
+A escolha do Core Dinâmico do MONAN deve ser feita levando em consideração alguns aspectos de qualidade de software. Segundo a norma [ISO/IEC 9126](https://pt.wikipedia.org/wiki/ISO/IEC_9126), revisada pela norma [ISO/IEC 25010:2011](https://pt.wikipedia.org/wiki/ISO/IEC_25010), quando a qualidade de software se refere ao produto, estas fornecem uma estrutura para especificar características de qualidade de software e realizar comparações entre produtos de software. Outras características e métricas de qualidade de software, encontrados em livros de engenharia de software, também foram introduzidas. Estas normas, características e métricas serão utilizadas como base para a construção dos critérios de escolha do core Dinâmico, descritos neste documento.
 
-Dentro do contexto de qualidade interna, onde o software é avalidado para ser reutilizado e modificado, a definição das características e sub características devem ser levantadas em função da área de aplicação do produto de software. E, esta definição deve ser feita antes do início do desenvolvimento do mesmo. Produtos de maior porte devem ser subdivididos em módulos e cada um destes deve ter seus próprios conjuntos de características e sub características. Portanto, um Core Dinâmico de qualidade deve ser utilizado considerando alguns aspectos principais da qualidade de software que são inerentes ao Produto.
+Dentro do contexto de qualidade interna, onde o software é avalidado para ser reutilizado e modificado, a definição das características e subcaracterísticas devem ser levantadas em função da área de aplicação do produto de software. E, esta definição deve ser feita antes do início do desenvolvimento do mesmo. Produtos de maior porte devem ser subdivididos em módulos e cada um destes deve ter seus próprios conjuntos de características e subcaracterísticas. Portanto, um Core Dinâmico de qualidade deve ser utilizado considerando alguns aspectos principais da qualidade de software que são inerentes ao Produto.
 
 
 ### 2. Caracterísiticas de Qualidade de Software
@@ -21,7 +21,7 @@ As caracterísitcas de qualidade que serão utilizadas para a avaliação do Cor
 * Adequação: Capacidade do produto de software de prover um conjunto apropriado de funções para tarefas e objetivos do usuário especificados.
 * Acurácia: Capacidade do produto de software de prover, com o grau de precisão necessário, resultados ou efeitos corretos ou conforme acordados.
 * Interoperabilidade: Capacidade do produto de software de interagir com um ou mais sistemas especificados.
-Segurança: Capacidade do produto de software de proteger informações e dados, de forma que pessoas ou sistemas não autorizados não possam lê-los nem modificá-los e que não seja negado o acesso às pessoas ou sistemas autorizados.
+* Segurança: Capacidade do produto de software de proteger informações e dados, de forma que pessoas ou sistemas não autorizados não possam lê-los nem modificá-los e que não seja negado o acesso às pessoas ou sistemas autorizados.
 * Conformidade.
 
 **Confiabilidade**: A capacidade do produto de software de manter um nível de desempenho especificado, quando usado em condições especificadas. Suas subcaracterísticas são:
@@ -78,7 +78,7 @@ Métricas de Software podem ser utilizadas para a avaliação de algumas Caracte
 
 ### 4. Avaliação da Qualidade
 
-As características descritas no item 2 devem ser avaliadas no início do projeto, levando em consideração a infra estrutura disponibilizada para os testes. 
+As características descritas no item 2 devem ser avaliadas no início do projeto, levando em consideração a infraestrutura disponibilizada para os testes. 
 
 As subcaracterísticas de Manutebilidade e a subcaracterística Adaptabilidade (de Portabilidade), serão avaliadas através da leitura e interpretação do código e de sua estrutura. As métricas, descritas no item 3, serão usadas para avaliar quantativamente essas subcaracterísticas.
 
@@ -91,18 +91,21 @@ As características de Usabilidade, Eficiência, Confiabilidade e Portabilidade 
 Os ambientes disponibilizados para testes devem ser o mais parecidos possível, em termos da arquitetura do hardware, infraestrutura e softwares base, como o sistema operacional, compiladores, bibliotecas de alta performance e etc. O mesmo ambiente e plano de testes devem ser considerados na execução dos diferentes Cores Dinâmicos. Ainda, a categoria de Portabilidade deve considerar diferentes compiladores e bibliotecas como critério de pontuação.
 
 Os critérios de pontuação adotados serão os definidos pelas normas ISO:
-* Três pontos para as subcategorias que atendem satisfatoriamente os requisitos de qualidade (excelente, bom e razoável
+* Três pontos para as subcategorias que atendem satisfatoriamente os requisitos de qualidade (excelente, bom e razoável).
 * Um ponto para as categorias com pontuação Insatisfatória.
 
 Quando utilizadas métricas, a pontuação de cada subcaracterística será avaliada como uma média das métricas utilizadas para aquela subcaracterística. 
 
-Ao finao da avaliação, a pontuação deverá ser somada para se obter o resultado final da escolha do Core Dinâmico mais apropriado para o MONAN.
+Ao final da avaliação, a pontuação deverá ser somada para se obter o resultado final da escolha do Core Dinâmico mais apropriado para o MONAN.
 
 ### Referências
 
-SOMMERVILLE, Ian. Software engineering 9th Edition. ISBN-10, v. 137035152, p. 18, 2011.
+SOMMERVILLE, Ian. Software engineering 9th Edition. ISBN-10, v. 137035152, p. 456-458; 465-470, 2011.
 
-Wikipediia. ISO/IEC 9126. Disponível em 
+Wikipedia. ISO/IEC 9126. Disponível em 
 https://pt.wikipedia.org/wiki/ISO/IEC_9126
+
+Wikipedia. ISO/IEC 25010. Disponível em 
+https://pt.wikipedia.org/wiki/ISO/IEC_25010
 
 
