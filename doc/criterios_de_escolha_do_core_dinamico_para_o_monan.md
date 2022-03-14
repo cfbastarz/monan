@@ -135,6 +135,10 @@ onde
     Q5 = PtsManutebilidade * 2
     Q6 = PtsPortabilidade * 1
 
+Os pesos indicam que os pontos mais importantes a serem availiados no Core Dinâmico são: 
+* Funcionalidades: deve atender as principais demandas do Monan. Uma diminuição no seu peso indica um maior peso para a Manutebilidade.
+* Eficiência: fator que considera o atual cenário de recursos computacionais e de energia.
+* Manutebilidade: fator que considera o atual cenário de recursos humanos e os prazos para implementação. 
 
 #### _Avaliação de outras características de Qualidade de Software_
 
@@ -145,7 +149,6 @@ As caracterísitcas de Funcionalidade podem ser avaliadas através das publicaç
 As características de Usabilidade, Eficiência e Confiabilidade devem ser avalidas utilizando o Core Dinâmico instalado nos ambientes disponibilizados para testes. Um documento à parte deve ser criado para detalhar as métricas utilizadas e critérios de pontuação, podendo seguir o método deste. O mesmo ambiente e plano de testes devem ser considerados na execução dos diferentes Cores Dinâmicos. 
 
 ### 5. Ferramentas para avaliação da Manutebilidade e parte da Portabilidade
-
 
 * check.py (https://github.com/monanadmin/monan/tree/main/tools/qas_eval). Programa principal. Desenvolvido para ler estatísticas geradas pelo fortran-src, fortranMakeUtilis e gfortran e contabilizar outras estatísticas, gerando um relatório sintetizado de métricas.
 * fortran-src (https://github.com/camfort/fortran-src). Ferramenta escrita na linguagem Haskell que gera diversas estatísticas do código.
