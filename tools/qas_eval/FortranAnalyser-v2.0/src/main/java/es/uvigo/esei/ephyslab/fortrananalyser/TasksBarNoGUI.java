@@ -304,8 +304,6 @@ public final class TasksBarNoGUI {
         this.partialCalification = 0.0;
         this.cycloScores.clear();
 
-        System.out.println("doInBackground");
-
         PDF pdf;
         int countNumberOfFiles = 0;
         auxNote = 0.0;

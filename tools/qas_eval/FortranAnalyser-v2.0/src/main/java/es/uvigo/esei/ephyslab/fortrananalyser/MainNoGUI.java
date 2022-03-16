@@ -108,7 +108,7 @@ public class MainNoGUI {
         initialiceComponentsNoGUI();
         this.changeLanguage(language);
 //        new NoGUI(pathToAnalyse, fileName, MainNoGUI.this.messages);
-        System.out.println("MainNoGUI");
+        System.out.println("Generating " + fileName + " from source: " + pathToAnalyse + " ...");
 
         TasksBarNoGUI t = new TasksBarNoGUI(MainNoGUI.this, pathToAnalyse, MainNoGUI.this.messages, fileName);
         try {
