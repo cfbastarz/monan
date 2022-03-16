@@ -114,8 +114,10 @@ public class MainNoGUI {
         try {
             t.doInBackground();
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("ERROR generating: \n" );
+            e.printStackTrace(System.out);
         } 
+        System.out.println("Done!");
 
 
     }
