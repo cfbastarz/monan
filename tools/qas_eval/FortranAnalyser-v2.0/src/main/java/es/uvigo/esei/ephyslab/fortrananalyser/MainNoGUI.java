@@ -109,26 +109,16 @@ public class MainNoGUI {
         this.changeLanguage(language);
 //        new NoGUI(pathToAnalyse, fileName, MainNoGUI.this.messages);
         System.out.println("MainNoGUI");
-        this.executeAnalyse(pathToAnalyse);
 
-    }
-
-    /**
-     * call the execution of the analisis in a new Thread
-     *
-     * @param pathFile the path of the file
-     */
-    private void executeAnalyse(String pathFile) {
-
-        TasksBarNoGUI t = new TasksBarNoGUI(MainNoGUI.this, pathFile, MainNoGUI.this.messages);
+        TasksBarNoGUI t = new TasksBarNoGUI(MainNoGUI.this, pathToAnalyse, MainNoGUI.this.messages, fileName);
         try {
             t.doInBackground();
         } catch (Exception e) {
             System.out.println(e);
         } 
 
-    }
 
+    }
 
     /**
      * This method update the parameters in the lenguage selected by the user.

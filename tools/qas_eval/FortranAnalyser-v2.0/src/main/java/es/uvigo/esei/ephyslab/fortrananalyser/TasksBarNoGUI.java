@@ -54,16 +54,6 @@ public final class TasksBarNoGUI {
     private static final String EXTENSION3 = "f";
 
     /**
-     * the path and the name of the file.
-     */
-    private static final String DEST = System.getProperty("user.home") + "/temp/QualityReport.pdf";
-
-    /**
-     * the path of the destination of the file
-     */
-    private static final String DESTPATH = System.getProperty("user.home") + "/temp";
-
-    /**
      * corresponding position in the scores array of the score obtain on each
      * metric
      */
@@ -94,6 +84,11 @@ public final class TasksBarNoGUI {
      * the path of the directory to analyse.
      */
     private String path;
+
+    /**
+     * the path of the outfile pdf
+     */
+    private String pdfOutFile;
 
     /**
      * the assesment from file of the quality report.
@@ -217,13 +212,14 @@ public final class TasksBarNoGUI {
      * @param path the path of file
      * @param messages all strings for build the report
      */
-    TasksBarNoGUI(MainNoGUI mw, String path, ResourceBundle messages) {
+    TasksBarNoGUI(MainNoGUI mw, String path, ResourceBundle messages, String pdfOutFile) {
 
         initializeVariables();
 
         this.mw = mw;
         this.messages = messages;
         this.path = path;
+        this.pdfOutFile = pdfOutFile;
 
     }
 
@@ -330,7 +326,7 @@ public final class TasksBarNoGUI {
 
             checkTempFileExist();
 
-            pdf.createPdf(TasksBarNoGUI.DEST, this.messages.getLocale());
+            pdf.createPdf(this.pdfOutFile, this.messages.getLocale());
 
             scanFilesInDirectory(this.path, filesInFolder);
 
@@ -483,10 +479,10 @@ public final class TasksBarNoGUI {
      * Check if the temp directory exists. If it not exists, this method create
      * it.
      */
-    private static void checkTempFileExist() {
+    private void checkTempFileExist() {
 
-        if (!Paths.get(TasksBarNoGUI.DEST).toFile().exists()) {
-            new File(TasksBarNoGUI.DESTPATH).mkdirs();
+        if (!Paths.get(this.pdfOutFile).toFile().exists()) {
+            new File(this.pdfOutFile);
         }
     }
 
@@ -1337,14 +1333,6 @@ public final class TasksBarNoGUI {
         } else {
             return 0.0;
         }
-    }
-
-    public static String getDEST() {
-        return DEST;
-    }
-
-    public static String getDESTPATH() {
-        return DESTPATH;
     }
 
     public static int[] getPOSITIONTABLESCORES() {
