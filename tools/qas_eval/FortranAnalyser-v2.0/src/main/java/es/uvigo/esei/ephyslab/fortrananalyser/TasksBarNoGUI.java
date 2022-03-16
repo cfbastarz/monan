@@ -16,7 +16,6 @@
  */
 package es.uvigo.esei.ephyslab.fortrananalyser;
 
-import java.awt.FlowLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -29,7 +28,6 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.SwingWorker;
 
 /**
  * This class create a taskBar and support the logic part of the application. it
@@ -38,8 +36,7 @@ import javax.swing.SwingWorker;
  * @author Michael García Rodríguez
  * @version 1.9.8
  */
-public final class TasksBarNoGUI extends
-        SwingWorker<Void, Integer> {
+public final class TasksBarNoGUI {
 
     /**
      * the extension file to search.
@@ -286,7 +283,7 @@ public final class TasksBarNoGUI extends
      * @throws java.lang.Exception in case something wrong with intput/output
      * file
      */
-    @Override
+
     protected Void doInBackground() throws Exception {
 
         /**
@@ -329,7 +326,7 @@ public final class TasksBarNoGUI extends
             timeStart = System.currentTimeMillis();
 
             percentage += 1.0;
-            publish((int) percentage);
+            // publish((int) percentage);
 
             checkTempFileExist();
 
@@ -378,7 +375,7 @@ public final class TasksBarNoGUI extends
                     }
 
                     percentage += 98.0 / filesInFolder.size();
-                    publish((int) percentage);
+                    // publish((int) percentage);
                 }
             }
 
@@ -423,7 +420,7 @@ public final class TasksBarNoGUI extends
             partialCalification = 0.0;
             percentage = 100;
             this.totalNumLines = 0;
-            publish((int) percentage);
+            // publish((int) percentage);
 
         } catch (IOException ex) {
             Logger.getLogger(MainNoGUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -451,26 +448,6 @@ public final class TasksBarNoGUI extends
                 }
             }
         }
-    }
-
-    /**
-     * This override method update the value of the progressBar when publish
-     * method is called.
-     *
-     * @param chunks list with the percentage of the progress bar
-     */
-    @Override
-    protected void process(List<Integer> chunks) {
-        System.out.println("Processing");
-    }
-
-    /**
-     * when the task is done (so the PDF was created), this override method is
-     * called to finalice the task execution.
-     */
-    @Override
-    protected void done() {
-        System.out.println("Done");
     }
 
     /**
