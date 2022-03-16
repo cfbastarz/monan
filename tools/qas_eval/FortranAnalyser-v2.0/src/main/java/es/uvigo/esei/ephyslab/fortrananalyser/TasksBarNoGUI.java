@@ -29,8 +29,6 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.SwingWorker;
 
 /**
@@ -89,11 +87,6 @@ public final class TasksBarNoGUI extends
      * arrow to put in the report
      */
     private static final String ARROW = "\n\t--> ";
-
-    /**
-     * the panel where is the progressbar.
-     */
-    private JPanel pane;
 
     /**
      * The main window of the GUI
@@ -233,7 +226,6 @@ public final class TasksBarNoGUI extends
 
         this.mw = mw;
         this.messages = messages;
-        this.pane = new JPanel();
         this.path = path;
 
         this.pane.setLayout(new FlowLayout());
