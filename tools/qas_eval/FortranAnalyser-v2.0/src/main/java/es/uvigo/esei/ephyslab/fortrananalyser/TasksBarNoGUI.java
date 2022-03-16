@@ -228,7 +228,6 @@ public final class TasksBarNoGUI extends
         this.messages = messages;
         this.path = path;
 
-        this.pane.setLayout(new FlowLayout());
     }
 
     /**
