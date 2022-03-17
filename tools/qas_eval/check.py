@@ -76,7 +76,6 @@ def get_proc_info(procedure):
         line = int(partes[1])
         code = partes[2]
         partes = code.split()
-        print(partes, procedure.strip())
         try:
             position = partes.index(procedure.strip())
         except:
@@ -385,8 +384,6 @@ def checkCalls():
                     continue
             except:
                 continue
-            print(f'ls={ls}')
-            print(f'call_pos={call_pos}')
 
             sub_name = ls[call_pos + 1]
             subs.append(sub_name.split("(")[0])
@@ -396,6 +393,17 @@ def checkCalls():
 
     return call_info
 
+
+def log_msg(*msgs):
+    msgs_str = []
+    for each in msgs:
+        msgs_str.append(str(each))
+
+    file_log_report.write(''.join(msgs_str))
+    file_log_report.write('\n')
+
+
+file_log_report = open(f'{sys.argv[2]}/Check_Report_{sys.argv[3]}.txt', 'w')
 
 # print("--Funct info--")
 functInfo = get_proc_info(" function ")
@@ -439,28 +447,29 @@ do_info = checkDo()
 call = checkCalls()
 # print(call)
 
-print('================================================================================================')
-print('================================================================================================')
-print('|                                      RELATÓRIOS                                              |')
-print('================================================================================================')
-print('================================================================================================')
+
+log_msg('================================================================================================')
+log_msg('================================================================================================')
+log_msg('|                                      RELATÓRIOS                                              |')
+log_msg('================================================================================================')
+log_msg('================================================================================================')
 ttot = 0
 for i in functInfo:
     ttot = ttot + functInfo[i]
 tm = ttot / len(functInfo)
-print('+ tamanho médio (linhas) das funções   : ', tm)
+log_msg('+ tamanho médio (linhas) das funções   : ', tm)
 
 ttot = 0
 for i in subInfo:
     ttot = ttot + subInfo[i]
 tm = ttot / len(subInfo)
-print('+ tamanho médio (linhas) das subrotinas   : ', tm)
+log_msg('+ tamanho médio (linhas) das subrotinas   : ', tm)
 
 ttot = 0
 for i in modInfo:
     ttot = ttot + modInfo[i]
 tm = ttot / len(modInfo)
-print('+ tamanho médio (linhas) dos módulos   : ', tm)
+log_msg('+ tamanho médio (linhas) dos módulos   : ', tm)
 
 ttot = 0
 for i in funcVars:
@@ -469,25 +478,25 @@ try:
     tm = ttot / len(funcVars)
 except:
     tm = 0
-print('+ tamanho médio do nome das variáveis em funções   : ', tm)
+log_msg('+ tamanho médio do nome das variáveis em funções   : ', tm)
 
 ttot = 0
 for i in subVars:
     ttot = ttot + subVars[i]
 tm = ttot / len(subVars)
-print('+ tamanho médio do nome das variáveis em subrotinas: ', tm)
+log_msg('+ tamanho médio do nome das variáveis em subrotinas: ', tm)
 
 ttot = 0
 for i in modVars:
     ttot = ttot + modVars[i]
 tm = ttot / len(modVars)
-print('+ tamanho médio do nome das variáveis em módulos: ', tm)
+log_msg('+ tamanho médio do nome das variáveis em módulos: ', tm)
 
 ttot = 0
 for i in document:
     ttot = ttot + document[i][4]
 tm = ttot / len(document)
-print('+ razão média de documentação: ', tm)
+log_msg('+ razão média de documentação: ', tm)
 
 ttot1 = 0
 ttot2 = 0
@@ -495,7 +504,7 @@ for i in use:
     ttot1 = ttot1 + use[i][0]
     ttot2 = ttot2 + use[i][1]
 tm = ttot2 / ttot1 * 100
-print('+ razão de only em uses: ', tm, '%')
+log_msg('+ razão de only em uses: ', tm, '%')
 
 ttot1 = 0
 ttot2 = 0
@@ -515,18 +524,18 @@ for i in codeinfo:
     ttot7 = ttot7 + codeinfo[i][6]
     ttot8 = ttot8 + codeinfo[i][7]
 tm = ttot2 / (ttot1 + ttot8) * 100
-print('+ razão de "goto" por laço: ', tm, '% (', ttot2, ')')
+log_msg('+ razão de "goto" por laço: ', tm, '% (', ttot2, ')')
 tm = ttot3 / (ttot1 + ttot8) * 100
-print('+ razão de "exit" por laço: ', tm, '% (', ttot3, ')')
+log_msg('+ razão de "exit" por laço: ', tm, '% (', ttot3, ')')
 tm = ttot4 / (ttot1 + ttot8) * 100
-print('+ razão de "cycle" por laço: ', tm, '% (', ttot4, ')')
+log_msg('+ razão de "cycle" por laço: ', tm, '% (', ttot4, ')')
 tm = ttot8 / ttot1 * 100
-print('+ razão entre "continue" e "enddo": ', tm, '%')
+log_msg('+ razão entre "continue" e "enddo": ', tm, '%')
 tm = ttot5 / (len(funcVars) + len(subVars) + len(modVars)) * 100
-print('+ razão do uso de "implicit": ', tm, '%', ', ', ttot5, ' em ', len(funcVars) + len(subVars) + len(modVars),
+log_msg('+ razão do uso de "implicit": ', tm, '%', ', ', ttot5, ' em ', len(funcVars) + len(subVars) + len(modVars),
       ' procedures')
 tm = ttot6 + ttot7
-print('+ total de "equivalence" ou "common": ', tm)
+log_msg('+ total de "equivalence" ou "common": ', tm)
 
 ttot1 = 0
 ttot2 = 0
@@ -538,14 +547,14 @@ for i in do_info:
         ttot2 = ttot2 + i[2]
 tm = ttot1 / count
 tm1 = ttot2 / count
-print('+ profundidade (linhas) média de laços: ', tm)
-print('+ aninhamento (linhas) médio de laços: ', tm1)
+log_msg('+ profundidade (linhas) média de laços: ', tm)
+log_msg('+ aninhamento (linhas) médio de laços: ', tm1)
 
 ttot = 0
 for i in call:
     ttot = ttot + len(call[i])
 tm = ttot / len(subVars)
-print('+ Média de "call" em subrotina: ', tm)
+log_msg('+ Média de "call" em subrotina: ', tm)
 
 # for i in call.keys():
 #	for j in call[i]:
@@ -564,5 +573,7 @@ ttot = 0
 for i in ncall:
     ttot = ttot + ncall[i]
 tm = ttot / len(ncall)
-print('+ Média de chamadas por subrotina: ', tm)
+log_msg('+ Média de chamadas por subrotina: ', tm)
+
+file_log_report.close()
 
