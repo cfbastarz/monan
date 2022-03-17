@@ -41,16 +41,17 @@ def get_vars(dictNow, lines):
 
 # -------------------------------------------
 def get_proc_info(procedure):
-    cmd_str = "grep -irn '" + procedure + "' --include=*.f90 --include=*.F90 --include=*.F " + sys.argv[1] + " > proc.txt"
+    proc_file_str = f'{sys.argv[2]}/proc.txt'
+    cmd_str = "grep -irn '" + procedure + "' --include=*.f90 --include=*.F90 --include=*.F " + sys.argv[1] + f' > {proc_file_str}'
 
     print(cmd_str)
     os.system(cmd_str)
 
-    ffun = open("proc.txt", 'r')
+    ffun = open(proc_file_str, 'r')
     flines = ffun.readlines()
     ffun.close
 
-    ffun = open("proc.txt", 'w')
+    ffun = open(proc_file_str, 'w')
 
     for fline in flines:
         partes = fline.split(":")
@@ -63,7 +64,7 @@ def get_proc_info(procedure):
 
     ffun.close()
 
-    ffun = open("proc.txt", 'r')
+    ffun = open(proc_file_str, 'r')
     flines = ffun.readlines()
     ffun.close
 
@@ -408,7 +409,7 @@ subInfo = get_proc_info("subroutine")
 modInfo = get_proc_info(" module ")
 # print(len(modInfo),modInfo)
 
-fn = open("all.type.txt", "r")
+fn = open(f"{sys.argv[2]}/all.type.txt", "r")
 lines = fn.readlines()
 fn.close()
 
