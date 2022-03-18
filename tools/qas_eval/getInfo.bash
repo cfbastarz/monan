@@ -1,6 +1,7 @@
 #!/bin/bash
 DINCORE_PATH=$1
 DIR_OUT=$2
+MODEL=$3
 
 TOOLS="/home/qas_files/tools"
 export LD_LIBRARY_PATH="${TOOLS}/graphviz/local/lib:${LD_LIBRARY_PATH}"
@@ -13,4 +14,4 @@ do
  $TOOLS/graphviz/bin/dot -Tsvg $f.dot -o $f.svg
 done
 
-python3 ${HOME}/monan/tools/qas_eval/check.py $DINCORE_PATH $DIR_OUT
+python3 ${HOME}/monan/tools/qas_eval/check.py $DINCORE_PATH $DIR_OUT $MODEL
