@@ -68,7 +68,7 @@ As caracterísitcas de qualidade selecionadas para a avaliação do Core Dinâmi
 
 ### 3. Métricas para avaliação de Características de Qualidade relacionadas à Manutebilidade e parte da Portabilidade
 
-Métricas de Software podem ser utilizadas para a avaliação de algumas Características de Qualidade. Exitem métricas para avaliação de código estruturado e de código Orientado a Objeto. Serão utilizadas somente as métricas de código estruturado. 
+Métricas de Software podem ser utilizadas para a avaliação de algumas Características de Qualidade. Exitem métricas para avaliação de código estruturado e de código Orientado a Objeto. Serão utilizadas somente as métricas de código estruturado, por se tratar da técnica de codificação comum entre os códigos analisados.
 
 Diveros tipos de métricas foram criadas para avaliar a qualidade dos Softwares. Algumas delas medem a complexidade do software e características da linguagem de programação, relacionados a Manutebilidade e parte da Portabilidade. 
 
@@ -152,17 +152,17 @@ Os pesos devem ser determinados com o consenso de todo o grupo de avaliação, s
 * Eficiência: fator que considera o atual cenário de recursos computacionais e de energia.
 * Manutebilidade: fator que considera o atual cenário de recursos humanos e os prazos para implementação. 
 
-#### _Avaliação de características de Qualidade de Software subjetivas
+#### Considerações sobre a avaliação de outras características de Qualidade de Software
 
-Subcaracterísticas subjetivas podem não usar métricas para avaliação. Nesses casos, três pontos devem ser dados para cada melhor subcaracterística. 
+Outros documentos devem ser criados para a avaliação de outras características não consideradas neste.
 
- O mesmo ambiente computacional e plano de testes devem ser considerados na execução dos diferentes Cores Dinâmicos, quando avaliada uma característica dependente de execução. Exemplo, ao avaliar a característica de Eficiência. 
+Subcaracterísticas subjetivas podem não usar métricas para avaliação. Nesses casos, três pontos devem ser dados para cada melhor subcaracterística. A forma de avaliação deve ser justificada.
+
+ O mesmo ambiente computacional e plano de testes devem ser considerados na execução dos diferentes Cores Dinâmicos, quando avaliada uma característica dependente de execução, como nos casos de Usabilidade, Eficiência e Confiabilidade. Por exemplo, ao avaliar a característica de Eficiência, considerando a máquina "M" com GPU, todos os cores devem ser avaliados na mesma máquina com as "mesmas" configurações de otimização para GPU do compilador utilizado e mesmas configurações de submissão.
 
 Confiabilidade e Usabilidade, também poderão usar métricas para nortear as pontuações, que devem ser definidas e devidamente documentadas.
 
-A sub caracterísitca Adequação, de Funcionalidade, pode ser avaliada através das publicações de artigos e manuais do software. A subcaracterística Acurácia e Interoperabilidade, deverá ser avaliada através de testes nos ambientes disponibilizados.
-
-As características de Usabilidade, Eficiência e Confiabilidade devem ser avalidas utilizando o Core Dinâmico instalado nos ambientes disponibilizados para testes. Um documento à parte deve ser criado para detalhar as métricas utilizadas e/ou critérios de pontuação.
+A subcaracterísitca Adequação, de Funcionalidade, pode ser avaliada através das publicações de artigos e manuais do software. A subcaracterística Acurácia e Interoperabilidade, deverá ser avaliada através de testes nos ambientes disponibilizados.
 
 ### 5. Ferramentas para avaliação da Manutebilidade e parte da Portabilidade
 
@@ -188,7 +188,11 @@ Para executar a avaliação:
 5. Baixe os códigos dinâmicos desejados na pasta DinCore e configure o caminho deles no script principal (próximo passo)
 5. execute o script principal monan/tools/qas_eval/run_eval.sh $(pwd)
 
-O último passo executará as ferramentas para os códigos de Core Dinâmicos 
+O último passo executará as ferramentas para os códigos de Core Dinâmicos e gerará os seguintes relatórios:
+- QualityReport_[MODELO].pdf : Relatório gerado pela ferramenta FortranAnalyser. As estatísticas sintetizadas estão no final do arquivo
+- Check_Report_[MODEL].txt : Relatório gerado pela ferramenta Check.py.
+
+Os relatórios informam os valores das métricas obtidas por cada Core Dinâmico, que serão usados para pontuar as Características de Qualidade mapeadas para cada métrica (tabela do item 3.3).
 
 ### 6. Compiladores e ambientes para avaliação da Manutebilidade e parte da Portabilidade
 
@@ -217,10 +221,12 @@ Cada característica ou conjunto de subcaracterísticas devem ser avaliadas em u
 | Manutebilidade | DELL, máquina pessoal | 
 | Portabilidade | Adaptabilidade (métrica Dependência de máquina): DELL, máquina pessoal; Capacidade para ser Instalado, Coexistência, Capacidade para Substituir: DELL, EGEON |
 
+...
 
+...
 
-
-* 
+...
+ 
 
 ### Referências
 
