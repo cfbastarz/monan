@@ -182,11 +182,14 @@ Ferramentas com código binário:
 
 Para executar a avaliação:
 1. Use o módulo singularity no servidor Rattler ou instale em outro local desejado
-2. Crie uma pasta de nome qas_eval 
+2. Crie uma pasta de nome qas_eval e entre nela
 3. Baixe a imagem do singularity na pasta criada
-4. Baixe o código inteiro do monan (git clone https://github.com/monanadmin/monan.git). 
-5. Baixe os códigos dinâmicos desejados na pasta DinCore e configure o caminho deles no script principal (próximo passo)
-5. execute o script principal monan/tools/qas_eval/run_eval.sh $(pwd)
+    * singularity pull qas_eval.sif library://denis.eiras/monan/qas_eval:dev
+4. Baixe o código inteiro do monan:
+    * git clone https://github.com/monanadmin/monan.git 
+5. Baixe os códigos dinâmicos desejados na pasta DinCore e configure o caminho deles no script principal (próximo passo). Todas as subpastas do caminho informado serão avaliadas, então, deve-se selecionar a pasta que contenha somente o código do Core Dinâmico. Ex: DinCore/GFDL_atmos_cubed_sphere/model/
+6. execute o script principal:
+    * monan/tools/qas_eval/run_eval.sh $(pwd)
 
 O último passo executará as ferramentas para os códigos de Core Dinâmicos e gerará os seguintes relatórios:
 - QualityReport_[MODELO].pdf : Relatório gerado pela ferramenta FortranAnalyser. As estatísticas sintetizadas estão no final do arquivo
