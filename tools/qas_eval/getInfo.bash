@@ -6,7 +6,7 @@ MODEL=$3
 TOOLS="/home/qas_files/tools"
 export LD_LIBRARY_PATH="${TOOLS}/graphviz/local/lib:${LD_LIBRARY_PATH}"
 
-for f in $(find ${DINCORE_PATH} -type f \( -iname \*.f90 -o -iname \*.f \))
+for f in $(find ${DINCORE_PATH} -type f \( -iname \*.f90 -o -iname \*.F90 -o -iname \*.F \))
 do
  echo "Processing $f"
  $TOOLS/fortran-src $f -S -F 90 --show-make-graph > $f.dot

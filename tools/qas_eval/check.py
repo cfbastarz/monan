@@ -17,14 +17,16 @@ def get_vars(dictNow, lines):
 
     varDic = {}
 
+    print(keys_list)
     for line in lines:
-        # print(keys_list[0])
         for func in keys_list:
             tam = len(func.strip())
-            if line[0:len(func)] == func and line[tam] == "_":
-                # print("func:",func)
-                # print("line:",line)
-                newline = line[tam + 1:]
+            try:
+                pos = line.index(func)
+            except:
+                continue
+            if line[pos:pos+tam] == func and line[pos+tam] == "_":
+                newline = line[pos + tam + 1:]
                 # print("ltp1:",line[tam])
                 # if newline[0]!="_":
                 #	break
@@ -32,7 +34,8 @@ def get_vars(dictNow, lines):
                 partes = newline.split()
                 varNam = partes[0]
                 position = varNam.rfind("_")
-                # print(position)
+                if position < 0:
+                    continue
                 varDic[varNam[0:position]] = len(varNam[0:position])
             # print(varNam[0:position])
 
@@ -41,7 +44,7 @@ def get_vars(dictNow, lines):
 
 # -------------------------------------------
 def get_proc_info(procedure):
-    proc_file_str = f'{sys.argv[2]}/proc.txt'
+    proc_file_str = f'{sys.argv[2]}/proc_{procedure}.txt'
     cmd_str = "grep -irn '" + procedure + "' --include=*.f90 --include=*.F90 --include=*.F " + sys.argv[1] + f' > {proc_file_str}'
 
     print(cmd_str)
@@ -49,7 +52,7 @@ def get_proc_info(procedure):
 
     ffun = open(proc_file_str, 'r')
     flines = ffun.readlines()
-    ffun.close
+    ffun.close()
 
     ffun = open(proc_file_str, 'w')
 
@@ -58,7 +61,8 @@ def get_proc_info(procedure):
         file = partes[0]
         line = partes[1]
         code = partes[2]
-        if code[0] == "!":
+        comm = code.split('!')[0].strip()
+        if comm == '':
             continue
         ffun.write(fline.lower())
 
@@ -66,7 +70,7 @@ def get_proc_info(procedure):
 
     ffun = open(proc_file_str, 'r')
     flines = ffun.readlines()
-    ffun.close
+    ffun.close()
 
     aberto = False
     procDict = {}
@@ -83,6 +87,11 @@ def get_proc_info(procedure):
         if partes[0] != "end":
             try:
                 procname = partes[position + 1].split("(")[0]
+                # interfaces
+                if procedure == 'module' and (procname == 'procedure' or procname == 'function'):
+                    aberto = False
+                    continue
+                aberto = False
             except:
                 continue
         if not aberto:
@@ -406,7 +415,7 @@ def log_msg(*msgs):
 file_log_report = open(f'{sys.argv[2]}/Check_Report_{sys.argv[3]}.txt', 'w')
 
 # print("--Funct info--")
-functInfo = get_proc_info(" function ")
+functInfo = get_proc_info("function")
 # print(len(functInfo),functInfo)
 
 # print("--Sub info--")
@@ -414,7 +423,7 @@ subInfo = get_proc_info("subroutine")
 # print(len(subInfo),subInfo)
 
 # print("--Mod info--")
-modInfo = get_proc_info(" module ")
+modInfo = get_proc_info("module")
 # print(len(modInfo),modInfo)
 
 fn = open(f"{sys.argv[2]}/all.type.txt", "r")
@@ -423,9 +432,11 @@ fn.close()
 
 # print("Functions --------------------------")
 funcVars = get_vars(functInfo, lines)
-# print(len(funcVars),funcVars)
+print('======= functiInfo = ', functInfo)  
+
 # print("subroutines --------------------------")
 subVars = get_vars(subInfo, lines)
+print('======= subrtiInfo = ', subInfo)
 # print(len(subVars),subVars)
 # print("Modules --------------------------")
 modVars = get_vars(modInfo, lines)
@@ -456,19 +467,28 @@ log_msg('=======================================================================
 ttot = 0
 for i in functInfo:
     ttot = ttot + functInfo[i]
-tm = ttot / len(functInfo)
+try:
+    tm = ttot / len(functInfo)
+except:
+    tm = 0
 log_msg('+ tamanho médio (linhas) das funções   : ', tm)
 
 ttot = 0
 for i in subInfo:
     ttot = ttot + subInfo[i]
-tm = ttot / len(subInfo)
+try:
+    tm = ttot / len(subInfo)
+except:
+    tm = 0    
 log_msg('+ tamanho médio (linhas) das subrotinas   : ', tm)
 
 ttot = 0
 for i in modInfo:
     ttot = ttot + modInfo[i]
-tm = ttot / len(modInfo)
+try:    
+    tm = ttot / len(modInfo)
+except:
+    tm = 0
 log_msg('+ tamanho médio (linhas) dos módulos   : ', tm)
 
 ttot = 0
@@ -483,19 +503,30 @@ log_msg('+ tamanho médio do nome das variáveis em funções   : ', tm)
 ttot = 0
 for i in subVars:
     ttot = ttot + subVars[i]
-tm = ttot / len(subVars)
+try:    
+    tm = ttot / len(subVars)
+except:
+    tm = 0
+print(subVars, len(subVars))
+
 log_msg('+ tamanho médio do nome das variáveis em subrotinas: ', tm)
 
 ttot = 0
 for i in modVars:
     ttot = ttot + modVars[i]
-tm = ttot / len(modVars)
-log_msg('+ tamanho médio do nome das variáveis em módulos: ', tm)
+try:
+    tm = ttot / len(modVars)
+except:
+    tm = 0
+log_msg('+ ***TODO*** tamanho médio do nome das variáveis em módulos: ', tm)
 
 ttot = 0
 for i in document:
     ttot = ttot + document[i][4]
-tm = ttot / len(document)
+try:
+    tm = ttot / len(document)
+except:
+    tm = 0
 log_msg('+ razão média de documentação: ', tm)
 
 ttot1 = 0
@@ -523,17 +554,32 @@ for i in codeinfo:
     ttot6 = ttot6 + codeinfo[i][5]
     ttot7 = ttot7 + codeinfo[i][6]
     ttot8 = ttot8 + codeinfo[i][7]
-tm = ttot2 / (ttot1 + ttot8) * 100
+try:
+    tm = ttot2 / (ttot1 + ttot8) * 100
+except:
+    tm = 0
 log_msg('+ razão de "goto" por laço: ', tm, '% (', ttot2, ')')
-tm = ttot3 / (ttot1 + ttot8) * 100
+try:
+    tm = ttot3 / (ttot1 + ttot8) * 100
+except:
+    tm = 0
 log_msg('+ razão de "exit" por laço: ', tm, '% (', ttot3, ')')
-tm = ttot4 / (ttot1 + ttot8) * 100
+try:
+    tm = ttot4 / (ttot1 + ttot8) * 100
+except:
+    tm = 0    
 log_msg('+ razão de "cycle" por laço: ', tm, '% (', ttot4, ')')
-tm = ttot8 / ttot1 * 100
+try:
+    tm = ttot8 / ttot1 * 100
+except:
+    tm = 0
 log_msg('+ razão entre "continue" e "enddo": ', tm, '%')
-tm = ttot5 / (len(funcVars) + len(subVars) + len(modVars)) * 100
+try:
+    tm = ttot5 / (len(funcVars) + len(subVars) + len(modVars)) * 100
+except:
+    tm = 0
 log_msg('+ razão do uso de "implicit": ', tm, '%', ', ', ttot5, ' em ', len(funcVars) + len(subVars) + len(modVars),
-      ' procedures')
+      ' vari�veis de procedures')
 tm = ttot6 + ttot7
 log_msg('+ total de "equivalence" ou "common": ', tm)
 
@@ -545,15 +591,22 @@ for i in do_info:
         count = count + 1
         ttot1 = ttot1 + i[1]
         ttot2 = ttot2 + i[2]
-tm = ttot1 / count
-tm1 = ttot2 / count
+try:
+    tm = ttot1 / count
+    tm1 = ttot2 / count
+except:
+    tm = 0
+    tm1 = 0
 log_msg('+ profundidade (linhas) média de laços: ', tm)
 log_msg('+ aninhamento (linhas) médio de laços: ', tm1)
 
 ttot = 0
 for i in call:
     ttot = ttot + len(call[i])
-tm = ttot / len(subVars)
+try:
+    tm = ttot / len(subVars)
+except:
+    tm = 0
 log_msg('+ Média de "call" em subrotina: ', tm)
 
 # for i in call.keys():
@@ -572,7 +625,10 @@ for i in subInfo.keys():
 ttot = 0
 for i in ncall:
     ttot = ttot + ncall[i]
-tm = ttot / len(ncall)
+try:
+    tm = ttot / len(ncall)
+except:
+    tm = 0
 log_msg('+ Média de chamadas por subrotina: ', tm)
 
 file_log_report.close()
