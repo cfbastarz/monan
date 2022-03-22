@@ -19,7 +19,6 @@ def get_vars(dictNow, lines):
 
     varDic = {}
 
-    print(keys_list)
     for line in lines:
         for func in keys_list:
             tam = len(func.strip())
@@ -49,7 +48,6 @@ def get_proc_info(procedure):
     proc_file_str = f'{sys.argv[2]}/proc_{procedure}.txt'
     cmd_str = "grep -irn '" + procedure + "' --include=*.f90 --include=*.F90 --include=*.F " + sys.argv[1] + f' > {proc_file_str}'
 
-    print(cmd_str)
     os.system(cmd_str)
 
     ffun = open(proc_file_str, 'r')
@@ -434,11 +432,11 @@ fn.close()
 
 # print("Functions --------------------------")
 funcVars = get_vars(functInfo, lines)
-print('======= functiInfo = ', functInfo)  
+# print('======= functiInfo = ', functInfo)  
 
 # print("subroutines --------------------------")
 subVars = get_vars(subInfo, lines)
-print('======= subrtiInfo = ', subInfo)
+# print('======= subrtiInfo = ', subInfo)
 # print(len(subVars),subVars)
 # print("Modules --------------------------")
 modVars = get_vars(modInfo, lines)
@@ -509,7 +507,7 @@ try:
     tm = ttot / len(subVars)
 except:
     tm = 0
-print(subVars, len(subVars))
+# print(subVars, len(subVars))
 
 log_msg('+ tamanho médio do nome das variáveis em subrotinas: ', tm)
 
