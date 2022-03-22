@@ -9,6 +9,8 @@ PATH_MODEL=$2
 # $HOME é o home do singularity
 PATH_MODEL="${HOME}/${PATH_MODEL}"
 
+sif_dir=$PWD
+
 export SINGULARITY_TMPDIR=$sif_dir/singularity_tmpdir
 mkdir -p $SINGULARITY_TMPDIR
 
@@ -16,7 +18,7 @@ SUB_DIR_OUT="qas_out/$(date +'%Y%m%d-%H%m%S')"
 mkdir -p ${PWD}/${SUB_DIR_OUT}
 DIR_OUT=${HOME}/${SUB_DIR_OUT}
 
-sif_dir=$PWD
+
 
 function exec_aval() {
 
