@@ -1,6 +1,6 @@
 # Análise do Core Dinâmico base para o Model for Ocean-laNd-Atmosphere predictioN (MONAN)
 
-## Documento Técnico Normativo - DTN.01 - Rev. Beta 0.1
+## Documento Técnico Normativo - DTN.04 - Rev. Beta 0.1
 
 ##### Autores: Denis M. A. Eiras, ...
 
@@ -68,7 +68,7 @@ As caracterísitcas de qualidade selecionadas para a avaliação do Core Dinâmi
 
 ### 3. Métricas para avaliação de Características de Qualidade relacionadas à Manutebilidade e parte da Portabilidade
 
-Métricas de Software podem ser utilizadas para a avaliação de algumas Características de Qualidade. Exitem métricas para avaliação de código estruturado e de código Orientado a Objeto. Serão utilizadas somente as métricas de código estruturado, por se tratar da técnica de codificação comum entre os códigos analisados.
+Métricas de Software podem ser utilizadas para a avaliação de algumas Características de Qualidade. Existem métricas para avaliação de código estruturado e de código Orientado a Objeto. Serão utilizadas somente as métricas de código estruturado, por se tratar da técnica de codificação comum entre os códigos analisados.
 
 Diveros tipos de métricas foram criadas para avaliar a qualidade dos Softwares. Algumas delas medem a complexidade do software e características da linguagem de programação, relacionados a Manutebilidade e parte da Portabilidade. 
 
@@ -91,7 +91,7 @@ A metodologia RADC consiste em elementos métricos, métricas, critérios e fato
 
 #### 3.3 Métricas utilizadas
 
-As métricas abaixo foram selecionadas para avaliar as subcaracterísticas de Manutebilidade e algumas subcaracterísticas de Portabilidade. A forma de avaliação está descrita no item 4.
+As métricas abaixo foram selecionadas para avaliar as subcaracterísticas de Manutebilidade e algumas subcaracterísticas de Portabilidade. A forma de avaliação está descrita no item 6.
 
 | Métrica | Descrição | Impactos Positivos | Impactos Negativos | Ferramentas | Unidade de medida |
 | --- | --- | --- | --- | --- | --- |
@@ -106,22 +106,71 @@ As métricas abaixo foram selecionadas para avaliar as subcaracterísticas de Ma
 | **TODO** Modificações em loops | Mede quantas variáveis de loop foram modificadas. Idealmente deve ser zero. | - |Analisabilidade, Modificabilidade, Estabilidade | - | - |
 | Tamanho médio das rotinas  | Tamanho médio em linhas de rotinas, que afeta a compreensibilidade e Manutebilidade | - | Analisabilidade, Modificabilidade, Reusabilidade, Estabilidade, Testabilidade | Check.py | linhas de código |
 | Tamanho médio dos módulos | Dado importante. Quando comparado com o número médio das rotinas, se menor, vai indicar que as rotinas não estão encapsuladas em módulos. | - | Analisabilidade, Modificabilidade, Reusabilidade, Estabilidade, Testabilidade | Check.py | linhas de código |
-| Tamanho médio do nome das variáveis | Considera-se rotinas e módulos. | Analisabilidade, Modificabilidade, Testabilidade | - | Check.py | quantidade de caracteres |
+| **TODO módulos** Tamanho médio do nome das variáveis | Considera-se rotinas e módulos. | Analisabilidade, Modificabilidade, Testabilidade | - | Check.py | quantidade de caracteres |
 | Razão de only em uses |  A falta do only é problemática, pois propaga todas as variáveis para a estrutura e comumente é fonte de bugs. | Analisabilidade, Modificabilidade, Estabilidade | - | Check.py | razão |
-| Razão de "goto" e "continue" por laço | O uso de gotos e continues é desconselhado, pois torna o código imcompreensível e de difícil manutenção. Idealmente deve ser zero. | - | Analisabilidade, Modificabilidade, Estabilidade. | Check.py | razao |
-| **TODO check** Razão de "exit" e "cycle" por laço | O baixo uso de exit e cycle indica estruturas de laços mal formadas e podem apontar para códigos "macarrônicos" | Analisabilidade, Modificabilidade, Estabilidade | - | Check.py, FortranAnalyser | razão |
+| **TODO ver problema com enddo** Razão de "goto" e "continue" por laço | O uso de gotos e continues é desconselhado, pois torna o código imcompreensível e de difícil manutenção. Idealmente deve ser zero. | - | Analisabilidade, Modificabilidade, Estabilidade. | Check.py | razao |
+| **TODO check FortranAnalyser; TODO ver problema com enddo check.py** Razão de "exit" e "cycle" por laço | O baixo uso de exit e cycle indica estruturas de laços mal formadas e podem apontar para códigos "macarrônicos" | Analisabilidade, Modificabilidade, Estabilidade | - | Check.py, FortranAnalyser | razão |
 | Razão do uso de "implicit | Todas as rotinas e módulos deveriam ter "implicit" pois impedem error por variáveis não declaradas e bugs potenciais. Idealmente deve ser 100% | Analisabilidade, Modificabilidade, Estabilidade | - | Check.py | razão |
 | Total de "equivalence" ou "common" | Equivalence ou common não são recomendados. Indicam estruturas de codificação antigas e riscos de bugs não mapeados. Essas duas keywords devem ser proibidas pois levam a erros graves quando partes do código são modificadas e vão afetar outras. | - | Modificabilidade, Estabilidade | Check.py | soma de linhas com palavra chave |
-| Profundidade média de laços | Mede a média de linhas em laços. Laços muito grandes devem ser evitados pois são de baixa compreensão | - | Analisabilidade, Modificabilidade, Reusabilidade, Estabilidade, Testabilidade | Check.py | número de linhas |
-| Aninhamento médio de laços | Número de laços aninhados médio. | - | Analisabilidade, Modificabilidade, Reusabilidade, Estabilidade, Testabilidade | Check.py | número de laços aninhados médio |
-| **TODO Check** Fan-in | Média de chamadas por subrotina.  Número de vezes que a mesma subrotina é chamada. Números altos indicam que erros podem ser corrigidos em área comum facilitando a manutenção, mas que pode afetar a estabilidade | Analisabilidade, Modificabilidade, Reusabilidade, Testabilidade | Estabilidade | Check.py | número de linhas |
-| **TODO Check** Fan-out | Número de rotinas que são chamadas por cada rotina (digamos, X). Um valor alto para fan-out sugere que a complexidade geral do X pode ser alta, devido a complexidade da lógica de controle necessária para coordenar as rotinas chamadas | Modificabilidade, Reusabilidade | Estabilidade, Testabilidade | Check.py | número de linhas |
+| **TODO ver problema com enddo**  Profundidade média de laços | Mede a média de linhas em laços. Laços muito grandes devem ser evitados pois são de baixa compreensão | - | Analisabilidade, Modificabilidade, Reusabilidade, Estabilidade, Testabilidade | Check.py | número de linhas |
+| **TODO ver problema com enddo** Aninhamento médio de laços | Número de laços aninhados médio. | - | Analisabilidade, Modificabilidade, Reusabilidade, Estabilidade, Testabilidade | Check.py | número de laços aninhados médio |
+| **TODO nao funciona** Fan-in | Média de chamadas por subrotina.  Número de vezes que a mesma subrotina é chamada. Números altos indicam que erros podem ser corrigidos em área comum facilitando a manutenção, mas que pode afetar a estabilidade | Analisabilidade, Modificabilidade, Reusabilidade, Testabilidade | Estabilidade | Check.py | número de linhas |
+| **TODO nao funciona** Fan-out | Número de rotinas que são chamadas por cada rotina (digamos, X). Um valor alto para fan-out sugere que a complexidade geral do X pode ser alta, devido a complexidade da lógica de controle necessária para coordenar as rotinas chamadas | Modificabilidade, Reusabilidade | Estabilidade, Testabilidade | Check.py | número de linhas |
 
-### 4. Avaliação da Qualidade 
+### 4. Ferramentas para avaliação da Manutebilidade e parte da Portabilidade
+
+As ferramentas necessárias para a avaliação estão versionadas em https://github.com/monanadmin/monan/tree/main/tools/qas_eval . Algumas ferramentas foram adaptadas, como o FortranAnalyser, para possibilitar o uso sem interface gráfica. Outras utiliza-se somente o código binário, como no caso do fortran-src.
+
+A imagem do container singularity (qas_eval.sif) utiliza as ferramentas versionadas do repositório (externamente ao container) e as ferramentas binárias (fortran-src e FortranAnalyser.jar) sobre uma distribuição Linux compatível com as ferramentas. As ferramentas binárias estão disponíveis na pasta /home/qas_files/tools/ dentro da imagem. 
+
+Ferramentas com código fonte no repositório:
+
+* check.py (https://github.com/monanadmin/monan/tree/main/tools/qas_eval). Programa desenvolvido para ler estatísticas geradas pelo programa (binário) fortran-src. Também contabiliza outras estatísticas através da análise direta do código, gerando um relatório sintetizado de métricas.
+* FortranAnalyser (http://fortrananalyser.ephyslab.uvigo.es/). Ferramenta escrita em java, modificada para ser executada em linha de comando. Gera um relatório em PDF contendo estatísticas e scores, que são gerados por arquivo e em forma sintética para todo o conjunto de arquivos.
+
+Ferramentas com código binário:
+
+* fortran-src (https://github.com/camfort/fortran-src). Ferramenta escrita na linguagem Haskell que gera diversas estatísticas do código. 
+* FortranAnalyser.jar. Binário gerado pelo código fonte. Para gerar, baixe ou instale a ferramenta maven, entre na pasta principal do FortranAnalyser (onde se encontra o pom.xml) e execute "mvn clean install".
+
+### 5. Compiladores e ambientes para avaliação da Manutebilidade e parte da Portabilidade
+
+**TODO - Rever ambientes de testes e compiladores, abaixo**
+
+Os seguintes ambientes e compiladores estão disponíveis para a avaliação das diferentes características de qualidade:
+
+Ambientes:
+* EGEON
+    * ssh -YC username@egeon.cptec.inpe.br
+* DELL - Máquina Rattler, acessível via máquina Archer
+    * ssh -YC username@143.166.198.151
+    * ssh -YC rattler
+
+Compiladores:
+* gfortran
+
+Cada característica ou conjunto de subcaracterísticas devem ser avaliadas em um ou mais ambientes, a depender se a característica ou conjunto de subcaracterísticas referem-se à Portabilidade, Usabilidade e Eficiência.
+
+| Características de Qualidade | Ambientes |
+| --- | --- |
+| Funcionalidade | DELL, EGEON |
+| Confiabilidade | |
+| Usabilidade | |
+| Eficiência | |
+| Manutebilidade | DELL, máquina pessoal | 
+| Portabilidade | Adaptabilidade (métrica Dependência de máquina): DELL, máquina pessoal; Capacidade para ser Instalado, Coexistência, Capacidade para Substituir: DELL, EGEON |
+
+...
+
+...
+
+...
+
+### 6. Avaliação da Qualidade 
 
 As características de qualidade descritas no item 2 devem ser avaliadas no início do projeto para ajudar a escolher o Core Dinâmico.  
 
-As características de Manutebilidade e parte da Portabilidade deverão ser mensuradas através as ferramentas descritas no item 5. As demais características de Portabilidade deverão ser mensuradas utilizando o Core Dinâmico instalado nos ambientes disponibilizados para testes, considerando diferentes compiladores e bibliotecas como critérios de pontuação, descritos no item 6.
+As características de Manutebilidade e parte da Portabilidade deverão ser mensuradas através as ferramentas descritas no item 4. As demais características de Portabilidade deverão ser mensuradas utilizando o Core Dinâmico instalado nos ambientes disponibilizados para testes, considerando diferentes compiladores e bibliotecas como critérios de pontuação, descritos no item 5.
 
 Os critérios de pontuação definidos pelas normas ISO são:
 * Três pontos para as subcategorias que atendem satisfatoriamente os requisitos de qualidade (excelente, bom e razoável).
@@ -162,34 +211,27 @@ Subcaracterísticas subjetivas podem não usar métricas para avaliação. Nesse
 
 Confiabilidade e Usabilidade, também poderão usar métricas para nortear as pontuações, que devem ser definidas e devidamente documentadas.
 
-A subcaracterísitca Adequação, de Funcionalidade, pode ser avaliada através das publicações de artigos e manuais do software. A subcaracterística Acurácia e Interoperabilidade, deverá ser avaliada através de testes nos ambientes disponibilizados.
+A subcaracterísitca Adequação, de Funcionalidade, pode ser avaliada através das publicações de artigos e manuais do software. A subcaracterística Acurácia e Interoperabilidade, deverá ser avaliada através de testes nos ambientes disponibilizados. 
 
-### 5. Ferramentas para avaliação da Manutebilidade e parte da Portabilidade
+### 6.1 Executando a avaliação:
 
-As ferramentas necessárias para a avaliação estão versionadas em https://github.com/monanadmin/monan/tree/main/tools/qas_eval . Algumas ferramentas foram adaptadas, como o FortranAnalyser, para possibilitar o uso sem interface gráfica. Outras utiliza-se somente o código binário, como no caso do fortran-src.
-
-A imagem do container singularity (qas_eval.sif) utiliza as ferramentas versionadas do repositório (externamente ao container) e as ferramentas binárias (fortran-src e FortranAnalyser.jar) sobre uma distribuição Linux compatível com as ferramentas. As ferramentas binárias estão disponíveis na pasta /home/qas_files/tools/ dentro da imagem. 
-
-Ferramentas com código fonte no repositório:
-
-* check.py (https://github.com/monanadmin/monan/tree/main/tools/qas_eval). Programa desenvolvido para ler estatísticas geradas pelo programa (binário) fortran-src. Também contabiliza outras estatísticas através da análise direta do código, gerando um relatório sintetizado de métricas.
-* FortranAnalyser (http://fortrananalyser.ephyslab.uvigo.es/). Ferramenta escrita em java, modificada para ser executada em linha de comando. Gera um relatório em PDF contendo estatísticas e scores, que são gerados por arquivo e em forma sintética para todo o conjunto de arquivos.
-
-Ferramentas com código binário:
-
-* fortran-src (https://github.com/camfort/fortran-src). Ferramenta escrita na linguagem Haskell que gera diversas estatísticas do código. 
-* FortranAnalyser.jar. Binário gerado pelo código fonte. Para gerar, baixe ou instale a ferramenta maven, entre na pasta principal do FortranAnalyser (onde se encontra o pom.xml) e execute "mvn clean install".
-
-Para executar a avaliação:
-1. Use o módulo singularity no servidor Rattler ou instale em outro local desejado
+1. Use o módulo singularity no servidor Rattler (a) ou instale em outro local desejado (b). OBS: A versão do singularity disponível para Ubuntu 18.04 (2.6.1-dist - via apt install) não funciona com o pull do passo 3. A instalação manual de versões mais recentes, via passos de https://sylabs.io/guides/3.0/user-guide/installation.html , requer pacotes que não estão disponíveis na versão 18.04 do Ubuntu. Recomenda-se alguma das formas abaixo:
+    * a) module load singularity  # máquina Rattler
+    * b) sudo apt install -y singularity-container
 2. Crie uma pasta de nome qas_eval e entre nela
-3. Baixe a imagem do singularity na pasta criada
-    * singularity pull qas_eval.sif library://denis.eiras/monan/qas_eval:dev
-4. Baixe o código inteiro do monan:
+    * mkdir qas_eval;cd qas_eval
+3. Baixe a imagem do singularity na pasta criada, com uma das opções abaixo. Use a opção b) caso não consiga usar o pull (ex. Ubuntu 18.04) em a):
+    * a) singularity pull qas_eval.sif library://denis.eiras/monan/qas_eval:dev
+    * b) Clique no link de download disponível na página https://cloud.sylabs.io/library/denis.eiras/monan/qas_eval e baixe a imagem para a pasta atual (qas_eval) usando o nome qas_eval.sif
+4. Baixe o código inteiro do monan (será usada a subpasta tools):
     * git clone https://github.com/monanadmin/monan.git 
-5. Baixe os códigos dinâmicos desejados na pasta DinCore e configure o caminho deles no script principal (próximo passo). Todas as subpastas do caminho informado serão avaliadas, então, deve-se selecionar a pasta que contenha somente o código do Core Dinâmico. Ex: DinCore/GFDL_atmos_cubed_sphere/model/
-6. execute o script principal:
-    * monan/tools/qas_eval/run_eval.sh $(pwd)
+5. Baixe os códigos dinâmicos desejados na pasta DinCore:
+    * mkdir DinCore; cd DinCore
+    * git clone https://github.com/NOAA-GFDL/GFDL_atmos_cubed_sphere.git
+    * cd ..
+6. Execute o script principal. Todas as subpastas do caminho informado serão avaliadas, então, deve-se selecionar a pasta que contenha somente o código a ser avaliado do Core Dinâmico. Ex:
+    * monan/tools/qas_eval/run_eval.sh fv3 DinCore/GFDL_atmos_cubed_sphere/model/
+
 
 O último passo executará as ferramentas para os códigos de Core Dinâmicos e gerará os seguintes relatórios:
 - QualityReport_[MODELO].pdf : Relatório gerado pela ferramenta FortranAnalyser. As estatísticas sintetizadas estão no final do arquivo
@@ -197,39 +239,7 @@ O último passo executará as ferramentas para os códigos de Core Dinâmicos e 
 
 Os relatórios informam os valores das métricas obtidas por cada Core Dinâmico, que serão usados para pontuar as Características de Qualidade mapeadas para cada métrica (tabela do item 3.3).
 
-### 6. Compiladores e ambientes para avaliação da Manutebilidade e parte da Portabilidade
 
-**TODO - Rever ambientes de testes e compiladores, abaixo**
-
-Os seguintes ambientes e compiladores estão disponíveis para a avaliação das diferentes características de qualidade:
-
-Ambientes:
-* EGEON
-    * ssh -YC username@egeon.cptec.inpe.br
-* DELL - Máquina Rattler, acessível via máquina Archer
-    * ssh -YC username@143.166.198.151
-    * ssh -YC rattler
-
-Compiladores:
-* gfortran
-
-Cada característica ou conjunto de subcaracterísticas devem ser avaliadas em um ou mais ambientes, a depender se a característica ou conjunto de subcaracterísticas referem-se à Portabilidade, Usabilidade e Eficiência.
-
-| Características de Qualidade | Ambientes |
-| --- | --- |
-| Funcionalidade | DELL, EGEON |
-| Confiabilidade | |
-| Usabilidade | |
-| Eficiência | |
-| Manutebilidade | DELL, máquina pessoal | 
-| Portabilidade | Adaptabilidade (métrica Dependência de máquina): DELL, máquina pessoal; Capacidade para ser Instalado, Coexistência, Capacidade para Substituir: DELL, EGEON |
-
-...
-
-...
-
-...
- 
 
 ### Referências
 
