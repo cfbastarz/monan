@@ -31,6 +31,18 @@ exec_aval
 
 echo "---"
 echo " All done ! "
-echo "Check Quality Reports ${SUB_DIR_OUT}/QualityReport_${MODEL}.pdf and ${SUB_DIR_OUT}/Check_Report_${MODEL}.txt"
+echo "Check Quality Reports ${SUB_DIR_OUT}/QualityReport_${MODEL}.pdf (FortranAnalyser) and ${SUB_DIR_OUT}/Check_Report_${MODEL}.txt (Check.py)"
+echo ""
+echo "Reports are also printed below (secion of pdf converted to txt). Check full report on pdf"
+echo ""
+echo " ========================================================== "
+echo " Report from Check.py "
+echo ${SUB_DIR_OUT}/Check_Report_${MODEL}.txt
+
+echo ""
+echo " ========================================================== "
+echo " Report from FortranAnalyser "
+pdftotext ${SUB_DIR_OUT}/QualityReport_${MODEL}.pdf
+tail -63 ${SUB_DIR_OUT}/QualityReport_${MODEL}.txt
 
 
