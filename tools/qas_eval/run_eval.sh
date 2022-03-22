@@ -1,9 +1,22 @@
 #!/bin/bash
-sif_dir=$1
+
+MODEL=$1
+PATH_MODEL=$2
+# EX
+# MODEL="fv3"
+# PATH_MODEL="DinCore/GFDL_atmos_cubed_sphere/model/"
+
+# $HOME é o home do singularity
+PATH_MODEL="${HOME}/${PATH_MODEL}"
+
 export SINGULARITY_TMPDIR=$sif_dir/singularity_tmpdir
+mkdir -p $SINGULARITY_TMPDIR
+
 SUB_DIR_OUT="qas_out/$(date +'%Y%m%d-%H%m%S')"
 mkdir -p ${PWD}/${SUB_DIR_OUT}
 DIR_OUT=${HOME}/${SUB_DIR_OUT}
+
+sif_dir=$PWD
 
 function exec_aval() {
 
@@ -11,10 +24,6 @@ singularity exec --bind ${sif_dir}:$HOME ${sif_dir}/qas_eval.sif ${HOME}/monan/t
 singularity exec --bind ${sif_dir}:$HOME ${sif_dir}/qas_eval.sif /home/qas_files/tools/jdk-17.0.2/bin/java -cp  /home/qas_files/tools/FortranAnalyser.jar es.uvigo.esei.ephyslab.fortrananalyser.Principal "pt" $PATH_MODEL "${DIR_OUT}/QualityReport_${MODEL}.pdf" "NOGUI"
 
 }
-
-
-MODEL="fv3"
-PATH_MODEL="${HOME}/DinCore/GFDL_atmos_cubed_sphere/model/"
 
 exec_aval
 
