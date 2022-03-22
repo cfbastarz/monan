@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import glob
 import os
 import sys
@@ -579,7 +581,7 @@ try:
 except:
     tm = 0
 log_msg('+ razão do uso de "implicit": ', tm, '%', ', ', ttot5, ' em ', len(funcVars) + len(subVars) + len(modVars),
-      ' vari�veis de procedures')
+      ' variáveis de procedures')
 tm = ttot6 + ttot7
 log_msg('+ total de "equivalence" ou "common": ', tm)
 

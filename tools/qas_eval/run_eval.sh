@@ -20,6 +20,6 @@ exec_aval
 
 echo "---"
 echo " All done ! "
-echo "Check Quality Reports QualityReport_[MODEL].pdf and CheckReport_[MODEL].pdf at ${PWD}/${SUB_DIR_OUT}"
+echo "Check Quality Reports ${SUB_DIR_OUT}/QualityReport_${MODEL}.pdf and ${SUB_DIR_OUT}/Check_Report_${MODEL}.txt"
 
 
