@@ -109,6 +109,7 @@ def get_proc_info(procedure):
 
 # -------------------------------------------
 def get_file_info():
+    razao = {}
     for file_name in get_source_files():
         vazio = 0
         comentario = 0
@@ -131,7 +132,7 @@ def get_file_info():
                     texto = texto + 1
             else:
                 codigo = codigo + 1
-        razao = {}
+
         if codigo == 0:
             print("Vazio: ", file_name)
         else:
