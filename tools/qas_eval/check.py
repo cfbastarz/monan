@@ -12,7 +12,6 @@ def get_source_files():
         source_files.extend(glob.glob(files))
     return source_files
 
-
 # -------------------------------------------
 def get_vars(dictNow, lines):
     keys_list = list(dictNow)
@@ -535,7 +534,11 @@ ttot2 = 0
 for i in use:
     ttot1 = ttot1 + use[i][0]
     ttot2 = ttot2 + use[i][1]
-tm = ttot2 / ttot1 * 100
+
+try:
+  tm = ttot2 / ttot1 * 100
+except:
+  tm = 0
 log_msg('+ razão de only em uses: ', tm, '%')
 
 ttot1 = 0
