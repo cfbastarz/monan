@@ -212,7 +212,18 @@ Ao realizar o `push` uma mensagem é enviada ao gerente informando que um _push_
 
 Ao ser encerrada, a tarefa sai do status **In Progress** para o status **To Review**.
 
-##### 4.3.7 Revisão de código
+##### 4.3.7 Atualização do _branch_
+
+À medida em que os desenvolvimentos são realizados, o repositório principal `main` é atualizado. Para manter o seu _branch_ atualizado com as últimas modificações do `main`, pode-se utilizar os comandos `fetch` para receber as os deltas do repositório e `rebase` para incorporar as atualizações ao seu _branch_ de desenvolvimentos (o que pode incluir novos arquivos):
+
+```bash
+git fetch
+git rebase origin/main
+```
+
+A depender da situação em que os desenvolvimentos ocorrem e da necessidade de atualização com o `main`, outras formas de _merge_ podem ser aplicáveis. As instruções do documento https://git-scm.com/book/pt-br/v2/Branches-no-Git-Rebase podem ser utilizadas para a tomada de decisões correta.
+
+##### 4.3.8 Revisão de código
 
 Ao receber a tarefa e começar a sua realização, o subgrupo de revisão deve informar ao gerente por _e-mail_ para que a tarefa saia do _status_ de **To Review** para o _status_ de **Review in Progress**.
 
@@ -228,7 +239,7 @@ Em caso de aprovação, essa sai do _status_ de **Review in Progress** para **Re
 
 Nesse ponto o gerente envia uma mensagem ao grupo de testes para que o processo dê andamento.
 
-##### 4.3.8 Testes de compilação e testes funcionais
+##### 4.3.9 Testes de compilação e testes funcionais
 
 O grupo de testes deve informar ao gerente quando a tarefa é colocada em testes. Nesse ponto a gerência coloca o _status_ em **In Test**.
 
@@ -240,7 +251,7 @@ Estando completa a tarefa, o subgrupo de testes deverá enviar um _e-mail_ ao ge
 
 Em caso de aprovação nos testes a tarefa passa ao _status_ de **Test Approved** e o subgrupo de PAD é informado para realizar a avaliação de desempenho.
 
-##### 4.3.9 Avaliação de desempenho
+##### 4.3.10 Avaliação de desempenho
 
 O grupo de PAD avisa ao gerente quando iniciar a análise de desempenho do código. Nesse ponto a tarefa passa ao _status_ de **PAD analisys**.
 
@@ -248,35 +259,35 @@ O subgrupo avalia se o código consegue atender aos requisitos mínimos de desem
 
 O grupo interage com os desenvolvedores e pode dar um parecer positivo para a finalização da tarefa de desenvolvimento ou enviá-lo para retrabalho. Em caso de parecer positivo, a tarefa entra no _status_ **Done** e o gerente é informado.
 
-##### 4.3.10 Versionamento e _releases_
+##### 4.3.11 Versionamento e _releases_
 
 O gerente informa ao subgrupo de versionamento e uma reunião é marcada entre os líderes de cada subgrupo e o(s) desenvolvedor(es). Nessa etapa decide-se se será realizada apenas um _merge_ do _branch_ para o _trunk_ ou se será efetuado um _release_ da versão (_tag_).
 
-Esse novo release será um candidato a se tornar operacional, um release candidate (RC). Para isso a tag deverá receber um sufixo **.RCn** onde n é o número inteiro sequencial de candidatos a se tornarem operacionais. Por exemplo: monan-RC4, monan-RC5, etc.
+Esse novo _release_ será um candidato a se tornar operacional, um _Release Candidate_ (RC). Para isso a _tag_ deverá receber um sufixo **.RCn** onde _n_ é o número inteiro sequencial de candidatos a se tornarem operacionais. Por exemplo: `monan-RC4`, `monan-RC5` etc.
 
-Um RC deve conter além dos códigos e bibliotecas uma documento de entrega para a operação. Esse documento deverá conter todas as informações sobre a compilação do código, sua configuração, namelists operacionais e uma tabela com os arquivos necessários para sua operação. Esse documento deverá ser elaborado em conjunto pelos desenvolvedores e equipe de computação.
+Um RC deve conter, além dos códigos e bibliotecas, um documento de entrega para a operação. Esse documento deverá conter todas as informações sobre a compilação do código, sua configuração, _namelists_ operacionais e uma tabela com os arquivos necessários para sua operação. Esse documento deverá ser elaborado em conjunto pelos desenvolvedores e equipe de computação.
 
 ## 5. Etapas de testes operacionais
 
-Após a liberação de um RC cabe a operação realizar os testes contínuos diários para validar a nova versão. Esses testes devem ser feitos por um período de DD dias que serão determinados pelos especialistas na área. Para cada rodada diária um grupo ligado a operação fará a avaliação dos resultados de forma a comparar com a versão corrente em operação e a RC. Isso pode ser feito usnado ferramentas automáticas e avaliações subjetivas a critério da operação. Os resultados devem mostrar a comparação entre os erros entre os dados observados para os dois modelos e assim determinar se houve ganho ou perdas no acurácia da RC. Em caso de bugs ou erros funcionais deve ser comunicado imediatamente aos desenvolvedores e analistas de computação.
+Após a liberação de um RC cabe à operação realizar os testes contínuos diários para validar a nova versão. Esses testes devem ser feitos por um período predeterminado dias que será avaliado pelos especialistas na área. Para cada rodada diária um grupo ligado à operação fará a avaliação dos resultados de forma a comparar com a versão corrente em operação e a RC. Isso pode ser feito usnado ferramentas automáticas e avaliações subjetivas, a critério da operação. Os resultados devem mostrar a comparação dos erros entre os dados observados para os dois modelos, de forma a se determinar se houve ganho ou perdas no acurácia da RC. Em caso de _bugs_ ou erros funcionais, deve ser comunicado imediatamente aos desenvolvedores e analistas de computação.
 
-Outro ponto a ser medido é a performance computacional do modelo, isto é, o tempo gasto para as rodadas do modelo corrente e do RC. 
+Outro ponto a ser medido é a _performance_ computacional do modelo, isto é, o tempo gasto para as rodadas do modelo corrente e do RC. 
 
 Ao fim do período de testes deverá ser gerado um relatório com os dados obtidos, com o aceite ou não da RC e em qualquer caso observações e recomendações. Em caso de rejeição por piora de resultados, tempos de rodadas muito longos ou combinações das duas informações o grupo de desenvolvimento e/ou o grupo de testes e computação serão informados de maneira a promoverem os ajustes na RC e dar continuidade no desenvolvimento/testes.
 
-Em caso de aceite a RC será liberada para a operação como uma versão estável e deverá receber seu versionamento com a mudança do número da versão no primeiro dígito. Por exemplo: monan-5, monan-6, etc
+Em caso de aceite a RC será liberada para a operação como uma versão estável e deverá receber seu versionamento com a mudança do número da versão no primeiro dígito. Por exemplo: `monan-5`, `monan-6`, etc
 
-O main (trunk) é então atualizado (merge) com a nova versão estável.
+O repositório `main` (_trunk_) é então atualizado (_merge_) com a nova versão estável.
 
 ## 6. Manutenção Contínua de Código
 
-O código, após ser levado a status operacional, deve receber manutenções contínuas. Essas manutenções podem ter caráter de ajustes na funcionalidade ou causados por bugs e mudanças no seu ambiente externo.
+O código, após ser levado a _status_  operacional, deve receber manutenções contínuas. Essas manutenções podem ter caráter de ajustes na funcionalidade ou causados por _bugs_ e mudanças no seu ambiente externo.
 
-Em casos de manutenção deverá ser aberto ou pelo grupo de desenvolvimento, ou pelo grupo computacional uma issue e um branch de manutenção.  Para facilitar pode-se usar uma referência base na versão de origem no nome do branch, por exemplo: monan-5-b1, monan-6.i5, etc. O trabalho deve ser realizado e a correção, ainda como um branch passar pelos testes internos e posteriormente pelos testes operacionais para validação.
+Em casos de manutenção deverá ser aberto, ou pelo grupo de desenvolvimento, ou pelo grupo computacional, uma _issue_ e um _branch_ de manutenção.  Para facilitar, pode-se usar uma referência base na versão de origem no nome do _branch_, por exemplo: `monan-5-b1`, `monan-6.i5`, etc. O trabalho deve ser realizado e a correção, ainda como um _branch_, passar pelos testes internos e posteriormente pelos testes operacionais para validação.
 
-Após os testes serem aprovados tags de correção serão lançadas acrescentando um ponto a mais na versão. Por exemplo: monan-5.1, monan-6.4, etc.
+Após os testes serem aprovados, _tags_ de correção serão lançadas acrescentando um ponto a mais na versão. Por exemplo: `monan-5.1`, `monan-6.4` etc.
 
-O main (trunk) é então atualizado (merge) com a nova versão estável e corrigida.
+O `main` (_trunk_) é então atualizado (_merge_) com a nova versão estável e corrigida.
 
 ## Referências
 
