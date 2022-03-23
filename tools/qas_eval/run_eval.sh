@@ -29,19 +29,19 @@ singularity exec --bind ${sif_dir}:$HOME ${sif_dir}/qas_eval.sif /home/qas_files
 
 exec_aval
 
-echo "---"
-echo " All done ! "
-echo "Check Quality Reports ${SUB_DIR_OUT}/QualityReport_${MODEL}.pdf (FortranAnalyser) and ${SUB_DIR_OUT}/Check_Report_${MODEL}.txt (Check.py)"
 echo ""
+echo "---"
+echo "All done ! "
+echo "Check Quality Reports ${SUB_DIR_OUT}/QualityReport_${MODEL}.pdf (FortranAnalyser) and ${SUB_DIR_OUT}/Check_Report_${MODEL}.txt (Check.py)"
 echo "Reports are also printed below (secion of pdf converted to txt). Check full report on pdf"
 echo ""
-echo " ========================================================== "
+echo "========================================================== "
 echo " Report from Check.py "
-echo ${SUB_DIR_OUT}/Check_Report_${MODEL}.txt
+more ${SUB_DIR_OUT}/Check_Report_${MODEL}.txt
 
 echo ""
-echo " ========================================================== "
-echo " Report from FortranAnalyser "
+echo "========================================================== "
+echo "Report from FortranAnalyser (Check full report at ${SUB_DIR_OUT}/QualityReport_${MODEL}.pdf - below may not show all final table)"
 pdftotext ${SUB_DIR_OUT}/QualityReport_${MODEL}.pdf
 tail -63 ${SUB_DIR_OUT}/QualityReport_${MODEL}.txt
 
