@@ -1,0 +1,61 @@
+#!/bin/bash
+#SBATCH --job-name=GEFG_cube
+#SBATCH --partition=compute # changed from shared to compute due to the CPU limit
+#SBATCH -n __NPR__
+#SBATCH -t 04:50:00
+#SBATCH --mail-type=FAIL
+#SBATCH --account=mh0735 #Environmental Modeling Account
+#SBATCH --output=__ETA_RUN__/../err/err_gef
+### The above was intended to be a Serial job based on the Example Batch Scripts provided by dkrz at their webpage
+#####################################################################################################################################################
+###PBS -N GEFG_cube
+###PBS -o __ETA_RUN__/../err/err_gef
+###PBS -q pesq
+###PBS -l mppwidth=__NPR__
+###PBS -l walltime=03:50:00
+###PBS -A CPTEC
+###PBS -j oe
+ 
+set -aeux
+
+#module load intel
+#module load mpt
+#module load netcdf
+#module load adaptive
+
+#####cd $PBS_O_WORKDIR
+
+RUN_DIR=__RUN_DIR__
+PRP_DIR=__PRP_DIR__
+ETA_RUN=__ETA_RUN__
+DIR_OUT=/scratch/b/b380797/scratchout 
+# the line above was changed by vlionel
+
+cd ${ETA_RUN}
+
+#mpiexec_mpt -prefix "[%g]" -np $PBS_NP ${RUN_DIR}/src/GEF.exe
+#aprun -prefix "[%g]" -np $PBS_NP ${RUN_DIR}/src/GEF.exe
+#aprun -n 600 ${RUN_DIR}/GEF.exe
+ulimit -c unlimited
+ulimit -s unlimited
+ulimit -a
+#rm core
+#echo "TEST"
+
+T1=`date +%s%N`
+ 
+# srun -n __NPR__ ${RUN_DIR}/src/GEF.exe 1> ${ETA_RUN}/../err/err.gef 2>&1 # changed by vlionel
+# <aprun> was replaced by <srun> to run at Mistral Supercomputer (MPI-M, Hamburg) - vlionel
+
+srun -n __NPR__ --propagate=STACK,CORE ${RUN_DIR}/src/GEF.exe 1> ${ETA_RUN}/../err/err.gef 2>&1 # changed by vlionel
+# <aprun> was replaced by <srun> to run at Mistral Supercomputer (MPI-M, Hamburg) - vlionel
+
+
+T2=`date +%s%N`
+
+TEMPO=`echo ${T2} - ${T1} | bc -l`
+TEMPO=`echo ${TEMPO} / 1000000000 | bc -l > ${DIR_OUT}/out/runtime.gef`
+
+#qsub ${TMP_DIR}/run_etapost.sh
+
+

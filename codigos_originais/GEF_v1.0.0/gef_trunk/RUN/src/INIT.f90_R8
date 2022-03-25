@@ -1,0 +1,1068 @@
+!--------------------------------------------------------------------------------------------------
+!  DOXYGEN
+!> @brief INITIALIZE VARIABLE FOR MODEL RUN
+!> @details INIT READS IN PRIMARY AND AUXILIARY VARIABLES AND CONSTANTS AND SETS INITIAL VALUES FOR
+!!  OTHERS.
+!> @author ORIGINATOR - JANJIC 
+!> @date 87-06-?? \n
+!> @author LUCCI 
+!> @date 18-03-20 \n
+!> @version V1.1.0
+!> @details MODERNIZATION OF THE CODE, INCLUDING:
+!!                      * F77 TO F90/F95
+!!                      * INDENTATION & UNIFORMIZATION CODE
+!!                      * REPLACEMENT OF COMMONS BLOCK FOR MODULES
+!!                      * DOCUMENTATION WITH DOXYGEN
+!!                      * OPENMP FUNCTIONALITY 
+!<
+!> @details <b>Use Module:</b>
+!! @arg @c ACMCLD
+!! @arg @c ACMCLH
+!! @arg @c ACMPRE
+!! @arg @c ACMRDL
+!! @arg @c ACMRDS
+!! @arg @c ACMSFC
+!! @arg @c CLDWTR
+!! @arg @c CMICRO_START
+!! @arg @c CONTIN 
+!! @arg @c CTLBLK
+!! @arg @c CUPARM
+!! @arg @c DGNSOUT
+!! @arg @c DYNAM
+!! @arg @c F77KINDS
+!! @arg @c HS
+!! @arg @c KFFDBK
+!! @arg @c LOOPS
+!! @arg @c MASKS
+!! @arg @c METRCS
+!! @arg @c MPPSTAFF
+!! @arg @c NHYDRO
+!! @arg @c PARMETA
+!! @arg @c PARMSOIL
+!! @arg @c PHYS
+!! @arg @c PPTASM
+!! @arg @c PVRBLS
+!! @arg @c REALPAR
+!! @arg @c RD1TIM
+!! @arg @c RNDDTA
+!! @arg @c SOIL 
+!! @arg @c VRBLS
+!> @details <b>Driver:</b> 
+!! @arg @c GEF
+!> @details <b>Calls:</b>
+!! @arg @c BOCOHMPI
+!! @arg @c BOCOVMPI
+!! @arg @c INITCKMM
+!! @arg @c INIT_RNDDTA
+!! @arg @c GRADFS
+!! @arg @c LUTAB
+!! @arg @c O3CLIM
+!! @arg @c SOLARD
+!! @arg @c ZENITH
+!--------------------------------------------------------------------------------------------------
+    SUBROUTINE INIT
+!--------------------------------------------------------------------------------------------------
+! SUBROUTINE INIT
+! 
+! SUBPROGRAM: INIT - INITIALIZE VARIABLE FOR MODEL RUN
+! PROGRAMMER: JANJIC 
+! ORG: W/NP22
+! DATE: 87-06-??
+!
+! ABSTRACT:  
+! INIT READS IN PRIMARY AND AUXILIARY VARIABLES AND CONSTANTS AND SETS INITIAL VALUES FOR OTHERS.
+!
+! PROGRAM HISTORY LOG:
+! 87-06-??  JANJIC  - ORIGINATOR
+! 92-10-27  DEAVEN  - CHANGED READS OF NHB, NFC, AND NBC TO ACCOMODATE SHORTENED RECORD LENGTHS
+! 95-03-27  BLACK   - CONVERSION FROM 1-D TO 2-D IN HORIZONTAL
+! 96-10-31  BLACK   - ADDED NAMELIST BCEXDATA FOR THE NESTS
+! 98-06-10  ROGERS  - MADE Y2K COMPLIANT BY REPLACING CALL TO W3FI13 TO W3DOXDAT
+! 98-09-04  PYLE    - CHANGED TO NOT RE-INITIALIZE TSHLTR AND QSHLTR IF RESTART=TRUE
+! 98-10-21  BLACK   - CHANGES FOR DISTRIBUTED MEMORY
+! 98-11-17  BLACK   - ADDED CODE TO LOCATE THE INNER DOMAIN BOUNDARIES ON THE RELEVANT PEs
+! 00-08-??  BLACK   - MODIFIED FOR RESTART CAPABILITY
+! 18-03-20  LUCCI   - MODERNIZATION OF THE CODE, INCLUDING:
+!                     * F77 TO F90/F95
+!                     * INDENTATION & UNIFORMIZATION CODE
+!                     * REPLACEMENT OF COMMONS BLOCK FOR MODULES
+!                     * DOCUMENTATION WITH DOXYGEN
+!                     * OPENMP FUNCTIONALITY 
+!
+!
+! INPUT ARGUMENT LIST:
+! NONE
+!
+! OUTPUT ARGUMENT LIST:
+! NONE
+!
+! INPUT/OUTPUT ARGUMENT LIST:
+! NONE
+!
+! INPUT FILES:
+! NFC - THE INITIAL VALUES OF SFC PRESSURE, T, Q, U, AND V
+! NHB - A LARGE VARIETY OF ARRAY AND SCALAR CONSTANTS
+! NBC - THE BOUNDARY CONDITIONS AND TENDENCIES
+!
+!                         OR
+!
+! RESTRT - A RESTART FILE WITH ALL NECESSARY QUANTITIES
+!
+! OUTPUT FILES:
+! NONE
+!
+! USE MODULES: ACMCLD
+!              ACMCLH
+!              ACMPRE
+!              ACMRDL
+!              ACMRDS
+!              ACMSFC
+!              CLDWTR
+!              CMICRO_START
+!              CONTIN 
+!              CTLBLK
+!              CUPARM
+!              DGNSOUT
+!              DYNAM
+!              F77KINDS
+!              HS
+!              KFFDBK
+!              LOOPS
+!              MASKS
+!              METRCS
+!              MPPSTAFF
+!              NHYDRO
+!              PARMETA
+!              PARMSOIL
+!              PHYS
+!              PPTASM
+!              PVRBLS
+!              REALPAR
+!              RD1TIM
+!              RNDDTA
+!              SOIL 
+!              VRBLS
+!
+! DRIVER     : GEF
+!
+! CALLS      : BOCOHMPI
+!              BOCOVMPI
+!              INITCKMM
+!              INIT_RNDDTA
+!              GRADFS
+!              LUTAB
+!              O3CLIM
+!              SOLARD
+!              ZENITH             
+!--------------------------------------------------------------------------------------------------
+!
+!------------------------------------------------
+! INITIALIZE ALL FIELDS AND RUN CONTROL CONSTANTS 
+!------------------------------------------------
+    USE ACMCLD
+    USE ACMCLH
+    USE ACMPRE
+    USE ACMRDL
+    USE ACMRDS
+    USE ACMSFC
+    USE CLDWTR
+    USE CMICRO_START
+    USE CONTIN 
+    USE CTLBLK
+    USE CUPARM
+    USE DGNSOUT
+    USE DYNAM
+    USE F77KINDS
+    USE HS
+    USE KFFDBK
+    USE LOOPS
+    USE MASKS
+    USE METRCS
+    USE MPPSTAFF
+    USE NHYDRO
+    USE PARMETA
+    USE PARMSOIL
+    USE PHYS
+    USE PPTASM
+    USE PVRBLS
+    USE REALPAR
+    USE RD1TIM
+    USE RNDDTA
+    USE SOIL 
+    USE VRBLS
+!
+    IMPLICIT NONE
+!
+    INCLUDE "mpif.h"
+!
+    CHARACTER(LEN=80)                                                                           ::&
+    & CVRBLS  , CCONST  , CHS     , CCORNER , CDGNS   , CSFCETA , CUCV
+!
+    INTEGER(KIND=I4)                                                                            ::&
+    & I       , J       , L       , MASKSTATUS1  , MASKSTATUS2    , MASKSTATUS3    ,              &
+    & LLMH    , LMVK    , IERR    , MASKSTATUS4  , MASKSTATUS5    , MASKSTATUS6    ,              &
+    & I3      , J3      , MASKSTATUS , ERR                                                                
+!
+    REAL   (KIND=R4)                                                                            ::&
+    & PM1     , APEM1   , ULM     , VLM     , TLM     , QLM     , DPLM    , DZLM    , FAC1    ,   &
+    & FAC2    , THLM    , TSFCK   , PSFCK   , CLOGES  , PLM2    , APELM2  , PSS     , PDIF
+!
+    REAL   (KIND=R4)    , DIMENSION(LP1)                                                        ::&
+    & PHALF
+!
+    REAL   (KIND=R4)                                                                            ::&
+    & TIME    , DAYI    , HOUR    , PSUM    , SLPM
+!
+    REAL   (KIND=R4)                                                                            ::&
+    & PLOMD   , PMDHI   , PHITP   , P400    , PLBTM   , ESE     , ZEFFMX
+!
+    REAL   (KIND=R4)                                                                            ::&
+    & A       , B       , C
+!
+    REAL   (KIND=R4)                                                                            ::&
+    & DDMP0
+!
+!   REAL   (KIND=R4)    , DIMENSION(:,:)              , ALLOCATABLE                             ::&
+!    & QBV11   , QBV12   , QBV22
+!
+    REAL   (KIND=R4)    , PARAMETER :: CM1    = 2937.4
+    REAL   (KIND=R4)    , PARAMETER :: CM2    =    4.9283
+    REAL   (KIND=R4)    , PARAMETER :: CM3    =   23.5518
+    REAL   (KIND=R4)    , PARAMETER :: EPS    =    0.622 
+    REAL   (KIND=R4)    , PARAMETER :: PI2    = 2. * 3.14159265
+    REAL   (KIND=R4)    , PARAMETER :: RLAG   =   14.8125
+    REAL   (KIND=R4)    , PARAMETER :: Q2INI  =     .50 
+    REAL   (KIND=R4)    , PARAMETER :: EPSWET =    0.0 
+    REAL   (KIND=R4)    , PARAMETER :: Z0LAND =     .10
+    REAL   (KIND=R4)    , PARAMETER :: Z0SEA  =     .001
+    REAL   (KIND=R4)    , PARAMETER :: FCM    =     .00001 
+    REAL   (KIND=R4)    , PARAMETER :: DTR    =    0.1745329E-1
+!
+    DATA PLOMD / 64200./ 
+    DATA PMDHI / 35000./
+    DATA PHITP / 15000./
+    DATA P400  / 40000./
+    DATA PLBTM /105000./
+!---------------------------------
+! ALLOCATE MODULE RD1TIM VARIABLES
+!---------------------------------
+    ALLOCATE (LTOP(3))
+    ALLOCATE (LVL(0:IM+1,0:JM+1))
+!
+    ALLOCATE ( CTHK(3))
+    ALLOCATE (PTOPC(4))
+    ALLOCATE (TAUCV(3))
+!
+    CTHK(1)  = 20000.00
+    CTHK(2)  = 20000.00
+    CTHK(3)  = 20000.00
+!
+    TAUCV(1) =     0.16
+    TAUCV(2) =     0.14
+    TAUCV(3) =     0.12
+!
+    LTOP(1)  =     0
+    LTOP(2)  =     0
+    LTOP(3)  =     0
+!---------------
+! TUPA DIRECTORY
+!---------------
+    CVRBLS = 'vrbls01_new.' // C_MYPE
+!
+    OPEN(LISTINVRBLS, FILE=TRIM(CVRBLS), STATUS='OLD', FORM='UNFORMATTED')
+!------------------
+! /VRBLS/ DIRECTORY
+!------------------
+    READ (LISTINVRBLS,ERR=1,IOSTAT=MASKSTATUS1) PD
+    READ (LISTINVRBLS,ERR=2,IOSTAT=MASKSTATUS2) T 
+    READ (LISTINVRBLS,ERR=3,IOSTAT=MASKSTATUS3) Q 
+    READ (LISTINVRBLS,ERR=4,IOSTAT=MASKSTATUS4) U
+    READ (LISTINVRBLS,ERR=5,IOSTAT=MASKSTATUS5) V
+    READ (LISTINVRBLS,ERR=6,IOSTAT=MASKSTATUS6) TG
+
+
+    1    IF ( MASKSTATUS1 /= 0 ) THEN
+            write(6,*) '!!!!!!!!!TROUBLE OPENING VRBLS1!!!!!!',C_MYPE
+         ENDIF
+    2    IF ( MASKSTATUS2 /= 0 ) THEN 
+            write(6,*) '!!!!!!!!!TROUBLE OPENING VRBLS2!!!!!!',C_MYPE
+         ENDIF
+    3    IF ( MASKSTATUS3 /= 0 ) THEN 
+            write(6,*) '!!!!!!!!!TROUBLE OPENING VRBLS3!!!!!!',C_MYPE
+         ENDIF
+    4    IF ( MASKSTATUS4 /= 0 ) THEN 
+            write(6,*) '!!!!!!!!!TROUBLE OPENING VRBLS4!!!!!!',C_MYPE
+         ENDIF
+    5    IF ( MASKSTATUS5 /= 0 ) THEN 
+            write(6,*) '!!!!!!!!!TROUBLE OPENING VRBLS5!!!!!!',C_MYPE
+         ENDIF
+    6    IF ( MASKSTATUS6 /= 0 ) THEN 
+            write(6,*) '!!!!!!!!!TROUBLE OPENING VRBLS6!!!!!!',C_MYPE
+         ENDIF
+!        
+    CLOSE (LISTINVRBLS) 
+!---------------
+! TUPA DIRECTORY
+!---------------
+    CCONST = 'const_new.' // C_MYPE
+!
+    OPEN(LISTINCONST, FILE=TRIM(CCONST), STATUS='OLD', FORM='UNFORMATTED')
+!-------------------
+! /METRCS/ DIRECTORY
+!-------------------
+    READ (LISTINCONST)  SQV
+    READ (LISTINCONST)  SQH
+    READ (LISTINCONST)  Q11
+    READ (LISTINCONST)  Q12
+    READ (LISTINCONST)  Q22
+    READ (LISTINCONST)  QH11
+    READ (LISTINCONST)  QH12
+    READ (LISTINCONST)  QH22
+    READ (LISTINCONST)  SQV_NORM
+!
+    DO I=1,4
+        READ(LISTINCONST) QD11(:, :, I)
+        READ(LISTINCONST) QD12(:, :, I)
+        READ(LISTINCONST) QD21(:, :, I)
+        READ(LISTINCONST) QD22(:, :, I)
+    END DO
+!
+    DO I =1,4
+        DO I3=1,2
+            DO J3=1,2
+                READ(LISTINCONST) QVH (:, :, I, I3, J3)
+                READ(LISTINCONST) QHV (:, :, I, I3, J3)
+                READ(LISTINCONST) QVH2(:, :, I, I3, J3)
+                READ(LISTINCONST) QHV2(:, :, I, I3, J3)
+            END DO
+        END DO
+    END DO
+!
+!    DO I=1,8
+!        DO I3=1,2
+!            DO J3=1,2
+!                READ(LISTINCONST) QINTC1(:, :, I, I3, J3)
+!                READ(LISTINCONST) QINTC2(:, :, I, I3, J3)
+!            END DO
+!        END DO
+!    END DO
+!
+    DO J=0,JM+1
+        DO I=0,IM+1
+!
+            IF (SQH(I,J) /= 0) THEN
+                RSQH(I,J) = 1. / SQH(I,J)
+            ELSE
+                RSQH(I,J) = 0.
+            END IF
+!
+            IF (SQV(I,J) /= 0) THEN
+                RSQV(I,J) = 1. / SQV(I,J)
+            ELSE
+                RSQV(I,J) = 0.
+            END IF
+!
+        END DO
+    END DO
+!
+    DO I=0,IM+1
+        DO J=0,JM+1
+            DX(I,J) = SQRT(SQH(I,J)) * 6.371E6 * 1.41
+        END DO
+    END DO
+!
+    DO I3=1,2
+        DO J3=1,2
+!
+            DO I=1,13
+                READ(LISTINCONST) QA(:, :, I, I3, J3)
+            END DO
+!
+            READ(LISTINCONST) QB(:, :, I3, J3)
+        END DO
+    END DO
+!------------------
+! /MASKS/ DIRECTORY
+!------------------
+!    HTM(:, :, :) = H1
+!    VTM(:, :, :) = H1
+!------------------
+! /DYNAM/ DIRECTORY
+!------------------
+    READ(LISTINCONST) QBV11
+    READ(LISTINCONST) QBV12
+    READ(LISTINCONST) QBV22
+    READ(LISTINCONST) WPDAR
+    READ(LISTINCONST) F11  
+    READ(LISTINCONST) F12  
+    READ(LISTINCONST) F21  
+    READ(LISTINCONST) F22  
+    READ(LISTINCONST) P11  
+    READ(LISTINCONST) P12  
+    READ(LISTINCONST) P21  
+    READ(LISTINCONST) P22  
+    READ(LISTINCONST) FDIV 
+    READ(LISTINCONST) FDDMP
+    READ(LISTINCONST) HSINP
+    READ(LISTINCONST) HCOSP
+    READ(LISTINCONST) GLON
+    READ(LISTINCONST) GLAT
+    READ(LISTINCONST) FVDIFF
+    READ(LISTINCONST) HBMSK
+!
+    READ(LISTINCONST) DETA        , RDETA   , AETA    , DAETA   , ETA     , DFL     , FADV    ,   &
+    &                 FADV2       , FADT    , R       , PT      , F4D     , F4Q2    , EF4T    ,   &
+    &                 FKIN        , FCP     , DELTY   , DELTHZ  , KAPPA   , P0      , RTDF
+!
+    RTDF = RTDF * 0.1
+!    RTDF = 3.   * RTDF  ! RADI SA 40 S - NE DIRAJ
+!    RTDF  = 1.75 * RTDF     
+!
+    F4D25 = F4D * D25
+!
+    FCP   = D50  * FCP
+    FADTQ = FADT * 1.5 
+
+!    DDMP0 = 0.10
+!    DDMP0 = 0.25
+!    DDMP0 = 0.20
+!    DDMP0 = 0.30  !  RADI SA 30 S
+!    DDMP0 = 0.28
+!    DDMP0 = 0.32
+!    DDMP0 = 0.38
+    DDMP0 = 0.42  !  RADI SA 40 S - NE DIRAJ 
+!
+    DO J=1,JM-1
+        DO I=1,IM-1
+!            DDMP(I,J) = DDMP0 * SQV_NORM(I,J)
+            DDMP(I,J) = DDMP0                  !  WITH CUBE2 
+        END DO
+    END DO
+!  
+!    DO J=0,JM+1
+!        DO I=0,IM+1
+!            SQBV11(I,J) = SQV(I,J) * QBV11(I,J)
+!            SQBV12(I,J) = SQV(I,J) * QBV12(I,J)
+!            SQBV22(I,J) = SQV(I,J) * QBV22(I,J)
+!        END DO
+!    END DO
+!      
+!    DO J=1,JM
+!        DO I=0,IM
+!            SQBV11(I,J) = QBV11(I,J) + QBV11(I,J-1)
+!        END DO
+!    END DO
+!
+!    DO J=1,JM
+!        DO I=0,IM
+!            SQBV12(I,J) = QBV12(I,J) + QBV12(I,J-1) 
+!        END DO
+!    END DO
+!
+!    DO J=0,JM
+!        DO I=1,IM
+!            SQBV22(I,J) = QBV22(I,J) + QBV22(I-1,J)
+!        END DO
+!    END DO
+!
+!    DO J=0,JM
+!        DO I=1,IM
+!            SQBV21(I,J) = SQBV12(I,J) + SQBV12(I-1,J)
+!        END DO
+!    END DO
+!
+!    DEALLOCATE (QBV11, QBV12, QBV22)
+!
+!-------------------
+! /CTLBLK/ DIRECTORY
+!-------------------
+    READ(LISTINCONST)   DT        , IDAT    , IHRST  , NFCST    , NBC     , LIST    , IOUT    ,   &
+    &                   NTSD      , NTSTM   , NDDAMP , NPREC    , IDTAD   , NBOCO   , NSHDE   ,   &
+    &                   NCP       , NPHS    , NCNVC  , NRADS    , NRADL   , NTDDMP  , RUN     ,   &
+    &                   FIRST     , RESTRT  , SIGMA  , SUBPOST  , LCORNERM, OUTSTR  , NDASSIM ,   &
+    &                   NDASSIMM
+!
+    CLOSE (LISTINCONST)
+!
+
+!***RESTART
+    open(27, file='restrt_nmlst.txt', STATUS='OLD')
+    rewind 27
+    read(27,*)restrt
+    read(27,*)nhrs
+    close(27)
+!*****
+
+    F4Q    = F4D   * 2.
+    FKIN   = FKIN  * IDTAD
+    IDTAD2 = IDTAD * H2
+!
+    RTDFDT = RTDF  * DT
+!
+    IF (MYPE == 0) THEN
+        PRINT *,'DATE:', IDAT
+        PRINT *,'SIGMA:', SIGMA
+        PRINT *,'NTSTM,DT:', NTSTM, DT
+    END IF
+!
+    CHS = 'hs_new.' // C_MYPE
+!
+    OPEN (21, FILE=CHS, STATUS='OLD', FORM='UNFORMATTED')
+    READ(21) KVDT
+    READ(21) KTDT
+!
+    CLOSE (21)
+!
+    CDGNS = 'dgns.' // C_MYPE  
+!
+    OPEN (21, FILE=CDGNS, STATUS='OLD', FORM='UNFORMATTED')  
+    READ(21)  DGNNUM    , DGNSTR  , IDGNS   , ICKMM  
+!
+    CLOSE (21)
+!  
+    CSFCETA = 'sfceta3_new.' // C_MYPE
+!
+    OPEN (21, FILE=CSFCETA, STATUS='OLD', FORM='UNFORMATTED')  
+    READ(21) FIS           
+    READ(21) RES          
+    READ(21) HTM     !    SFCETA(OUT4MPI.F90)
+    READ(21) VTM      
+    READ(21) LMH     
+    READ(21) LMV     
+    READ(21) SST     
+    READ(21) EPSR    
+    READ(21) SM      
+    READ(21) SICE     
+    READ(21) SI       
+    READ(21) SNO      
+    READ(21) VEGFRC  !   SFCETA2(OUT4MPI.F90)
+    READ(21) IVGTYP  
+    READ(21) ISLTYP  
+    READ(21) ISLOPE  
+    READ(21) SH2O    
+    READ(21) ALBEDO  
+    READ(21) ALBASE  
+    READ(21) MXSNAL  
+    READ(21) SMC     
+    READ(21) STC     !  INIT_OUT(OUT4MPI.F90)   
+    READ(21) ZEFFIJ  !      ZEFF(OUT4MPI.F90)
+!    READ(21) HGTSUB
+    CLOSE (21)
+!     
+
+!!!RESTART
+!nhrs is read from restrt_nmlst.txt
+
+    if(restrt)then
+    
+         ntsd=(nhrs*((24/(outnum/nday))*3600))/dt
+      
+      else
+            
+         nhrs=-1    
+      
+      endif
+!!!!!!!
+
+
+
+!-----------
+!RESTART FILE   
+!-----------
+    if (restrt) then
+      call read_restrt
+    endif
+!!!!!!!!!!!!!
+
+
+
+    CALL    BOCOHMPI(HTM, LM)
+    CALL BOCOVMPI_SC(VTM, LM)
+    CALL    BOCOHMPI(T  , LM)  
+!    CALL    BOCOHMPI(Q,   LM)  ! ANDRE
+! 
+!    IF (MYPE == 2) THEN
+!        ZEFFMX = 0.
+!
+!        DO J=1,JM
+!            DO I=1,IM
+!                DO L=1,4
+!
+!                    IF (ZEFFIJ(I,J,L) > ZEFFMX) THEN
+!                       ZEFFMX = ZEFFIJ(I,J,L)
+!                    END IF
+!
+!                END DO
+!            END DO
+!        END DO
+!    END IF
+! 
+    CALL BOCOHMPI(PD, 1)  
+!
+    CALL BOCOVMPI(U , V, LM)  
+!
+    UTOP0 = U(:, :, 1  )
+    VTOP0 = V(:, :, 1  )
+    TTOP0 = T(:, :, 1:2)
+!
+    CALL INITCKMM
+!
+!    NHRS = -1   !it should be 0, then the first output in out2.f90 is after 6h of forecast, test 25/06/2019
+!            
+!         nhrs=0    
+ 
+    IF (MYPE == 0) THEN
+        PRINT *,'NHRS =', NHRS
+    END IF
+    
+!---------------------------------------------------------------------------------
+! INITIALIZE TURBULENT KINETIC ENERGY (TKE) TO A SMALL VALUE (EPSQ2) ABOVE GROUND.
+! SET TKE TO ZERO IN THE THE LOWEST MODEL LAYER.
+! IN THE LOWEST TWO ATMOSPHERIC ETA LAYERS SET TKE TO A SMALL VALUE (Q2INI).
+!---------------------------------------------------------------------------------
+    DO L=1,LM1
+        DO J=1,JM
+            DO I=1,IM
+                Q2(I,J,L) = HTM(I,J,L+1) * EPSQ2
+            END DO
+        END DO
+    END DO
+!
+    DO J=1,JM
+        DO I=1,IM
+            Q2(I,J,LM)     = 0.
+            LLMH           = LMH(I,J)
+            Q2(I,J,LLMH-2) = Q2INI
+            Q2(I,J,LLMH-1) = Q2INI
+        END DO
+    END DO
+!
+    CALL BOCOHMPI(Q2, LM)
+!
+    UZ0    = 0.
+    VZ0    = 0.
+    USTAR  = 0.1
+    AKMS   = 0.
+    AKHS   = 0.
+    PREC   = 0.
+    APREC  = 0.
+    ACPREC = 0.
+    CUPREC = 0.
+    ACCLIQ = 0.
+    QWBS   = 0.
+    TWBS   = 0.
+!
+    DO J=0,JM
+        DO I=0,IM  
+              LLMH      = LMH(I,J) 
+              PDSL(I,J) =  PD(I,J) * RES(I,J)
+	      PM1       =  PD(I,J) * RES(I,J) * AETA(LLMH) + PT
+              APEM1     = (1.E5 / PM1) ** CAPA
+               THS(I,J) = T(I,J,LLMH) * (1. + 0.608 * Q(I,J,LLMH)) * APEM1
+                QS(I,J) = 0.
+                Z0(I,J) = SM(I,J) * Z0SEA + (1. - SM(I,J)) * (FIS(I,J) * FCM + Z0LAND)
+!
+              HTOP(I,J) = REAL(LLMH)
+              HBOT(I,J) = REAL(LLMH)
+            CNVTOP(I,J) = REAL(LLMH)
+            CNVBOT(I,J) = REAL(LLMH)
+!
+            TSFCK = T(I,J,LLMH) * (1. + 0.608 * Q(I,J,LLMH))
+            PSFCK = PD(I,J) + PT
+!
+            IF (SM(I,J) < 0.5) THEN
+                 QS(I,J) = PQ0 / PSFCK * EXP(A2 * (TSFCK - A3) / (TSFCK - A4))  
+            ELSE IF (SM(I,J) > 0.5) THEN
+                THS(I,J) = SST(I,J) * (1.E5 / (PD(I,J) + PT)) ** CAPA
+            END IF
+
+            THZ0(I,J) = THS(I,J)
+             QZ0(I,J) =  QS(I,J)
+        END DO
+    END DO
+!
+!    CALL BOCOHMPI(PDSL,1)  !  ANDRE
+!    CALL BOCOHMPI(QS  ,1)  !  ANDRE
+!------------------------
+! INITIALIZE CLOUD FIELDS
+!------------------------
+    CWM = 0.
+!---------------------------------------
+! INITIALIZE ACCUMULATOR ARRAYS TO ZERO.
+!---------------------------------------
+    ARDSW  = 0.0
+    ARDLW  = 0.0
+    ASRFC  = 0.0
+    AVRAIN = 0.0
+    AVCNVC = 0.0
+!
+    ACFRCV = 0.
+    NCFRCV = 0
+    ACFRST = 0.
+    NCFRST = 0
+    ACSNOW = 0.
+    ACSNOM = 0.
+    SSROFF = 0.
+    BGROFF = 0.
+    ALWIN  = 0.
+    ALWOUT = 0.
+    ALWTOA = 0.
+    ASWIN  = 0.
+    ASWOUT = 0.
+    ASWTOA = 0.
+    SFCSHX = 0.
+    SFCLHX = 0.
+    SUBSHX = 0.
+    SNOPCX = 0.
+    SFCUVX = 0.
+    SFCEVP = 0.
+    POTEVP = 0.
+    POTFLX = 0.
+!--------------------------------------------------------
+! INITIALIZE SATURATION SPECIFIC HUMIDITY OVER THE WATER.
+!--------------------------------------------------------
+    CALL BOCOHMPI(SST,1)
+!
+    DO J=1,JM
+        DO I=1,IM
+!      
+            IF (SM(I,J) > 0.5) THEN
+                CLOGES  = -CM1 / SST(I,J) - CM2 * ALOG10(SST(I,J)) + CM3
+                ESE     = 10. ** (CLOGES + 2.)
+                QS(I,J) = SM(I,J) * EPS * ESE / (PD(I,J) + PT - ESE * (1. - EPS))
+            END IF
+!
+        END DO
+    END DO
+!-------------------------------------------------------
+! PAD ABOVE GROUND SPECIFIC HUMIDITY IF IT IS TOO SMALL.
+! INITIALIZE LATENT HEATING ACCUMULATION ARRAYS.
+!-------------------------------------------------------
+    DO L=1,LM
+        DO J=1,JM    
+            DO I=1,IM           
+!  
+                IF (Q(I,J,L) < EPSQ)  Q(I,J,L) = EPSQ * HTM(I,J,L)
+!
+                TRAIN(I,J,L) = 0.
+                TCUCN(I,J,L) = 0.
+            END DO
+        END DO
+    END DO
+!----------------------- 
+! KAIN_FRITSCH VARAIBLES
+!-----------------------
+!
+!-----------------------------------------------------
+! INITIALIZE ARRAYS FOR KAIN-FRITSCH CONVECTIVE SCHEME
+!-----------------------------------------------------
+    NCA    = 0
+    NCAD   = 0
+    RAINCV = 0.
+!-----------------------
+! ADDITIONAL DIAGNOSTICS
+!-----------------------
+    PPTKF = 0.
+    PPTCA = 0.
+!-----------------------
+! ADDITIONAL DIAGNOSTICS
+!-----------------------
+    TNCA  = 0.
+    PSRC  = 0.
+    PCLB  = 0.
+    UMFB  = 0.
+    SPSRC = 0.
+    SPCLB = 0.
+    SUMFB = 0.
+    CIN   = 0.
+    DTDT  = 0.
+    DQDT  = 0.
+    DQCDT = 0.
+    W0AVG = 0.
+!--------------------------------------------------------------- 
+! INITIALIZE LOOKUP TABLE FOR WET BULB TEMPERATURES FROM THETA-E
+!--------------------------------------------------------------- 
+    CALL LUTAB
+!--------------------------------------------------------------------------------------------------
+! NCLDCK IS DEFINED AS THE APPROXIMATE NUMBER OF TIME STEPS IN 10 MINS.
+! KF SCHEME WILL BE CALLED AT THIS FREQUENCY.
+! NOTE THAT IF YOU CHANGE THIS TIME PERIOD, YOU WILL ALSO CHANGE TIME PERIOD USED FOR CALCULATING 
+! AN APPROXIMATE RUNNING-MEAN VERTICAL VELOCITY (SEE CODE IN EBUKF.F)
+!--------------------------------------------------------------------------------------------------
+!    NCLDCK = NINT(600. / DT) ! ORIGINAL
+    NCLDCK = NINT(420. / DT) ! DRAGAN
+    NCLDCK = MAX0(NCLDCK, 1)
+    TST    = REAL(NCLDCK   )
+!------------------------------------------- 
+! END OF SCRATCH START INITIALIZATION BLOCK.
+!------------------------------------------- 
+!
+!---------------------------
+! INITIALIZE CLOUD CONSTANTS
+!---------------------------
+    DO J=0,JM+1
+        DO I=0,IM+1
+            U00(I,J) = (1. - SM(I,J)) * 0.75 + SM(I,J) * 0.80
+        END DO
+    END DO
+!------------------------------------------------------------------------------------------- 
+! FLAG FOR INITIALIZING ARRAYS, LOOKUP TABLES & CONSTANTS USED IN MICROPHYSICS AND RADIATION
+!-------------------------------------------------------------------------------------------
+    MICRO_START = .TRUE.
+!
+    DO L=1,2*LM
+        IF (L >= LM-10 .AND. L <= LM) THEN
+            UL(L) = 0.1 * FLOAT(L-LM+10)
+        ELSE
+            UL(L) = 0.
+        END IF
+    END DO
+!
+    DO I=1,IM 
+        DO J=1,JM  
+            LLMH = LMH(I,J)
+            LMVK = LMV(I,J)
+!
+            ULM  = U(I, J, LLMH)
+            VLM  = V(I, J, LLMH)
+            TLM  = T(I, J, LLMH)
+            QLM  = Q(I, J, LLMH)
+!
+            PLM2 = PDSL(I,J) * AETA(LLMH) + PT 
+!        
+!            APELM2 = (1.0E5 / PLM2) ** CAPA
+!            THLM   = TLM * APELM2
+!
+            DPLM = PDSL(I,J) * DETA(LLMH) * 0.5
+            DZLM = 287.04 * DPLM * TLM * (1. + 0.608 * QLM) / (9.80616 * PLM2)
+!
+!            APEM1 = (1.E5 / PM1) ** CAPA ! DRAGAN 08/06/2017
+!            THLM  = TLM * APEM1          ! DRAGAN 08/06/2017
+!
+            IF (DZLM <= 10.) THEN
+                FAC1 = 1.
+                FAC2 = 0.
+            ELSE
+	        FAC1 = 10. / DZLM
+                FAC2 = (DZLM - 10.) / DZLM
+	    END IF
+!
+            TH10(I,J) = FAC2 * THS(I,J) + FAC1 * TLM  !  DULE
+             Q10(I,J) = FAC2 *  QS(I,J) + FAC1 * QLM
+             U10(I,J) = ULM
+             V10(I,J) = VLM
+!
+            IF (DZLM <= 2.) THEN
+                FAC1 = 1.
+                FAC2 = 0.
+            ELSE
+	        FAC1 = 2. / DZLM
+                FAC2 = (DZLM - 2.) / DZLM
+	    END IF
+!
+            TSHLTR(I,J) = FAC2 * THS(I,J) + FAC1 * TLM  !  DULE
+            QSHLTR(I,J) = FAC2 *  QS(I,J) + FAC1 * QLM
+        END DO
+    END DO
+!---------
+! FCSTDATA
+!--------- 
+    CDGNS = 'fcstdata_new.' // C_MYPE
+!  
+    OPEN(21, FILE=CDGNS, FORM='UNFORMATTED')  
+!
+    READ(21) TPREC, THEAT, TCLOD, TRDSW, TRDLW, TSRFC
+!
+    CLOSE (21)
+
+!-----
+! PHYS
+!----- 
+    DFRLG = DFL / 9.80616
+    DTQ2  = NPHS * DT
+    TDTQ2 = DTQ2 + DTQ2
+    DTD   = 0.5  * DTQ2
+    TDTD  = DTD  + DTD
+    KTM   = INT(DTQ2 / DTD + 0.5)
+!
+    DO I=0,IM+1
+        DO J=0,JM+1
+            PCTSNO(I,J) = -999.0
+!
+            IF (SM(I,J) < 0.5)THEN
+                IF (SICE(I,J) > 0.5) THEN
+                    SMSTAV(I,J) = 1.0
+                    SMSTOT(I,J) = 1.0
+!
+                       SMC(I,J,:) = 1.0
+                      SH2O(I,J,:) = 1.0
+                END IF
+            ELSE
+                SOILTB(I,J) = 273.16
+                SMSTAV(I,J) =   1.0
+                SMSTOT(I,J) =   1.0
+                GRNFLX(I,J) =   0.0
+                   SNO(I,J) =   0.0
+!
+                 SMC(I,J,:) =   1.0
+                SH2O(I,J,:) =   1.0
+                 STC(I,J,:) = 273.16
+            END IF
+!
+        END DO
+    END DO
+!
+    CALL BOCOHMPI(SMC , NSOIL)
+    CALL BOCOHMPI(STC , NSOIL)
+    CALL BOCOHMPI(SH2O, NSOIL)
+!-----
+! SOIL
+!-----
+    CMC = 0.
+!
+    SLDPTH(1) = 0.1
+    SLDPTH(2) = 0.3
+    SLDPTH(3) = 0.6
+    SLDPTH(4) = 1.0
+!
+    RTDPTH(1) = 0.1
+    RTDPTH(2) = 0.3
+    RTDPTH(3) = 0.6
+    RTDPTH(4) = 0.
+!  
+    TSPH = 3600. / DT
+!
+    NRDLW = INT(TRDLW * TSPH + 0.5)
+    NRDSW = INT(TRDSW * TSPH + 0.5)
+    NSRFC = INT(TSRFC * TSPH + 0.5)
+!
+    ARDLW  = 0.
+    ALWIN  = 0.
+    ALWOUT = 0.
+    ALWTOA = 0.
+    ARDSW  = 0.
+    ASWIN  = 0.
+    ASWOUT = 0.
+    ASWTOA = 0.
+    ASRFC  = 0.
+    APHTIM = 0.
+    SFCSHX = 0.
+    SFCLHX = 0.
+    SFCUVX = 0.
+    SUBSHX = 0.
+    SNOPCX = 0.
+    SFCEVP = 0.
+    POTEVP = 0.
+    POTFLX = 0.
+!----------
+! RADIATION
+!----------
+!
+!--------------------------------------------------------------------------------------------------
+! INITIALIZE RADTN VARIABLES CALCULATE THE NUMBER OF STEPS AT EACH POINT.
+! THE ARRAY 'LVL' WILL COORDINATE VERTICAL LOCATIONS BETWEEN THE LIFTED WORKING ARRAYS AND THE 
+! FUNDAMENTAL MODEL ARRAYS.
+! LVL HOLDS THE HEIGHT (IN MODEL LAYERS) OF THE TOPOGRAPHY AT EACH GRID POINT.
+!--------------------------------------------------------------------------------------------------
+    DO J=0,JM+1
+        DO I=0,IM+1
+            LVL(I,J) = LM - LMH(I,J)
+        END DO
+    END DO
+!-----------------------------------------------------------------------
+! DETERMINE MODEL LAYER LIMITS FOR HIGH(3), MIDDLE(2) AND LOW(1) CLOUDS.  
+! ALSO FIND MODEL LAYER THAT IS JUST BELOW (HEIGHT-WISE) 400 MB. (K400)
+!-----------------------------------------------------------------------   
+    K400 = 0
+    PSUM = PT
+    SLPM = 101325.
+    PDIF = SLPM - PT
+!
+    DO L=1,LM
+        PSUM = PSUM + DETA(L) * PDIF
+        IF (LTOP(3) == 0) THEN
+            IF (PSUM > PHITP) LTOP(3) = L
+        ELSE IF (LTOP(2) == 0) THEN
+            IF (PSUM > PMDHI) LTOP(2) = L
+        ELSE IF (K400  == 0) THEN
+            IF (PSUM > P400)     K400 = L
+        ELSE IF (LTOP(1) == 0) THEN
+            IF (PSUM > PLOMD) LTOP(1) = L
+        END IF
+    END DO
+!
+    CALL INIT_RNDDTA
+!------------------------------------------------------------
+! CALCULATE THE MIDLAYER PRESSURES IN THE STANDARD ATMOSPHERE
+!------------------------------------------------------------
+    PSS  = 101325.
+    PDIF = PSS - PT
+!
+    DO L=1,LM1
+        PHALF(L+1) = AETA(L) * PDIF + PT
+    END DO
+!
+    PHALF(1)   = 0.
+    PHALF(LP1) = PSS
+!  
+    CALL GRADFS(PHALF)
+!
+    CALL SOLARD(R1)
+!------------------------------------------------------------------------------
+! CALL ZENITH SIMPLY TO GET THE DAY OF THE YEAR FOR THE SETUP OF THE OZONE DATA
+!------------------------------------------------------------------------------
+
+    if(restrt)then
+    
+         time = ntsd*dt                 !should be considered in RESTART  25/06/2019
+      
+      else
+            
+         time=0    
+      
+      endif
+
+!!!orig    TIME = 0
+
+!
+    CALL ZENITH(TIME, DAYI, HOUR)
+!      
+    CALL O3CLIM
+!
+    ACDTDT = 0.
+!---------------------------------------------------- 
+! FROM INIT_BMJ(GEF) TO RUN THE MODEL WITH BMJ SCHEME
+!----------------------------------------------------
+!
+!------------------------------
+! INITIALIZE CUMULUS PARAMETERS
+!------------------------------
+!    CUCV = 'cucvparm.dat'
+!
+!    OPEN(21, FILE=CUCV, FORM='UNFORMATTED')
+!
+!    READ(21)    PLQ     , RDPQ    , RDTHEQ  , STHEQ   , THE0Q
+!    READ(21)    ROS     , CS      , DS      , ROI     , CI      , DI      , PL      , THL     ,   &
+!    &           RDQ     , RDTH    , RDP     , RDTHE   , QS0     , SQS     , STHE    , THE0
+!
+!    READ(21)    TTBLQ   , PTBL    , TTBL
+!
+!    CLOSE (21)
+!
+!    CLDEFI = 1.
+!---------------------------------------------------------
+! FROM REGIONAL ETA, TO RUN NON-HYDROSTATIC VERSION OF GEF
+!---------------------------------------------------------
+!
+!------------------------------------- 
+! INITIALIZE NONHYDROSTATIC QUANTITIES
+!------------------------------------- 
+!    DO L=1,LM
+!        DO J=0,JM+1
+!            DO I=0,IM+1
+!                DWDT(I,J,L) = 1.
+!            END DO
+!        END DO
+!    END DO
+!   
+    END SUBROUTINE INIT

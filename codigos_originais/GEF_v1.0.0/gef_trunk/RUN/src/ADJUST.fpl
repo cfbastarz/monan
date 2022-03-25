@@ -1,0 +1,1998 @@
+!H!****************************************************************************
+!H! File: ADJUST.fpl
+!H! Output by fpt 4.1-p  Intel-Linux  On  3-MAR-22  At 17:55:38    Input files:
+!H! Main:    /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ADJUST.f90
+!H! Licensee:  luiz.rodrigues@inpe.br : Luiz Flavio Rodrigues
+!H!****************************************************************************
+ 
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3425  Severity 1 (Worst 0)   Count    1    Line     1
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/parmeta.f90
+ ^
+     No code was found in this file
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 1867  Severity 0 (Worst 1)   Count    2
+     The code contains two or more main programs
+     See Listing File or FORTRAN output for occurrences.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 2345  Severity 1 (Worst 1)   Count    3    Line    52
+File: .../lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_IACCR_TABLES.f90
+        INTEGER(KIND = i4),PARAMETER :: mdimin = xmimin
+                                              ^
+     Data type of PARAMETER does not match that of the expression
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 2345  Severity 1 (Worst 1)   Count    4    Line    53
+File: .../lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_IACCR_TABLES.f90
+        INTEGER(KIND = i4),PARAMETER :: mdimax = xmimax
+                                              ^
+     Data type of PARAMETER does not match that of the expression
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 1263  Severity 1 (Worst 1)   Count    5
+     Fortran keyword(s) used as global identifier(s).
+     See Listing File or FORTRAN output for occurrences.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 2345  Severity 1 (Worst 1)   Count    6    Line    52
+File: .../lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RACCR_TABLES.f90
+        INTEGER(KIND = i4),PARAMETER :: mdrmin = xmrmin
+                                              ^
+     Data type of PARAMETER does not match that of the expression
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 2345  Severity 1 (Worst 1)   Count    7    Line    53
+File: .../lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RACCR_TABLES.f90
+        INTEGER(KIND = i4),PARAMETER :: mdrmax = xmrmax
+                                              ^
+     Data type of PARAMETER does not match that of the expression
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3047  Severity 1 (Worst 1)   Count    8
+     Fortran 90 intrinsic name(s) used as identifiers
+     See Listing File or FORTRAN output for occurrences.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count    9    Line   163
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ADJUST.f90
+        IF (pres/=d00) THEN
+                ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   10    Line   196
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ADJUST.f90
+        IF (dpde/=d00) THEN
+                ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   11    Line   209
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ADJUST.f90
+        IF (alp1pl+alp1p/=d00) THEN
+                        ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 1273  Severity 0 (Worst 1)   Count   12
+     Fortran auxiliary keyword(s) used as identifier(s).
+     See Listing File or FORTRAN output for occurrences.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 3921  Severity 0 (Worst 1)   Count   13    Line   555
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/mpif.h
+        SAVE/mpifcmb5/
+                     ^
+     This symbol is already declared to be SAVE or STATIC
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 3921  Severity 0 (Worst 1)   Count   14    Line   556
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/mpif.h
+        SAVE/mpifcmb9/
+                     ^
+     This symbol is already declared to be SAVE or STATIC
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 3921  Severity 0 (Worst 1)   Count   15    Line   561
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/mpif.h
+        SAVE/mpipriv1/,/mpipriv2/
+                     ^
+     This symbol is already declared to be SAVE or STATIC
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 3921  Severity 0 (Worst 1)   Count   16    Line   561
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/mpif.h
+        SAVE/mpipriv1/,/mpipriv2/
+                                ^
+     This symbol is already declared to be SAVE or STATIC
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 3921  Severity 0 (Worst 1)   Count   17    Line   564
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/mpif.h
+        SAVE/mpiprivc/
+                     ^
+     This symbol is already declared to be SAVE or STATIC
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   18    Line   972
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CUCNVC.f90
+        IF (preck==0.0)efi = 1.
+                 ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 1271  Severity 0 (Worst 1)   Count   19
+     Non-standard Fortran intrinsic(s) used as local identifier(s)
+     See Listing File or FORTRAN output for occurrences.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   20    Line   159
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DIFCOF.f90
+        IF (x==0) THEN
+             ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   21    Line   159
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DIFCOF.f90
+        IF (x==0) THEN
+             ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   22    Line   178
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DIFCOF.f90
+        IF (y==0) THEN
+             ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   23    Line   178
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DIFCOF.f90
+        IF (y==0) THEN
+             ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   24    Line   189
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DIFCOF.f90
+        IF (q2(l)<0) THEN
+                 ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   25    Line   169
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E1E290.f90
+        IF (avephi(i,k)>0) THEN
+                       ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   26    Line   136
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E290.f90
+        IF (avephi(i,klen+k-1)>0) THEN
+                              ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   27    Line   119
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E2SPEC.f90
+        IF (avephi(i,k)>0) THEN
+                       ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   28    Line   117
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E3V88.f90
+        IF (av(i,k)/=0) THEN
+                   ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   29    Line   117
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E3V88.f90
+        IF (av(i,k)/=0) THEN
+                   ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   30    Line   121
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FLUX_CORRECTION.f90
+        IF (hold(i+it,j+jt)>0) THEN
+                           ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   31    Line   125
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FLUX_CORRECTION.f90
+        IF (hpre(i+it,j+jt)>0) THEN
+                           ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   32    Line   129
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FLUX_CORRECTION.f90
+        IF (hold(i+it,j+jt)>0) THEN
+                           ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 1269  Severity 1 (Worst 1)   Count   33
+     Fortran keyword(s) used as local identifier(s).
+     See Listing File or FORTRAN output for occurrences.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 2517  Severity 1 (Worst 1)   Count   34
+     ANSI FORTRAN 77 intrinsic(s) used as local identifier(s)
+     See Listing File or FORTRAN output for occurrences.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   35    Line   268
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i17,j17,k17)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   36    Line   282
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i18,j18,k18)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   37    Line   296
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i21,j21,k21)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   38    Line   312
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i3,j3,k3)>330) THEN
+                       ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   39    Line   328
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i19,j19,k19)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   40    Line   344
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i5,j5,k5)>330) THEN
+                       ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   41    Line   378
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i7,j7,k7)>330) THEN
+                       ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   42    Line   394
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i20,j20,k20)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   43    Line   427
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i9,j9,k9)>330) THEN
+                       ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   44    Line   443
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i10,j10,k10)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   45    Line   469
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i11,j11,k11)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   46    Line   487
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i12,j12,k12)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   47    Line   501
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i13,j13,k13)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   48    Line   521
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i14,j14,k14)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   49    Line   563
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i15,j15,k15)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   50    Line   583
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+        IF (t(i16,j16,k16)>330) THEN
+                          ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 2345  Severity 1 (Worst 1)   Count   51    Line   325
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        INTEGER(KIND = i4),PARAMETER :: mdr1 = xmr1
+                                            ^
+     Data type of PARAMETER does not match that of the expression
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 2345  Severity 1 (Worst 1)   Count   52    Line   326
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        INTEGER(KIND = i4),PARAMETER :: mdr2 = xmr2
+                                            ^
+     Data type of PARAMETER does not match that of the expression
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 2345  Severity 1 (Worst 1)   Count   53    Line   327
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        INTEGER(KIND = i4),PARAMETER :: mdr3 = xmr3
+                                            ^
+     Data type of PARAMETER does not match that of the expression
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   54    Line   815
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (piacwi==0.0 .AND. pidep==0.0) THEN
+                  ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   55    Line   815
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (piacwi==0.0 .AND. pidep==0.0) THEN
+                                   ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   56    Line  1116
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (qw>0.0 .AND. qwnew/=0.0) THEN
+                              ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   57    Line  1151
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (tot_ice>0.0 .AND. tot_icenew/=0.0) THEN
+                                        ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   58    Line  1188
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (qi>0.0 .AND. qinew/=0.0) THEN
+                              ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   59    Line  1195
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (asnow>0.0 .AND. asnownew/=0.0) THEN
+                                    ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   60    Line  1214
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (tot_rain>0.0 .AND. tot_rainnew/=0.0) THEN
+                                          ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   61    Line  1257
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (qr>0.0 .AND. qrnew/=0.0) THEN
+                              ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   62    Line  1263
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (arain>0.0 .AND. arainnew/=0.0) THEN
+                                    ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   63    Line  1352
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (dum>0.0 .OR. dwvi/=0.0)                                           &
+                             ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   64    Line  1361
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (pidep/=0.0 .AND. dwvi/=0.0)                                       &
+                 ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   65    Line  1361
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (pidep/=0.0 .AND. dwvi/=0.0)                                       &
+                                 ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   66    Line  1369
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        IF (pidep>0.0 .AND. pcond/=0.0)                                       &
+                                 ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3295  Severity 1 (Worst 1)   Count   67    Line  1495
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        REAL(KIND = high_pres),PARAMETER :: climit = 1.0E-20
+                                                  ^
+     Parameter will not have the expected precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3295  Severity 1 (Worst 1)   Count   68    Line  1496
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        REAL(KIND = high_pres),PARAMETER :: rhlimit = 0.001
+                                                   ^
+     Parameter will not have the expected precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3437  Severity 1 (Worst 1)   Count   69    Line  1526
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        tdum = tdum+xlv1*cond				      ! UPDATED TEMPERATURE
+                        ^
+     Mixed real or complex sizes in expression - loss of precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3437  Severity 1 (Worst 1)   Count   70    Line  1526
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        tdum = tdum+xlv1*cond				      ! UPDATED TEMPERATURE
+                   ^
+     Mixed real or complex sizes in expression - loss of precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3437  Severity 1 (Worst 1)   Count   71    Line  1527
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        wvdum = wvdum-cond				      ! UPDATED WATER VAPOR MIXING RATIO
+                     ^
+     Mixed real or complex sizes in expression - loss of precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3437  Severity 1 (Worst 1)   Count   72    Line  1529
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        condense = condense+cond			      ! TOTAL CLOUD WATER CONDENSATION
+                           ^
+     Mixed real or complex sizes in expression - loss of precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3295  Severity 1 (Worst 1)   Count   73    Line  1578
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        REAL(KIND = high_pres),PARAMETER :: rhlimit = 0.001
+                                                   ^
+     Parameter will not have the expected precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3437  Severity 1 (Worst 1)   Count   74    Line  1607
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        tdum = tdum+xls1*dep			     ! UPDATED TEMPERATURE
+                        ^
+     Mixed real or complex sizes in expression - loss of precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3437  Severity 1 (Worst 1)   Count   75    Line  1607
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        tdum = tdum+xls1*dep			     ! UPDATED TEMPERATURE
+                   ^
+     Mixed real or complex sizes in expression - loss of precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3437  Severity 1 (Worst 1)   Count   76    Line  1608
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        wvdum = wvdum-dep			     ! UPDATED ICE MIXING RATIO
+                     ^
+     Mixed real or complex sizes in expression - loss of precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3437  Severity 1 (Worst 1)   Count   77    Line  1609
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+        deposit = deposit+dep			     ! TOTAL ICE DEPOSITION
+                         ^
+     Mixed real or complex sizes in expression - loss of precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 2345  Severity 1 (Worst 1)   Count   78    Line   134
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCONST.f90
+        INTEGER(KIND = i4),PARAMETER :: mdr1 = xmr1
+                                            ^
+     Data type of PARAMETER does not match that of the expression
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 2345  Severity 1 (Worst 1)   Count   79    Line   135
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCONST.f90
+        INTEGER(KIND = i4),PARAMETER :: mdr2 = xmr2
+                                            ^
+     Data type of PARAMETER does not match that of the expression
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 2345  Severity 1 (Worst 1)   Count   80    Line   136
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCONST.f90
+        INTEGER(KIND = i4),PARAMETER :: mdr3 = xmr3
+                                            ^
+     Data type of PARAMETER does not match that of the expression
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   81    Line   327
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMDRIVE.f90
+        IF (t(ii3,jj3,kk3)<150.00 .OR. t(ii3,jj3,kk3)>350)WRITE (*,*)         &
+                                                     ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   82    Line   243
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/HDIFF.f90
+        IF (pd(i+1,j)/=pd(i-1,j)) THEN
+                     ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   83    Line   247
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/HDIFF.f90
+        IF (pd(i,j+1)/=pd(i,j-1)) THEN
+                     ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   84    Line   326
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/HDIFF.f90
+        IF (difn/=d00) THEN
+                ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   85    Line   161
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/HZADVQ.f90
+        IF (fxe(i,j)>0) THEN
+                    ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   86    Line   169
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/HZADVQ.f90
+        IF (fye(i,j)>0) THEN
+                    ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   87    Line   189
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/HZADVQ.f90
+        IF (gdpdn(i,j)/=d00) THEN
+                      ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   88    Line   337
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/INIT.f90
+        IF (sqh(i,j)/=0) THEN
+                    ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   89    Line   337
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/INIT.f90
+        IF (sqh(i,j)/=0) THEN
+                    ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   90    Line   343
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/INIT.f90
+        IF (sqv(i,j)/=0) THEN
+                    ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   91    Line   343
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/INIT.f90
+        IF (sqv(i,j)/=0) THEN
+                    ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   92    Line   414
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KFPARA.f90
+        IF (sumv>0) THEN
+                ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   93    Line   988
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KFPARA.f90
+        IF (eqfrc(nk1)==1) THEN
+                      ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   94    Line   988
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KFPARA.f90
+        IF (eqfrc(nk1)==1) THEN
+                      ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   95    Line   992
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KFPARA.f90
+        ELSEIF (eqfrc(nk1)==0.0) THEN
+                          ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   96    Line  1360
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KFPARA.f90
+        IF (z00lfc/=zlcl) THEN
+                  ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   97    Line  1519
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KFPARA.f90
+        IF (cbh>25)rcbh = 2.4
+               ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count   98    Line  2198
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KFPARA.f90
+        IF (fabe==0.0) THEN
+                ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count   99    Line   187
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/LWR88.f90
+        IF (delp2(i,k)==0) THEN
+                      ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count  100    Line   187
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/LWR88.f90
+        IF (delp2(i,k)==0) THEN
+                      ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count  101    Line   200
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/LWR88.f90
+        IF (temp(i,k)/=0) THEN
+                     ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count  102    Line   200
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/LWR88.f90
+        IF (temp(i,k)/=0) THEN
+                     ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count  103    Line   109
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/NEWTON.f90
+        IF (teq(i,j,l)<200) THEN
+                      ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 1267  Severity 0 (Worst 1)   Count  104
+     Fortran auxiliary keyword(s) used as identifier(s).
+     See Listing File or FORTRAN output for occurrences.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count  105    Line   234
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+        IF (htm(i,j,l)>0) THEN
+                      ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count  106    Line   277
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+        IF (htm(i,j,l)==0) THEN
+                      ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count  107    Line   277
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+        IF (htm(i,j,l)==0) THEN
+                      ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count  108    Line   290
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+        IF (tl(l)==0) THEN
+                 ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count  109    Line   290
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+        IF (tl(l)==0) THEN
+                 ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count  110    Line   353
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+        IF (vtm(i,j,l)>0) THEN
+                      ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count  111    Line   366
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+        IF (peta(l)/=0) THEN
+                   ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count  112    Line   366
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+        IF (peta(l)/=0) THEN
+                   ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count  113    Line   476
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADTN.f90
+        IF (tmid(i,k)/=0) THEN
+                     ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count  114    Line   476
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADTN.f90
+        IF (tmid(i,k)/=0) THEN
+                     ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 1)   Count  115    Line   825
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADTN.f90
+        IF (cv(i)==0.0) THEN
+                 ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3437  Severity 1 (Worst 1)   Count  116    Line  1213
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADTN.f90
+        ddx = tauc(i)/(tauc(i)+prod)
+                              ^
+     Mixed real or complex sizes in expression - loss of precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3437  Severity 1 (Worst 1)   Count  117    Line  1213
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADTN.f90
+        ddx = tauc(i)/(tauc(i)+prod)
+                     ^
+     Mixed real or complex sizes in expression - loss of precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3437  Severity 1 (Worst 1)   Count  118    Line  1214
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADTN.f90
+        eex = 1.0-ddx
+                 ^
+     Mixed real or complex sizes in expression - loss of precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3089  Severity 1 (Worst 1)   Count  119    Line  1215
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADTN.f90
+        IF (ABS(eex)>=1.0E-8) THEN
+                    ^
+     Comparison of REAL or COMPLEX values which differ in precision
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count  120    Line   651
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_CHOU.f90
+        IF (rlmp<0) THEN
+                ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 1)   Count  121    Line   652
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF.f90
+        IF (rlmp<0) THEN
+                ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 1)   Count  122    Line   679
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF.f90
+REAL FUNCTION pslmu_2(zz)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  123    Line   694
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF.f90
+REAL FUNCTION pslms_2(zz)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  124    Line   712
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF.f90
+REAL FUNCTION pslhu_2(zz)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  125    Line   727
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF.f90
+REAL FUNCTION pslhs_2(zz)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  126    Line   747
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF.f90
+REAL FUNCTION pspmu_2(xx)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  127    Line   764
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF.f90
+REAL FUNCTION pspms_2(yy)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  128    Line   779
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF.f90
+REAL FUNCTION psphu_2(xx)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  129    Line   794
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF.f90
+REAL FUNCTION psphs_2(yy)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 2)   Count  130    Line   630
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_ORIGINAL.f90
+        IF (rlmp<0) THEN
+                ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  131    Line   656
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_ORIGINAL.f90
+REAL FUNCTION pslmu_3(zz)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  132    Line   671
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_ORIGINAL.f90
+REAL FUNCTION pslms_3(zz)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  133    Line   689
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_ORIGINAL.f90
+REAL FUNCTION pslhu_3(zz)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  134    Line   704
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_ORIGINAL.f90
+REAL FUNCTION pslhs_3(zz)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  135    Line   724
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_ORIGINAL.f90
+REAL FUNCTION pspmu_3(xx)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  136    Line   741
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_ORIGINAL.f90
+REAL FUNCTION pspms_3(yy)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  137    Line   756
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_ORIGINAL.f90
+REAL FUNCTION psphu_3(xx)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! ERROR !!!    Number 3037  Severity 2 (Worst 2)   Count  138    Line   771
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_ORIGINAL.f90
+REAL FUNCTION psphs_3(yy)
+             ^
+     Data type declaration of this function not found
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 2)   Count  139    Line   278
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFLX.f90
+        IF (sneqv==0.0) THEN
+                 ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 2)   Count  140    Line   335
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFLX.f90
+        IF (sneqv==0.0) THEN
+                 ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 2)   Count  141    Line   401
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFLX.f90
+        IF (sneqv==0.0) THEN
+                 ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 2)   Count  142    Line   467
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFLX.f90
+        IF (sneqv==0.0) THEN
+                 ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 2)   Count  143    Line   815
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFLX.f90
+        IF (ck/=0.0) THEN
+              ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 2)   Count  144    Line  2933
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFLX.f90
+        IF (pcpdrp/=0.0) THEN
+                  ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 2)   Count  145    Line  3445
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFLX.f90
+        IF (cmc/=0.0) THEN
+               ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 2)   Count  146    Line   128
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SPONGE.f90
+        IF (difn/=0) THEN
+                ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 2)   Count  147    Line   128
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SPONGE.f90
+        IF (difn/=0) THEN
+                ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 2)   Count  148    Line   841
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/UTIL.f90
+        IF (yp1>0.99E30) THEN
+               ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 2)   Count  149    Line   857
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/UTIL.f90
+        IF (ypn>0.99E30) THEN
+               ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 2)   Count  150    Line   322
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/VTADV.f90
+        IF (etadt2(1)<=0) THEN
+                     ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3085  Severity 1 (Worst 2)   Count  151    Line   329
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/VTADV.f90
+        IF (etadt2(l)<=0) THEN
+                     ^
+     Objects of .EQ., .NE. .GT. etc. are of different data types
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 3087  Severity 1 (Worst 2)   Count  152    Line   491
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/VTADV.f90
+        IF (htm(i,j,l+1)==0.0)qbi(i,j,l) = 2.*water(i,j,l)-qbi(i,j,l-1)
+                        ^
+     REAL or COMPLEX quantity tested for exact equality/inequality
+-------------------------------------------------------------------------------
+
+
+
+Check for Missing INCLUDE files
+===============================
+
+All INCLUDE files were opened successfully
+
+
+
+Check for Missing MODULEs
+=========================
+
+All MODULE references resolved
+
+
+*******************************************************************************
+
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  153    Line    51
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E1E290.f90
+SUBROUTINE e1e290(g1,g2,g3,g4,g5,emiss,fxoe1,dte1,fxoe2,dte2,avephi,temp,t)
+                  ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  154    Line    51
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E1E290.f90
+SUBROUTINE e1e290(g1,g2,g3,g4,g5,emiss,fxoe1,dte1,fxoe2,dte2,avephi,temp,t)
+                     ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  155    Line    51
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E1E290.f90
+SUBROUTINE e1e290(g1,g2,g3,g4,g5,emiss,fxoe1,dte1,fxoe2,dte2,avephi,temp,t)
+                        ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  156    Line    51
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E1E290.f90
+SUBROUTINE e1e290(g1,g2,g3,g4,g5,emiss,fxoe1,dte1,fxoe2,dte2,avephi,temp,t)
+                           ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  157    Line    51
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E1E290.f90
+SUBROUTINE e1e290(g1,g2,g3,g4,g5,emiss,fxoe1,dte1,fxoe2,dte2,avephi,temp,t)
+                              ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  158    Line    39
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E290.f90
+SUBROUTINE e290(emissb,emiss,avephi,klen,fxoe2,dte2)
+                ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  159    Line    37
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E2SPEC.f90
+SUBROUTINE e2spec(emiss,avephi,fxosp,dtsp)
+                  ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  160    Line    32
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E3V88.f90
+SUBROUTINE e3v88(emv,tv,av)
+                 ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  161    Line    44
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SPA88.f90
+SUBROUTINE spa88(excts,ctso3,gxcts,sorc,csour,cldfac,temp,                    &
+                 ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  162    Line    44
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SPA88.f90
+SUBROUTINE spa88(excts,ctso3,gxcts,sorc,csour,cldfac,temp,                    &
+                       ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  163    Line    44
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SPA88.f90
+SUBROUTINE spa88(excts,ctso3,gxcts,sorc,csour,cldfac,temp,                    &
+                             ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  164    Line    71
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FST88.f90
+SUBROUTINE fst88(heatra,grnflx,topflx,qh2o,press,p,delp,delp2,temp,           &
+                 ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  165    Line    71
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FST88.f90
+SUBROUTINE fst88(heatra,grnflx,topflx,qh2o,press,p,delp,delp2,temp,           &
+                        ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  166    Line    71
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FST88.f90
+SUBROUTINE fst88(heatra,grnflx,topflx,qh2o,press,p,delp,delp2,temp,           &
+                               ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  167    Line    30
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ARR_OP.f90
+SUBROUTINE rotccw90(arr1,arr2,imax,jmax,lmax)
+                         ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  168    Line   132
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ARR_OP.f90
+SUBROUTINE rotcw90(arr1,arr2,imax,jmax,lmax)
+                        ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  169    Line   233
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ARR_OP.f90
+SUBROUTINE rot180(arr1,arr2,imax,jmax,lmax)
+                       ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  170    Line    33
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CLO89.f90
+SUBROUTINE clo89(cldfac,camt,nclds,kbtm,ktop)
+                 ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4411  Severity 1 (Worst 2)   Count  171    Line    39
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ENVIRTHT.f90
+SUBROUTINE envirtht(p1,t1,q1,tht1,r1,rl,aliq,bliq,cliq,dliq,aice,bice,cice,   &
+                    ^
+     INTENT declared OUT/INOUT but argument is not written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4411  Severity 1 (Worst 2)   Count  172    Line    39
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ENVIRTHT.f90
+SUBROUTINE envirtht(p1,t1,q1,tht1,r1,rl,aliq,bliq,cliq,dliq,aice,bice,cice,   &
+                       ^
+     INTENT declared OUT/INOUT but argument is not written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4411  Severity 1 (Worst 2)   Count  173    Line    39
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ENVIRTHT.f90
+SUBROUTINE envirtht(p1,t1,q1,tht1,r1,rl,aliq,bliq,cliq,dliq,aice,bice,cice,   &
+                          ^
+     INTENT declared OUT/INOUT but argument is not written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4411  Severity 1 (Worst 2)   Count  174    Line    39
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ENVIRTHT.f90
+SUBROUTINE envirtht(p1,t1,q1,tht1,r1,rl,aliq,bliq,cliq,dliq,aice,bice,cice,   &
+                                        ^
+     INTENT declared OUT/INOUT but argument is not written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4411  Severity 1 (Worst 2)   Count  175    Line    39
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ENVIRTHT.f90
+SUBROUTINE envirtht(p1,t1,q1,tht1,r1,rl,aliq,bliq,cliq,dliq,aice,bice,cice,   &
+                                             ^
+     INTENT declared OUT/INOUT but argument is not written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4411  Severity 1 (Worst 2)   Count  176    Line    39
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ENVIRTHT.f90
+SUBROUTINE envirtht(p1,t1,q1,tht1,r1,rl,aliq,bliq,cliq,dliq,aice,bice,cice,   &
+                                                  ^
+     INTENT declared OUT/INOUT but argument is not written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4411  Severity 1 (Worst 2)   Count  177    Line    39
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ENVIRTHT.f90
+SUBROUTINE envirtht(p1,t1,q1,tht1,r1,rl,aliq,bliq,cliq,dliq,aice,bice,cice,   &
+                                                       ^
+     INTENT declared OUT/INOUT but argument is not written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4411  Severity 1 (Worst 2)   Count  178    Line    44
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/LWR88.f90
+         cldfac,camt,nclds,ktop,kbtm)
+         ^
+     INTENT declared OUT/INOUT but argument is not written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  179    Line    58
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+SUBROUTINE swr93(fswc,hswc,ufswc,dfswc,fswl,hswl,ufswl,                       &
+                 ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  180    Line    58
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+SUBROUTINE swr93(fswc,hswc,ufswc,dfswc,fswl,hswl,ufswl,                       &
+                      ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  181    Line    58
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+SUBROUTINE swr93(fswc,hswc,ufswc,dfswc,fswl,hswl,ufswl,                       &
+                           ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  182    Line    58
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+SUBROUTINE swr93(fswc,hswc,ufswc,dfswc,fswl,hswl,ufswl,                       &
+                                 ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  183    Line    58
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+SUBROUTINE swr93(fswc,hswc,ufswc,dfswc,fswl,hswl,ufswl,                       &
+                                       ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  184    Line    58
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+SUBROUTINE swr93(fswc,hswc,ufswc,dfswc,fswl,hswl,ufswl,                       &
+                                            ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  185    Line    58
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+SUBROUTINE swr93(fswc,hswc,ufswc,dfswc,fswl,hswl,ufswl,                       &
+                                                 ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  186    Line    59
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+         dfswl,press,coszro,taudar,rh2o,rrco2,ssolar,                         &
+         ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  187    Line    61
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+         alvb,alnb,alvd,alnd,gdfvb,gdfnb,gdfvd,                               &
+                             ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  188    Line    61
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+         alvb,alnb,alvd,alnd,gdfvb,gdfnb,gdfvd,                               &
+                                   ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  189    Line    61
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+         alvb,alnb,alvd,alnd,gdfvb,gdfnb,gdfvd,                               &
+                                         ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  190    Line    62
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+         gdfnd,lprint)
+         ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  191    Line    33
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DIFCOF.f90
+SUBROUTINE difcof(lmhk,gm,gh,el,q2,z,akm,akh)
+                                     ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  192    Line    33
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DIFCOF.f90
+SUBROUTINE difcof(lmhk,gm,gh,el,q2,z,akm,akh)
+                                         ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4413  Severity 1 (Worst 2)   Count  193    Line    38
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MIXLEN.f90
+SUBROUTINE mixlen(lmhk,hpbl,u,v,t,q,q2,ape,z,gm,gh,el)
+                       ^
+     INTENT declared INOUT but argument is always written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  194    Line    38
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MIXLEN.f90
+SUBROUTINE mixlen(lmhk,hpbl,u,v,t,q,q2,ape,z,gm,gh,el)
+                                             ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  195    Line    38
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MIXLEN.f90
+SUBROUTINE mixlen(lmhk,hpbl,u,v,t,q,q2,ape,z,gm,gh,el)
+                                                ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  196    Line    38
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MIXLEN.f90
+SUBROUTINE mixlen(lmhk,hpbl,u,v,t,q,q2,ape,z,gm,gh,el)
+                                                   ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  197    Line    34
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OZON2D.f90
+SUBROUTINE ozon2d(lk,pozn,xlat,rsin1,rcos1,rcos2,qo3,lprint)
+                                                 ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  198    Line    33
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/PRODQ2.f90
+SUBROUTINE prodq2(lmhk,dtq2,ustar,gm,gh,el,q2)
+                                        ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  199    Line    33
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/PRODQ2.f90
+SUBROUTINE prodq2(lmhk,dtq2,ustar,gm,gh,el,q2)
+                                           ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  200    Line    90
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADFS.f90
+         jd,r1,gmt,swh,hlw,flwup,fswup,fswdn,fswdns,                          &
+                   ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  201    Line    90
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADFS.f90
+         jd,r1,gmt,swh,hlw,flwup,fswup,fswdn,fswdns,                          &
+                       ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  202    Line    90
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADFS.f90
+         jd,r1,gmt,swh,hlw,flwup,fswup,fswdn,fswdns,                          &
+                           ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  203    Line    90
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADFS.f90
+         jd,r1,gmt,swh,hlw,flwup,fswup,fswdn,fswdns,                          &
+                                 ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  204    Line    90
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADFS.f90
+         jd,r1,gmt,swh,hlw,flwup,fswup,fswdn,fswdns,                          &
+                                       ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  205    Line    90
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADFS.f90
+         jd,r1,gmt,swh,hlw,flwup,fswup,fswdn,fswdns,                          &
+                                             ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  206    Line    91
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADFS.f90
+         fswups,flwdns,flwups,lprint)
+         ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  207    Line    91
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADFS.f90
+         fswups,flwdns,flwups,lprint)
+                ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  208    Line    91
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADFS.f90
+         fswups,flwdns,flwups,lprint)
+                       ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4411  Severity 1 (Worst 2)   Count  209    Line    56
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_CHOU.f90
+SUBROUTINE sfcdif(lmhk,sm,ths,qs,uz0,vz0,thz0,qz0,ustar,z0,zeff,              &
+                                                           ^
+     INTENT declared OUT/INOUT but argument is not written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4411  Severity 1 (Worst 2)   Count  210    Line    56
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF.f90
+SUBROUTINE sfcdif_2(lmhk,sm,ths,qs,uz0,vz0,thz0,qz0,ustar,z0,zeff,            &
+                                                             ^
+     INTENT declared OUT/INOUT but argument is not written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+!!! WARNING !!!  Number 4411  Severity 1 (Worst 2)   Count  211    Line    56
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_ORIGINAL.f90
+SUBROUTINE sfcdif_3(lmhk,sm,ths,qs,uz0,vz0,thz0,qz0,ustar,z0,zeff,            &
+                                                             ^
+     INTENT declared OUT/INOUT but argument is not written to
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  212    Line    47
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+SUBROUTINE outsd(pout,tout,fout,uout,vout,qout,wout)
+                 ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  213    Line    47
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+SUBROUTINE outsd(pout,tout,fout,uout,vout,qout,wout)
+                      ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  214    Line    47
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+SUBROUTINE outsd(pout,tout,fout,uout,vout,qout,wout)
+                           ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  215    Line    47
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+SUBROUTINE outsd(pout,tout,fout,uout,vout,qout,wout)
+                                ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  216    Line    47
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+SUBROUTINE outsd(pout,tout,fout,uout,vout,qout,wout)
+                                     ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  217    Line    47
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+SUBROUTINE outsd(pout,tout,fout,uout,vout,qout,wout)
+                                          ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  218    Line    47
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+SUBROUTINE outsd(pout,tout,fout,uout,vout,qout,wout)
+                                               ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  219    Line    47
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/TTBLEX.f90
+SUBROUTINE ttblex(tref,ttbl,itb,jtb,knum,iarr,jarr,pdsl,aetal,html,pt,pl,qq,  &
+                  ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  220    Line    29
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/AVRV3.f90
+SUBROUTINE avrv3(v1,v2,vxy,imax,jmax)
+                       ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  221    Line    27
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CORNER_MFL.f90
+SUBROUTINE corner_mfl(ust,vst,p)
+                              ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+NOTE             Number 4409  Severity 0 (Worst 2)   Count  222    Line   332
+File: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/UTIL.f90
+SUBROUTINE avrhh(h,hxy,imax,jmax)
+                   ^
+     Unable to verify read access status of this argument
+-------------------------------------------------------------------------------
+
+
+
+Data Flow Analysis
+==================
+
+No analysis was required
+
+*******************************************************************************
+
+
+
+Suppressed Error and Warning Messages
+=====================================
+
+(fpt command: show suppressed errors)
+
+4375    DATA statement encountered
+4383    COMMON statement encountered
+
+*******************************************************************************
+
+
+
+
+Fortran Input Files
+===================
+
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ADJUST.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ALLOC.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ARR_OP.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/AVRV3.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/BOCOHMPI.f90
+.../lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/BOCOV_HMPI.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/BOCOVMPI.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/BOCOVMPI_SC.f90
+...e/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CHECKMXMN.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CHSST.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CLO89.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CLTEND.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CONDLOAD.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CONRAD.f90
+...e/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CORNERHM2.f90
+...e/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CORNERHM4.f90
+.../lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CORNER_MFL.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CUCNVC.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DDAMP.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DIFCOF.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DIGFLT.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DTFRZ2.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E1E290.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E290.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E2SPEC.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/E3V88.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ENVIRTHT.f90
+...e/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FINISHMPI.f90
+...Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FLUX_CORRECTION1D.f90
+...a/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FLUX_CORRECTION.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FOUR1.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FST88.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GEF.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GETDATE.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GFDLRD.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GRADFS.f90
+...e/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCOLUMN.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMCONST.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/GSMDRIVE.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/HCONST.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/HDIFF.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/HZADV.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/HZADVQ.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/INITCKMM.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/INITDOM.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/INIT.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/INITMPI.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/INIT_RNDDTA.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/INITTOP1.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/INITTOP2.f90
+...e/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ISCORNER2.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KFDRIVE.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KFPARA.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KFTEND.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KINEN.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/levrbls.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/LUTAB.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/LWR88.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MIXLEN.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_ABCI.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_ACMCLD.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_ACMCLH.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_ACMPRE.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_ACMRDL.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_ACMRDS.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_ACMSFC.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_ASTSAV.f90
+...la/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_C_FRACN.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_CLDWTR.f90
+...ownloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_CMICRO_CONS.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_CMICRO_START.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_CMICRO_STATS.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_CMY600.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_CNVCLD.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_CO2DTA.f90
+...la/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_COMPVS0.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_COMPVS.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_CONTIN.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_CTLBLK.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_CUINIT.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_CUPARM.f90
+...la/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_DGNSOUT.f90
+.../lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_DOM.f90
+...ufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_DYNAM.f90
+...a/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_F77KINDS.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_HCON.f90
+...e/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_HS.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_IACCR_TABLES.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_IMASS_TABLES.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_IRATE_TABLES.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_IRIME_TABLES.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_IVENT_TABLES.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_KFFDBK.f90
+...ufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_KFLUT.f90
+...ufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_LOOPS.f90
+...ufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_MAPOT.f90
+...ufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_MASKS.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_METRCS.f90
+...a/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_MPPSTAFF.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_NEBMAP.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_NHYDRO.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_O3DATA.f90
+...la/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_OPTIONS.f90
+...la/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_PARMETA.f90
+...a/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_PARMSOIL.f90
+...a/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_PARM_TBL.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_PHYS.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_PPTASM.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_PVRBLS.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RACCR_TABLES.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RD1TIM.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RDFSAV.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RDPARM.f90
+...la/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_REALPAR.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RITE.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RMASS_TABLES.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RNDDTA.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RRATE_TABLES.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RVELR_TABLES.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_RVENT_TABLES.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_SAVMEM.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_SCRTCH.f90
+...wnloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_SDENS_TABLES.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_SEASO3.f90
+.../Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_SET_ASSOC.f90
+...a/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_SET_ZERO.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_SOIL.f90
+...ufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_SSALB.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_SWRSAV.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_TABCOM.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_TBLTMP.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_TEND.f90
+...fla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_TPRFIL.f90
+...ufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/MODULE_VRBLS.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/NEWTON.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/O3CLIM.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/O3INT.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUT2.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUT.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUT_HEAT.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OZON2D.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/parmeta.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/PDETE.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/PDNEW.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/PRODQ2.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/PROF5.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADFS.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RADTN.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/RDTEMP.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/READ_RESTRT.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/READ_SST12M.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/REALFT.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_CHOU.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF.f90
+...a/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFCDIF_ORIGINAL.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SFLX.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SHAP_FILTER.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SOLARD.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SPA88.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SPONGE.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SSTCH.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SURFCE.f90
+...lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SURFCE_ORIG.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SWR93.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/TABLE.f90
+...e/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/TIMEF_BOG.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/TPMIX2DD.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/TPMIX2.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/TTBLEX.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/TURBL.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/UTIL.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/VDIFH.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/VDIFQ.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/VDIFV.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/VEGUPDT.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/VTADV.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ZENITH.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ZERO.f90
+/home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/mpif.h        Include file
+
+*******************************************************************************
+
+
+
+
+Check for Unresolved Sub-program References
+===========================================
+
+(fpt command: show missing sub-programs)
+
+Unresolved references in the main call tree(s)
+----------------------------------------------
+
+   iw3jdn         mpi_barrier    mpi_comm_rank  mpi_comm_size  mpi_finalize
+   mpi_init       mpi_irecv      mpi_isend      mpi_reduce     mpi_wait
+   mpi_wtick      mpi_wtime      pmpi_wtick     pmpi_wtime
+
+-------------------------------------------------------------------------------
+NOTE             Number 2241  Severity 0 (Worst 2)   Count  223
+     References are made to sub-programs which have not been read.
+-------------------------------------------------------------------------------
+
+
+*******************************************************************************
+
+
+
+
+Check for Unused Sub-programs and Files
+=======================================
+
+(fpt commands: show unused sub-programs/files)
+
+
+Unused sub-programs
+-------------------
+
+   avrhh          avrv3          bocov_hmpi     chsst          cornerhm4
+   corner_mfl     cucnvc         digflt         four1          hdiff
+   invert         iscorner       kinen          lagrang3       newton
+   out            outsd          out_heat       read_sst12m    realft
+   spline         splint         sponge         swapuv_ln      timef
+   ttblex
+
+-------------------------------------------------------------------------------
+NOTE             Number 2449  Severity 0 (Worst 2)   Count  224
+     Unused sub-programs encountered
+-------------------------------------------------------------------------------
+
+
+
+Unused primary files
+--------------------
+
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/AVRV3.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/BOCOV_HMPI.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CHSST.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CORNERHM4.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CORNER_MFL.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/CUCNVC.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/DIGFLT.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/FOUR1.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/HDIFF.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/KINEN.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/NEWTON.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUT.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUT_HEAT.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/OUTSD.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/parmeta.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/READ_SST12M.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/REALFT.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/SPONGE.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/TIMEF_BOG.f90
+   /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/TTBLEX.f90
+
+-------------------------------------------------------------------------------
+NOTE             Number 2451  Severity 0 (Worst 2)   Count  225
+     Unused primary files encountered
+-------------------------------------------------------------------------------
+
+*******************************************************************************
+
+
+
+
+Check of Usage of Keywords and Intrinsic Names
+==============================================
+
+(fpt command: show keywords used for symbols)
+
+FORTRAN Keywords used for identifiers
+-------------------------------------
+
+Name       Scope           Use/COMMON  Address  Type     Size   Value/Bounds
+----       -----           ----------  -------  ----     ----   ------------
+
+data       realft          FORMAL INPUT-OUTPUT ARGUMENT
+                                               REAL      *4      (*)
+
+data       four1           FORMAL INPUT-OUTPUT ARGUMENT
+                                               REAL      *4      (*)
+
+error      frh2o           PARAMETER           REAL      *4      0.500000E-02
+
+options    Global          MODULE              UNTYPED
+
+
+
+FORTRAN Auxiliary Keywords used for identifiers
+-----------------------------------------------
+
+Name       Scope           Use/COMMON  Address  Type     Size   Value/Bounds
+----       -----           ----------  -------  ----     ----   ------------
+
+dummy      smflx           LOCAL               REAL      *4
+
+dummy      bocovmpi        LOCAL               REAL      *4      (*)
+
+dummy      bocov_hmpi      LOCAL               REAL      *4      (*)
+
+out        Global          SUBROUTINE          UNTYPED
+
+val        srt             LOCAL               REAL      *4
+
+clear      gsmcolumn       LOCAL               LOGICAL   *4
+
+unit       csnow           PARAMETER           REAL      *4      0.116310E+00
+
+err        init            LOCAL               INTEGER   *4
+
+
+
+FORTRAN Intrinsic names used for identifiers
+--------------------------------------------
+
+Name       Scope           Use/COMMON  Address  Type     Size   Value/Bounds
+----       -----           ----------  -------  ----     ----   ------------
+
+qint       radtn           LOCAL               REAL      *4
+
+qmod       cucnvc          LOCAL               REAL      *4      (0:42,0:42,1
+                                                                 :50)
+
+isign      realft          FORMAL INPUT ARGUMENT
+                                               INTEGER   *4
+
+isign      four1           FORMAL INPUT ARGUMENT
+                                               INTEGER   *4
+
+sum        srt             LOCAL               REAL      *4
+
+sum        table,scrtch    PUBLIC:scrtch       REAL      *4      (1:28,1:180)
+
+gamma      outsd           PARAMETER           REAL      *4      0.650000E-02
+
+*******************************************************************************
+
+
+
+
+Diagnostic Summary
+==================
+
+          Total diagnostics 256        Highest severity    2
+
+          Notes                           96
+          Warnings                       144
+          Errors                          16
+
+Code Quality Index
+
+          Error weighting                 10
+          Total lines                  49481
+          Index per 1000 lines         6.144
+
+Contributions to Code Quality Index
+
+ No.  Description                                                 Count Contrib
+
+1263 Fortran keyword used as global identifier name.                    1     1
+1267 Fortran auxiliary keyword used as identifier name.                 1     0
+1269 Fortran keyword used as local identifier name.                     3     3
+1271 Non-standard Fortran intrinsic(s) used as local identifier(s)      2     0
+1273 Fortran auxiliary keyword used as identifier name.                 7     0
+1867 Duplicate main program                                             1     0
+2241 References are made to sub-programs which have not been read.      1     0
+2323 Duplicate source code for the same sub-program name.              19     0
+2345 Data type of PARAMETER does not match that of the expression      10    10
+2449 Unused sub-programs encountered                                    1     0
+2451 Unused primary files encountered                                   1     0
+2517 ANSI FORTRAN 77 intrinsic used as a local identifier               2     2
+3037 Data type declaration of this function not found                  16   160
+3047 Fortran 90 intrinsic name used as an identifier                    3     3
+3085 Objects of .EQ., .NE. .GT. etc. are of different data types       51    51
+3087 REAL or COMPLEX quantity tested for exact equality/inequality     46    46
+3089 Comparison of REAL or COMPLEX values which differ in precision     1     1
+3295 Parameter will not have the expected precision                     3     3
+3425 No code was found in this file                                     1     1
+3437 Mixed real or complex sizes in expression - loss of precision     11    11
+3921 This symbol is already declared to be SAVE or STATIC               5     0
+4409 Unable to verify read access status of this argument              58     0
+4411 INTENT declared OUT/INOUT but argument is not written to          11    11
+4413 INTENT declared INOUT but argument is always written to            1     1
+
+
+*******************************************************************************
+
+
+Systematic Changes to the Code (Notes)
+======================================
+
+Format changes
+   None
+
+Declaration changes
+   None
+
+Changes in executable code
+   None
+
+
+
+
+End of processing
+
+
+*******************************************************************************

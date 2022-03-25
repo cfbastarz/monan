@@ -1,0 +1,53 @@
+***'sdfopen /scratchin/grupos/eta/home/d.latinovic/GEF_NCEP/ERA-feb-maj-96.nc'
+'open /stornext/online7/pnt/oper/tempo/oens_MCGA/TQ0126L028/201703/2700/pos/ctrl/GPOSNMC2017032700.ctl'
+'open /scratchout/grupos/eta/home/reta/tempo/GEF_tempo/GLOBRUN/2017032700/globrun.ctl'
+*'open /stornext/online1/eta/reta/Vento_Temp_2/temp_vento.ctl'
+'open /stornext/online7/pnt/oper/tempo/externos/Download/FORECAST/GFS_025gr/201703/2700/gfs025gr.pgrb2.2017032700.ctl'
+
+*'open /scratchout/grupos/eta/home/d.latinovic/gef_output/GLOBRUN/GLOBRUN-dobar-kao2015/globrun.ctl'
+
+
+**************850mb************************
+
+
+'set dfile 1'
+'set time 00z27mar2017 18z05apr2017'
+'set lat -90 90'
+'set lon 50'
+'set lev 850'
+'set vrange 4 9'
+'set grads off'
+'set cthick 6'
+'set ccolor 2'
+'set cmark 3'
+'d tloop(aave(temp-273,g))'
+
+'set dfile 2'
+'set time 00z27mar2017 18z05apr2017'
+'set lat -90 90'
+'set lon 50'
+'set lev 850'
+'set vrange 4 9'
+'set grads off'
+'set cthick 6'
+'set ccolor 3'
+'set cmark 3'
+'d tloop(aave(tsl-273,g))'
+
+'set dfile 3'
+'set time 00z27mar2017 18z05apr2017'
+'set lat -90 90'
+'set lon 50'
+'set lev 850'
+'set vrange 4 9'
+'set grads off'
+'set cthick 6'
+'set ccolor 4'
+'set cmark 3'
+*'d tloop(aave(tmpprs-273,g))'
+'d tloop(aave(temp-273,g))'
+
+'run cbar_line -x 8.2 -y 3 -c 2 3 4 -l 1 1 1 -m 3 3 3 -t  "GLOBAL" "GEF" "GFS"' 
+'draw title Temp. 850mb, MAR 2017'
+'printim temp-850mb-mar2017.png x1000 y800 white'
+'quit'

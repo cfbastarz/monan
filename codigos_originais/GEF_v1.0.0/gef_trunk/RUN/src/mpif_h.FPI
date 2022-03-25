@@ -1,0 +1,584 @@
+!H!****************************************************************************
+!H! File: mpif_h.FPI
+!H! Output by fpt 4.1-p  Intel-Linux  On  3-MAR-22  At 17:55:38    Input files:
+!H! Main:    /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/ADJUST.f90
+!H! Current: /home/lufla/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/mpif.h
+!H! Licensee:  luiz.rodrigues@inpe.br : Luiz Flavio Rodrigues
+!H!****************************************************************************
+!
+!      Copyright (C) by Argonne National Laboratory
+!          See COPYRIGHT in top-level directory
+!
+!      DO NOT EDIT
+!      This file created by buildiface
+!
+        INTEGER mpi_source,mpi_tag,mpi_error
+        PARAMETER (mpi_source = 3,mpi_tag = 4,mpi_error = 5)
+        INTEGER mpi_status_size
+        PARAMETER (mpi_status_size = 5)
+        INTEGER mpi_status_ignore(mpi_status_size)
+        INTEGER mpi_statuses_ignore(mpi_status_size,1)
+        INTEGER mpi_errcodes_ignore(1)
+        CHARACTER*1 mpi_argvs_null(1,1)
+        CHARACTER*1 mpi_argv_null(1)
+        INTEGER mpi_success
+        PARAMETER (mpi_success = 0)
+        INTEGER mpi_err_service
+        PARAMETER (mpi_err_service = 41)
+        INTEGER mpi_err_base
+        PARAMETER (mpi_err_base = 46)
+        INTEGER mpi_err_name
+        PARAMETER (mpi_err_name = 33)
+        INTEGER mpi_err_info
+        PARAMETER (mpi_err_info = 28)
+        INTEGER mpi_err_arg
+        PARAMETER (mpi_err_arg = 12)
+        INTEGER mpi_err_pending
+        PARAMETER (mpi_err_pending = 18)
+        INTEGER mpi_err_assert
+        PARAMETER (mpi_err_assert = 53)
+        INTEGER mpi_err_session
+        PARAMETER (mpi_err_session = 75)
+        INTEGER mpi_err_quota
+        PARAMETER (mpi_err_quota = 39)
+        INTEGER mpi_err_file
+        PARAMETER (mpi_err_file = 27)
+        INTEGER mpi_err_comm
+        PARAMETER (mpi_err_comm = 5)
+        INTEGER mpi_err_read_only
+        PARAMETER (mpi_err_read_only = 40)
+        INTEGER mpi_err_dup_datarep
+        PARAMETER (mpi_err_dup_datarep = 24)
+        INTEGER mpi_err_conversion
+        PARAMETER (mpi_err_conversion = 23)
+        INTEGER mpi_err_not_same
+        PARAMETER (mpi_err_not_same = 35)
+        INTEGER mpi_err_amode
+        PARAMETER (mpi_err_amode = 21)
+        INTEGER mpi_err_request
+        PARAMETER (mpi_err_request = 19)
+        INTEGER mpi_err_bad_file
+        PARAMETER (mpi_err_bad_file = 22)
+        INTEGER mpi_err_rma_range
+        PARAMETER (mpi_err_rma_range = 55)
+        INTEGER mpi_err_file_exists
+        PARAMETER (mpi_err_file_exists = 25)
+        INTEGER mpi_err_info_key
+        PARAMETER (mpi_err_info_key = 29)
+        INTEGER mpi_err_in_status
+        PARAMETER (mpi_err_in_status = 17)
+        INTEGER mpi_err_win
+        PARAMETER (mpi_err_win = 45)
+        INTEGER mpi_err_rma_flavor
+        PARAMETER (mpi_err_rma_flavor = 58)
+        INTEGER mpi_err_intern
+        PARAMETER (mpi_err_intern = 16)
+        INTEGER mpi_err_other
+        PARAMETER (mpi_err_other = 15)
+        INTEGER mpi_err_dims
+        PARAMETER (mpi_err_dims = 11)
+        INTEGER mpi_err_size
+        PARAMETER (mpi_err_size = 51)
+        INTEGER mpi_err_proc_aborted
+        PARAMETER (mpi_err_proc_aborted = 76)
+        INTEGER mpi_err_unknown
+        PARAMETER (mpi_err_unknown = 13)
+        INTEGER mpi_err_spawn
+        PARAMETER (mpi_err_spawn = 42)
+        INTEGER mpi_err_rma_attach
+        PARAMETER (mpi_err_rma_attach = 56)
+        INTEGER mpi_err_no_such_file
+        PARAMETER (mpi_err_no_such_file = 37)
+        INTEGER mpi_err_truncate
+        PARAMETER (mpi_err_truncate = 14)
+        INTEGER mpi_err_type
+        PARAMETER (mpi_err_type = 3)
+        INTEGER mpi_err_no_mem
+        PARAMETER (mpi_err_no_mem = 34)
+        INTEGER mpi_err_rma_shared
+        PARAMETER (mpi_err_rma_shared = 57)
+        INTEGER mpi_err_file_in_use
+        PARAMETER (mpi_err_file_in_use = 26)
+        INTEGER mpi_err_tag
+        PARAMETER (mpi_err_tag = 4)
+        INTEGER mpi_err_access
+        PARAMETER (mpi_err_access = 20)
+        INTEGER mpi_err_group
+        PARAMETER (mpi_err_group = 8)
+        INTEGER mpi_err_unsupported_datarep
+        PARAMETER (mpi_err_unsupported_datarep = 43)
+        INTEGER mpi_err_rma_sync
+        PARAMETER (mpi_err_rma_sync = 50)
+        INTEGER mpi_err_no_space
+        PARAMETER (mpi_err_no_space = 36)
+        INTEGER mpi_err_unsupported_operation
+        PARAMETER (mpi_err_unsupported_operation = 44)
+        INTEGER mpi_err_lastcode
+        PARAMETER (mpi_err_lastcode = 1073741823)
+        INTEGER mpi_err_rank
+        PARAMETER (mpi_err_rank = 6)
+        INTEGER mpi_err_locktype
+        PARAMETER (mpi_err_locktype = 47)
+        INTEGER mpi_err_io
+        PARAMETER (mpi_err_io = 32)
+        INTEGER mpi_err_disp
+        PARAMETER (mpi_err_disp = 52)
+        INTEGER mpi_err_buffer
+        PARAMETER (mpi_err_buffer = 1)
+        INTEGER mpi_err_keyval
+        PARAMETER (mpi_err_keyval = 48)
+        INTEGER mpi_err_topology
+        PARAMETER (mpi_err_topology = 10)
+        INTEGER mpi_err_count
+        PARAMETER (mpi_err_count = 2)
+        INTEGER mpi_err_info_value
+        PARAMETER (mpi_err_info_value = 30)
+        INTEGER mpi_err_root
+        PARAMETER (mpi_err_root = 7)
+        INTEGER mpi_err_info_nokey
+        PARAMETER (mpi_err_info_nokey = 31)
+        INTEGER mpi_err_op
+        PARAMETER (mpi_err_op = 9)
+        INTEGER mpi_err_port
+        PARAMETER (mpi_err_port = 38)
+        INTEGER mpi_err_rma_conflict
+        PARAMETER (mpi_err_rma_conflict = 49)
+        INTEGER mpi_errors_are_fatal
+        PARAMETER (mpi_errors_are_fatal = 1409286144)
+        INTEGER mpi_errors_return
+        PARAMETER (mpi_errors_return = 1409286145)
+        INTEGER mpi_ident
+        PARAMETER (mpi_ident = 0)
+        INTEGER mpi_congruent
+        PARAMETER (mpi_congruent = 1)
+        INTEGER mpi_similar
+        PARAMETER (mpi_similar = 2)
+        INTEGER mpi_unequal
+        PARAMETER (mpi_unequal = 3)
+        INTEGER mpi_win_flavor_create
+        PARAMETER (mpi_win_flavor_create = 1)
+        INTEGER mpi_win_flavor_allocate
+        PARAMETER (mpi_win_flavor_allocate = 2)
+        INTEGER mpi_win_flavor_dynamic
+        PARAMETER (mpi_win_flavor_dynamic = 3)
+        INTEGER mpi_win_flavor_shared
+        PARAMETER (mpi_win_flavor_shared = 4)
+        INTEGER mpi_win_separate
+        PARAMETER (mpi_win_separate = 1)
+        INTEGER mpi_win_unified
+        PARAMETER (mpi_win_unified = 2)
+        INTEGER mpi_max
+        PARAMETER (mpi_max = 1476395009)
+        INTEGER mpi_min
+        PARAMETER (mpi_min = 1476395010)
+        INTEGER mpi_sum
+        PARAMETER (mpi_sum = 1476395011)
+        INTEGER mpi_prod
+        PARAMETER (mpi_prod = 1476395012)
+        INTEGER mpi_land
+        PARAMETER (mpi_land = 1476395013)
+        INTEGER mpi_band
+        PARAMETER (mpi_band = 1476395014)
+        INTEGER mpi_lor
+        PARAMETER (mpi_lor = 1476395015)
+        INTEGER mpi_bor
+        PARAMETER (mpi_bor = 1476395016)
+        INTEGER mpi_lxor
+        PARAMETER (mpi_lxor = 1476395017)
+        INTEGER mpi_bxor
+        PARAMETER (mpi_bxor = 1476395018)
+        INTEGER mpi_minloc
+        PARAMETER (mpi_minloc = 1476395019)
+        INTEGER mpi_maxloc
+        PARAMETER (mpi_maxloc = 1476395020)
+        INTEGER mpi_replace
+        PARAMETER (mpi_replace = 1476395021)
+        INTEGER mpi_no_op
+        PARAMETER (mpi_no_op = 1476395022)
+        INTEGER mpi_comm_world
+        PARAMETER (mpi_comm_world = 1140850688)
+        INTEGER mpi_comm_self
+        PARAMETER (mpi_comm_self = 1140850689)
+        INTEGER mpi_group_empty
+        PARAMETER (mpi_group_empty = 1207959552)
+        INTEGER mpi_comm_null
+        PARAMETER (mpi_comm_null = 67108864)
+        INTEGER mpi_win_null
+        PARAMETER (mpi_win_null = 536870912)
+        INTEGER mpi_file_null
+        PARAMETER (mpi_file_null = 0)
+        INTEGER mpi_group_null
+        PARAMETER (mpi_group_null = 134217728)
+        INTEGER mpi_op_null
+        PARAMETER (mpi_op_null = 402653184)
+        INTEGER mpi_datatype_null
+        PARAMETER (mpi_datatype_null = 201326592)
+        INTEGER mpi_request_null
+        PARAMETER (mpi_request_null = 738197504)
+        INTEGER mpi_errhandler_null
+        PARAMETER (mpi_errhandler_null = 335544320)
+        INTEGER mpi_info_null
+        PARAMETER (mpi_info_null = 469762048)
+        INTEGER mpi_info_env
+        PARAMETER (mpi_info_env = 1543503873)
+        INTEGER mpi_tag_ub
+        PARAMETER (mpi_tag_ub = 1681915906)
+        INTEGER mpi_host
+        PARAMETER (mpi_host = 1681915908)
+        INTEGER mpi_io
+        PARAMETER (mpi_io = 1681915910)
+        INTEGER mpi_wtime_is_global
+        PARAMETER (mpi_wtime_is_global = 1681915912)
+        INTEGER mpi_universe_size
+        PARAMETER (mpi_universe_size = 1681915914)
+        INTEGER mpi_lastusedcode
+        PARAMETER (mpi_lastusedcode = 1681915916)
+        INTEGER mpi_appnum
+        PARAMETER (mpi_appnum = 1681915918)
+        INTEGER mpi_win_base
+        PARAMETER (mpi_win_base = 1711276034)
+        INTEGER mpi_win_size
+        PARAMETER (mpi_win_size = 1711276036)
+        INTEGER mpi_win_disp_unit
+        PARAMETER (mpi_win_disp_unit = 1711276038)
+        INTEGER mpi_win_create_flavor
+        PARAMETER (mpi_win_create_flavor = 1711276040)
+        INTEGER mpi_win_model
+        PARAMETER (mpi_win_model = 1711276042)
+        INTEGER mpi_max_error_string
+        PARAMETER (mpi_max_error_string = 512-1)
+        INTEGER mpi_max_port_name
+        PARAMETER (mpi_max_port_name = 255)
+        INTEGER mpi_max_object_name
+        PARAMETER (mpi_max_object_name = 127)
+        INTEGER mpi_max_info_key
+        PARAMETER (mpi_max_info_key = 254)
+        INTEGER mpi_max_info_val
+        PARAMETER (mpi_max_info_val = 1023)
+        INTEGER mpi_max_processor_name
+        PARAMETER (mpi_max_processor_name = 128-1)
+        INTEGER mpi_max_datarep_string
+        PARAMETER (mpi_max_datarep_string = 127)
+        INTEGER mpi_max_library_version_string
+        PARAMETER (mpi_max_library_version_string = 8192-1)
+        INTEGER mpi_undefined
+        PARAMETER (mpi_undefined = (-32766))
+        INTEGER mpi_keyval_invalid
+        PARAMETER (mpi_keyval_invalid = 603979776)
+        INTEGER mpi_bsend_overhead
+        PARAMETER (mpi_bsend_overhead = 88)
+        INTEGER mpi_proc_null
+        PARAMETER (mpi_proc_null = -1)
+        INTEGER mpi_any_source
+        PARAMETER (mpi_any_source = -2)
+        INTEGER mpi_any_tag
+        PARAMETER (mpi_any_tag = -1)
+        INTEGER mpi_root
+        PARAMETER (mpi_root = -3)
+        INTEGER mpi_graph
+        PARAMETER (mpi_graph = 1)
+        INTEGER mpi_cart
+        PARAMETER (mpi_cart = 2)
+        INTEGER mpi_dist_graph
+        PARAMETER (mpi_dist_graph = 3)
+        INTEGER mpi_version
+        PARAMETER (mpi_version = 3)
+        INTEGER mpi_subversion
+        PARAMETER (mpi_subversion = 1)
+        INTEGER mpi_lock_exclusive
+        PARAMETER (mpi_lock_exclusive = 234)
+        INTEGER mpi_lock_shared
+        PARAMETER (mpi_lock_shared = 235)
+        INTEGER mpi_complex
+        PARAMETER (mpi_complex = 1275070494)
+        INTEGER mpi_double_complex
+        PARAMETER (mpi_double_complex = 1275072546)
+        INTEGER mpi_logical
+        PARAMETER (mpi_logical = 1275069469)
+        INTEGER mpi_real
+        PARAMETER (mpi_real = 1275069468)
+        INTEGER mpi_double_precision
+        PARAMETER (mpi_double_precision = 1275070495)
+        INTEGER mpi_integer
+        PARAMETER (mpi_integer = 1275069467)
+        INTEGER mpi_2integer
+        PARAMETER (mpi_2integer = 1275070496)
+        INTEGER mpi_2double_precision
+        PARAMETER (mpi_2double_precision = 1275072547)
+        INTEGER mpi_2real
+        PARAMETER (mpi_2real = 1275070497)
+        INTEGER mpi_character
+        PARAMETER (mpi_character = 1275068698)
+        INTEGER mpi_byte
+        PARAMETER (mpi_byte = 1275068685)
+        INTEGER mpi_ub
+        PARAMETER (mpi_ub = 1275068433)
+        INTEGER mpi_lb
+        PARAMETER (mpi_lb = 1275068432)
+        INTEGER mpi_packed
+        PARAMETER (mpi_packed = 1275068687)
+        INTEGER mpi_integer1
+        PARAMETER (mpi_integer1 = 1275068717)
+        INTEGER mpi_integer2
+        PARAMETER (mpi_integer2 = 1275068975)
+        INTEGER mpi_integer4
+        PARAMETER (mpi_integer4 = 1275069488)
+        INTEGER mpi_integer8
+        PARAMETER (mpi_integer8 = 1275070513)
+        INTEGER mpi_integer16
+        PARAMETER (mpi_integer16 = mpi_datatype_null)
+        INTEGER mpi_real4
+        PARAMETER (mpi_real4 = 1275069479)
+        INTEGER mpi_real8
+        PARAMETER (mpi_real8 = 1275070505)
+        INTEGER mpi_real16
+        PARAMETER (mpi_real16 = 1275072555)
+        INTEGER mpi_complex8
+        PARAMETER (mpi_complex8 = 1275070504)
+        INTEGER mpi_complex16
+        PARAMETER (mpi_complex16 = 1275072554)
+        INTEGER mpi_complex32
+        PARAMETER (mpi_complex32 = 1275076652)
+        INTEGER mpi_address_kind
+        PARAMETER (mpi_address_kind = 8)
+        INTEGER mpi_offset_kind
+        PARAMETER (mpi_offset_kind = 8)
+        INTEGER mpi_count_kind
+        PARAMETER (mpi_count_kind = 8)
+        INTEGER mpi_integer_kind
+        PARAMETER (mpi_integer_kind = 4)
+        INTEGER mpi_char
+        PARAMETER (mpi_char = 1275068673)
+        INTEGER mpi_signed_char
+        PARAMETER (mpi_signed_char = 1275068696)
+        INTEGER mpi_unsigned_char
+        PARAMETER (mpi_unsigned_char = 1275068674)
+        INTEGER mpi_wchar
+        PARAMETER (mpi_wchar = 1275069454)
+        INTEGER mpi_short
+        PARAMETER (mpi_short = 1275068931)
+        INTEGER mpi_unsigned_short
+        PARAMETER (mpi_unsigned_short = 1275068932)
+        INTEGER mpi_int
+        PARAMETER (mpi_int = 1275069445)
+        INTEGER mpi_unsigned
+        PARAMETER (mpi_unsigned = 1275069446)
+        INTEGER mpi_long
+        PARAMETER (mpi_long = 1275070471)
+        INTEGER mpi_unsigned_long
+        PARAMETER (mpi_unsigned_long = 1275070472)
+        INTEGER mpi_float
+        PARAMETER (mpi_float = 1275069450)
+        INTEGER mpi_double
+        PARAMETER (mpi_double = 1275070475)
+        INTEGER mpi_long_double
+        PARAMETER (mpi_long_double = 1275072524)
+        INTEGER mpi_long_long_int
+        PARAMETER (mpi_long_long_int = 1275070473)
+        INTEGER mpi_unsigned_long_long
+        PARAMETER (mpi_unsigned_long_long = 1275070489)
+        INTEGER mpi_long_long
+        PARAMETER (mpi_long_long = 1275070473)
+        INTEGER mpi_float_int
+        PARAMETER (mpi_float_int = -1946157056)
+        INTEGER mpi_double_int
+        PARAMETER (mpi_double_int = -1946157055)
+        INTEGER mpi_long_int
+        PARAMETER (mpi_long_int = -1946157054)
+        INTEGER mpi_short_int
+        PARAMETER (mpi_short_int = -1946157053)
+        INTEGER mpi_2int
+        PARAMETER (mpi_2int = 1275070486)
+        INTEGER mpi_long_double_int
+        PARAMETER (mpi_long_double_int = -1946157052)
+        INTEGER mpi_int8_t
+        PARAMETER (mpi_int8_t = 1275068727)
+        INTEGER mpi_int16_t
+        PARAMETER (mpi_int16_t = 1275068984)
+        INTEGER mpi_int32_t
+        PARAMETER (mpi_int32_t = 1275069497)
+        INTEGER mpi_int64_t
+        PARAMETER (mpi_int64_t = 1275070522)
+        INTEGER mpi_uint8_t
+        PARAMETER (mpi_uint8_t = 1275068731)
+        INTEGER mpi_uint16_t
+        PARAMETER (mpi_uint16_t = 1275068988)
+        INTEGER mpi_uint32_t
+        PARAMETER (mpi_uint32_t = 1275069501)
+        INTEGER mpi_uint64_t
+        PARAMETER (mpi_uint64_t = 1275070526)
+        INTEGER mpi_c_bool
+        PARAMETER (mpi_c_bool = 1275068735)
+        INTEGER mpi_c_float_complex
+        PARAMETER (mpi_c_float_complex = 1275070528)
+        INTEGER mpi_c_complex
+        PARAMETER (mpi_c_complex = 1275070528)
+        INTEGER mpi_c_double_complex
+        PARAMETER (mpi_c_double_complex = 1275072577)
+        INTEGER mpi_c_long_double_complex
+        PARAMETER (mpi_c_long_double_complex = 1275076674)
+        INTEGER mpi_aint
+        PARAMETER (mpi_aint = 1275070531)
+        INTEGER mpi_offset
+        PARAMETER (mpi_offset = 1275070532)
+        INTEGER mpi_count
+        PARAMETER (mpi_count = 1275070533)
+        INTEGER mpi_cxx_bool
+        PARAMETER (mpi_cxx_bool = 1275068723)
+        INTEGER mpi_cxx_float_complex
+        PARAMETER (mpi_cxx_float_complex = 1275070516)
+        INTEGER mpi_cxx_double_complex
+        PARAMETER (mpi_cxx_double_complex = 1275072565)
+        INTEGER mpi_cxx_long_double_complex
+        PARAMETER (mpi_cxx_long_double_complex = 1275076662)
+        INTEGER mpi_combiner_named
+        PARAMETER (mpi_combiner_named = 1)
+        INTEGER mpi_combiner_dup
+        PARAMETER (mpi_combiner_dup = 2)
+        INTEGER mpi_combiner_contiguous
+        PARAMETER (mpi_combiner_contiguous = 3)
+        INTEGER mpi_combiner_vector
+        PARAMETER (mpi_combiner_vector = 4)
+        INTEGER mpi_combiner_hvector_integer
+        PARAMETER (mpi_combiner_hvector_integer = 5)
+        INTEGER mpi_combiner_hvector
+        PARAMETER (mpi_combiner_hvector = 6)
+        INTEGER mpi_combiner_indexed
+        PARAMETER (mpi_combiner_indexed = 7)
+        INTEGER mpi_combiner_hindexed_integer
+        PARAMETER (mpi_combiner_hindexed_integer = 8)
+        INTEGER mpi_combiner_hindexed
+        PARAMETER (mpi_combiner_hindexed = 9)
+        INTEGER mpi_combiner_indexed_block
+        PARAMETER (mpi_combiner_indexed_block = 10)
+        INTEGER mpi_combiner_struct_integer
+        PARAMETER (mpi_combiner_struct_integer = 11)
+        INTEGER mpi_combiner_struct
+        PARAMETER (mpi_combiner_struct = 12)
+        INTEGER mpi_combiner_subarray
+        PARAMETER (mpi_combiner_subarray = 13)
+        INTEGER mpi_combiner_darray
+        PARAMETER (mpi_combiner_darray = 14)
+        INTEGER mpi_combiner_f90_real
+        PARAMETER (mpi_combiner_f90_real = 15)
+        INTEGER mpi_combiner_f90_complex
+        PARAMETER (mpi_combiner_f90_complex = 16)
+        INTEGER mpi_combiner_f90_integer
+        PARAMETER (mpi_combiner_f90_integer = 17)
+        INTEGER mpi_combiner_resized
+        PARAMETER (mpi_combiner_resized = 18)
+        INTEGER mpi_combiner_hindexed_block
+        PARAMETER (mpi_combiner_hindexed_block = 19)
+        INTEGER mpi_typeclass_real
+        PARAMETER (mpi_typeclass_real = 1)
+        INTEGER mpi_typeclass_integer
+        PARAMETER (mpi_typeclass_integer = 2)
+        INTEGER mpi_typeclass_complex
+        PARAMETER (mpi_typeclass_complex = 3)
+        INTEGER mpi_mode_nocheck
+        PARAMETER (mpi_mode_nocheck = 1024)
+        INTEGER mpi_mode_nostore
+        PARAMETER (mpi_mode_nostore = 2048)
+        INTEGER mpi_mode_noput
+        PARAMETER (mpi_mode_noput = 4096)
+        INTEGER mpi_mode_noprecede
+        PARAMETER (mpi_mode_noprecede = 8192)
+        INTEGER mpi_mode_nosucceed
+        PARAMETER (mpi_mode_nosucceed = 16384)
+        INTEGER mpi_comm_type_shared
+        PARAMETER (mpi_comm_type_shared = 1)
+        INTEGER mpi_message_null
+        PARAMETER (mpi_message_null = 738197504)
+        INTEGER mpi_message_no_proc
+        PARAMETER (mpi_message_no_proc = 1811939328)
+        INTEGER mpi_thread_single
+        PARAMETER (mpi_thread_single = 0)
+        INTEGER mpi_thread_funneled
+        PARAMETER (mpi_thread_funneled = 1)
+        INTEGER mpi_thread_serialized
+        PARAMETER (mpi_thread_serialized = 2)
+        INTEGER mpi_thread_multiple
+        PARAMETER (mpi_thread_multiple = 3)
+        INTEGER mpi_mode_rdonly
+        PARAMETER (mpi_mode_rdonly = 2)
+        INTEGER mpi_mode_rdwr
+        PARAMETER (mpi_mode_rdwr = 8)
+        INTEGER mpi_mode_wronly
+        PARAMETER (mpi_mode_wronly = 4)
+        INTEGER mpi_mode_delete_on_close
+        PARAMETER (mpi_mode_delete_on_close = 16)
+        INTEGER mpi_mode_unique_open
+        PARAMETER (mpi_mode_unique_open = 32)
+        INTEGER mpi_mode_create
+        PARAMETER (mpi_mode_create = 1)
+        INTEGER mpi_mode_excl
+        PARAMETER (mpi_mode_excl = 64)
+        INTEGER mpi_mode_append
+        PARAMETER (mpi_mode_append = 128)
+        INTEGER mpi_mode_sequential
+        PARAMETER (mpi_mode_sequential = 256)
+        INTEGER mpi_seek_set
+        PARAMETER (mpi_seek_set = 600)
+        INTEGER mpi_seek_cur
+        PARAMETER (mpi_seek_cur = 602)
+        INTEGER mpi_seek_end
+        PARAMETER (mpi_seek_end = 604)
+        INTEGER mpi_order_c
+        PARAMETER (mpi_order_c = 56)
+        INTEGER mpi_order_fortran
+        PARAMETER (mpi_order_fortran = 57)
+        INTEGER mpi_distribute_block
+        PARAMETER (mpi_distribute_block = 121)
+        INTEGER mpi_distribute_cyclic
+        PARAMETER (mpi_distribute_cyclic = 122)
+        INTEGER mpi_distribute_none
+        PARAMETER (mpi_distribute_none = 123)
+        INTEGER mpi_distribute_dflt_darg
+        PARAMETER (mpi_distribute_dflt_darg = -49767)
+        INTEGER*8 mpi_displacement_current
+        PARAMETER (mpi_displacement_current = -54278278)
+        LOGICAL mpi_subarrays_supported
+        PARAMETER (mpi_subarrays_supported = .FALSE.)
+        LOGICAL mpi_async_protects_nonblocking
+        PARAMETER (mpi_async_protects_nonblocking = .FALSE.)
+        INTEGER mpi_bottom,mpi_in_place,mpi_unweighted
+        INTEGER mpi_weights_empty
+        EXTERNAL mpi_dup_fn,mpi_null_delete_fn,mpi_null_copy_fn
+        EXTERNAL mpi_wtime,mpi_wtick
+        EXTERNAL pmpi_wtime,pmpi_wtick
+        EXTERNAL mpi_comm_dup_fn,mpi_comm_null_delete_fn
+        EXTERNAL mpi_comm_null_copy_fn
+        EXTERNAL mpi_win_dup_fn,mpi_win_null_delete_fn
+        EXTERNAL mpi_win_null_copy_fn
+        EXTERNAL mpi_type_dup_fn,mpi_type_null_delete_fn
+        EXTERNAL mpi_type_null_copy_fn
+        EXTERNAL mpi_conversion_fn_null
+        REAL*8 mpi_wtime,mpi_wtick
+        REAL*8 pmpi_wtime,pmpi_wtick
+!
+!
+        COMMON /mpifcmb5/mpi_unweighted
+        COMMON /mpifcmb9/mpi_weights_empty
+        SAVE/mpifcmb5/
+!---------------------^--------------------------------------------------------
+!!! FPT - 3921 This symbol is already declared to be SAVE or STATIC
+!------------------------------------------------------------------------------
+        SAVE/mpifcmb9/
+!---------------------^--------------------------------------------------------
+!!! FPT - 3921 This symbol is already declared to be SAVE or STATIC
+!------------------------------------------------------------------------------
+!
+        COMMON /mpipriv1/mpi_bottom,mpi_in_place,mpi_status_ignore
+!
+        COMMON /mpipriv2/mpi_statuses_ignore,mpi_errcodes_ignore
+        SAVE/mpipriv1/,/mpipriv2/
+!---------------------^----------^---------------------------------------------
+!!! FPT - 3921 This symbol is already declared to be SAVE or STATIC
+!!! FPT - 3921 This symbol is already declared to be SAVE or STATIC
+!------------------------------------------------------------------------------
+!
+        COMMON /mpiprivc/mpi_argvs_null,mpi_argv_null
+        SAVE/mpiprivc/
+!---------------------^--------------------------------------------------------
+!!! FPT - 3921 This symbol is already declared to be SAVE or STATIC
+!------------------------------------------------------------------------------

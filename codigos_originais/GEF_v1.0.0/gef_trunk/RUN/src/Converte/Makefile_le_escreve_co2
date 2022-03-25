@@ -1,0 +1,16 @@
+
+.SILENT:
+
+RM = rm -f
+
+# Define compiler flags from machine dependent make.inc.
+
+# Define main routine.
+include ../../../PRP/src/include/make.inc
+CMD=	le_escreve_co2.x	
+SRC=    MODULE_F77KINDS.f90  MODULE_RDPARM.f90  MODULE_CO2DTA.f90   MODULE_HCON.f90    MODULE_MPPSTAFF.f90   MODULE_PARMETA.f90    le_escreve_co2.f90      
+################################################################################
+$(CMD):	$(SRC)
+	$(FC) $(SRC) -o $@
+	$(RM) *.o *.mod
+exe:	$(CMD)

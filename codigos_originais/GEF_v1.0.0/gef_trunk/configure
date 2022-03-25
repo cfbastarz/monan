@@ -1,0 +1,77 @@
+#! /bin/bash
+
+set -aeux
+
+# dimension of each face, for cube the total number of 
+# grid points in one layer is IM0xIM0x6
+IM0=401
+
+# number of vertical layers, should always be 38 for this 
+# version
+#in conrad.f90 open file co2.dat for LM 38 or co2.60_10mb for LM 60
+LM=50 
+
+# NMIN is the number of faces, should always be 6 for cube
+# 14 for octagon
+NMIN=6
+
+# subdivision number, e.g. if NSUB 2, each face are divided 
+# into 2x2
+NSUB=10
+# dt is time step is seconds
+
+#Numero de niveis do output
+LSM=31
+
+#test sa vecim dt, Dragan, januar 2016
+
+dt=40   #! Cube2
+
+# number of outputs
+#####outnum=360
+outnum=120
+# total length of integration in days
+####nday=90
+nday=30
+# sst data source, 1--NCEP, 2--TMI
+sstc=1
+
+# starting time of integration in UTC
+# idatin=month,day,year
+# ihrstin: starting hour 
+#idatin=8,29,2006
+#idatin=1,1,1997
+# idatin=11,13,2018 # PADRAO
+idatin=2,9,2019
+#idatin=05,24,2019
+#idatin=2,9,1998
+ihrstin=0
+
+sigmain=false
+
+HOME=`pwd`
+
+if [ $NSUB -eq 1 ]
+then
+   IM=$IM0
+else
+   IM=$IM0/$NSUB+1
+fi
+
+cd $HOME/RUN/src
+#cat parmeta.in | sed s:IM0IN:$IM0:g | sed s:IMIN:$IM:g | sed s:LMIN:$LM:g| sed s:NSUBIN:$NSUB:g | sed s:NMIN:$NMIN:g  > parmeta.f90 
+#cat PARMETA.in | sed s:IM0IN:$IM0:g | sed s:IMIN:$IM:g | sed s:LMIN:$LM:g| sed s:NSUBIN:$NSUB:g | sed s:NMIN:$NMIN:g  > parmeta.f90 
+
+###cat PARMETA.in | sed s:IM0IN:$IM0:g | sed s:IMIN:$IM:g | sed s:LMIN:$LM:g| sed s:NSUBIN:$NSUB:g | sed s:NMIN:$NMIN:g  > MODULE_PARMETA.f90
+
+#RESTART
+cat PARMETA.in | sed s:IM0IN:$IM0:g | sed s:IMIN:$IM:g | sed s:LMIN:$LM:g| sed s:NSUBIN:$NSUB:g | sed s:NMIN:$NMIN:g | sed s:outnumin:$outnum:g | sed s:ndayin:$nday:g > MODULE_PARMETA.f90 
+
+cd $HOME/PRP/src/include
+cat param_o.in | sed s:im0in:$IM0:| \
+sed s:lmin:$LM:| sed s:nsubin:$NSUB:| \
+sed s:nmin:$NMIN: | sed s:lsmin:$LSM: > param_o.h
+
+cat const.in | sed s:dtin:$dt:| sed s:idatin:$idatin:| sed s:ihrstin:$ihrstin:|\
+sed s:outnumin:$outnum:| sed s:ndayin:$nday:|sed s:sigmain:$sigmain:| \
+sed s:sstcin:$sstc:>const.h 

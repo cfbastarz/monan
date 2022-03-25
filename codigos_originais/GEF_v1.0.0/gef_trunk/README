@@ -1,0 +1,64 @@
+GEF model installation guide
+
+By Hai Zhang  hazhang@gmail.com 
+Last updated: 8/29/2006
+
+1. Topography data:
+
+Download the topography data to GEF/PRP/data_in/static.  The topography files
+can be found at http://www.emc.ncep.noaa.gov/mmb/wrkstn_eta/topo.html.
+
+2. Initial data:
+
+cd GEF/PRP/bin
+get_data.scr  00  (Here 00 represents cycle, it may also be 06, 12, 18) 
+
+This data file is in grib format.  The data is GFS data from NCEP.
+
+3. Surface data (sst and snow depth):
+
+cd GEF/PRP/bin
+get_sfcfields.com 
+
+Also in grib format.  However the snow depth seems missing.  I did not find the 
+new links for this.
+
+4. edit configure to set parameters.
+   (nm=6 for cube, nm=14 for octagon).
+
+   run : configure
+
+5. cd GEF/PRP/src
+
+for cube:
+   make cube
+
+for octagon:
+   make octa
+
+6. cd GEF/PRP/bin
+
+   for cube:  ../exe/initCube.exe       ( prepare cubic grid )
+              ../exe/metrcs.exe         ( prepare the grid constants )
+
+   for octagon:  ../exe/initOcta.exe    ( similar as cubic grid case )
+                 ../exe/metrcs.exe
+
+   for both:  qsub topo.scr  ( Prepare topology for the grid. I use job submission script topo.scr.  
+                               You may look at this script for the running of the topo in your system. ) 
+              pr_assim.sh  ( prepare initial data for the model )
+
+7. cd GEF/RUN/src
+
+   make cube (octa)
+
+8. cd GEF/RUN/job
+
+   qsub qs1 (qs2, qs1oc for different configurations).  (Run the model)
+
+9. cd GEF/PRP/bin
+   ../exe/etapost.exe  ( The output files are in GEF/PRP/data_out/globrun*.dat.  You may look at 
+                         the file GEF/PRP/src/post/qu2ll2.f90 and/or GEF/PRP/src/post/qu2ll.f90 for
+			 the output fields.  You may switch between qu2ll and qu2ll2 in etapost.f90)
+
+

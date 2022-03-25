@@ -1,0 +1,286 @@
+      PROGRAM CONVERTE_R4_TO_R8
+!
+     USE ALLOC      
+!      
+       IMPLICIT NONE
+!
+    SAVE
+!
+    INTEGER     , PARAMETER                                                                     ::& 
+    & R4   =  4  ! REAL*4  
+    INTEGER     , PARAMETER                                                                     ::& 
+    & R8   =  8  ! REAL*8
+    INTEGER     , PARAMETER                                                                     ::& 
+    & I4   =  4  ! INTEGER*4
+!
+    REAL   (KIND=R4)    , DIMENSION (:,:)             , ALLOCATABLE                             ::&
+    & PD     , TG          
+!
+    REAL   (KIND=R4)    , DIMENSION (:,:,:)           , ALLOCATABLE                             ::&
+    & T       , Q       , U       , V      
+!
+    REAL   (KIND=R8)    , DIMENSION (:,:)             , ALLOCATABLE                             ::&
+    & PD1     , TG1          
+!
+    REAL   (KIND=R8)    , DIMENSION (:,:,:)           , ALLOCATABLE                             ::&
+    & T1       , Q1       , U1       , V1     
+!
+    CHARACTER(LEN=4)                                                                            ::&
+    & C_MYPE
+!
+    INTEGER(KIND=I4)                                                                            ::&
+    & MYPE     , LISTINVRBLS     ,  LISTINVRBLS1 ,  LISTINCONST     ,  LISTINCONST1
+!
+    CHARACTER(LEN=80)                                                                           ::&
+    & CVRBLS     , CVRBLS1     ,  CCONST     , CCONST1  
+!    
+    INTEGER(KIND=I4)    , PARAMETER                                                             ::&
+    & IM   = 401/10+1
+    INTEGER(KIND=I4)    , PARAMETER                                                             ::&
+    & JM   = IM
+    INTEGER(KIND=I4)    , PARAMETER                                                             ::&
+    & LM   = 38
+
+! VRBLS
+    ALLOCATE (TG       (0:IM+1, 0:JM+1))
+    ALLOCATE (TG1      (0:IM+1, 0:JM+1))
+    ALLOCATE (PD       (0:IM+1, 0:JM+1))
+    ALLOCATE (PD1      (0:IM+1, 0:JM+1))
+! CONST
+    ALLOCATE (SQV      (0:IM+1, 0:JM+1))
+    ALLOCATE (SQV1     (0:IM+1, 0:JM+1))
+    ALLOCATE (SQH      (0:IM+1, 0:JM+1))
+    ALLOCATE (SQH1     (0:IM+1, 0:JM+1))
+    ALLOCATE (Q11      (0:IM+1, 0:JM+1))
+    ALLOCATE (Q11_1    (0:IM+1, 0:JM+1))
+    ALLOCATE (Q12      (0:IM+1, 0:JM+1))
+    ALLOCATE (Q12_1    (0:IM+1, 0:JM+1))
+    ALLOCATE (Q22      (0:IM+1, 0:JM+1))
+    ALLOCATE (Q22_1    (0:IM+1, 0:JM+1))
+    ALLOCATE (QBV11    (0:IM+1, 0:JM+1))
+    ALLOCATE (QBV11_1  (0:IM+1, 0:JM+1))
+    ALLOCATE (QBV12    (0:IM+1, 0:JM+1))
+    ALLOCATE (QBV12_1  (0:IM+1, 0:JM+1))
+    ALLOCATE (QBV22    (0:IM+1, 0:JM+1))
+    ALLOCATE (QBV22_1  (0:IM+1, 0:JM+1))
+    ALLOCATE (QH11     (0:IM+1, 0:JM+1))
+    ALLOCATE (QH11_1   (0:IM+1, 0:JM+1))
+    ALLOCATE (QH12     (0:IM+1, 0:JM+1))
+    ALLOCATE (QH12_1   (0:IM+1, 0:JM+1))
+    ALLOCATE (QH22     (0:IM+1, 0:JM+1))
+    ALLOCATE (QH22_1   (0:IM+1, 0:JM+1))
+    ALLOCATE (SQV_NORM (0:IM+1, 0:JM+1))
+    ALLOCATE (SQV_NORM1(0:IM+1, 0:JM+1))
+! VRBLS
+    ALLOCATE (T        (0:IM+1, 0:JM+1, LM))
+    ALLOCATE (T1       (0:IM+1, 0:JM+1, LM))
+    ALLOCATE (Q        (0:IM+1, 0:JM+1, LM))
+    ALLOCATE (Q1       (0:IM+1, 0:JM+1, LM))
+    ALLOCATE (U        (0:IM+1, 0:JM+1, LM))
+    ALLOCATE (U1       (0:IM+1, 0:JM+1, LM))
+    ALLOCATE (V        (0:IM+1, 0:JM+1, LM))
+    ALLOCATE (V1       (0:IM+1, 0:JM+1, LM))
+! CONST
+    ALLOCATE (QD11     (0:IM+1, 0:JM+1,  4))
+    ALLOCATE (QD11_1   (0:IM+1, 0:JM+1,  4))
+    ALLOCATE (QD12     (0:IM+1, 0:JM+1,  4))
+    ALLOCATE (QD12_1   (0:IM+1, 0:JM+1,  4))
+    ALLOCATE (QD21     (0:IM+1, 0:JM+1,  4))
+    ALLOCATE (QD21_1   (0:IM+1, 0:JM+1,  4))
+    ALLOCATE (QD22     (0:IM+1, 0:JM+1,  4))
+    ALLOCATE (QD22_1   (0:IM+1, 0:JM+1,  4))
+!
+    ALLOCATE (QVH      (0:IM+1, 0:JM+1,  4, 2, 2))
+    ALLOCATE (QVH1     (0:IM+1, 0:JM+1,  4, 2, 2))
+    ALLOCATE (QHV      (0:IM+1, 0:JM+1,  4, 2, 2))
+    ALLOCATE (QHV1     (0:IM+1, 0:JM+1,  4, 2, 2))
+    ALLOCATE (QVH2     (0:IM+1, 0:JM+1,  4, 2, 2))
+    ALLOCATE (QVH21    (0:IM+1, 0:JM+1,  4, 2, 2))
+    ALLOCATE (QHV2     (0:IM+1, 0:JM+1,  4, 2, 2))
+    ALLOCATE (QHV21    (0:IM+1, 0:JM+1,  4, 2, 2))
+!
+    ALLOCATE (QA       (0:IM+1, 0:JM+1, 13, 2, 2))
+    ALLOCATE (QA1      (0:IM+1, 0:JM+1, 13, 2, 2))
+    ALLOCATE (QB       (0:IM+1, 0:JM+1,  2, 2))
+    ALLOCATE (QB1      (0:IM+1, 0:JM+1,  2, 2))
+
+
+
+   
+!--------
+! NUMBERS
+!--------
+    LISTINVRBLS = 10
+!------
+! CHARS
+!------
+ 
+   DO MYPE = 0 , 599
+ 
+    WRITE(C_MYPE,1000) MYPE
+    1000 FORMAT(I4.4)
+    
+
+!!!!!!!!!!!!!!!!!!!!!!! READ   VRBLS01 !!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!---------------
+! TUPA DIRECTORY
+!---------------
+    CVRBLS = 'vrbls01.' // C_MYPE
+!
+    OPEN(LISTINVRBLS, FILE=TRIM(CVRBLS), STATUS='OLD', FORM='UNFORMATTED')
+!------------------
+! /VRBLS/ DIRECTORY
+!------------------
+    READ (LISTINVRBLS) PD
+    READ (LISTINVRBLS) T 
+    READ (LISTINVRBLS) Q 
+    READ (LISTINVRBLS) U
+    READ (LISTINVRBLS) V
+    READ (LISTINVRBLS) TG
+
+! WRITE FILE  vrbls01
+
+    CVRBLS1 = 'vrbls01_new.' // C_MYPE
+!
+    OPEN(LISTINVRBLS1, FILE=TRIM(CVRBLS1), STATUS='UNKNOWN', FORM='UNFORMATTED')
+!------------------
+! /VRBLS1/ DIRECTORY
+!------------------
+    WRITE (LISTINVRBLS1) PD1
+    WRITE (LISTINVRBLS1) T1 
+    WRITE (LISTINVRBLS1) Q1 
+    WRITE (LISTINVRBLS1) U1
+    WRITE (LISTINVRBLS1) V1
+    WRITE (LISTINVRBLS1) TG1
+
+    CLOSE (LISTINVRBLS)
+!!!!!!!!!!!!!!!!!!!!!!! READ   VRBLS01 !!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!! READ   CCONST !!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!---------------
+! TUPA DIRECTORY
+!---------------
+    CCONST = 'const.' // C_MYPE
+!
+    OPEN(LISTINCONST, FILE=TRIM(CCONST), STATUS='OLD', FORM='UNFORMATTED')
+!-------------------
+! /METRCS/ DIRECTORY
+!-------------------
+    READ (LISTINCONST)  SQV
+    READ (LISTINCONST)  SQH
+    READ (LISTINCONST)  Q11
+    READ (LISTINCONST)  Q12
+    READ (LISTINCONST)  Q22
+    READ (LISTINCONST)  QH11
+    READ (LISTINCONST)  QH12
+    READ (LISTINCONST)  QH22
+    READ (LISTINCONST)  SQV_NORM
+!
+    DO I=1,4
+        READ(LISTINCONST) QD11(:, :, I)
+        READ(LISTINCONST) QD12(:, :, I)
+        READ(LISTINCONST) QD21(:, :, I)
+        READ(LISTINCONST) QD22(:, :, I)
+    END DO
+!
+    DO I =1,4
+        DO I3=1,2
+            DO J3=1,2
+                READ(LISTINCONST) QVH (:, :, I, I3, J3)
+                READ(LISTINCONST) QHV (:, :, I, I3, J3)
+                READ(LISTINCONST) QVH2(:, :, I, I3, J3)
+                READ(LISTINCONST) QHV2(:, :, I, I3, J3)
+            END DO
+        END DO
+    END DO
+!
+    DO I3=1,2
+        DO J3=1,2
+!
+            DO I=1,13
+                READ(LISTINCONST) QA(:, :, I, I3, J3)
+            END DO
+!
+            READ(LISTINCONST) QB(:, :, I3, J3)
+        END DO
+    END DO
+!------------------
+! /DYNAM/ DIRECTORY
+!------------------
+    READ(LISTINCONST) QBV11
+    READ(LISTINCONST) QBV12
+    READ(LISTINCONST) QBV22
+    READ(LISTINCONST) WPDAR
+    READ(LISTINCONST) F11  
+    READ(LISTINCONST) F12  
+    READ(LISTINCONST) F21  
+    READ(LISTINCONST) F22  
+    READ(LISTINCONST) P11  
+    READ(LISTINCONST) P12  
+    READ(LISTINCONST) P21  
+    READ(LISTINCONST) P22  
+    READ(LISTINCONST) FDIV 
+    READ(LISTINCONST) FDDMP
+    READ(LISTINCONST) HSINP
+    READ(LISTINCONST) HCOSP
+    READ(LISTINCONST) GLON
+    READ(LISTINCONST) GLAT
+    READ(LISTINCONST) FVDIFF
+    READ(LISTINCONST) HBMSK
+!
+    READ(LISTINCONST) DETA        , RDETA   , AETA    , DAETA   , ETA     , DFL     , FADV    ,   &
+    &                 FADV2       , FADT    , R       , PT      , F4D     , F4Q2    , EF4T    ,   &
+    &                 FKIN        , FCP     , DELTY   , DELTHZ  , KAPPA   , P0      , RTDF
+!
+!-------------------
+! /CTLBLK/ DIRECTORY
+!-------------------
+    READ(LISTINCONST)   DT        , IDAT    , IHRST  , NFCST    , NBC     , LIST    , IOUT    ,   &
+    &                   NTSD      , NTSTM   , NDDAMP , NPREC    , IDTAD   , NBOCO   , NSHDE   ,   &
+    &                   NCP       , NPHS    , NCNVC  , NRADS    , NRADL   , NTDDMP  , RUN     ,   &
+    &                   FIRST     , RESTRT  , SIGMA  , SUBPOST  , LCORNERM, OUTSTR  , NDASSIM ,   &
+    &                   NDASSIMM
+!
+    CLOSE (LISTINCONST)
+!
+
+!!!!!!!!!!!!!!!!!!!!!!! READ   CCONST !!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   END DO
+
+END      
+      
+      
+      
+      
+      
+      
+      
+      
+   

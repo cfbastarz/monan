@@ -1,0 +1,27 @@
+! WRFV3.4.1_files.fsp  6-Nov-12  John Collins
+! File Handling
+! =============
+% include input path: ~/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/
+% primary input file name extension: "f90"
+% include input file name extension: "inc"
+% primary input path: ~/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/
+% add to primary input path: ~/Downloads/GEF_v1.0.0/gef_trunk/RUN/src/
+HDIFF.f90              
+MODULE_HCON.f90          
+MODULE_TBLTMP.f90        
+VEGUPDT.f90
+HZADV.f90              
+MODULE_HS.f90            
+MODULE_TEND.f90          
+VTADV.f90
+HZADVQ.f90             
+MODULE_IACCR_TABLES.f90  
+MODULE_TPRFIL.f90        
+ZENITH.f90
+INITCKMM.f90           
+MODULE_IMASS_TABLES.f90  
+MODULE_VRBLS.f90         
+ZERO.f90
+INITDOM.f90            
+MODULE_IRATE_TABLES.f90  
+NEWTON.f90

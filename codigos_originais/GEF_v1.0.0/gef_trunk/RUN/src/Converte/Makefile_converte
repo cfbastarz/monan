@@ -1,0 +1,24 @@
+include ../../../PRP/src/include/make.inc
+
+
+EXE=Converte_R4_to_R8.x
+
+
+LIB=../../../LIB_NEW/libw3emc_4.a ../../../LIB_NEW/libw3nco_4.a
+
+
+OBJ=MODULE_F77KINDS.o       MODULE_CTLBLK.o        MODULE_DYNAM.o        MODULE_METRCS.o        MODULE_PARM_TBL.o        MODULE_PHYS.o          MODULE_VRBLS.o
+
+
+$(EXE): $(OBJ)
+	${FCMPI} $(FFLAGS) ${OBJ} ${LIB} -o ${EXE} 
+
+%.mod:%.f90
+	$(FCMPI) $(FFLAGS)  -c $<
+
+%.o:%.f90
+	$(FCMPI) $(FFLAGS)  -c $<
+
+
+clean:
+	rm -f *.o *.mod ${EXE}

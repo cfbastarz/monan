@@ -1,0 +1,19 @@
+
+.SILENT:
+
+RM = rm -f
+
+# Define compiler flags from machine dependent make.inc.
+
+# Define main routine.
+include ../../../PRP/src/include/make.inc
+CMD=	READ_GEFfcstVEG.x	
+SRC=    MODULE_F77KINDS.f90  MODULE_CTLBLK.f90   MODULE_DYNAM.f90   MODULE_METRCS.f90   MODULE_PARM_TBL.f90   MODULE_PHYS.f90    MODULE_VRBLS.f90      MODULE_ACMCLD.f90 \
+        MODULE_ACMCLH.f90    MODULE_ACMPRE.f90   MODULE_ACMRDL.f90  MODULE_ACMRDS.f90   MODULE_ACMSFC.f90     MODULE_CLDWTR.f90  MODULE_CNVCLD.f90     MODULE_CONTIN.f90 \
+	MODULE_C_FRACN.f90   MODULE_HS.f90       MODULE_KFFDBK.f90  MODULE_LOOPS.f90    MODULE_MASKS.f90      MODULE_NHYDRO.f90  MODULE_PARMETA.f90    MODULE_PARMSOIL.f90 \
+	MODULE_PPTASM.f90    MODULE_PVRBLS.f90   MODULE_SOIL.f90    MODULE_MPPSTAFF.f90 MODULE_DGNSOUT.f90    INITMPI.f90        ALLOC.f90             READ_GEFfcstVEG.f90 
+################################################################################
+$(CMD):	$(SRC)
+	$(FC) $(SRC) -o $@
+	$(RM) *.o *.mod
+exe:	$(CMD)
