@@ -4,14 +4,48 @@
 
 ##### Autores: Denis M. A. Eiras, ...
 
-### 1. Introdução
+# Índice
+
+
+1. [Introdução](#1-introdução)
+
+2. [Caracterísiticas de Qualidade de Software](#2-caracterísiticas-de-qualidade-de-software)
+
+3. [Avaliação de Caracterísiticas](#3-avaliação-de-características)
+
+    3.1 [Avaliação da Funcionalidade](#31-avaliação-da-funcionalidade)
+
+    3.2 [Avaliação da Confiabilidade](#32-avaliação-da-confiabilidade)
+
+    3.3 [Avaliação da Usabilidade](#33-avaliação-da-usabilidade)
+
+    3.4 [Avaliação da Eficiência](#34-avaliação-da-eficiência)
+
+    3.5 [Avaliação da Manutebilidade](#35-avaliação-da-manutebilidade)
+
+    &nbsp;&nbsp;&nbsp;&nbsp;3.5.1 [Métricas para avaliação de Características da Manutebilidade](#351-métricas-para-avaliação-de-características-de-qualidade-relacionadas-à-manutebilidade-e-parte-da-portabilidade)
+
+    &nbsp;&nbsp;&nbsp;&nbsp;3.5.2 [Métricas utilizadas](#352-métricas-utilizadas)
+
+    &nbsp;&nbsp;&nbsp;&nbsp;3.5.3 [Ferramentas para avaliação da Manutebilidade](#353-ferramentas-para-avaliação-da-manutebilidade)
+
+    &nbsp;&nbsp;&nbsp;&nbsp;3.5.4 [Geração das métricas](#354-geração-das-métricas)
+
+    &nbsp;&nbsp;&nbsp;&nbsp;3.6 [Avaliação da Portabilidade](#36-avaliação-da-portabilidade)
+
+4. [Ambientes e Compiladores](#4-ambientes-e-compiladores)
+
+5. [Avaliação da Qualidade Total](#5-avaliação-da-qualidade-total)
+
+
+## 1. Introdução
 
 A escolha do Core Dinâmico do MONAN deve ser feita levando em consideração alguns aspectos de qualidade de software. Segundo a norma [ISO/IEC 9126](https://pt.wikipedia.org/wiki/ISO/IEC_9126), revisada pela norma [ISO/IEC 25010:2011](https://pt.wikipedia.org/wiki/ISO/IEC_25010), quando a qualidade de software se refere ao produto, estas fornecem uma estrutura para especificar características de qualidade de software e realizar comparações entre produtos de software. Outras características e métricas de qualidade de software, encontrados em livros de engenharia de software, também foram introduzidas. Estas normas, características e métricas serão utilizadas como base para a construção dos critérios de escolha do core Dinâmico, descritos neste documento.
 
 Dentro do contexto de qualidade interna, onde o software é avalidado para ser reutilizado e modificado, a definição das características e subcaracterísticas devem ser levantadas em função da área de aplicação do produto de software. E, esta definição deve ser feita antes do início do desenvolvimento do mesmo. Produtos de maior porte devem ser subdivididos em módulos e cada um destes deve ter seus próprios conjuntos de características e subcaracterísticas. Portanto, um Core Dinâmico de qualidade deve ser utilizado considerando alguns aspectos principais da qualidade de software que são inerentes ao Produto.
 
 
-### 2. Caracterísiticas de Qualidade de Software
+## 2. Caracterísiticas de Qualidade de Software
 
 As caracterísitcas de qualidade selecionadas para a avaliação do Core Dinâmico estão listadas abaixo. Em todas as características listadas, temos uma subcaracterística com o nome de Conformidade. A conformidade é utilizada para avaliar o quanto o software obedece aos requisitos de legislação e todo o tipo de padronização ou normalização aplicável ao contexto.
 
@@ -66,13 +100,20 @@ As caracterísitcas de qualidade selecionadas para a avaliação do Core Dinâmi
 * Capacidade para Substituir: representa a capacidade que o sistema tem de substituir outro sistema especificado, em um contexto de uso e ambiente específicos. Este atributo interage tanto com adaptabilidade quanto com a capacidade para ser instalado.
 * Conformidade.
 
-### 3. Métricas para avaliação de Características de Qualidade relacionadas à Manutebilidade e parte da Portabilidade
+## 3. Avaliação de Características
+### 3.1 Avaliação da Funcionalidade
+### 3.2 Avaliação da Confiabilidade
+### 3.3 Avaliação da Usabilidade
+### 3.4 Avaliação da Eficiência
+### 3.5 Avaliação da Manutebilidade
+
+#### 3.5.1 Métricas para avaliação de Características da Manutebilidade
 
 Métricas de Software podem ser utilizadas para a avaliação de algumas Características de Qualidade. Existem métricas para avaliação de código estruturado e de código Orientado a Objeto. Serão utilizadas somente as métricas de código estruturado, por se tratar da técnica de codificação comum entre os códigos analisados.
 
-Diveros tipos de métricas foram criadas para avaliar a qualidade dos Softwares. Algumas delas medem a complexidade do software e características da linguagem de programação, relacionados a Manutebilidade e parte da Portabilidade. 
+Diveros tipos de métricas foram criadas para avaliar a qualidade dos Softwares. Algumas delas medem a complexidade do software e características da linguagem de programação, relacionados a Manutebilidade.
 
-#### 3.1 Métrica de Complexidade Ciclomática de McCabe
+__Métrica de Complexidade Ciclomática de McCabe__
 
 McCabe desenvolveu uma métrica que permite aos desenvolvedores identificar módulos difíceis de testar ou manter. Como resultado, ele desenvolveu uma métrica de software que iguala a complexidade ao número de decisões em um programa. Os desenvolvedores podem usar essa medida para determinar quais módulos de um programa são excessivamente complexos e precisam ser recodificados. A métrica também pode ser usada para definir o número mínimo de casos de teste necessários para testar adequadamente os caminhos do programa.
 
@@ -85,11 +126,11 @@ Os valores de referência são exibidos na tabela abaixo:
 |21-50 |	Método muito complexo. Elevado risco |
 |51-N |	Método de altíssimo risco e bastante instável |
 
-#### 3.2 Métricas de Software da RADC
+__Métricas de Software da RADC__
 
 A metodologia RADC consiste em elementos métricos, métricas, critérios e fatores. As pontuações dos elementos de métrica são combinadas para formar uma pontuação de métrica e as pontuações de métrica são combinadas para formar uma pontuação de critério. As pontuações de critérios são então combinadas de várias maneiras para produzir várias pontuações de fatores de qualidade. Elementos métricos são as medidas quantitativas de objetos de software. Métricas são os detalhes orientados ao software das características do software. Critérios são as características orientadas ao software que contribuem para vários tipos de qualidade.
 
-#### 3.3 Métricas utilizadas
+#### 3.5.2 Métricas utilizadas
 
 As métricas abaixo foram selecionadas para avaliar as subcaracterísticas de Manutebilidade e algumas subcaracterísticas de Portabilidade. A forma de avaliação está descrita no item 6.
 
@@ -102,7 +143,6 @@ As métricas abaixo foram selecionadas para avaliar as subcaracterísticas de Ma
 | Documentação de arquivos | Mede a porcentagem arquivos com comentários no início. Facilita o entendimento do código e registra alterações históricas. Quanto maior melhor. | Analisabilidade, Modificabilidade | - | FortranAnalyser | razão |
 | **TODO - CHECAR** Documentação de variáveis | Mede a porcentagem de variáveis comentadas. Facilita o entendimento do código. Quanto maior melhor. | Analisabilidade, Modificabilidade | - | FortranAnalyser | razão |
 | **TODO** Parâmetros nas rotinas | Mede a quantidade de parâmetros nas rotinas. Quanto maior o número, mais difícil a manutenção. | - | Analisabilidade, Modificabilidade, Estabilidade | - | - |
-| **TODO** Dependência de máquina | Mede a quantidade de declarações que são dependentes de máquina. | - | Modificabilidade, Reusabilidade, Adaptabilidade, Capacidade para Substituir | - | - |
 | **TODO** Modificações em loops | Mede quantas variáveis de loop foram modificadas. Idealmente deve ser zero. | - |Analisabilidade, Modificabilidade, Estabilidade | - | - |
 | Tamanho médio das rotinas  | Tamanho médio em linhas de rotinas, que afeta a compreensibilidade e Manutebilidade | - | Analisabilidade, Modificabilidade, Reusabilidade, Estabilidade, Testabilidade | Check.py | linhas de código |
 | Tamanho médio dos módulos | Dado importante. Quando comparado com o número médio das rotinas, se menor, vai indicar que as rotinas não estão encapsuladas em módulos. | - | Analisabilidade, Modificabilidade, Reusabilidade, Estabilidade, Testabilidade | Check.py | linhas de código |
@@ -117,7 +157,7 @@ As métricas abaixo foram selecionadas para avaliar as subcaracterísticas de Ma
 | **TODO nao funciona** Fan-in | Média de chamadas por subrotina.  Número de vezes que a mesma subrotina é chamada. Números altos indicam que erros podem ser corrigidos em área comum facilitando a manutenção, mas que pode afetar a estabilidade | Analisabilidade, Modificabilidade, Reusabilidade, Testabilidade | Estabilidade | Check.py | número de linhas |
 | **TODO nao funciona** Fan-out | Número de rotinas que são chamadas por cada rotina (digamos, X). Um valor alto para fan-out sugere que a complexidade geral do X pode ser alta, devido a complexidade da lógica de controle necessária para coordenar as rotinas chamadas | Modificabilidade, Reusabilidade | Estabilidade, Testabilidade | Check.py | número de linhas |
 
-### 4. Ferramentas para avaliação da Manutebilidade e parte da Portabilidade
+#### 3.5.3 Ferramentas para avaliação da Manutebilidade
 
 As ferramentas necessárias para a avaliação estão versionadas em https://github.com/monanadmin/monan/tree/main/tools/qas_eval . Algumas ferramentas foram adaptadas, como o FortranAnalyser, para possibilitar o uso sem interface gráfica. Outras utiliza-se somente o código binário, como no caso do fortran-src.
 
@@ -133,7 +173,41 @@ Ferramentas com código binário:
 * fortran-src (https://github.com/camfort/fortran-src). Ferramenta escrita na linguagem Haskell que gera diversas estatísticas do código. 
 * FortranAnalyser.jar. Binário gerado pelo código fonte. Para gerar, baixe ou instale a ferramenta maven, entre na pasta principal do FortranAnalyser (onde se encontra o pom.xml) e execute "mvn clean install".
 
-### 5. Compiladores e ambientes para avaliação da Manutebilidade e parte da Portabilidade
+#### 3.5.4 Geração das métricas
+
+1. Use o módulo singularity no servidor Rattler (a) ou instale em outro local desejado (b). OBS: A versão do singularity disponível para Ubuntu 18.04 (2.6.1-dist - via apt install) não funciona com o pull do passo 3. A instalação manual de versões mais recentes, via passos de https://sylabs.io/guides/3.0/user-guide/installation.html , requer pacotes que não estão disponíveis na versão 18.04 do Ubuntu. Recomenda-se alguma das formas abaixo:
+    * a) module load singularity  # máquina Rattler
+    * b) sudo apt install -y singularity-container
+2. Crie uma pasta de nome qas_eval e entre nela
+    * mkdir qas_eval;cd qas_eval
+3. Baixe a imagem do singularity na pasta criada, com uma das opções abaixo. Use a opção b) caso não consiga usar o pull (ex. Ubuntu 18.04) em a):
+    * a) singularity pull qas_eval.sif library://denis.eiras/monan/qas_eval:dev
+    * b) Clique no link de download disponível na página https://cloud.sylabs.io/library/denis.eiras/monan/qas_eval e baixe a imagem para a pasta atual (qas_eval) usando o nome qas_eval.sif
+4. Baixe o código inteiro do monan (será usada a subpasta tools):
+    * git clone https://github.com/monanadmin/monan.git 
+5. Baixe os códigos dinâmicos desejados na pasta DinCore:
+    * mkdir DinCore; cd DinCore
+    * git clone https://github.com/NOAA-GFDL/GFDL_atmos_cubed_sphere.git
+    * cd ..
+6. Execute o script principal. Todas as subpastas do caminho informado serão avaliadas, então, deve-se selecionar a pasta que contenha somente o código a ser avaliado do Core Dinâmico. Ex:
+    * monan/tools/qas_eval/run_eval.sh fv3 DinCore/GFDL_atmos_cubed_sphere/model/
+
+
+O último passo executará as ferramentas para os códigos de Core Dinâmicos e gerará os seguintes relatórios:
+- QualityReport_[MODELO].pdf : Relatório gerado pela ferramenta FortranAnalyser. As estatísticas sintetizadas estão no final do arquivo
+- Check_Report_[MODEL].txt : Relatório gerado pela ferramenta Check.py.
+
+Os relatórios informam os valores das métricas obtidas por cada Core Dinâmico, que serão usados para pontuar as Características de Qualidade mapeadas para cada métrica (tabela do item 3.3).
+
+
+
+### 3.6 Avaliação da Portabilidade
+
+| Métrica | Descrição | Impactos Positivos | Impactos Negativos | Ferramentas | Unidade de medida |
+| --- | --- | --- | --- | --- | --- |
+| **TODO** Dependência de máquina | Mede a quantidade de declarações que são dependentes de máquina. | - | Modificabilidade, Reusabilidade, Adaptabilidade, Capacidade para Substituir | - | - |
+
+## 4. Ambientes e Compiladores 
 
 **TODO - Rever ambientes de testes e compiladores, abaixo**
 
@@ -166,19 +240,19 @@ Cada característica ou conjunto de subcaracterísticas devem ser avaliadas em u
 
 ...
 
-### 6. Avaliação da Qualidade 
+## 5. Avaliação da Qualidade Total
 
-As características de qualidade descritas no item 2 devem ser avaliadas no início do projeto para ajudar a escolher o Core Dinâmico.  
+As Características de Qualidade descritas no item 2 devem ser avaliadas no início do projeto para ajudar a escolher o Core Dinâmico.  
 
-As características de Manutebilidade e parte da Portabilidade deverão ser mensuradas através as ferramentas descritas no item 4. As demais características de Portabilidade deverão ser mensuradas utilizando o Core Dinâmico instalado nos ambientes disponibilizados para testes, considerando diferentes compiladores e bibliotecas como critérios de pontuação, descritos no item 5.
+As características de Manutebilidade e parte da Portabilidade deverão ser mensuradas através as ferramentas descritas no [item 3.5.3](#353-ferramentas-para-avaliação-da-manutebilidade-e-parte-da-portabilidade). As demais características de Portabilidade deverão ser mensuradas utilizando o Core Dinâmico instalado nos ambientes disponibilizados para testes no [Item 4](#4-compiladores-e-ambientes-para-avaliação-da-manutebilidade-e-parte-da-portabilidade), considerando diferentes ambientes, compiladores, containers e bibliotecas como critérios de pontuação.
 
 Os critérios de pontuação definidos pelas normas ISO são:
 * Três pontos para as subcategorias que atendem satisfatoriamente os requisitos de qualidade (excelente, bom e razoável).
 * Um ponto para as subcategorias com pontuação Insatisfatória.
 
 Esses critérios de pontuação serão utilizados como base para a avaliação que deve ser feita por métricas, da seguinte forma: Para cada métrica, os Cores Dinâmicos que apresentarem:
-* a melhor pontuação da métrica: recebem três pontos para cada subcategoria de qualidade relacionada à métrica (ver tabela de métricas no item 3). 
-* as piores pontuações: recebem um ponto para cada subcategoria de qualidade relacionada à métrica (ver tabela de métricas no item 3). 
+* a melhor pontuação da métrica: recebem três pontos para cada subcategoria de qualidade relacionada à métrica (Ex. tabela de métricas no [item 3.5.2](#352-métricas-utilizadas)). 
+* as piores pontuações: recebem um ponto para cada subcategoria de qualidade relacionada à métrica. 
 
 Em caso de empate dos melhores, os empatados recebem três pontos. Analogamente, os piores empatados recebem um ponto.
 
@@ -193,17 +267,13 @@ onde
     Q2 = PtsConfiabilidade * 1
     Q3 = PtsUsabilidade * 1
     Q4 = PtsEficiência * 3
-    Q5 = PtsManutebilidade * 2
+    Q5 = PtsManutebilidade * 3
     Q6 = PtsPortabilidade * 1
 
 Os pesos devem ser determinados com o consenso de todo o grupo de avaliação, sinalizando as características consideradas mais importantes na availiação do Core Dinâmico, dentre elas: 
 * Funcionalidade: deve atender as principais demandas do Monan. 
 * Eficiência: fator que considera o atual cenário de recursos computacionais e de energia.
 * Manutebilidade: fator que considera o atual cenário de recursos humanos e os prazos para implementação. 
-
-#### Considerações sobre a avaliação de outras características de Qualidade de Software
-
-Outros documentos devem ser criados para a avaliação de outras características não consideradas neste.
 
 Subcaracterísticas subjetivas podem não usar métricas para avaliação. Nesses casos, três pontos devem ser dados para cada melhor subcaracterística. A forma de avaliação deve ser justificada.
 
@@ -213,35 +283,7 @@ Confiabilidade e Usabilidade, também poderão usar métricas para nortear as po
 
 A subcaracterísitca Adequação, de Funcionalidade, pode ser avaliada através das publicações de artigos e manuais do software. A subcaracterística Acurácia e Interoperabilidade, deverá ser avaliada através de testes nos ambientes disponibilizados. 
 
-### 6.1 Executando a avaliação:
-
-1. Use o módulo singularity no servidor Rattler (a) ou instale em outro local desejado (b). OBS: A versão do singularity disponível para Ubuntu 18.04 (2.6.1-dist - via apt install) não funciona com o pull do passo 3. A instalação manual de versões mais recentes, via passos de https://sylabs.io/guides/3.0/user-guide/installation.html , requer pacotes que não estão disponíveis na versão 18.04 do Ubuntu. Recomenda-se alguma das formas abaixo:
-    * a) module load singularity  # máquina Rattler
-    * b) sudo apt install -y singularity-container
-2. Crie uma pasta de nome qas_eval e entre nela
-    * mkdir qas_eval;cd qas_eval
-3. Baixe a imagem do singularity na pasta criada, com uma das opções abaixo. Use a opção b) caso não consiga usar o pull (ex. Ubuntu 18.04) em a):
-    * a) singularity pull qas_eval.sif library://denis.eiras/monan/qas_eval:dev
-    * b) Clique no link de download disponível na página https://cloud.sylabs.io/library/denis.eiras/monan/qas_eval e baixe a imagem para a pasta atual (qas_eval) usando o nome qas_eval.sif
-4. Baixe o código inteiro do monan (será usada a subpasta tools):
-    * git clone https://github.com/monanadmin/monan.git 
-5. Baixe os códigos dinâmicos desejados na pasta DinCore:
-    * mkdir DinCore; cd DinCore
-    * git clone https://github.com/NOAA-GFDL/GFDL_atmos_cubed_sphere.git
-    * cd ..
-6. Execute o script principal. Todas as subpastas do caminho informado serão avaliadas, então, deve-se selecionar a pasta que contenha somente o código a ser avaliado do Core Dinâmico. Ex:
-    * monan/tools/qas_eval/run_eval.sh fv3 DinCore/GFDL_atmos_cubed_sphere/model/
-
-
-O último passo executará as ferramentas para os códigos de Core Dinâmicos e gerará os seguintes relatórios:
-- QualityReport_[MODELO].pdf : Relatório gerado pela ferramenta FortranAnalyser. As estatísticas sintetizadas estão no final do arquivo
-- Check_Report_[MODEL].txt : Relatório gerado pela ferramenta Check.py.
-
-Os relatórios informam os valores das métricas obtidas por cada Core Dinâmico, que serão usados para pontuar as Características de Qualidade mapeadas para cada métrica (tabela do item 3.3).
-
-
-
-### Referências
+## Referências
 
 SOMMERVILLE, Ian. Engenharia de Software. 9th Edition. ISBN-10, v. 137035152, p. 456-458; 465-470, 2011.
 
