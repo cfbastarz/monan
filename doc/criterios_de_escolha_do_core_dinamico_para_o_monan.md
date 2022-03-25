@@ -111,9 +111,9 @@ As caracterísitcas de qualidade selecionadas para a avaliação do Core Dinâmi
 
 Métricas de Software podem ser utilizadas para a avaliação de algumas Características de Qualidade. Existem métricas para avaliação de código estruturado e de código Orientado a Objeto. Serão utilizadas somente as métricas de código estruturado, por se tratar da técnica de codificação comum entre os códigos analisados.
 
-Diveros tipos de métricas foram criadas para avaliar a qualidade dos Softwares. Algumas delas medem a complexidade do software e características da linguagem de programação, relacionados a Manutebilidade.
+Diversos tipos de métricas foram criadas para avaliar a qualidade dos softwares. Algumas delas medem a complexidade do software e características da linguagem de programação, relacionados a Manutebilidade.
 
-__Métrica de Complexidade Ciclomática de McCabe__
+_Métrica de Complexidade Ciclomática de McCabe_
 
 McCabe desenvolveu uma métrica que permite aos desenvolvedores identificar módulos difíceis de testar ou manter. Como resultado, ele desenvolveu uma métrica de software que iguala a complexidade ao número de decisões em um programa. Os desenvolvedores podem usar essa medida para determinar quais módulos de um programa são excessivamente complexos e precisam ser recodificados. A métrica também pode ser usada para definir o número mínimo de casos de teste necessários para testar adequadamente os caminhos do programa.
 
@@ -126,22 +126,22 @@ Os valores de referência são exibidos na tabela abaixo:
 |21-50 |	Método muito complexo. Elevado risco |
 |51-N |	Método de altíssimo risco e bastante instável |
 
-__Métricas de Software da RADC__
+_Métricas de Software da RADC_
 
 A metodologia RADC consiste em elementos métricos, métricas, critérios e fatores. As pontuações dos elementos de métrica são combinadas para formar uma pontuação de métrica e as pontuações de métrica são combinadas para formar uma pontuação de critério. As pontuações de critérios são então combinadas de várias maneiras para produzir várias pontuações de fatores de qualidade. Elementos métricos são as medidas quantitativas de objetos de software. Métricas são os detalhes orientados ao software das características do software. Critérios são as características orientadas ao software que contribuem para vários tipos de qualidade.
 
 #### 3.5.2 Métricas utilizadas
 
-As métricas abaixo foram selecionadas para avaliar as subcaracterísticas de Manutebilidade e algumas subcaracterísticas de Portabilidade. A forma de avaliação está descrita no item 6.
+As métricas abaixo foram selecionadas para avaliar as subcaracterísticas de Manutebilidade e algumas subcaracterísticas de Portabilidade. Um maior valor da métrica resulta em um impacto positivo ou negativo em subcaracterísticas. O método de pontuação de métricas está descrito no [item 5](#5-avaliação-da-qualidade-total).
 
 | Métrica | Descrição | Impactos Positivos | Impactos Negativos | Ferramentas | Unidade de medida |
 | --- | --- | --- | --- | --- | --- |
 | Comprimento de código | Essa é uma medida do tamanho de um programa. Geralmente, quanto maior o tamanho do código de um componente, mais complexo e sujeito a erros o componente é. O comprimento de código tem mostrado ser uma das métricas mais confiáveis para prever a propensão a erros em componentes | - | Analisabilidade, Modificabilidade, Estabilidade, Testabilidade, Adaptabilidade |  FortranAnalyser | linhas de código |
-| Complexidade Ciclomática Média (McCabe)| Permite aos desenvolvedores identificar módulos difíceis de testar ou manter. Calcula o número de decisões em um programa, que pode ser usado para determinar quais módulos de um programa são excessivamente complexos e precisam ser recodificados. | - | Analisabilidade, Modificabilidade, , Estabilidade | FortranAnalyser | Ver tabela na seção 3.1 |
-| Documentação total  | Mede a porcentagem de código comentado (todo o código) (vazios e "!" sem continuação estão excluídos). Quanto maior melhor. | Analisabilidade, Modificabilidade | - | Check.py | razão |
-| Documentação de rotinas | Mede a porcentagem rotinas comentadas. Facilita o entendimento do código e registra alterações históricas. Quanto maior melhor. | Analisabilidade, Modificabilidade, Reusabilidade, Testabilidade | - | FortranAnalyser | razão |
-| Documentação de arquivos | Mede a porcentagem arquivos com comentários no início. Facilita o entendimento do código e registra alterações históricas. Quanto maior melhor. | Analisabilidade, Modificabilidade | - | FortranAnalyser | razão |
-| **TODO - CHECAR** Documentação de variáveis | Mede a porcentagem de variáveis comentadas. Facilita o entendimento do código. Quanto maior melhor. | Analisabilidade, Modificabilidade | - | FortranAnalyser | razão |
+| Complexidade Ciclomática Média (McCabe)| Permite aos desenvolvedores identificar módulos difíceis de testar ou manter. Calcula o número de decisões em um programa, que pode ser usado para determinar quais módulos de um programa são excessivamente complexos e precisam ser recodificados. | - | Analisabilidade, Modificabilidade, Estabilidade | FortranAnalyser | Ver tabela no [item 3.5.1](#351-métricas-para-avaliação-de-características-da-manutebilidade) |
+| Documentação total  | Mede a porcentagem de código comentado (todo o código) (vazios e "!" sem continuação estão excluídos). | Analisabilidade, Modificabilidade | - | Check.py | razão |
+| Documentação de rotinas | Mede a porcentagem rotinas comentadas. Facilita o entendimento do código e registra alterações históricas. | Analisabilidade, Modificabilidade, Reusabilidade, Testabilidade | - | FortranAnalyser | razão |
+| Documentação de arquivos | Mede a porcentagem arquivos com comentários no início. Facilita o entendimento do código e registra alterações históricas. | Analisabilidade, Modificabilidade | - | FortranAnalyser | razão |
+| **TODO - CHECAR** Documentação de variáveis | Mede a porcentagem de variáveis comentadas. Facilita o entendimento do código. | Analisabilidade, Modificabilidade | - | FortranAnalyser | razão |
 | **TODO** Parâmetros nas rotinas | Mede a quantidade de parâmetros nas rotinas. Quanto maior o número, mais difícil a manutenção. | - | Analisabilidade, Modificabilidade, Estabilidade | - | - |
 | **TODO** Modificações em loops | Mede quantas variáveis de loop foram modificadas. Idealmente deve ser zero. | - |Analisabilidade, Modificabilidade, Estabilidade | - | - |
 | Tamanho médio das rotinas  | Tamanho médio em linhas de rotinas, que afeta a compreensibilidade e Manutebilidade | - | Analisabilidade, Modificabilidade, Reusabilidade, Estabilidade, Testabilidade | Check.py | linhas de código |
@@ -161,7 +161,7 @@ As métricas abaixo foram selecionadas para avaliar as subcaracterísticas de Ma
 
 As ferramentas necessárias para a avaliação estão versionadas em https://github.com/monanadmin/monan/tree/main/tools/qas_eval . Algumas ferramentas foram adaptadas, como o FortranAnalyser, para possibilitar o uso sem interface gráfica. Outras utiliza-se somente o código binário, como no caso do fortran-src.
 
-A imagem do container singularity (qas_eval.sif) utiliza as ferramentas versionadas do repositório (externamente ao container) e as ferramentas binárias (fortran-src e FortranAnalyser.jar) sobre uma distribuição Linux compatível com as ferramentas. As ferramentas binárias estão disponíveis na pasta /home/qas_files/tools/ dentro da imagem. 
+Uma imagem do container singularity (qas_eval.sif) foi criada para armazenar e executar as ferramentas binárias (fortran-src e FortranAnalyser.jar) sobre uma distribuição Linux compatível com as ferramentas. As ferramentas binárias estão disponíveis na pasta /home/qas_files/tools/ dentro da imagem. 
 
 Ferramentas com código fonte no repositório:
 
@@ -171,7 +171,7 @@ Ferramentas com código fonte no repositório:
 Ferramentas com código binário:
 
 * fortran-src (https://github.com/camfort/fortran-src). Ferramenta escrita na linguagem Haskell que gera diversas estatísticas do código. 
-* FortranAnalyser.jar. Binário gerado pelo código fonte. Para gerar, baixe ou instale a ferramenta maven, entre na pasta principal do FortranAnalyser (onde se encontra o pom.xml) e execute "mvn clean install".
+* FortranAnalyser.jar. Binário gerado pelo código fonte. Para gerar o binário a partir do código fonte, baixe ou instale a ferramenta maven, entre na pasta principal do FortranAnalyser (onde se encontra o pom.xml) e execute "mvn clean install".
 
 #### 3.5.4 Geração das métricas
 
@@ -197,11 +197,13 @@ O último passo executará as ferramentas para os códigos de Core Dinâmicos e 
 - QualityReport_[MODELO].pdf : Relatório gerado pela ferramenta FortranAnalyser. As estatísticas sintetizadas estão no final do arquivo
 - Check_Report_[MODEL].txt : Relatório gerado pela ferramenta Check.py.
 
-Os relatórios informam os valores das métricas obtidas por cada Core Dinâmico, que serão usados para pontuar as Características de Qualidade mapeadas para cada métrica (tabela do item 3.3).
+Os relatórios informam os valores das métricas obtidas por cada Core Dinâmico, que serão usados para pontuar as Características de Qualidade mapeadas para cada métrica (tabela do [item 3.5.2](#352-métricas-utilizadas)).
 
 
 
 ### 3.6 Avaliação da Portabilidade
+
+**TODO**
 
 | Métrica | Descrição | Impactos Positivos | Impactos Negativos | Ferramentas | Unidade de medida |
 | --- | --- | --- | --- | --- | --- |
@@ -244,7 +246,7 @@ Cada característica ou conjunto de subcaracterísticas devem ser avaliadas em u
 
 As Características de Qualidade descritas no item 2 devem ser avaliadas no início do projeto para ajudar a escolher o Core Dinâmico.  
 
-As características de Manutebilidade e parte da Portabilidade deverão ser mensuradas através as ferramentas descritas no [item 3.5.3](#353-ferramentas-para-avaliação-da-manutebilidade-e-parte-da-portabilidade). As demais características de Portabilidade deverão ser mensuradas utilizando o Core Dinâmico instalado nos ambientes disponibilizados para testes no [Item 4](#4-compiladores-e-ambientes-para-avaliação-da-manutebilidade-e-parte-da-portabilidade), considerando diferentes ambientes, compiladores, containers e bibliotecas como critérios de pontuação.
+As características de Manutebilidade deverão ser mensuradas através as ferramentas descritas no [item 3.5.3](#353-ferramentas-para-avaliação-da-manutebilidade-e-parte-da-portabilidade). As características de Portabilidade deverão ser mensuradas utilizando o Core Dinâmico instalado nos ambientes disponibilizados para testes no [Item 4](#4-compiladores-e-ambientes-para-avaliação-da-manutebilidade-e-parte-da-portabilidade), considerando diferentes ambientes, compiladores, containers e bibliotecas como critérios de pontuação.
 
 Os critérios de pontuação definidos pelas normas ISO são:
 * Três pontos para as subcategorias que atendem satisfatoriamente os requisitos de qualidade (excelente, bom e razoável).
@@ -270,10 +272,13 @@ onde
     Q5 = PtsManutebilidade * 3
     Q6 = PtsPortabilidade * 1
 
-Os pesos devem ser determinados com o consenso de todo o grupo de avaliação, sinalizando as características consideradas mais importantes na availiação do Core Dinâmico, dentre elas: 
+Os pesos devem ser determinados com o consenso de todo o grupo de avaliação, sinalizando as características consideradas mais importantes na availiação do Core Dinâmico. Fatores importantes ao avaliar: 
 * Funcionalidade: deve atender as principais demandas do Monan. 
+* Confiabilidade: deve considerar testes de estresse em diferentes cenários atmosféricos. Avaliar a recuperabilidade da execução (mode RESTART existe?).
+* Usabilidade: quanto de investimento é necessário (aprendizado e criação de scripts) ?
 * Eficiência: fator que considera o atual cenário de recursos computacionais e de energia.
 * Manutebilidade: fator que considera o atual cenário de recursos humanos e os prazos para implementação. 
+* Portabilidade: quanto de esforço foi necessário para funcionar nos diferentes ambientes computacionais? E para as próximas gerações de máquinas?
 
 Subcaracterísticas subjetivas podem não usar métricas para avaliação. Nesses casos, três pontos devem ser dados para cada melhor subcaracterística. A forma de avaliação deve ser justificada.
 
