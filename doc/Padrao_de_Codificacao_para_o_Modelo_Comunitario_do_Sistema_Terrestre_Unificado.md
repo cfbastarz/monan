@@ -98,9 +98,9 @@ enddo
 
 ```fortran
 integer :: countParticles
-!# Number of particles count [#]
+!! Number of particles count [#]
 real, allocatable :: aerMassCape(:,:,:)
-!# Mass of aerosol on cape waves [g/m^3]
+!! Mass of aerosol on cape waves [g/m^3]
 ```
 
 4.4 <mark>Mandatória</mark>: *O atributo `intent` deve ser usado para todos argumentos com exceção de ponteiros (não é definido pelo padrão). Deixa clara a intenção do argumento dentro da subrotina.*
@@ -123,7 +123,7 @@ end subroutine test
 
 ```fortran
 real, parameter      :: c_kb = 1.3806504e-23 
-!# boltzmann constant [jk-1]
+!! boltzmann constant [jk-1]
 ```
 
 4.6 <mark>Mandatória</mark>: *Todas as constantes não físicas (`parameters`), precisam ser definidas com o atributo `parameter`. Para declarações, utilize sempre uma constante por linha para facilitar a documentação e entendimento.*
@@ -135,21 +135,21 @@ real, parameter      :: c_kb = 1.3806504e-23
 ```fortran
    !Errors type for dump functions
    integer, parameter :: p_noError = 0
-   !# No Error, just write
+   !! No Error, just write
    integer, parameter :: p_notice = 1
-   !# Notice Error
+   !! Notice Error
    integer, parameter :: p_warning = 2
-   !# warning Error
+   !! warning Error
    integer, parameter :: p_fatal = 3
-   !# Fatal error
+   !! Fatal error
    integer, parameter :: p_kill = 4
-   !# Kill the model Signal
+   !! Kill the model Signal
    integer, parameter :: p_continue = 5
-   !# Continue run Signal
+   !! Continue run Signal
    logical, parameter :: p_yes = .true.
-   !# Yes is the .true. value
+   !! Yes is the .true. value
    logical, parameter :: p_no = .false.
-   !# No is the false value
+   !! No is the false value
 ```
 
 4.7 <mark>Mandatória</mark>: *Todas as constantes físicas e não físicas comuns a todos os códigos e subrotinas devem estar definidas em um arquivo `include` comum com o nome `constants.h` e estar disponíveis um um subdiretório chamado `include` dentro do subdiretório `src` (sources).*
@@ -244,13 +244,13 @@ end module modRadiate
 ```fortran
    !Errors numbers
    integer, parameter :: e_noError = 0
-   !# No Error, just write
+   !! No Error, just write
    integer, parameter :: e_notice = 1
-   !# Notice Error
+   !! Notice Error
    integer, parameter :: e_warning = 2
-   !# warning Error
+   !! warning Error
    integer, parameter :: e_fatal = 3
-   !# Fatal error
+   !! Fatal error
 ```
 
  4.25 <mark>Mandatória</mark>: *Módulos devem ser interfaciados com drivers. Os drivers servem para fazer conversões numéricas, de tipos de variáveis e adaptação entre os procedures que chamam o módulo e o próprio módulo chamado. O drive deve conter o nome que contenha o nome do módulo seguido da palavra `Driver`. Por exemplo, se um driver for criado para o módulo `modRadiate` este deverá se chamar `modRadiateDriver`. Os drivers podem conter `uses` de outros módulos.*
@@ -259,7 +259,7 @@ end module modRadiate
 
 4.27 <mark>Mandatória</mark>: *Os drivers criados devem chamar os procedures do módulo sempre por parâmetros e nunca por memória (`use`, etc)*. *Os módulos não podem fazer uso de variáveis ou procedures com `use`, exceto para as funções de dump (debug e mensagens).*
 
-4.28 <mark>Mandatória</mark>: *todas as variáveis, contantes e parameters devem receber uma documentação pelo padrão de documentação, Ford - Fortran Documentator, ([GitHub - Fortran-FOSS-Programmers/ford: Automatically generates FORtran Documentation from comments within the code.](https://github.com/Fortran-FOSS-Programmers/ford)) que é adotado pelo modelo. Essa documentação está descrita logo abaixo da declaração da variável com os caracteres `!#` antes da descrição. Essa documentação deve ser o mais abrangente possível e, caso exista, deve conter também a unidade e referência sobre a variável.*
+4.28 <mark>Mandatória</mark>: *todas as variáveis, contantes e parameters devem receber uma documentação pelo padrão de documentação, Ford - Fortran Documentator, ([GitHub - Fortran-FOSS-Programmers/ford: Automatically generates FORtran Documentation from comments within the code.](https://github.com/Fortran-FOSS-Programmers/ford)) que é adotado pelo modelo. Essa documentação está descrita logo abaixo da declaração da variável com os caracteres `!!` antes da descrição. Essa documentação deve ser o mais abrangente possível e, caso exista, deve conter também a unidade e referência sobre a variável.*
 
 4.29 <mark>Mandatória</mark>: *O controle de número de unidade para abertura de arquivo deve ser feito por função automática que deve retornar a unidade livre. Da mesma forma a unidade deve ser liberada por uma função específica que fecha o arquivo e libera a unidade.*
 
@@ -270,46 +270,64 @@ end module modRadiate
 ```fortran
 !============================================================
 integer function getUnit()
-   !# Get a free unit to use
-   !#
-   !# @note
-   !#
-   !# **Brief**: Get a free unit to open file and return the number of unit. 
-   !#
-   !# **Documentation**: <http://monan.cptec.inpe.br/documentation/>
-   !#
-   !# **Author(s)**: Luiz Flavio Rodrigues **e-mail(s):*<luiz.rodrigues@inpe.br>
-   !#
-   !# **Date**: 26 August 2020 (Wednesday)
-   !# @endnote
-   !#
-   !# @changes
-   !# ☐ <br/>
-   !# @endchanges
-   !# @bug
-   !#
-   !# @endbug
-   !#
-   !# @todo
-   !#  ☐ <br/>
-   !# @endtodo
-   !#
-   !# @warning
-   !#  ☐ <br/>
-   !# @endwarning
-   !#
+   !! get a free unit to use
+   !!
+   !! @note
+   !!
+   !! **Project**: MONAN - Model for Ocean laNd and Atmosphere predictioN
+   !! **Author(s)**: Rodrigues, L.F. [LFR]
+   !! **e-mail**: <mailto:luiz.rodrigues@inpe.br>
+   !! **Date**:  28Março2022 15:50
+   !!
+   !! **Full description**:
+   !! This function returns a free unit number to manipulate file 
+   !!
+   !! @endnote
+   !!
+   !! @warning
+   !!
+   !!  [](https://www.gnu.org/graphics/gplv3-127x51.png'')
+   !!
+   !!     Under the terms of the GNU General Public version 3
+   !!
+   !! @endwarning
 ```
 
 4.32 <mark>Mandatória</mark>: *Todos os arquivos de código em fortran terão sua extensão `.F90` e não `.f90`*
 
-4.33 <mark>Mandatória</mark>: *Todos os arquivos de código, em qualquer linguagem, deverá conter um cabeçalho à partir de sua primeira linha, informando a referência ao **Model for Ocean laNd and Atmosphere predictioN (MONAN)**, fazer referência à página web que contém a documentação completa do modelo e informar a licença de uso. A licença a ser adotada é a `CC Attribution-ShareAlike 4.0 International`, estando seus termos disponiveis em [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/).*
+4.33 <mark>Mandatória</mark>: *Todos os arquivos de código, em qualquer linguagem, deverá conter um cabeçalho à partir de sua primeira linha, informando a referência ao **Model for Ocean laNd and Atmosphere predictioN (MONAN)**. A licença a ser adotada é a Free  Software  Foundation, GPL version 3, estando seus termos disponiveis em [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/). Nos módulos e programas (program) a licença deverá ser mostrada por extenso:
 
 ```fortran
-!# This file is part of Model for Ocean laNd and Atmosphere predictioN (MONAN)
-!# Please, see documentation on [Sistema de Gestão de Projetos](https://projetos.cptec.inpe.br/projects/mcstu/wiki)
-!#![](https://licensebuttons.net/l/by-sa/3.0/88x31.png%22%22) 
-!# Now is under CC Attribution-ShareAlike 4.0 International, please see::
-!# © https://creativecommons.org/licenses/by-sa/4.0/
+   !! @warning
+   !!
+   !!  [](https://www.gnu.org/graphics/gplv3-127x51.png'')
+   !!
+   !!     This program is free software: you can redistribute it and/or modify
+   !!     it under the terms of the GNU General Public License as published by
+   !!     the  Free  Software  Foundation, either version 3 of the License, or
+   !!     (at your option) any later version.
+   !!
+   !!     This program is distributed in the hope that it  will be useful, but
+   !!     WITHOUT  ANY  WARRANTY;  without  even  the   implied   warranty  of
+   !!     MERCHANTABILITY or FITNESS FOR A  PARTICULAR PURPOSE.  See  the, GNU
+   !!     GNU General Public License for more details.
+   !!
+   !!     You should have received a copy  of the GNU General  Public  License
+   !!     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+   !!
+   !! @endwarning
+```
+
+Nas demais procedures (functions ou subroutines), desde que internas aos módulos, pode-se apresentar a licença em formato resumido:
+
+```fortran
+   !! @warning
+   !!
+   !!  [](https://www.gnu.org/graphics/gplv3-127x51.png'')
+   !!
+   !!     Under the terms of the GNU General Public version 3
+   !!
+   !! @endwarning
 ```
 
 4.34 <mark>Mandatória</mark>: *É proibido o uso de comandos descontinuados para fortran 90/95 como os listados abaixo:*
@@ -426,14 +444,14 @@ contains
       implicit none
 
       real, intent(in) :: aCoef
-      !# Coef. a da equacao de seg. grau
+      !! Coef. a da equacao de seg. grau
       real, intent(in) :: bCoef
-      !# Coef. b da equacao de seg. grau
+      !! Coef. b da equacao de seg. grau
       real, intent(in) :: cCoef
-      !# Coef. c da equacao de seg. grau
+      !! Coef. c da equacao de seg. grau
 
       real ::raiz(2)
-      !# raizes da equacao de segundo grau
+      !! raizes da equacao de segundo grau
 
       real :: delta
 
@@ -448,14 +466,14 @@ contains
       implicit none
 
       real, intent(in) :: massa
-      !# massa da substância [g]
+      !! massa da substância [g]
       real,optional,intent(in) :: calorEspecifico
-      !# calor específico da substancia [cal/gC]
+      !! calor específico da substancia [cal/gC]
       real, intent(in) :: deltaTemp
       !Temperatura de elevacao [C]
 
       real :: cs
-      !# calor sensivel calculado
+      !! calor sensivel calculado
 
       real :: ce
 
