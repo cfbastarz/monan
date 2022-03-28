@@ -1,0 +1,6 @@
+control
+thr mpi dcp rst bit dbg
+regional_control
+thr dcp
+cpld_control_c96_noaero_p8
+rst dbg
