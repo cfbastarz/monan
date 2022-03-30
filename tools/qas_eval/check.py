@@ -342,65 +342,69 @@ def checkDo():
 
 def verifica_keywords2(line):
     ls = line.split()
-    if line[0:10] == "subroutine":
-        return True
-    ls = line.split()
     if len(ls) == 0:
         return False
     primeiro_char = ls[0]
-    if primeiro_char == "!":
+    if primeiro_char[0] == "!":
         return False
     try:
-        call_pos = ls.index("call")
+        subroutine_pos = ls.index("subroutine")
+        return True
     except:
-        return False
+        try:
+            call_pos = ls.index("call")
+        except:
+            return False
     return True
 
 
-def checkCalls():
-    lines_valid = []
-    call_info = {}
-    for file in get_source_files():
-        subname = ''
+# def checkCalls():
+#     lines_valid = []
+#     call_info = {}
+#     for file in get_source_files():
+#         subname = ''
 
-        fn = open(file, "r")
-        lines = fn.readlines()
-        fn.close()
+#         fn = open(file, "r")
+#         lines = fn.readlines()
+#         fn.close()
 
-        fo = open(file + ".call", "w")
+#         fo = open(file + ".call", "w")
 
-        subs = []
+#         subs = []
 
-        for line in lines:
-            line = line.strip().lower()
-            if verifica_keywords2(line):
-                lines_valid.append(line)
+#         for line in lines:
+#             line = line.strip().lower()
+#             if verifica_keywords2(line):
+#                 lines_valid.append(line)
 
-                fo.write(line + "\n")
+#                 fo.write(line + "\n")
 
-        fo.close()
+#         fo.close()
 
-        for line in lines_valid:
-            if line[0:10] == 'subroutine':
-                subname = line.split()[1]
-                subname = subname.split("(")[0]
-                continue
-            ls = line.split()
-            try:
-                call_pos = ls.index("call")
-                comm_pos = ls.index("!")
-                if comm_pos < call_pos: 
-                    continue
-            except:
-                continue
+#         for line in lines_valid:
+#             if line[0:10] == 'subroutine':
+#                 subname = line.split()[1]
+#                 subname = subname.split("(")[0]
+#                 continue
+#             ls = line.split()
+#             try:
+#                 call_pos = ls.index("call")
+#             except:
+#                 continue
+#             try:
+#                 comm_pos = ls.index("!")
+#                 if comm_pos < call_pos: 
+#                     continue
+#             except:
+#                 pass
 
-            sub_name = ls[call_pos + 1]
-            subs.append(sub_name.split("(")[0])
+#             sub_name = ls[call_pos + 1]
+#             subs.append(sub_name.split("(")[0])
 
-        if subname != '':
-            call_info[subname] = subs
+#         if subname != '':
+#             call_info[subname] = subs
 
-    return call_info
+#     return call_info
 
 
 def log_msg(*msgs):
