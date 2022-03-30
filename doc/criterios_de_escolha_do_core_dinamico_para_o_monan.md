@@ -29,8 +29,8 @@
     &nbsp;&nbsp;&nbsp;&nbsp;3.5.3 [Ferramentas para avaliação da Manutebilidade](#353-ferramentas-para-avaliação-da-manutebilidade)
    
     &nbsp;&nbsp;&nbsp;&nbsp;3.5.4 [Geração das métricas](#354-geração-das-métricas)
-   
-    &nbsp;&nbsp;&nbsp;&nbsp;3.6 [Avaliação da Portabilidade](#36-avaliação-da-portabilidade)
+
+    3.6 [Avaliação da Portabilidade](#36-avaliação-da-portabilidade)
 
 4. [Ambientes e Compiladores](#4-ambientes-e-compiladores)
 
