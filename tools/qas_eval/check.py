@@ -9,7 +9,9 @@ import glob
 import os
 import sys
 
-sys.path.append('./fortranMakeUtils')  
+sys.path.append(f'{sys.path[0]}/fortranMakeUtils')  
+
+print(sys.path)
 import fortranMakeUtils as fmu
 
 
@@ -291,9 +293,9 @@ def busca_end_2(li, do_data):
         if do[1] == "do" and do[2] == '':
             aninhado = aninhado + 1
             max_aninhamento = max(max_aninhamento, aninhado)
-        if do[1] == "end" and aninhado == 0:
+        if (do[1] == "end" or do[1] == "enddo" ) and aninhado == 0:
             return do[0], max_aninhamento
-        if do[1] == "end" and aninhado > 0:
+        if (do[1] == "end" or do[1] == "enddo" )and aninhado > 0:
             aninhado = aninhado - 1
 
     return 0, 0
@@ -335,7 +337,7 @@ def checkDo():
             if len(label) > 0:
                 linha_inicial = do[0]
                 linha_final, max_aninhamento = busca_end(linha_inicial + 1, label, do_data)
-                do_info.append([file, int(linha_final) - int(linha_inicial), max_aninhamento])
+                do_info.append([file, int(linha_final) - int(linha_inicial + 1), max_aninhamento])
 
         # Tratando dos laços com do-enddo
         for do in do_data:
@@ -343,7 +345,7 @@ def checkDo():
             if len(label) == 0 and do[1] == "do":
                 linha_inicial = do[0]
                 linha_final, max_aninhamento = busca_end_2(linha_inicial + 1, do_data)
-                do_info.append([file, int(linha_final) - int(linha_inicial), max_aninhamento])
+                do_info.append([file, int(linha_final) - int(linha_inicial + 1), max_aninhamento])
 
     return do_info
 
@@ -377,7 +379,8 @@ def log_msg(*msgs):
 
 # ====================== Início do programa ===========================
 
-file_log_report = open(f'{sys.argv[2]}/Check_Report_{sys.argv[3]}.txt', 'w')
+file_log_report_name = f'{sys.argv[2]}/Check_Report_{sys.argv[3]}.txt'
+file_log_report = open(file_log_report_name, 'w')
 
 # print("--Funct info--")
 functInfo = get_proc_info("function")
@@ -404,9 +407,6 @@ subVars = get_vars(subInfo, lines)
 # print('======= subrtiInfo = ', subInfo)
 # print(len(subVars),subVars)
 # print("Modules --------------------------")
-modVars = get_vars(modInfo, lines)
-# print(len(modVars),modVars)
-# print("Documents --------------------------")
 document = get_file_info()
 # print(document)
 # print("Uses --------------------------")
@@ -479,15 +479,6 @@ except:
 log_msg('+ tamanho médio do nome das variáveis em subrotinas: ', tm)
 
 ttot = 0
-for i in modVars:
-    ttot = ttot + modVars[i]
-try:
-    tm = ttot / len(modVars)
-except:
-    tm = 0
-log_msg('+ ***TODO*** tamanho médio do nome das variáveis em módulos: ', tm)
-
-ttot = 0
 for i in document:
     ttot = ttot + document[i][4]
 try:
@@ -508,6 +499,7 @@ except:
   tm = 0
 log_msg('+ razão de only em uses: ', tm, '%')
 
+# codinfo[file_name] = [do, goto, exit, cycle, implicit, equivalence, common, continue_]
 ttot1 = 0
 ttot2 = 0
 ttot3 = 0
@@ -546,10 +538,10 @@ except:
     tm = 0
 log_msg('+ razão entre "continue" e "enddo": ', tm, '%')
 try:
-    tm = ttot5 / (len(funcVars) + len(subVars) + len(modVars)) * 100
+    tm = ttot5 / (len(funcVars) + len(subVars)) * 100
 except:
     tm = 0
-log_msg('+ razão do uso de "implicit": ', tm, '%', ', ', ttot5, ' em ', len(funcVars) + len(subVars) + len(modVars),
+log_msg('+ razão do uso de "implicit": ', tm, '%', ', ', ttot5, ' em ', len(funcVars) + len(subVars),
       ' variáveis de procedures')
 tm = ttot6 + ttot7
 log_msg('+ total de "equivalence" ou "common": ', tm)
@@ -568,8 +560,8 @@ try:
 except:
     tm = 0
     tm1 = 0
-log_msg('+ ***TODO bug*** profundidade (linhas) média de laços: ', tm)
-log_msg('+ ***TODO bug*** aninhamento (linhas) médio de laços: ', tm1)
+log_msg('+ profundidade (linhas) média de laços: ', tm)
+log_msg('+ aninhamento (linhas) médio de laços: ', tm1)
 
 
 file_caller_tree = open(f'{sys.argv[2]}/callerTree.txt')
@@ -588,9 +580,13 @@ for line in file_caller_tree:
         depth_max = max(depth, depth_max)
 
 # last
-summ_depth_max += depth_max    
-med_calls_em = summ_calls / summ_routines
-med_prof_calls_em = summ_depth_max / summ_routines
+if summ_routines == 0:
+    med_calls_em = 0
+    med_prof_calls_em = 0
+else:
+    summ_depth_max += depth_max    
+    med_calls_em = summ_calls / summ_routines
+    med_prof_calls_em = summ_depth_max / summ_routines
 
 log_msg('+ Média de chamadas em subrotina: ', med_calls_em)
 log_msg('+ Profundidade média de chamadas em subrotina: ', med_prof_calls_em)
@@ -604,11 +600,19 @@ for line in file_all_methods_called:
     calls = int(spl[1].strip())
     summ_calls += calls
     summ_count += 1
-med_calls = summ_calls / summ_count
+if summ_count == 0:
+    med_calls = 0
+else:
+    med_calls = summ_calls / summ_count
 log_msg('+ Média de chamadas por subrotina: ', med_calls)
 
 
 file_log_report.close()
+file_log_report = open(file_log_report_name)
+with file_log_report as f:
+    print(f.read())
+file_log_report.close()
+
 file_caller_tree.close()
 file_all_methods_called.close()
 
