@@ -1,8 +1,16 @@
 # -*- coding: utf-8 -*-
+#
+# Program check.py
+#
+# use: check.py input_source_dir output_dir out_model_name
+
 
 import glob
 import os
 import sys
+
+sys.path.append('./fortranMakeUtils')  
+import fortranMakeUtils as fmu
 
 
 def get_source_files():
@@ -342,65 +350,20 @@ def checkDo():
 
 def verifica_keywords2(line):
     ls = line.split()
-    if line[0:10] == "subroutine":
-        return True
-    ls = line.split()
     if len(ls) == 0:
         return False
     primeiro_char = ls[0]
-    if primeiro_char == "!":
+    if primeiro_char[0] == "!":
         return False
     try:
-        call_pos = ls.index("call")
+        subroutine_pos = ls.index("subroutine")
+        return True
     except:
-        return False
+        try:
+            call_pos = ls.index("call")
+        except:
+            return False
     return True
-
-
-def checkCalls():
-    lines_valid = []
-    call_info = {}
-    for file in get_source_files():
-        subname = ''
-
-        fn = open(file, "r")
-        lines = fn.readlines()
-        fn.close()
-
-        fo = open(file + ".call", "w")
-
-        subs = []
-
-        for line in lines:
-            line = line.strip().lower()
-            if verifica_keywords2(line):
-                lines_valid.append(line)
-
-                fo.write(line + "\n")
-
-        fo.close()
-
-        for line in lines_valid:
-            if line[0:10] == 'subroutine':
-                subname = line.split()[1]
-                subname = subname.split("(")[0]
-                continue
-            ls = line.split()
-            try:
-                call_pos = ls.index("call")
-                comm_pos = ls.index("!")
-                if comm_pos < call_pos: 
-                    continue
-            except:
-                continue
-
-            sub_name = ls[call_pos + 1]
-            subs.append(sub_name.split("(")[0])
-
-        if subname != '':
-            call_info[subname] = subs
-
-    return call_info
 
 
 def log_msg(*msgs):
@@ -411,6 +374,8 @@ def log_msg(*msgs):
     file_log_report.write(''.join(msgs_str))
     file_log_report.write('\n')
 
+
+# ====================== Início do programa ===========================
 
 file_log_report = open(f'{sys.argv[2]}/Check_Report_{sys.argv[3]}.txt', 'w')
 
@@ -454,9 +419,11 @@ codeinfo = get_code_info()
 # print("Do loop --------------------------")
 do_info = checkDo()
 # print(do_info)
+
 # print("Calls --------------------------")
-call = checkCalls()
+# call = checkCalls()
 # print(call)
+fmu.main(sys.argv[1], 1000, sys.argv[2])
 
 
 log_msg('================================================================================================')
@@ -601,39 +568,47 @@ try:
 except:
     tm = 0
     tm1 = 0
-log_msg('+ profundidade (linhas) média de laços: ', tm)
-log_msg('+ aninhamento (linhas) médio de laços: ', tm1)
+log_msg('+ ***TODO bug*** profundidade (linhas) média de laços: ', tm)
+log_msg('+ ***TODO bug*** aninhamento (linhas) médio de laços: ', tm1)
 
-ttot = 0
-for i in call:
-    ttot = ttot + len(call[i])
-try:
-    tm = ttot / len(subVars)
-except:
-    tm = 0
-log_msg('+ Média de "call" em subrotina: ', tm)
 
-# for i in call.keys():
-#	for j in call[i]:
-#		print(i,j)
-# print(call)
+file_caller_tree = open(f'{sys.argv[2]}/callerTree.txt')
+summ_routines = 0
+summ_calls = 0
+summ_depth_max = 0
+depth_max = 0
+for line in file_caller_tree:
+    if line[0] == '/':  # new routine
+        summ_depth_max += depth_max
+        summ_routines += 1
+        depth_max = 0
+    else:
+        summ_calls += 1
+        depth = line.index('/')
+        depth_max = max(depth, depth_max)
 
-ncall = {}
-for i in subInfo.keys():
-    ncall[i] = 0
-    for j in call.keys():
-        for k in call[j]:
-            if k == i:
-                ncall[i] = ncall[i] + 1
+# last
+summ_depth_max += depth_max    
+med_calls_em = summ_calls / summ_routines
+med_prof_calls_em = summ_depth_max / summ_routines
 
-ttot = 0
-for i in ncall:
-    ttot = ttot + ncall[i]
-try:
-    tm = ttot / len(ncall)
-except:
-    tm = 0
-log_msg('+ Média de chamadas por subrotina: ', tm)
+log_msg('+ Média de chamadas em subrotina: ', med_calls_em)
+log_msg('+ Profundidade média de chamadas em subrotina: ', med_prof_calls_em)
+
+
+file_all_methods_called = open(f'{sys.argv[2]}/allMethodsCalled.txt')
+summ_calls = 0
+summ_count = 0
+for line in file_all_methods_called:
+    spl = line.split('=')
+    calls = int(spl[1].strip())
+    summ_calls += calls
+    summ_count += 1
+med_calls = summ_calls / summ_count
+log_msg('+ Média de chamadas por subrotina: ', med_calls)
+
 
 file_log_report.close()
+file_caller_tree.close()
+file_all_methods_called.close()
 
