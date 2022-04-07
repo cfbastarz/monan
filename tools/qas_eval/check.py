@@ -588,8 +588,8 @@ else:
     med_calls_em = summ_calls / summ_routines
     med_prof_calls_em = summ_depth_max / summ_routines
 
-log_msg('+ Média de chamadas em subrotina: ', med_calls_em)
-log_msg('+ Profundidade média de chamadas em subrotina: ', med_prof_calls_em)
+log_msg('+ Fan-Out. Média de chamadas em subrotina: ', med_calls_em)
+log_msg('+ Aninhamento média de chamadas em subrotina: ', med_prof_calls_em)
 
 
 file_all_methods_called = open(f'{sys.argv[2]}/allMethodsCalled.txt')
@@ -604,7 +604,7 @@ if summ_count == 0:
     med_calls = 0
 else:
     med_calls = summ_calls / summ_count
-log_msg('+ Média de chamadas por subrotina: ', med_calls)
+log_msg('+ Fan-In. Média de chamadas por subrotina. Número de vezes que a mesma subrotina é chamada.  ', med_calls)
 
 
 file_log_report.close()
