@@ -1,0 +1,10 @@
+*.[aox]
+*.mod
+*.pyc
+
+*.sw[a-p]
+~
+
+build/
+install/
+

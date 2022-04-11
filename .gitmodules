@@ -1,0 +1,3 @@
+[submodule "tools/qas_eval/fortranMakeUtils"]
+	path = tools/qas_eval/fortranMakeUtils
+	url = https://github.com/deniseiras/fortranMakeUtils
