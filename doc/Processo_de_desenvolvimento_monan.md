@@ -32,6 +32,7 @@ Os requisitos são originados por três fatores:
 1. Necessidade específica identificada por um pesquisador. Essa necessidade pode ser advinda de sua própria pesquisa ou identificação de um problema físico, resultados inadequados ou de alguma publicação ou apresentação onde melhorias ou problemas são verificados;
 2. Relatos de _bugs_ ou mal funcionamento;
 3. Necessidade de aumento de desempenho dados os custos computacionais.
+4. Melhoria de funcionalidade: melhor precisão e acurácia nos resultados.
 
 #### 2.2 Desenvolvimento de uma solução
 
@@ -41,7 +42,7 @@ Em geral o desenvolvimento das soluções para os requisitos são adotados pelo 
 * Terceirizando a solução para bolsistas, alunos e pesquisadores/desenvolvedores externos;
 * Adotando um novo código que é identificado como mais moderno e confiável para o problema.
 
-Observa-se aqui que em todos os casos há diferentes formas e níveis de controlar essas tarefas. Inclusive, pode não ser adotado controle nenhum acarretando na confusão das versões dos códigos e perda de controle dos mesmos. Ademais, ao usar código exótico (ie., escrito fora dos padrões recomendados pela linguagem) existe sempre a possibilidade de que o código não tenha utilizado boas práticas de codificação o que, por um lado pode resolver um problema, e por outro acrescentar outros ao código.
+Observa-se aqui que em todos os casos há diferentes formas e níveis de controlar essas tarefas. Inclusive, pode não ser adotado controle nenhum acarretando na confusão das versões dos códigos e perda de controle dos mesmos. Ademais, ao usar código exótico (ie., escrito fora dos padrões recomendados pela linguagem) existe sempre a possibilidade de que o código não tenha utilizado boas práticas de codificação o que, por um lado pode resolver um problema, e por outro acrescentar outros ao código com problemas de manutebilidade, portabilidade, performance, confiabilidade entre outros.
 
 #### 2.3 Testes
 
@@ -49,13 +50,14 @@ Em geral os testes não são automáticos ou padronizados. O pesquisador ou dese
 
 * O código funciona em outros compiladores?
 * O código tem desempenho mínimo esperado para ser usado em situação operacional?
-* O código tem comportamento e funciona em arquiteturas distintas?
+* O código tem bom comportamento e funciona em arquiteturas distintas?
 * As modificações foram devidamente documentadas e versionadas?
 * Os manuais de uso, caso necessário, foram atualizados?  
+* As modificações permitem manutenções futuras com facilidade?
 
 #### 2.4 Implementação operacional
 
-Após a etapa de testes e sendo considerado funcional, o modelo é então levado a situação operacional. Recentemente, no CPTEC, um grupo foi criado para realizar testes de acurácia do modelo e gerar relatórios com os resultados. Contudo, nesta estrutura, não há um fluxo padronizado e normas que determinem quando o modelo está aprovado para a situação operacional diária. 
+Após a etapa de testes e sendo considerado funcional, o modelo é então levado a situação operacional. Recentemente, no INPE, um grupo foi criado para realizar testes de acurácia do modelo e gerar relatórios com os resultados. Contudo, nesta estrutura, não há um fluxo padronizado e as normas que determinem quando o modelo está aprovado para a situação operacional diária é ainda incipiente e de certa forma tratado de modo subjetivo. 
 
 ### 3. Uso de ferramentas de controle de processo e de controle de versões (legado)
 
@@ -67,30 +69,31 @@ Nesse contexto, não há um controle de requisitos efetivos que deve gerar as ta
 
 ### 4. Processo de Desenvolvimento de _Software_
 
-O desenvolvimento de _software_ para o MONAN, deverá seguir as regras estabelecidas nesse documento. A adoção do processo deverá obrigatoriamente ser adotada por todas as intituições partícipes, internas e externas ao INPE, e ter a gerência de todas as tarefas, atividades e desenvolvimentos gerenciadas pelo INPE.
+O desenvolvimento de _software_ para o MONAN, deverá seguir as regras estabelecidas nesse documento. A adoção do processo deverá obrigatoriamente ser adotada por todas as intituições partícipes, internas ao INPE, e ter a gerência de todas as tarefas, atividades e desenvolvimentos gerenciadas pelo INPE. Os membros externos da comunidade de desenvolvimento do MONAN podem adotar metododologia ou processos próprios ou adotar o provesso aqui desenvolvido.
 
 O processo de desenvolvimento é mostrado na Figura 1, com seus tópicos descritos a seguir.
 
 #### 4.1 Grupos
 
-Existem dois tipos de grupos a considerar: 
+Existem três tipos de grupos a considerar: 
 
 1. Grupo de Computação e 
 2. Grupos de Pesquisa/Desenvolvimento. 
+3. Grupo de testes funcionais e avaliação de modelos
 
 O Grupo de Computação está dividido em 4 Subgrupos:
 
 a) Subgrupo de Revisão de Código;
 
-b) Subgrupo de Testes;
+b) Subgrupo de Testes automáticos;
 
 c) Subgrupo de Processamento de Alto Desempenho (PAD);
 
 d) Subgrupo de Versionamento;
 
-Além desses 4 subgrupos há o Grupo da Gerência que deve manter a coesão entre todos os subgrupos de computação.
+Além desses 4 subgrupos há uma Gerência que deve manter a coesão entre todos os subgrupos de computação.
 
-Os grupos de Pesquisa e Desenvolvimento são diversos e se dividem de acordo com as áreas de pesquisa envolvidas no desenvolvimento de modelos. Entre elas estão o Grupo de Dinâmica, Grupo de Radiação, Grupo de Superfície e Camada Limite, Grupo de Oceano e Gelo Marinho, etc. Para efeito desse documento, todos esses grupos distintos serão tratados apenas como Grupos de Pesquisa.
+Os grupos de Pesquisa e Desenvolvimento são diversos e se dividem de acordo com as áreas de pesquisa envolvidas no desenvolvimento de modelos. Entre elas estão o Grupo de Dinâmica, Grupo de Radiação, Grupo de Superfície e Camada Limite, Grupo de Oceano, Grupo de Criosfera, Grupo de IA,  etc. Para efeito desse documento, todos esses grupos distintos serão tratados apenas como Grupos de Pesquisa e não são escopo direto do grupo que cuida das questões computacionais do modelo, denominado internamente como GCC - Grupo de Computação Científica cuja missão, atribuições, visão, valores e membros natos e transversais estão determinados em documento interno ao INPE.
 
 #### 4.2 Ferramenta de Controle de Processos e Versionamento
 
@@ -104,7 +107,7 @@ A página principal do MONAN, também está hospedada no GitHub e está disponí
 
 Na Figura 1, estão diagramadas as etapas de desenvolvimento a serem adotadas para o MONAN. Cada etapa será descrita nas subseções a seguir.
 
-##### ![Fluxo de desenvolvimento para o MONAN](https://i.ibb.co/rxbgLFd/fluxodedesenvolvimento.png)
+##### <img title="" src="https://i.ibb.co/MZWt5TF/desenv.png" alt="Fluxo de desenvolvimento para o MONAN" width="706">
 
 <figcaption>Figura 1 - Fluxo de desenvolvimento para o MONAN.</figcaption>
 
@@ -118,7 +121,7 @@ git clone https://github.com/monanadmin/monan.git
 
 ##### 4.3.2 Criando uma requisição para um desenvolvimento
 
-Antes de começar um desenvolvimento é necessário criar no repositório do [MONAN - Model for Ocean-laNd-Atmosphere predictioN](https://github.com/monanadmin/monan), na aba **Issues**, a requisição. Para isso clique na aba **Issues** e no botão **New Issue**. Preencha então o nome da requisição (nome curto e bem indentificável) e logo depois descreva na aba **Write** de forma completa, qual tarefa será realizada. No lado direito clique nas pessoas envolvidas (**Assignees**) e qual o rótulo adequado para a tarefa (**Labels**) e o projeto **MONAN**. A descrição permite o uso da linguagem de texto [Markdown](https://www.markdownguide.org/basic-syntax/). Assim é possível usar figuras, _links_, marcar usuários, etc. Não econonize na descrição da tarefa pois ela irá orientar o trabalho.
+Antes de começar um desenvolvimento, correção de bug, melhoria ou outra atividade com o modelo é necessário criar no repositório do [MONAN - Model for Ocean-laNd-Atmosphere predictioN](https://github.com/monanadmin/monan), na aba **Issues**, a requisição. Para isso clique na aba **Issues** e no botão **New Issue**. Preencha então o nome da requisição (nome curto e bem indentificável) e logo depois descreva na aba **Write** de forma completa, qual tarefa será realizada. No lado direito clique nas pessoas envolvidas (**Assignees**) e qual o rótulo adequado para a tarefa (**Labels**) e o projeto **MONAN**. A descrição permite o uso da linguagem de texto [Markdown](https://www.markdownguide.org/basic-syntax/). Assim é possível usar figuras, _links_, marcar usuários, etc. Não econonize na descrição da tarefa pois ela irá orientar o trabalho.
 
 Um exemplo de abertura de tarefa para uso com o `git`:
 
@@ -144,32 +147,41 @@ Um exemplo de abertura de tarefa para uso com o `git`:
 
 Ao criar a requisição o gerente será notificado. O gerente irá entrar em contato com você para tratar do _status_ do trabalho e determinar outras informações necessárias para a sua realização e acompanhamento.
 
-Uma pequena reunião será agendada para determinar os detalhes e a tarefa pode passar de **To Do** para **In Progress**, adotando-se o sistema de controle de tarefas KANBAN (veja mais em https://www.totvs.com/blog/negocios/kanban/).
+Uma pequena reunião será agendada para determinar os detalhes e a tarefa pode passar de **To Do** para **In Progress**, adotando-se o sistema de controle de tarefas KANBAN (veja mais em https://www.totvs.com/blog/negocios/kanban/). Esse controle das tarefas (e sub-tarefas ora geradas da tarefa principal) será realizado no próprio github no setor de projetos: https://github.com/monanadmin/monan/projects/1 . Nessa área encontram-se as tarefas dispostas em *tickets* e distribuídas em *boards* para cada fase da mesma. 
+
+Cada *issue* aberta recebe um número sequencial mostrado como **#n** onde **n** é o número. Esse número é fundamental para o rastreio das tarefas e suas fases e para controle de versionamento do código.
 
 ##### 4.3.3 Geração do branch de desenvolvimento
 
 Todo novo desenvolvimento deverá receber um _branch_ próprio que deve ser feito à partir do _trunk_ principal do modelo. Assim o desenvolvedor poderá trabalhar em área distinta derivada de um ponto atual do _trunk_ de desenvolvimento. Após ter um _clone_ ativo, para a geração de um _branch_ usa-se o comando:
 
 ```bash
-git branch radiation
-git checkout radiation
-Switched to branch 'radiation'
+git branch monan_16
+git checkout monan_16
+Switched to branch 'monan_16'
 ```
+
+Como regra o branch deve estar associado a tarefa de forma direta, o que torna o processo mais facilmente rasterável. No exemplo acima o índice 16 indica que esse *branch* se deriva da **issue #16** disponível e descrita no github. 
 
 A partir desse ponto o ambiente passa para o _branch_ de desenvolvimento solicitado. O `git commit` é feito sempre da mesma maneira mas o `push` para o _branch_ irá pedir algumas opções. Por exemplo, imagine que você queira criar um arquivo chamado `file.txt`, fazer o `commit` e o `push`. O processo fica então assim:
 
 ```bash
 echo "Some text" > file.txt 
 git add file.txt
-git commit -m 'apenas um teste'
-git push --set-upstream origin radiation
+git commit -m 'Realizando um teste
+>
+>apenas um teste
+>'
+git push --set-upstream origin monan_16
 ```
 
-No exemplo acima, observe que o comando `git push --set-upstream origin radiation`, entrega os arquivos adicionados ao _branch_ `radiation` que foi criado anteriormente.
+No exemplo acima, observe que o comando `git push --set-upstream origin monan_16`, entrega os arquivos adicionados ao _branch_ `monan_16` que foi criado anteriormente.
 
 ##### 4.3.4 Manipulação do código
 
 Para alterar ou criar novos códigos o pesquisador e/ou desenvolvedor, de agora em diante chamado apenas de desenvolvedor, deve estar atento ao [DTN.01 - Padrão de codificação (_Code patterns_)](https://github.com/monanadmin/monan/wiki/Padr%C3%A3o-de-codifica%C3%A7%C3%A3o---(Code-patterns)) adotado pelo MONAN. Conhecer o documento DTN.01 é fundamental para realizar tal tarefa.
+
+O MONAN tem em suas partes códigos de terceiros. Esses códigos tem formatação a padrões próprios. Espera-se que com o tempo os códigos legados e de terceiros assumam uma mesma padronização. A técnica é ir gradativamente alterando os códigos à medida que os mesmos vão sendo manipulados refatorando continuamente com ou sem o uso de ferramentas para tal fim.
 
 ##### 4.3.5 _Commits_ locais constantes
 
@@ -195,12 +207,30 @@ Uma lista com o _status_ dos arquivos será mostrada. Para cada arquivo que se d
 e depois pode-se fazer o `commit` passando a mensagem adequada com a opção `-m`:
 
 ```bash
-git commit -m 'Mensagem sobre esse commit'
+git commit -m 'Cabeçalho do commit
+>
+> Mensagem adequada sobre esse commit
+>'
 ```
+
+Observe que adota-se uma primeira linha com um cabeçalho do commit. Depois, pulando uma linha escreve-se a mensagem informando  suscintamente o que está sendo 'comitado', a razão e informações relevantes.
+
+```bash
+git commit -m 'Nova interface de chamada da radiação 
+>
+> a chamada da radiação foi alterada para passar os valores
+> dos arrays de aerossóis apenas nos limites do processador
+> sem as bordas da ghostzone.
+>'
+```
+
+O exemplo acima mostra uma forma prática e padronizada da descrição do *commit*.
+
+Em caso de *commit* muito relevante para o status da tarefa recomenda-se que o *ticket* da tarefa   no github seja atualizada com os detalhes. É possível usar diversos tipos de atualizações nesses *tickets* como figuras, fórmulas, tabelas, links, códigos, diagramas e outras informações.
 
 ##### 4.3.6 Push nos _branchs_
 
-Os _pushs_ para o _branch_ criado não devem ser feitos para quaisquer modificações. O desenvolvedor deve usar seus procedimentos pessoais de edição de código e de testes funcionais até que tenha algum código considerado pronto para testes robustos. Ao fim de um processo de desenvolvimento o desenvolvedor deve fazer o `push` para o _branch_ em edição. 
+Os _pushs_ para o _branch_ criado não devem ser feitos para quaisquer modificações. O desenvolvedor deve usar seus procedimentos pessoais de edição de código e de testes funcionais até que tenha algum código considerado com desenvolvimento robusto. Pushs intermediários podem ser realizados desde que entenda-se que houve avanço significativo. Ao fim de um processo de desenvolvimento o desenvolvedor deve fazer o `push` para o _branch_ em edição. Esse seria um push de fim de tarefa por parte do desenvolvedor.
 
 Um `push` é feito de forma simples: estando todos os `commits` realizados (ie. com todos os arquivos que foram alterados, considerados para a entrega) basta fazer:
 
@@ -223,6 +253,8 @@ git rebase origin/main
 
 A depender da situação em que os desenvolvimentos ocorrem e da necessidade de atualização com o `main`, outras formas de _merge_ podem ser aplicáveis. As instruções do documento https://git-scm.com/book/pt-br/v2/Branches-no-Git-Rebase podem ser utilizadas para a tomada de decisões correta.
 
+Em caso de dúvidas ou problemas é possível se contactar o responsável pelo sistema de versionamento.
+
 ##### 4.3.8 Revisão de código
 
 Ao receber a tarefa e começar a sua realização, o subgrupo de revisão deve informar ao gerente por _e-mail_ para que a tarefa saia do _status_ de **To Review** para o _status_ de **Review in Progress**.
@@ -233,9 +265,9 @@ O grupo de revisão pode usar ferramentas próprias para aplicar as regras do do
 
 Um documento contendo as informações no caso de rejeição deverá ser criado e nele devem constar informações completas sobre os problemas de código e de onde se encontram as não conformidades. Neste caso, é importante informar as porções do código onde os problemas se encontram (ie., nome(s) do(s) arquivo(s) e linha(s) em que ocorrem).
 
-Esse documento deve ser enviado para a gerência para que ela dê encaminhamento, realize a reunião necessária e mude adequadamente o _status_ das tarefas. Em caso de rejeição a tarefa sai do _status_ de **Review in Progress** para **To do** e recebe o acréscimo do documento de não conformidade.
+Esse documento deve ser adicionado ao github e seu link acrescentado na tarefa específica. Deverá ser enviado um email  para a gerência geral dos processos para que ela dê encaminhamento, realize a reunião necessária e mude adequadamente o _status_ das tarefas. Em caso de rejeição a tarefa sai do _status_ de **Review in Progress** para **To do** e recebe o acréscimo do documento de não conformidade.
 
-Em caso de aprovação, essa sai do _status_ de **Review in Progress** para **Reviewer approved**. 
+Em caso de aprovação, essa sai do _status_ de **Review in Progress** para **To Test**. 
 
 Nesse ponto o gerente envia uma mensagem ao grupo de testes para que o processo dê andamento.
 
@@ -245,11 +277,11 @@ O grupo de testes deve informar ao gerente quando a tarefa é colocada em testes
 
 Os testes a serem realizados serão de responsabilidade do subgrupo de testes. A definição dos testes está descrita no documento [DNT.02 - Documento Padrão de Testes (_Test Patterns_)](https://github.com/monanadmin/monan/wiki/Padr%C3%A3o-de-Testes--(Test-Pattern)).
 
-São realizados testes de compilação e de funcionalidade conforme descritos no documento.
+São realizados testes de compilação e de funcionalidades simples conforme descritos no documento.
 
-Estando completa a tarefa, o subgrupo de testes deverá enviar um _e-mail_ ao gerente informando o _status_ dos testes. Em caso de falha de compilação ou de não atendimento dos requisitos de testes, a tarefa volta ao desenvolvimento como relatório de testes e vai ao _status_ de **To do**.
+Estando completa a tarefa de testagem, o subgrupo de testes deverá gerar um documento com os resultados do teste de compilação e funcionalidade. Esse documento deve subir ao github e ter um link na tarefa. Deve-se enviar um email ao  gerente informando o fim do teste e o documento. Em caso de falha de compilação ou de não atendimento dos requisitos de testes, a tarefa volta ao desenvolvimento como relatório de testes e vai novamente ao _status_ de **To do**.
 
-Em caso de aprovação nos testes a tarefa passa ao _status_ de **Test Approved** e o subgrupo de PAD é informado para realizar a avaliação de desempenho.
+Em caso de aprovação nos testes a tarefa passa ao _status_ de **To performance Analisys** e o subgrupo de PAD é informado para realizar a avaliação de desempenho.
 
 ##### 4.3.10 Avaliação de desempenho
 
@@ -257,13 +289,23 @@ O grupo de PAD avisa ao gerente quando iniciar a análise de desempenho do códi
 
 O subgrupo avalia se o código consegue atender aos requisitos mínimos de desempenho determinado em documento de [DNT.05 - Requisitos, Análise e Otimização de Código](https://github.com/monanadmin/monan/wiki/Requisitos,-An%C3%A1lise-e-Otimiza%C3%A7%C3%A3o-de-C%C3%B3digo). A maneira como o grupo atua na análise e otimização do código é determinada no mesmo documento.
 
-O grupo interage com os desenvolvedores e pode dar um parecer positivo para a finalização da tarefa de desenvolvimento ou enviá-lo para retrabalho. Em caso de parecer positivo, a tarefa entra no _status_ **Done** e o gerente é informado.
+O subgrupo de PAD pode realizar retrabalhos no código em prol da melhoria de performance. Se o retrabalho apresentar sucesso e o código for modificado é preciso reenviá-lo para *Code Review* e testes novamente.
 
-##### 4.3.11 Versionamento e _releases_
+O grupo interage com os desenvolvedores e pode dar um parecer positivo para a finalização da tarefa de desenvolvimento ou enviá-lo para retrabalho.  Em todos os casos um documento de resultados é gerado e levado ao github. A tarefa recebe então o link desse documento. Em caso de parecer positivo, a tarefa entra no _status_ **To Full Tests** e o gerente é informado.
 
-O gerente informa ao subgrupo de versionamento e uma reunião é marcada entre os líderes de cada subgrupo e o(s) desenvolvedor(es). Nessa etapa decide-se se será realizada apenas um _merge_ do _branch_ para o _trunk_ ou se será efetuado um _release_ da versão (_tag_).
+##### 4.3.11 Testes funcionais completos
 
-Esse novo _release_ será um candidato a se tornar operacional, um _Release Candidate_ (RC). Para isso a _tag_ deverá receber um sufixo **.RCn** onde _n_ é o número inteiro sequencial de candidatos a se tornarem operacionais. Por exemplo: `monan-RC4`, `monan-RC5` etc.
+Os testes funcionais completos serão executados pelo grupo de avaliação de modelos. Esse grupo tem regras próprias para a realização dos testes e não estão dentro do Grupo De COmputação Científica, GCC.
+
+O gerente informa ao responsável dos testes funcionais completos que uma versão  do código, branch monan_xx está disponível para testes completos. O Grupo de Avaliação de modelos realiza os testes e, em caso de aprovação, faz um relatório de resultados e comunica a gerência do GCC. Com isso um pull request é solicitado para subir o código para o sistema de versão como um candidato a operação.
+
+Em caso de falha nos testes o Grupo de Avaliação comunica aos desenvolvedores e para a gerência do GCC.
+
+##### 4.3.12 Versionamento e _releases_
+
+O gerente do grupo de avaliação de modelos informa ao subgrupo de versionamento do GCC que uma versão foi testada eé é estável e funcional.  Uma reunião é marcada entre os líderes de cada subgrupo e o(s) desenvolvedor(es). Nessa etapa decide-se se será realizada apenas um _merge_ do _branch_ para o _trunk_ ou se será efetuado um _release_ da versão (_tag_).
+
+Esse novo _release_ será um candidato a se tornar operacional, um _Release Candidate_ (RC). Para isso a uma _tag_ com  será criada com o sufixo **.RCn** onde _n_ é o número inteiro sequencial de candidatos a se tornarem operacionais. Esse número é equivalente a issue original que gerou a tarefa principal. Por exemplo: **monan-RC16** para o caso exempleficado nesse documento (**issue #16**)
 
 Um RC deve conter, além dos códigos e bibliotecas, um documento de entrega para a operação. Esse documento deverá conter todas as informações sobre a compilação do código, sua configuração, _namelists_ operacionais e uma tabela com os arquivos necessários para sua operação. Esse documento deverá ser elaborado em conjunto pelos desenvolvedores e equipe de computação.
 
@@ -279,13 +321,19 @@ Em caso de aceite a RC será liberada para a operação como uma versão estáve
 
 O repositório `main` (_trunk_) é então atualizado (_merge_) com a nova versão estável.
 
+Cabe a operação avaliar a confiabilidade do código, isto é, número de vezes em que o código não rodou, rodou após intervenções não previstas ou apresentou falha catastrófica. Esses dados devem ser comunicados ao grupo GCC para que sejam avaliado se é um bug corrigível ou se necessita de reenvio ao desenvolvimento.
+
+Cabe ainda para a operação pontuar a acessibilidade do código (facilidade de uso). Todos os reseultados devem ser registrados e associados a RC específica. 
+
 ## 6. Manutenção Contínua de Código
 
 O código, após ser levado a _status_  operacional, deve receber manutenções contínuas. Essas manutenções podem ter caráter de ajustes na funcionalidade ou causados por _bugs_ e mudanças no seu ambiente externo.
 
-Em casos de manutenção deverá ser aberto, ou pelo grupo de desenvolvimento, ou pelo grupo computacional, uma _issue_ e um _branch_ de manutenção.  Para facilitar, pode-se usar uma referência base na versão de origem no nome do _branch_, por exemplo: `monan-5-b1`, `monan-6.i5`, etc. O trabalho deve ser realizado e a correção, ainda como um _branch_, passar pelos testes internos e posteriormente pelos testes operacionais para validação.
+Testes operacionais positivos, isto é, modelo validado irá gerar uma solicitação de merge (ou push) para o GCC. Este então irá gerar uma versão estável que fará parte do sistema de distribuição do código. Essa versão receberá uma denominação numérica em sua tag. A numeração será sequencial e se a tarefa que a originou tiver uma grande modificação se altera a tag mudando o primeiro dígito, monan-6 irá virar monan-7. SE é uma pequena modificação ela receberá um dígito a mais, por exemplo, monan-6 irá virar monan-6.1. 
 
-Após os testes serem aprovados, _tags_ de correção serão lançadas acrescentando um ponto a mais na versão. Por exemplo: `monan-5.1`, `monan-6.4` etc.
+Em casos de manutenção deverá ser aberto, ou pelo grupo de desenvolvimento, ou pelo grupo computacional, uma _issue_ e um _branch_ de manutenção.   O trabalho deve ser realizado e a correção, ainda como um _branch_, passar pelos testes internos e posteriormente pelos testes operacionais para validação. Os mesmos caminhos de uma versão de desenvolvimento normal.
+
+Após os testes serem aprovados, _tags_ de correção serão lançadas acrescentando um ponto a mais na versão. Esse número após o ponto deve ser idêntico a issue que originou. Por exemplo, para a versão 6.1 que recebeu uma correção de *bug* pela *issue* 16 teremos: `monan-6.1.16`.
 
 O `main` (_trunk_) é então atualizado (_merge_) com a nova versão estável e corrigida.
 
