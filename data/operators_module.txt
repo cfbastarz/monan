@@ -1,0 +1,37 @@
+operators/mpas_geometry_utils.F:module mpas_geometry_utils
+operators/mpas_geometry_utils.F:end module mpas_geometry_utils
+operators/mpas_matrix_operations.F:!>  This module contains the routines for matrix operations
+operators/mpas_matrix_operations.F:module mpas_matrix_operations
+operators/mpas_matrix_operations.F:   ! Private module variables
+operators/mpas_matrix_operations.F:end module mpas_matrix_operations
+operators/mpas_rbf_interpolation.F:!> \brief   MPAS Radial basis function interpolation module
+operators/mpas_rbf_interpolation.F:!> This module provides routines for performing interpolation with radial basis functions.
+operators/mpas_rbf_interpolation.F:module mpas_rbf_interpolation
+operators/mpas_rbf_interpolation.F:end module mpas_rbf_interpolation
+operators/mpas_spline_interpolation.F:!> \brief   MPAS Vector reconstruction module
+operators/mpas_spline_interpolation.F:!> This module provides routines for performing spline interpolation.
+operators/mpas_spline_interpolation.F:module mpas_spline_interpolation
+operators/mpas_spline_interpolation.F:end module mpas_spline_interpolation
+operators/mpas_tensor_operations.F:!>  This module contains the routines for computing
+operators/mpas_tensor_operations.F:module mpas_tensor_operations
+operators/mpas_tensor_operations.F:   ! Private module variables
+operators/mpas_tensor_operations.F:end module mpas_tensor_operations
+operators/mpas_tracer_advection_helpers.F:!>  This module contains helper functions tracer advection.
+operators/mpas_tracer_advection_helpers.F:module mpas_tracer_advection_helpers
+operators/mpas_tracer_advection_helpers.F:end module mpas_tracer_advection_helpers
+operators/mpas_tracer_advection_mono.F:!>  This module contains routines for monotonic advection of tracers using a FCT
+operators/mpas_tracer_advection_mono.F:module mpas_tracer_advection_mono
+operators/mpas_tracer_advection_mono.F:end module mpas_tracer_advection_mono
+operators/mpas_tracer_advection_std.F:!>  This module contains routines for standard advection of tracers
+operators/mpas_tracer_advection_std.F:module mpas_tracer_advection_std
+operators/mpas_tracer_advection_std.F:end module mpas_tracer_advection_std
+operators/mpas_vector_operations.F:!>  This module contains the routines involving vector operations
+operators/mpas_vector_operations.F:module mpas_vector_operations
+operators/mpas_vector_operations.F:   ! Private module variables
+operators/mpas_vector_operations.F:end module mpas_vector_operations
+operators/mpas_vector_reconstruction.F:!> \brief   MPAS Vector reconstruction module
+operators/mpas_vector_reconstruction.F:!> This module provides routines for performing vector reconstruction from edges to cell centers.
+operators/mpas_vector_reconstruction.F:module mpas_vector_reconstruction
+operators/mpas_vector_reconstruction.F:     module procedure mpas_reconstruct_1d
+operators/mpas_vector_reconstruction.F:     module procedure mpas_reconstruct_2d
+operators/mpas_vector_reconstruction.F:end module mpas_vector_reconstruction

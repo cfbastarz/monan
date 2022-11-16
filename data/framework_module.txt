@@ -1,0 +1,418 @@
+framework/mpas_abort.F:module mpas_abort
+framework/mpas_abort.F:end module mpas_abort
+framework/mpas_attlist.F:!> \brief   MPAS Attribute list module
+framework/mpas_attlist.F:!> This module provides type definitions and subroutines for working with attribute lists.
+framework/mpas_attlist.F:module mpas_attlist
+framework/mpas_attlist.F:      module procedure mpas_add_att_int0d
+framework/mpas_attlist.F:      module procedure mpas_add_att_int1d
+framework/mpas_attlist.F:      module procedure mpas_add_att_real0d
+framework/mpas_attlist.F:      module procedure mpas_add_att_real1d
+framework/mpas_attlist.F:      module procedure mpas_add_att_text
+framework/mpas_attlist.F:      module procedure mpas_get_att_int0d
+framework/mpas_attlist.F:      module procedure mpas_get_att_int1d
+framework/mpas_attlist.F:      module procedure mpas_get_att_real0d
+framework/mpas_attlist.F:      module procedure mpas_get_att_real1d
+framework/mpas_attlist.F:      module procedure mpas_get_att_text
+framework/mpas_attlist.F:end module mpas_attlist
+framework/mpas_block_creator.F:!> \brief   This module is responsible for the intial creation and setup of the block data structures.
+framework/mpas_block_creator.F:!> This module provides routines for the creation of blocks, with both an
+framework/mpas_block_creator.F:module mpas_block_creator
+framework/mpas_block_creator.F:end module mpas_block_creator
+framework/mpas_block_decomp.F:!> \brief   This module contains routines related to the block decomposition.
+framework/mpas_block_decomp.F:!>   This module is repsonsible for reading the decomposition files, and determining which elements should live within which blocks.
+framework/mpas_block_decomp.F:module mpas_block_decomp
+framework/mpas_block_decomp.F:end module mpas_block_decomp
+framework/mpas_bootstrapping.F:module mpas_bootstrapping
+framework/mpas_bootstrapping.F:      ! A partial description is passed to the block decomp module by each process,
+framework/mpas_bootstrapping.F:      !   and the block decomp module returns with a list of global cell indices
+framework/mpas_bootstrapping.F:end module mpas_bootstrapping
+framework/mpas_constants.F:!> \brief   MPAS Constant Module
+framework/mpas_constants.F:!> This module provides various constants that can be used in different parts of MPAS.
+framework/mpas_constants.F:module mpas_constants
+framework/mpas_constants.F:end module mpas_constants
+framework/mpas_c_interfacing.F:module mpas_c_interfacing
+framework/mpas_c_interfacing.F:end module mpas_c_interfacing
+framework/mpas_decomp.F:!>  This module will contain the mpas_decomp_list type, along with routines to register and
+framework/mpas_decomp.F:module mpas_decomp
+framework/mpas_decomp.F:end module mpas_decomp
+framework/mpas_derived_types.F:!> This module defines derived data types related to fields, and variable structures.
+framework/mpas_derived_types.F:!> corresponding modules.  All of the framework derived types are collected in this
+framework/mpas_derived_types.F:!> module so that they can all be "use"d from this module to avoid circular
+framework/mpas_derived_types.F:!> This module also includes public parameters related to the corresponding modules.
+framework/mpas_derived_types.F:!> needing to use the module they "belong" to.
+framework/mpas_derived_types.F:module mpas_derived_types
+framework/mpas_derived_types.F:end module mpas_derived_types
+framework/mpas_dmpar.F:!>  This module contains all communication routines. All MPI calls should be made in this module.
+framework/mpas_dmpar.F:module mpas_dmpar
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_alltoall_field1d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_alltoall_field2d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_alltoall_field1d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_alltoall_field2d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_alltoall_field3d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_alltoall_field4d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_alltoall_field5d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_halo_field1d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_halo_field2d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_halo_field3d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_halo_field1d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_halo_field2d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_halo_field3d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_halo_field4d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_halo_field5d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_copy_field1d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_copy_field2d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_copy_field3d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_copy_field1d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_copy_field2d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_copy_field3d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_copy_field4d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_copy_field5d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_pack_buffer_field1d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_pack_buffer_field2d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_pack_buffer_field3d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_pack_buffer_field1d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_pack_buffer_field2d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_pack_buffer_field3d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_pack_buffer_field4d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_pack_buffer_field5d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_local_exch_field1d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_local_exch_field2d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_local_exch_field3d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_local_exch_field1d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_local_exch_field2d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_local_exch_field3d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_local_exch_field4d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_local_exch_field5d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_unpack_buffer_field1d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_unpack_buffer_field2d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_unpack_buffer_field3d_integer
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_unpack_buffer_field1d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_unpack_buffer_field2d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_unpack_buffer_field3d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_unpack_buffer_field4d_real
+framework/mpas_dmpar.F:      module procedure mpas_dmpar_exch_group_unpack_buffer_field5d_real
+framework/mpas_dmpar.F:end module mpas_dmpar
+framework/mpas_domain_routines.F:!> This module defines routines related to the domain derived data type, and
+framework/mpas_domain_routines.F:module mpas_domain_routines
+framework/mpas_domain_routines.F:end module mpas_domain_routines
+framework/mpas_field_accessor.F:!> \brief Module providing quick access to members of fields by name
+framework/mpas_field_accessor.F:!> This module provides routines for accessing members of field types
+framework/mpas_field_accessor.F:module mpas_field_accessor
+framework/mpas_field_accessor.F:        module procedure mpas_field_access_msgval_real
+framework/mpas_field_accessor.F:        module procedure mpas_field_access_msgval_int
+framework/mpas_field_accessor.F:        module procedure mpas_field_access_msgval_char
+framework/mpas_field_accessor.F:        module procedure mpas_field_access_msgval_logical
+framework/mpas_field_accessor.F:end module mpas_field_accessor
+framework/mpas_field_routines.F:!> This module defines routines related to MPAS field types (defined in mpas_data_types).
+framework/mpas_field_routines.F:!> All routines defined in this module are non-blocking for threads.
+framework/mpas_field_routines.F:module mpas_field_routines
+framework/mpas_field_routines.F:      module procedure mpas_allocate_mold_1dreal
+framework/mpas_field_routines.F:      module procedure mpas_allocate_mold_2dreal
+framework/mpas_field_routines.F:      module procedure mpas_allocate_mold_3dreal
+framework/mpas_field_routines.F:      module procedure mpas_allocate_mold_4dreal
+framework/mpas_field_routines.F:      module procedure mpas_allocate_mold_5dreal
+framework/mpas_field_routines.F:      module procedure mpas_allocate_mold_1dinteger
+framework/mpas_field_routines.F:      module procedure mpas_allocate_mold_2dinteger
+framework/mpas_field_routines.F:      module procedure mpas_allocate_mold_3dinteger
+framework/mpas_field_routines.F:      module procedure mpas_allocate_mold_1dchar
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field0d_real
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field1d_real
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field2d_real
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field3d_real
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field4d_real
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field5d_real
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field0d_integer
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field1d_integer
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field2d_integer
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field3d_integer
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field0d_char
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field1d_char
+framework/mpas_field_routines.F:      module procedure mpas_duplicate_field0d_logical
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_0dreal
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_1dreal
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_2dreal
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_3dreal
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_4dreal
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_5dreal
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_0dinteger
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_1dinteger
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_2dinteger
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_3dinteger
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_0dchar
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_1dchar
+framework/mpas_field_routines.F:      module procedure mpas_shift_time_levs_0dlogical
+framework/mpas_field_routines.F:      module procedure mpas_allocate_scratch_field1d_integer
+framework/mpas_field_routines.F:      module procedure mpas_allocate_scratch_field2d_integer
+framework/mpas_field_routines.F:      module procedure mpas_allocate_scratch_field3d_integer
+framework/mpas_field_routines.F:      module procedure mpas_allocate_scratch_field1d_real
+framework/mpas_field_routines.F:      module procedure mpas_allocate_scratch_field2d_real
+framework/mpas_field_routines.F:      module procedure mpas_allocate_scratch_field3d_real
+framework/mpas_field_routines.F:      module procedure mpas_allocate_scratch_field4d_real
+framework/mpas_field_routines.F:      module procedure mpas_allocate_scratch_field5d_real
+framework/mpas_field_routines.F:      module procedure mpas_allocate_scratch_field1d_char
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_scratch_field1d_integer
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_scratch_field2d_integer
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_scratch_field3d_integer
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_scratch_field1d_real
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_scratch_field2d_real
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_scratch_field3d_real
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_scratch_field4d_real
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_scratch_field5d_real
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_scratch_field1d_char
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field0d_logical
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field0d_integer
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field1d_integer
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field2d_integer
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field3d_integer
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field0d_real
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field1d_real
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field2d_real
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field3d_real
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field4d_real
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field5d_real
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field0d_char
+framework/mpas_field_routines.F:      module procedure mpas_deallocate_field1d_char
+framework/mpas_field_routines.F:end module mpas_field_routines
+framework/mpas_forcing.F:module mpas_forcing
+framework/mpas_forcing.F:end module mpas_forcing
+framework/mpas_framework.F:!>  This module contains all routines related to the general MPAS framework interface.
+framework/mpas_framework.F:module mpas_framework
+framework/mpas_framework.F:end module mpas_framework
+framework/mpas_hash.F:!> \brief   MPAS Hash table module
+framework/mpas_hash.F:!> This module provides A dictionary/hashtable with insert, search, and remove routines.
+framework/mpas_hash.F:module mpas_hash
+framework/mpas_hash.F:end module mpas_hash
+framework/mpas_io.F:module mpas_io
+framework/mpas_io.F:      module procedure MPAS_io_get_var_int0d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_int1d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_int2d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_int3d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_int4d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_real0d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_real1d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_real2d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_real3d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_real4d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_real5d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_char0d
+framework/mpas_io.F:      module procedure MPAS_io_get_var_char1d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_int0d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_int1d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_int2d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_int3d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_int4d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_real0d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_real1d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_real2d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_real3d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_real4d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_real5d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_char0d
+framework/mpas_io.F:      module procedure MPAS_io_put_var_char1d
+framework/mpas_io.F:      module procedure MPAS_io_get_att_int0d
+framework/mpas_io.F:      module procedure MPAS_io_get_att_int1d
+framework/mpas_io.F:      module procedure MPAS_io_get_att_real0d
+framework/mpas_io.F:      module procedure MPAS_io_get_att_real1d
+framework/mpas_io.F:      module procedure MPAS_io_get_att_text
+framework/mpas_io.F:      module procedure MPAS_io_put_att_int0d
+framework/mpas_io.F:      module procedure MPAS_io_put_att_int1d
+framework/mpas_io.F:      module procedure MPAS_io_put_att_real0d
+framework/mpas_io.F:      module procedure MPAS_io_put_att_real1d
+framework/mpas_io.F:      module procedure MPAS_io_put_att_text
+framework/mpas_io.F:end module mpas_io
+framework/mpas_io_streams.F:module mpas_io_streams
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_0dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_1dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_2dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_3dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_0dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_1dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_2dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_3dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_4dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_5dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_0dChar
+framework/mpas_io_streams.F:      module procedure MPAS_streamAddField_1dChar
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_0dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_1dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_2dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_3dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_0dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_1dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_2dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_3dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_4dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_5dReal
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_0dChar
+framework/mpas_io_streams.F:      module procedure MPAS_streamUpdateField_1dChar
+framework/mpas_io_streams.F:      module procedure MPAS_readStreamAtt_0dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_readStreamAtt_1dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_readStreamAtt_0dReal
+framework/mpas_io_streams.F:      module procedure MPAS_readStreamAtt_1dReal
+framework/mpas_io_streams.F:      module procedure MPAS_readStreamAtt_text
+framework/mpas_io_streams.F:      module procedure MPAS_writeStreamAtt_0dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_writeStreamAtt_1dInteger
+framework/mpas_io_streams.F:      module procedure MPAS_writeStreamAtt_0dReal
+framework/mpas_io_streams.F:      module procedure MPAS_writeStreamAtt_1dReal
+framework/mpas_io_streams.F:      module procedure MPAS_writeStreamAtt_text
+framework/mpas_io_streams.F:end module mpas_io_streams
+framework/mpas_io_units.F:!> \brief   MPAS Logging module
+framework/mpas_io_units.F:!> This module contains routines for handling log and error files.
+framework/mpas_io_units.F:module mpas_io_units
+framework/mpas_io_units.F:end module mpas_io_units
+framework/mpas_kind_types.F:!> \brief   MPAS Kind definition module
+framework/mpas_kind_types.F:!> This module defines the kind types for basic fortran data types within MPAS.
+framework/mpas_kind_types.F:module mpas_kind_types
+framework/mpas_kind_types.F:end module mpas_kind_types
+framework/mpas_log.F:!>  This module contains the routines for managing the writing of messages
+framework/mpas_log.F:!>  The log module operates around a variable named mpas_log_info that contains
+framework/mpas_log.F:!>  mpas_log_info is a module level pointer to the active core's mpas_log_type
+framework/mpas_log.F:!>  while the log module has internal access to it.  This approach has two
+framework/mpas_log.F:!>  2. Because the log module uses a pointer to a mpas_log_type instance,
+framework/mpas_log.F:module mpas_log
+framework/mpas_log.F:   ! Public module variables
+framework/mpas_log.F:   ! Private module variables
+framework/mpas_log.F:!>  on the model configuration.  mpas_log_info is a module level pointer
+framework/mpas_log.F:!>  domain instance to "own" the log manager, while the log module has
+framework/mpas_log.F:      coreLogInfo % outputLog % openedByLogModule = .false.
+framework/mpas_log.F:      coreLogInfo % errorLog % openedByLogModule = .false.
+framework/mpas_log.F:      ! Point the module-level log instance to the core's instance
+framework/mpas_log.F:      ! (From this point onward, only use the module level instance)
+framework/mpas_log.F:            mpas_log_info % outputLog % openedByLogModule = .false.
+framework/mpas_log.F:            mpas_log_info % outputLog % openedByLogModule = .true.
+framework/mpas_log.F:            mpas_log_info % errorLog % openedByLogModule = .false.
+framework/mpas_log.F:            mpas_log_info % errorLog % openedByLogModule = .false.
+framework/mpas_log.F:!> \brief   Connects to a log file for the log module to use
+framework/mpas_log.F:!>  This routine connects to a log file for the log module to use.
+framework/mpas_log.F:!>  It uses the module-level pointer instance of the log manager.
+framework/mpas_log.F:         logFileInfo % openedByLogModule = .true.
+framework/mpas_log.F:      if (mpas_log_info % outputLog % isActive .and. mpas_log_info % outputLog % openedByLogModule) then
+framework/mpas_log.F:end module mpas_log
+framework/mpas_log_types.inc:      logical :: openedByLogModule !< logical indicating if the log file was opened by the log manager;
+framework/mpas_pool_routines.F:!> This module defines subroutines and functions for handling pools.
+framework/mpas_pool_routines.F:module mpas_pool_routines
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_0d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_1d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_2d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_3d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_4d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_5d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_0d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_1d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_2d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_3d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_0d_char
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_1d_char
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_0d_reals
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_1d_reals
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_2d_reals
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_3d_reals
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_4d_reals
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_5d_reals
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_0d_ints
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_1d_ints
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_2d_ints
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_3d_ints
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_0d_chars
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_field_1d_chars
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_0d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_1d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_2d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_3d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_4d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_5d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_0d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_1d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_2d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_3d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_0d_char
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_field_1d_char
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_0d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_1d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_2d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_3d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_4d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_5d_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_0d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_1d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_2d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_3d_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_0d_char
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_array_1d_char
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_config_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_config_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_config_char
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_config_logical
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_config_real
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_config_int
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_config_char
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_config_logical
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_dimension_0d
+framework/mpas_pool_routines.F:      module procedure mpas_pool_add_dimension_1d
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_dimension_0d
+framework/mpas_pool_routines.F:      module procedure mpas_pool_get_dimension_1d
+framework/mpas_pool_routines.F:end module mpas_pool_routines
+framework/mpas_sort.F:!> \brief   MPAS Sort and search module
+framework/mpas_sort.F:!> This module provides routines for various sorting methods, in addition to a binary search.
+framework/mpas_sort.F:module mpas_sort
+framework/mpas_sort.F:      module procedure mpas_quicksort_1dint
+framework/mpas_sort.F:      module procedure mpas_quicksort_1dreal
+framework/mpas_sort.F:      module procedure mpas_quicksort_2dint
+framework/mpas_sort.F:      module procedure mpas_quicksort_2dreal
+framework/mpas_sort.F:end module mpas_sort
+framework/mpas_stream_list.F:module mpas_stream_list
+framework/mpas_stream_list.F:end module mpas_stream_list
+framework/mpas_stream_manager.F:module mpas_stream_manager
+framework/mpas_stream_manager.F:        module procedure MPAS_stream_mgr_set_property_int
+framework/mpas_stream_manager.F:        module procedure MPAS_stream_mgr_set_property_char
+framework/mpas_stream_manager.F:        module procedure MPAS_stream_mgr_set_property_logical
+framework/mpas_stream_manager.F:        module procedure MPAS_stream_mgr_get_property_int
+framework/mpas_stream_manager.F:        module procedure MPAS_stream_mgr_get_property_char
+framework/mpas_stream_manager.F:        module procedure MPAS_stream_mgr_get_property_logical
+framework/mpas_stream_manager.F:        module procedure MPAS_stream_mgr_add_att_int
+framework/mpas_stream_manager.F:        module procedure MPAS_stream_mgr_add_att_real
+framework/mpas_stream_manager.F:        module procedure MPAS_stream_mgr_add_att_char
+framework/mpas_stream_manager.F:        module procedure MPAS_stream_mgr_add_att_logical
+framework/mpas_stream_manager.F:    !>  stream; possible values are defined by constants in the mpas_io module and
+framework/mpas_stream_manager.F:    !>  indexed fields in module variables *_save, and allocate new arrays for
+framework/mpas_stream_manager.F:    !>  indexed fields from module variables *_save.
+framework/mpas_stream_manager.F:end module mpas_stream_manager
+framework/mpas_threading.F:!>  This module will provide interfaces to support functions / routines for OpenMP threading.
+framework/mpas_threading.F:module mpas_threading
+framework/mpas_threading.F:end module mpas_threading
+framework/mpas_timekeeping.F:module mpas_timekeeping
+framework/mpas_timekeeping.F:      module procedure add_t_ti
+framework/mpas_timekeeping.F:      module procedure add_ti_ti
+framework/mpas_timekeeping.F:      module procedure sub_t_t
+framework/mpas_timekeeping.F:      module procedure sub_t_ti
+framework/mpas_timekeeping.F:      module procedure sub_ti_ti
+framework/mpas_timekeeping.F:      module procedure neg_ti
+framework/mpas_timekeeping.F:      module procedure mul_ti_n
+framework/mpas_timekeeping.F:      module procedure mul_ti_n8
+framework/mpas_timekeeping.F:      module procedure div_ti_n
+framework/mpas_timekeeping.F:      module procedure eq_t_t
+framework/mpas_timekeeping.F:      module procedure eq_ti_ti
+framework/mpas_timekeeping.F:      module procedure ne_t_t
+framework/mpas_timekeeping.F:      module procedure ne_ti_ti
+framework/mpas_timekeeping.F:      module procedure lt_t_t
+framework/mpas_timekeeping.F:      module procedure lt_ti_ti
+framework/mpas_timekeeping.F:      module procedure gt_t_t
+framework/mpas_timekeeping.F:      module procedure gt_ti_ti
+framework/mpas_timekeeping.F:      module procedure le_t_t
+framework/mpas_timekeeping.F:      module procedure le_ti_ti
+framework/mpas_timekeeping.F:      module procedure ge_t_t
+framework/mpas_timekeeping.F:      module procedure ge_ti_ti
+framework/mpas_timekeeping.F:      module procedure abs_ti
+framework/mpas_timekeeping.F:end module mpas_timekeeping
+framework/mpas_timer.F:!> \brief   MPAS Timer module
+framework/mpas_timer.F:!> This module provides developers with internal timer routines. 
+framework/mpas_timer.F:      module mpas_timer
+framework/mpas_timer.F:      end module mpas_timer
+framework/xml_stream_parser.c:	 *      the mpas_expand_string() subroutine in the mpas_timekeeping module.
+framework/xml_stream_parser.c: *  Parses an XML file and builds streams using the MPAS_stream_manager module
+framework/xml_stream_parser.c:		/* NB: These clobber constants must match those in the mpas_stream_manager module! */
+framework/xml_stream_parser.c:		/* NB: These io_type constants must match those in the mpas_stream_manager module! */
+framework/xml_stream_parser.c:		/* NB: These type constants must match those in the mpas_stream_manager module! */
+framework/xml_stream_parser.c:		/* NB: These clobber constants must match those in the mpas_stream_manager module! */
+framework/xml_stream_parser.c:		/* NB: These io_type constants must match those in the mpas_stream_manager module! */
+framework/xml_stream_parser.c:		/* NB: These type constants must match those in the mpas_stream_manager module! */

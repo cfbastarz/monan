@@ -1,0 +1,48 @@
+tools/input_gen/Makefile:	($(MAKE) -j 1 namelist_gen CPPFLAGS="$(CPPFLAGS)" CPPINCLUDES="$(CPPINCLUDES)")
+tools/input_gen/Makefile:	($(MAKE) -j 1 streams_gen CPPFLAGS="$(CPPFLAGS)" CPPINCLUDES="$(CPPINCLUDES)")
+tools/input_gen/test_functions.h:#include "ezxml.h"
+tools/input_gen/namelist_gen.c:#include <stdio.h>
+tools/input_gen/namelist_gen.c:#include <stdlib.h>
+tools/input_gen/namelist_gen.c:#include <string.h>
+tools/input_gen/namelist_gen.c:#include "ezxml.h"
+tools/input_gen/namelist_gen.c:#include "test_functions.h"
+tools/input_gen/streams_gen.c:#include <stdio.h>
+tools/input_gen/streams_gen.c:#include <stdlib.h>
+tools/input_gen/streams_gen.c:#include <string.h>
+tools/input_gen/streams_gen.c:#include "ezxml.h"
+tools/input_gen/streams_gen.c:#include "test_functions.h"
+tools/input_gen/test_functions.c:#include <string.h>
+tools/input_gen/test_functions.c:#include "ezxml.h"
+tools/registry/gen_inc.c:#include <stdio.h>
+tools/registry/gen_inc.c:#include <stdlib.h>
+tools/registry/gen_inc.c:#include <string.h>
+tools/registry/gen_inc.c:#include <math.h>
+tools/registry/gen_inc.c:#include "ezxml.h"
+tools/registry/gen_inc.c:#include "registry_types.h"
+tools/registry/gen_inc.c:#include "gen_inc.h"
+tools/registry/gen_inc.c:#include "fortprintf.h"
+tools/registry/gen_inc.c:#include "utility.h"
+tools/registry/gen_inc.c: *  Generates the Fortran include file 'setup_immutable_streams.inc' that contains
+tools/registry/gen_inc.c:	ezxml_t includeStream;
+tools/registry/Makefile:	#($(MAKE) ezxml CPPFLAGS="$(CPPFLAGS)" CPPINCLUDES="$(CPPINCLUDES)")
+tools/registry/Makefile:	($(MAKE) parse CPPFLAGS="$(CPPFLAGS)" CPPINCLUDES="$(CPPINCLUDES)")
+tools/registry/dictionary.c:#include <stdlib.h>
+tools/registry/dictionary.c:#include <string.h>
+tools/registry/dictionary.c:#include "dictionary.h"
+tools/registry/utility.c:#include <stdio.h>
+tools/registry/utility.c:#include <stdlib.h>
+tools/registry/utility.c:#include <string.h>
+tools/registry/utility.c:#include "ezxml.h"
+tools/registry/utility.c:#include "registry_types.h"
+tools/registry/Registry.xsd:									<!-- The dimensions attribute defines the dimensions of each individual constituent. This does not include the collapsed dimension. -->
+tools/registry/parse.c:#include <stdio.h>
+tools/registry/parse.c:#include <stdlib.h>
+tools/registry/parse.c:#include <string.h>
+tools/registry/parse.c:#include "ezxml.h"
+tools/registry/parse.c:#include "fortprintf.h"
+tools/registry/parse.c:#include "registry_types.h"
+tools/registry/parse.c:#include "gen_inc.h"
+tools/registry/parse.c:#include "utility.h"
+tools/registry/fortprintf.c:#include <stdio.h>
+tools/registry/fortprintf.c:#include <stdarg.h>
+tools/registry/gen_inc.h:#include "ezxml.h"

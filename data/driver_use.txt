@@ -1,0 +1,25 @@
+driver/mpas.F:   use mpas_subdriver
+driver/mpas_subdriver.F:   use mpas_framework
+driver/mpas_subdriver.F:   use mpas_kind_types
+driver/mpas_subdriver.F:   use mpas_abort, only : mpas_dmpar_global_abort
+driver/mpas_subdriver.F:   use mpas_derived_types, only: dm_info, domain_type
+driver/mpas_subdriver.F:   use atm_core_interface
+driver/mpas_subdriver.F:   use seaice_core_interface
+driver/mpas_subdriver.F:   use init_atm_core_interface
+driver/mpas_subdriver.F:   use li_core_interface
+driver/mpas_subdriver.F:   use ocn_core_interface
+driver/mpas_subdriver.F:   use sw_core_interface
+driver/mpas_subdriver.F:   use test_core_interface
+driver/mpas_subdriver.F:      use mpas_stream_manager, only : MPAS_stream_mgr_init, MPAS_build_stream_filename, MPAS_stream_mgr_validate_streams
+driver/mpas_subdriver.F:      use iso_c_binding, only : c_char, c_loc, c_ptr, c_int
+driver/mpas_subdriver.F:      use mpas_c_interfacing, only : mpas_f_to_c_string, mpas_c_to_f_string
+driver/mpas_subdriver.F:      use mpas_timekeeping, only : mpas_get_clock_time, mpas_get_time
+driver/mpas_subdriver.F:      use mpas_bootstrapping, only : mpas_bootstrap_framework_phase1, mpas_bootstrap_framework_phase2
+driver/mpas_subdriver.F:      use mpas_log
+driver/mpas_subdriver.F:            use iso_c_binding, only : c_char, c_ptr, c_int
+driver/mpas_subdriver.F:            use iso_c_binding, only : c_char, c_int
+driver/mpas_subdriver.F:      ! Set up the log manager as early as possible so we can use it for any errors/messages during subsequent init steps
+driver/mpas_subdriver.F:      use mpas_stream_manager, only : MPAS_stream_mgr_finalize
+driver/mpas_subdriver.F:      use mpas_log, only : mpas_log_finalize
+driver/mpas_subdriver.F:      !    but before framework is finalized because domain is destroyed there.)
+driver/mpas_subdriver.F:      use mpas_stream_manager, only : MPAS_stream_mgr_add_att

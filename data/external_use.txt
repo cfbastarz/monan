@@ -1,0 +1,110 @@
+external/esmf_time_f90/ChangeLog:Note: use with rtm1_0_38 and tested with clm4_5_72.  this should work with older
+external/esmf_time_f90/ChangeLog:One-line Summary: add ShrTimeMod to ESMF.F90 module for use in wrf
+external/esmf_time_f90/ChangeLog:	"use esmf_mod" to "use esmf"
+external/esmf_time_f90/ChangeLog:  use in WRF.  These need to be reconciled to be used
+external/esmf_time_f90/MeatMod.F90:  use ESMF_BaseMod
+external/esmf_time_f90/ESMF_TimeMod.F90:! Massachusetts Institute of Technology, Geophysical Fluid Dynamics
+external/esmf_time_f90/ESMF_TimeMod.F90:! !USES:
+external/esmf_time_f90/ESMF_TimeMod.F90:      use ESMF_BaseMod
+external/esmf_time_f90/ESMF_TimeMod.F90:      use ESMF_BaseTimeMod
+external/esmf_time_f90/ESMF_TimeMod.F90:      use ESMF_TimeIntervalMod
+external/esmf_time_f90/ESMF_TimeMod.F90:      use ESMF_CalendarMod
+external/esmf_time_f90/ESMF_TimeMod.F90:      use ESMF_ShrTimeMod, only : ESMF_Time
+external/esmf_time_f90/ESMF_TimeMod.F90:      use ESMF_Stubs
+external/esmf_time_f90/ESMF_TimeMod.F90:! !IROUTINE: ESMF_TimeGet - Get value in user-specified units
+external/esmf_time_f90/ESMF_TimeMod.F90:!     Get the value of the {\tt ESMF\_Time} in units specified by the user
+external/esmf_time_f90/ESMF_TimeMod.F90:!     to maintain precision. Hence, user-specified floating point values are
+external/esmf_time_f90/ESMF_TimeMod.F90:! !IROUTINE: ESMF_TimeSet - Initialize via user-specified unit set
+external/esmf_time_f90/ESMF_TimeMod.F90:!     Initializes a {\tt ESMF\_Time} with a set of user-specified units
+external/esmf_time_f90/ESMF_TimeMod.F90:!     to maintain precision. Hence, user-specified floating point values are
+external/esmf_time_f90/ESMF_Stubs.F90:      USE ESMF_BaseMod
+external/esmf_time_f90/ESMF_Stubs.F90:      USE ESMF_CalendarMod
+external/esmf_time_f90/ESMF_Stubs.F90:!     USE ESMF_TimeMod,     only: defaultCal
+external/esmf_time_f90/ESMF_Stubs.F90:      USE ESMF_BaseMod
+external/esmf_time_f90/ESMF_Stubs.F90:      USE ESMF_BaseMod
+external/esmf_time_f90/ESMF_Macros.inc:Massachusetts Institute of Technology, Geophysical Fluid Dynamics
+external/esmf_time_f90/ESMF_Macros.inc:Do not have C++ or F90 style comments in here because this file is processed
+external/esmf_time_f90/ESMF_Macros.inc:so user code can be compiled without requiring
+external/esmf_time_f90/ESMF_Macros.inc:i left the following macro here in case it is needed for our internal use.
+external/esmf_time_f90/ESMF_ShrTimeMod.F90:! !USES:
+external/esmf_time_f90/ESMF_ShrTimeMod.F90:      use ESMF_BaseMod
+external/esmf_time_f90/ESMF_ShrTimeMod.F90:      use ESMF_BaseTimeMod
+external/esmf_time_f90/ESMF_ShrTimeMod.F90:      use ESMF_CalendarMod
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:! Massachusetts Institute of Technology, Geophysical Fluid Dynamics
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:! !USES:
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:      use ESMF_BaseMod    ! ESMF Base class
+external/esmf_time_f90/ESMF_BaseMod.F90:! Massachusetts Institute of Technology, Geophysical Fluid Dynamics
+external/esmf_time_f90/ESMF_BaseMod.F90:! !USES:
+external/esmf_time_f90/ESMF_BaseMod.F90:!    Global integer parameters, used frequently
+external/esmf_time_f90/ESMF_BaseMod.F90:      !!   a datatype into integer, then we could use the type and kind as
+external/esmf_time_f90/ESMF_BaseMod.F90:! This can be useful in iterating through all attributes in a loop.
+external/esmf_time_f90/ESMF.F90:! TBH:  This version is for use with the ESMF library embedded in the WRF
+external/esmf_time_f90/ESMF.F90:   USE ESMF_AlarmMod
+external/esmf_time_f90/ESMF.F90:   USE ESMF_BaseMod
+external/esmf_time_f90/ESMF.F90:   USE ESMF_BaseTimeMod
+external/esmf_time_f90/ESMF.F90:   USE ESMF_CalendarMod
+external/esmf_time_f90/ESMF.F90:   USE ESMF_ClockMod
+external/esmf_time_f90/ESMF.F90:   USE ESMF_FractionMod
+external/esmf_time_f90/ESMF.F90:   USE ESMF_TimeIntervalMod
+external/esmf_time_f90/ESMF.F90:   USE ESMF_TimeMod
+external/esmf_time_f90/ESMF.F90:   USE ESMF_ShrTimeMod
+external/esmf_time_f90/ESMF.F90:   USE ESMF_AlarmClockMod
+external/esmf_time_f90/ESMF.F90:   USE ESMF_Stubs   ! add new dummy interfaces and typedefs here as needed
+external/esmf_time_f90/ESMF.F90:   USE MeatMod
+external/esmf_time_f90/ESMF_CalendarMod.F90:! Massachusetts Institute of Technology, Geophysical Fluid Dynamics
+external/esmf_time_f90/ESMF_CalendarMod.F90:! !USES:
+external/esmf_time_f90/ESMF_CalendarMod.F90:      use ESMF_BaseMod
+external/esmf_time_f90/ESMF_CalendarMod.F90:      use ESMF_BaseTimeMod
+external/esmf_time_f90/ESMF_CalendarMod.F90:!                           ! user defined
+external/esmf_time_f90/ESMF_CalendarMod.F90:! Calendar is hard-coded.  Use ESMF library if more flexibility is needed.
+external/esmf_time_f90/ESMF_TimeMgr.inc:Massachusetts Institute of Technology, Geophysical Fluid Dynamics
+external/esmf_time_f90/ESMF_TimeMgr.inc:Do not have C++ or F90 style comments in here because this file is processed
+external/esmf_time_f90/ESMF_FractionMod.F90:! Massachusetts Institute of Technology, Geophysical Fluid Dynamics
+external/esmf_time_f90/ESMF_FractionMod.F90:! !USES:
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:! Massachusetts Institute of Technology, Geophysical Fluid Dynamics
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:! !USES:
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      use ESMF_BaseMod
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      use ESMF_BaseTimeMod
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      use ESMF_FractionMod, only : ESMF_Fraction
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      use ESMF_CalendarMod
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      use ESMF_ShrTimeMod, only : ESMF_Time
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:! Generic Get/Set routines which use F90 optional arguments
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:! !IROUTINE: ESMF_TimeIntervalGet - Get value in user-specified units
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:!     user via F90 optional arguments.
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:!     to maintain precision.  Hence, user-specified floating point values are
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:! !IROUTINE: ESMF_TimeIntervalSet - Initialize via user-specified unit set
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:!     the user via F90 optional arguments
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:!     to maintain precision.  Hence, user-specified floating point values are
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:!$$$here...  need to print Sn and Sd when they are used ???
+external/esmf_time_f90/ESMF_AlarmMod.F90:! Massachusetts Institute of Technology, Geophysical Fluid Dynamics
+external/esmf_time_f90/ESMF_AlarmMod.F90:! !USES:
+external/esmf_time_f90/ESMF_AlarmMod.F90:      use ESMF_BaseMod
+external/esmf_time_f90/ESMF_AlarmMod.F90:      use ESMF_TimeIntervalMod
+external/esmf_time_f90/ESMF_AlarmMod.F90:      use ESMF_TimeMod
+external/esmf_time_f90/ESMF_AlarmMod.F90:! !IROUTINE: ESMF_AlarmCheckRingTime - Method used by a clock to check whether to trigger an alarm
+external/esmf_time_f90/ESMF_AlarmMod.F90:!     Main method used by a {\tt ESMF\_Clock} to check whether to trigger
+external/esmf_time_f90/README:use of the D and Dl interfaces in ESMF_TimeSet and ESMF_TimeGet.  The julian
+external/esmf_time_f90/ESMF_ClockMod.F90:! Massachusetts Institute of Technology, Geophysical Fluid Dynamics
+external/esmf_time_f90/ESMF_ClockMod.F90:! !USES:
+external/esmf_time_f90/ESMF_ClockMod.F90:      use ESMF_BaseMod
+external/esmf_time_f90/ESMF_ClockMod.F90:      use ESMF_TimeIntervalMod   ! , only : ESMF_TimeInterval
+external/esmf_time_f90/ESMF_ClockMod.F90:      use ESMF_TimeMod           ! , only : ESMF_Time
+external/esmf_time_f90/ESMF_ClockMod.F90:      use ESMF_AlarmMod,        only : ESMF_Alarm
+external/esmf_time_f90/ESMF_ClockMod.F90:        ! as hideous as it might be because the ESMF_Alarm type
+external/esmf_time_f90/ESMF_ClockMod.F90:use ESMF_TimeMod
+external/esmf_time_f90/wrf_error_fatal.F90:! use shr_sys_mod, only: shr_sys_abort
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:! Massachusetts Institute of Technology, Geophysical Fluid Dynamics
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:! Separate module that uses both ESMF_AlarmMod and ESMF_ClockMod.
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:! !USES:
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:      use ESMF_AlarmMod, only : ESMF_Alarm, ESMF_AlarmSet
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:      use ESMF_ClockMod, only : ESMF_Clock, ESMF_ClockAddAlarm
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:      use ESMF_TimeIntervalMod, only : ESMF_TimeInterval
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:      use ESMF_TimeMod,         only : ESMF_Time
+external/ezxml/ezxml.h: * without limitation the rights to use, copy, modify, merge, publish,
+external/ezxml/ezxml.h: * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+external/ezxml/ezxml.h:// stream into memory and then parses it. For xml files, use ezxml_parse_file()
+external/ezxml/LICENSE:without limitation the rights to use, copy, modify, merge, publish,
+external/ezxml/LICENSE:SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+external/ezxml/ezxml.c: * without limitation the rights to use, copy, modify, merge, publish,
+external/ezxml/ezxml.c: * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+external/ezxml/ezxml.c:// stream into memory and then parses it. For xml files, use ezxml_parse_file()

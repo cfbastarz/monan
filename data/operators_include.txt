@@ -1,0 +1,53 @@
+operators/Makefile:	$(CPP) $(CPPFLAGS) $(CPPINCLUDES) $< > $*.f90
+operators/Makefile:	$(FC) $(FFLAGS) -c $*.f90 $(FCINCLUDES) -I../framework -I../external/esmf_time_f90
+operators/Makefile:	$(FC) $(CPPFLAGS) $(FFLAGS) -c $*.F $(CPPINCLUDES) $(FCINCLUDES) -I../framework -I../external/esmf_time_f90
+operators/mpas_matrix_operations.F:   subroutine mpas_matrix_cell_to_edge(matrixCell, meshPool, includeHalo, matrixEdge)!{{{
+operators/mpas_matrix_operations.F:         includeHalo !< Input: If true, halo cells and edges are included in computation
+operators/mpas_matrix_operations.F:      if (includeHalo) then
+operators/mpas_tensor_operations.F:      meshPool, edgeSignOnCell, edgeTangentVectors, includeHalo, &
+operators/mpas_tensor_operations.F:         includeHalo !< Input: If true, halo cells and edges are included in computation
+operators/mpas_tensor_operations.F:      if (includeHalo) then
+operators/mpas_tensor_operations.F:   subroutine mpas_divergence_of_tensor_R3Cell(strainRateR3Edge, meshPool, edgeSignOnCell, includeHalo, divTensorR3Cell)!{{{
+operators/mpas_tensor_operations.F:         includeHalo !< Input: If true, halo cells and edges are included in computation
+operators/mpas_tensor_operations.F:      if (includeHalo) then
+operators/mpas_tensor_operations.F:   subroutine mpas_tensor_edge_R3_to_2D(strainRateR3Edge, meshPool, edgeTangentVectors, includeHalo, strainRate2DEdge)!{{{
+operators/mpas_tensor_operations.F:         includeHalo !< Input: If true, halo cells and edges are included in computation
+operators/mpas_tensor_operations.F:      if (includeHalo) then
+operators/mpas_tensor_operations.F:   subroutine mpas_tensor_edge_2D_to_R3(strainRate2DEdge, meshPool, edgeTangentVectors, includeHalo, strainRateR3Edge)!{{{
+operators/mpas_tensor_operations.F:         includeHalo !< Input: If true, halo cells and edges are included in computation
+operators/mpas_tensor_operations.F:      if (includeHalo) then
+operators/mpas_vector_operations.F:      meshPool, edgeTangentVectors, includeHalo, normalVectorEdge, tangentialVectorEdge)!{{{
+operators/mpas_vector_operations.F:         includeHalo !< Input: If true, halo cells and edges are included in computation
+operators/mpas_vector_operations.F:      if (includeHalo) then
+operators/mpas_vector_operations.F:      meshPool, includeHalo, normalVectorEdge)!{{{
+operators/mpas_vector_operations.F:         includeHalo !< Input: If true, halo cells and edges are included in computation
+operators/mpas_vector_operations.F:      if (includeHalo) then
+operators/mpas_vector_operations.F:   subroutine mpas_tangential_velocity(normalVelocity, meshPool, includeHalo, tangentialVelocity)!{{{
+operators/mpas_vector_operations.F:         includeHalo !< Input: If true, halo cells and edges are included in computation
+operators/mpas_vector_operations.F:      if (includeHalo) then
+operators/mpas_vector_operations.F:   subroutine mpas_tangential_vector_1d(normalVector, meshPool, includeHalo, tangentialVector)!{{{
+operators/mpas_vector_operations.F:         includeHalo !< Input: If true, halo cells and edges are included in computation
+operators/mpas_vector_operations.F:      if (includeHalo) then
+operators/mpas_vector_operations.F:!> included in the mpas_initialize_vectors subroutine because the
+operators/mpas_vector_operations.F:!> array edgeTangentVectors is not included in all cores.
+operators/mpas_vector_reconstruction.F:  subroutine mpas_init_reconstruct(meshPool, includeHalos)!{{{
+operators/mpas_vector_reconstruction.F:    logical, optional, intent(in) :: includeHalos
+operators/mpas_vector_reconstruction.F:    logical :: includeHalosLocal
+operators/mpas_vector_reconstruction.F:    if ( present(includeHalos) ) then
+operators/mpas_vector_reconstruction.F:       includeHalosLocal = includeHalos
+operators/mpas_vector_reconstruction.F:       includeHalosLocal = .false.
+operators/mpas_vector_reconstruction.F:    if ( includeHalosLocal ) then
+operators/mpas_vector_reconstruction.F:  subroutine mpas_reconstruct_2d(meshPool, u, uReconstructX, uReconstructY, uReconstructZ, uReconstructZonal, uReconstructMeridional, includeHalos)!{{{
+operators/mpas_vector_reconstruction.F:    logical, optional, intent(in) :: includeHalos !< Input: Optional logical that allows reconstruction over halo regions
+operators/mpas_vector_reconstruction.F:    logical :: includeHalosLocal
+operators/mpas_vector_reconstruction.F:    if ( present(includeHalos) ) then
+operators/mpas_vector_reconstruction.F:       includeHalosLocal = includeHalos
+operators/mpas_vector_reconstruction.F:       includeHalosLocal = .false.
+operators/mpas_vector_reconstruction.F:    if ( includeHalosLocal ) then
+operators/mpas_vector_reconstruction.F:  subroutine mpas_reconstruct_1d(meshPool, u, uReconstructX, uReconstructY, uReconstructZ, uReconstructZonal, uReconstructMeridional, includeHalos)!{{{
+operators/mpas_vector_reconstruction.F:    logical, optional, intent(in) :: includeHalos !< Input: Logical flag that allows reconstructing over halo regions
+operators/mpas_vector_reconstruction.F:    logical :: includeHalosLocal
+operators/mpas_vector_reconstruction.F:    if ( present(includeHalos) ) then
+operators/mpas_vector_reconstruction.F:       includeHalosLocal = includeHalos
+operators/mpas_vector_reconstruction.F:       includeHalosLocal = .false.
+operators/mpas_vector_reconstruction.F:    if ( includeHalosLocal ) then

@@ -1,0 +1,91 @@
+framework/Makefile:	$(CC) $(CFLAGS) $(CPPFLAGS) $(CPPINCLUDES) -I../external/ezxml -c xml_stream_parser.c
+framework/Makefile:	$(CPP) $(CPPFLAGS) $(CPPINCLUDES) $< > $*.f90
+framework/Makefile:	$(FC) $(FFLAGS) -c $*.f90 $(FCINCLUDES) -I../external/esmf_time_f90
+framework/Makefile:	$(FC) $(CPPFLAGS) $(FFLAGS) -c $*.F $(CPPINCLUDES) $(FCINCLUDES) -I../external/esmf_time_f90
+framework/Makefile:	$(CC) $(CFLAGS) $(CPPFLAGS) $(CPPINCLUDES) -I../external/ezxml -c $<
+framework/mpas_abort.F:      include 'mpif.h'
+framework/mpas_derived_types.F:!> This module also includes public parameters related to the corresponding modules.
+framework/mpas_derived_types.F:#include "mpas_attlist_types.inc"
+framework/mpas_derived_types.F:#include "mpas_hash_types.inc"
+framework/mpas_derived_types.F:#include "mpas_dmpar_types.inc"
+framework/mpas_derived_types.F:#include "mpas_field_types.inc"
+framework/mpas_derived_types.F:#include "mpas_pool_types.inc"
+framework/mpas_derived_types.F:#include "mpas_particle_list_types.inc"
+framework/mpas_derived_types.F:#include "mpas_io_types.inc"
+framework/mpas_derived_types.F:#include "mpas_io_streams_types.inc"
+framework/mpas_derived_types.F:#include "mpas_stream_list_types.inc"
+framework/mpas_derived_types.F:#include "mpas_stream_manager_types.inc"
+framework/mpas_derived_types.F:#include "mpas_timekeeping_types.inc"
+framework/mpas_derived_types.F:#include "mpas_timer_types.inc"
+framework/mpas_derived_types.F:#include "mpas_log_types.inc"
+framework/mpas_derived_types.F:#include "mpas_block_types.inc"
+framework/mpas_derived_types.F:#include "mpas_decomp_types.inc"
+framework/mpas_derived_types.F:#include "mpas_domain_types.inc"
+framework/mpas_derived_types.F:#include "mpas_core_types.inc"
+framework/mpas_derived_types.F:#include "mpas_forcing_types.inc"
+framework/mpas_dmpar.F:include 'mpif.h'
+framework/mpas_dmpar.F:!>  This routine starts a halo exchange for an exchange group. This includes
+framework/mpas_dmpar.F:!>  This routine ends a halo exchange using an exchange group. This includes
+framework/mpas_dmpar.F:!>  This routine destroys buffers. Additionally, it DOES NOT include
+framework/mpas_dmpar.F:!>  This private routine unpacks buffers. Additionally, it includes MPI_Wait
+framework/mpas_dmpar.F:!>  message has been received already, and so does not include an MPI_Wait.
+framework/mpas_dmpar.F:!>  This private routine destroys buffers. Additionally, it includes MPI_Wait
+framework/mpas_field_routines.F:#include "duplicate_field_scalar.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_array.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_array.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_array.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_array.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_array.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_scalar.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_array.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_array.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_array.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_scalar.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_array.inc"
+framework/mpas_field_routines.F:#include "duplicate_field_scalar.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_scalar.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_array.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_array.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_array.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_array.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_array.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_scalar.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_array.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_array.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_array.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_scalar.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_array.inc"
+framework/mpas_field_routines.F:#include "shift_time_levs_scalar.inc"
+framework/mpas_forcing.F:!>  true if the start time of the forcing cycle is included in the cycle.
+framework/mpas_forcing.F:!>  out the forcing clock times to registry variables that are included
+framework/mpas_io_streams.F:#include "add_field_indices.inc"
+framework/mpas_io_streams.F:#include "add_field_indices.inc"
+framework/mpas_io_streams.F:#include "add_field_indices.inc"
+framework/mpas_io_streams.F:#include "add_field_indices.inc"
+framework/mpas_io_streams.F:#include "add_field_indices.inc"
+framework/mpas_io_streams.F:#include "add_field_indices.inc"
+framework/mpas_io_streams.F:#include "add_field_indices.inc"
+framework/mpas_io_streams.F:#include "add_field_indices.inc"
+framework/mpas_log.F:      include 'mpif.h'
+framework/mpas_log.F:                      ! make the format large enough to include a large integer (up to 17 digits for 8-byte int)
+framework/mpas_log.F:!>  Possible values for the messageType_c argument include:
+framework/mpas_stream_manager.F:    !>  deal with existing files; possible options include MPAS_STREAM_CLOBBER_NEVER, 
+framework/mpas_stream_manager.F:    !>  include: MPAS_IO_NETCDF, MPAS_IO_NETCDF4, MPAS_IO_PNETCDF, and
+framework/mpas_stream_manager.F:    !>  whose fields include those in the streamFields pool, save the locally
+framework/mpas_stream_manager.F:    !>  whose fields include those in the streamFields pool, restore the locally
+framework/mpas_stream_manager.F:    !>  whose fields include those in the streamFields pool, convert the
+framework/mpas_timer.F:        include 'f90papi.h'
+framework/random_id.c:#include <stdlib.h>
+framework/random_id.c:#include <time.h>
+framework/regex_matching.c:#include <stdio.h>
+framework/regex_matching.c:#include <stdlib.h>
+framework/regex_matching.c:#include <regex.h>
+framework/xml_stream_parser.c:#include <stdio.h>
+framework/xml_stream_parser.c:#include <stdlib.h>
+framework/xml_stream_parser.c:#include <fcntl.h>
+framework/xml_stream_parser.c:#include <sys/stat.h>
+framework/xml_stream_parser.c:#include <unistd.h>
+framework/xml_stream_parser.c:#include <string.h>
+framework/xml_stream_parser.c:#include <errno.h>
+framework/xml_stream_parser.c:#include "ezxml.h"
+framework/xml_stream_parser.c:#include "mpi.h"

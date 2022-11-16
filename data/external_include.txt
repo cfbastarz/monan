@@ -1,0 +1,66 @@
+external/esmf_time_f90/Makefile:	$(CPP) $(CPPFLAGS) $< > $*.tmp.f90 $(CPPINCLUDES) $(FCINCLUDES) -I.
+external/esmf_time_f90/Makefile:	$(FC) $(FFLAGS) -c $*.tmp.f90 $(CPPINCLUDES) $(FCINCLUDES) -I.
+external/esmf_time_f90/Makefile:	$(FC) $(CPPFLAGS) $(FFLAGS) -c $*.F90 $(CPPINCLUDES) $(FCINCLUDES) -I.
+external/esmf_time_f90/MeatMod.F90:#include "ESMF_TimeMgr.inc"
+external/esmf_time_f90/MeatMod.F90:    ELSE   ! includes numerator == 0 case
+external/esmf_time_f90/ESMF_TimeMod.F90:! INCLUDES
+external/esmf_time_f90/ESMF_TimeMod.F90:#include "ESMF_TimeMgr.inc"
+external/esmf_time_f90/ESMF_TimeMod.F90:! See {\tt ../include/ESMC\_Time.h} for complete description
+external/esmf_time_f90/ESMF_TimeMod.F90:!     See {\tt ../include/ESMC\_BaseTime.h and ../include/ESMC\_Time.h} for
+external/esmf_time_f90/ESMF_TimeMod.F90:!     See {\tt ../include/ESMC\_BaseTime.h and ../include/ESMC\_Time.h} for
+external/esmf_time_f90/ESMF_Stubs.F90:#include <mpif.h>
+external/esmf_time_f90/ESMF_Macros.inc:ends up being included multiple times.
+external/esmf_time_f90/ESMF_ShrTimeMod.F90:! INCLUDES
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:! INCLUDES
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:#include "ESMF_TimeMgr.inc"
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:! See {\tt ../include/ESMC\_BaseTime.h} for complete description
+external/esmf_time_f90/ESMF_BaseMod.F90:! (all lines between the !BOP and !EOP markers will be included in the
+external/esmf_time_f90/ESMF_BaseMod.F90:!     ! WARNING: must match corresponding values in ../include/ESMC_Base.h
+external/esmf_time_f90/ESMF_BaseMod.F90:!           derived types will include a {\tt Base} object as the first
+external/esmf_time_f90/ESMF_BaseMod.F90:!           derived types will include a {\tt Base} object as the first
+external/esmf_time_f90/ESMF.F90:#include "ESMF_TimeMgr.inc"
+external/esmf_time_f90/ESMF_CalendarMod.F90:! INCLUDES
+external/esmf_time_f90/ESMF_CalendarMod.F90:#include "ESMF_TimeMgr.inc"
+external/esmf_time_f90/ESMF_CalendarMod.F90:! See {\tt ../include/ESMC\_Calendar.h} for complete description
+external/esmf_time_f90/ESMF_TimeMgr.inc: ESMF TimeMgr include file for F90
+external/esmf_time_f90/ESMF_TimeMgr.inc:#include "ESMF_Macros.inc"
+external/esmf_time_f90/ESMF_FractionMod.F90:! INCLUDES
+external/esmf_time_f90/ESMF_FractionMod.F90:! See {\tt ../include/ESMC\_Fraction.h} for complete description
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:! INCLUDES
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:#include "ESMF_TimeMgr.inc"
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:! See {\tt ../include/ESMC\_TimeInterval.h} for complete description
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:!     See {\tt ../include/ESMC\_BaseTime.h} and
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:!     {\tt ../include/ESMC\_TimeInterval.h} for complete description.
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:!     See {\tt ../include/ESMC\_BaseTime.h} and
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:!     {\tt ../include/ESMC\_TimeInterval.h} for complete description.
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:! NOTE:  Sn, and Sd are not yet included in the returned string...
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:! This section includes overloaded operators defined only for TimeInterval
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:! This section includes the inherited ESMF_BaseTime class overloaded operators
+external/esmf_time_f90/ESMF_AlarmMod.F90:! INCLUDES
+external/esmf_time_f90/ESMF_AlarmMod.F90:#include "ESMF_TimeMgr.inc"
+external/esmf_time_f90/ESMF_AlarmMod.F90:! See {\tt ../include/ESMC\_Alarm.h} for complete description
+external/esmf_time_f90/ESMF_AlarmMod.F90:! This section includes the Set methods.
+external/esmf_time_f90/ESMF_ClockMod.F90:! INCLUDES
+external/esmf_time_f90/ESMF_ClockMod.F90:#include "ESMF_TimeMgr.inc" 
+external/esmf_time_f90/ESMF_ClockMod.F90:! See {\tt ../include/ESMC\_Clock.h} for complete description
+external/esmf_time_f90/ESMF_ClockMod.F90:! This section includes the Set methods.
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:! INCLUDES
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:#include "ESMF_TimeMgr.inc"
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:! See {\tt ../include/ESMC\_Alarm.h} for complete description
+external/ezxml/ezxml.h: * The above copyright notice and this permission notice shall be included
+external/ezxml/ezxml.h:#include <stdlib.h>
+external/ezxml/ezxml.h:#include <stdio.h>
+external/ezxml/ezxml.h:#include <stdarg.h>
+external/ezxml/ezxml.h:#include <fcntl.h>
+external/ezxml/LICENSE:The above copyright notice and this permission notice shall be included
+external/ezxml/ezxml.c: * The above copyright notice and this permission notice shall be included
+external/ezxml/ezxml.c:#include <stdlib.h>
+external/ezxml/ezxml.c:#include <stdio.h>
+external/ezxml/ezxml.c:#include <stdarg.h>
+external/ezxml/ezxml.c:#include <string.h>
+external/ezxml/ezxml.c:#include <ctype.h>
+external/ezxml/ezxml.c:#include <unistd.h>
+external/ezxml/ezxml.c:#include <sys/types.h>
+external/ezxml/ezxml.c:#include <sys/mman.h>
+external/ezxml/ezxml.c:#include <sys/stat.h>
+external/ezxml/ezxml.c:#include "ezxml.h"

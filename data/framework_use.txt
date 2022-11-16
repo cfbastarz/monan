@@ -1,0 +1,422 @@
+framework/add_field_indices.inc:         else ! Use defined decomposition
+framework/mpas_abort.F:      use mpas_kind_types, only : StrKIND
+framework/mpas_abort.F:      use mpas_io_units, only : mpas_new_unit
+framework/mpas_abort.F:      use mpas_threading, only : mpas_threading_get_thread_num
+framework/mpas_abort.F:      use mpi
+framework/mpas_attlist.F:   use mpas_kind_types
+framework/mpas_attlist.F:   use mpas_derived_types
+framework/mpas_block_creator.F:   use mpas_dmpar
+framework/mpas_block_creator.F:   use mpas_block_decomp
+framework/mpas_block_creator.F:   use mpas_hash
+framework/mpas_block_creator.F:   use mpas_sort
+framework/mpas_block_creator.F:   use mpas_derived_types
+framework/mpas_block_creator.F:   use mpas_domain_routines
+framework/mpas_block_creator.F:   use mpas_field_routines
+framework/mpas_block_creator.F:   use mpas_pool_routines
+framework/mpas_block_creator.F:   use mpas_log
+framework/mpas_block_creator.F:!>  This routine uses the previously setup 0 halo cell field, and the blocks of
+framework/mpas_block_creator.F:!>  This routine uses the previously setup 0 halo cell fields, and the blocks of
+framework/mpas_block_creator.F:!>  NOTE: This routine can be used on either edges or vertices
+framework/mpas_block_creator.F:!>  This routine uses the previously setup 0 halo cell fields to determine
+framework/mpas_block_creator.F:!>  This routine uses the previously setup 0 and 1 edge fields and 0 halo cell fields to determine
+framework/mpas_block_creator.F:!>  NOTE: This routine can be used on either edges or edges
+framework/mpas_block_creator.F:          ! (the final block's 'next' pointer does not need to be dealt with because it was alredy nullified in mpas_dmpar_init_multihalo_exchange_list)
+framework/mpas_block_creator.F:     use mpas_stream_manager
+framework/mpas_block_creator.F:     use mpas_block_decomp
+framework/mpas_block_creator.F:!>  On each field, the dimNames array is used to query the correct dimension information
+framework/mpas_block_decomp.F:   use mpas_dmpar
+framework/mpas_block_decomp.F:   use mpas_hash
+framework/mpas_block_decomp.F:   use mpas_sort
+framework/mpas_block_decomp.F:   use mpas_derived_types
+framework/mpas_block_decomp.F:   use mpas_io_units
+framework/mpas_block_decomp.F:   use mpas_log
+framework/mpas_block_decomp.F:!>  This routine builds the mapping of blocks to processors. Most useful when using an explicit decomposition.
+framework/mpas_block_types.inc:   ! Derived type for storing part of a domain; used as a basic unit of work for a process
+framework/mpas_bootstrapping.F:   use mpas_derived_types
+framework/mpas_bootstrapping.F:   use mpas_field_routines
+framework/mpas_bootstrapping.F:   use mpas_pool_routines
+framework/mpas_bootstrapping.F:   use mpas_dmpar
+framework/mpas_bootstrapping.F:   use mpas_block_decomp
+framework/mpas_bootstrapping.F:   use mpas_block_creator
+framework/mpas_bootstrapping.F:   use mpas_sort
+framework/mpas_bootstrapping.F:   use mpas_timekeeping
+framework/mpas_bootstrapping.F:   use mpas_io_streams
+framework/mpas_bootstrapping.F:   use mpas_log
+framework/mpas_bootstrapping.F:      !    lists for these fields are valid (and can be used, e.g., by mpas_block_creator_finalize_block_phase1).
+framework/mpas_bootstrapping.F:      use mpas_stream_manager
+framework/mpas_bootstrapping.F:      use mpas_stream_list
+framework/mpas_bootstrapping.F:     !    used for determining which edges are owned by a block, where
+framework/mpas_bootstrapping.F:     !    used for determining which vertices are owned by a block, where
+framework/mpas_constants.F:!> This module provides various constants that can be used in different parts of MPAS.
+framework/mpas_constants.F:   use mpas_kind_types
+framework/mpas_core_types.inc:         use mpas_kind_types
+framework/mpas_core_types.inc:         use mpas_kind_types
+framework/mpas_c_interfacing.F:    !>  This may be useful for strings that were provided by C code through other
+framework/mpas_c_interfacing.F:        use iso_c_binding, only : c_null_char
+framework/mpas_c_interfacing.F:        use iso_c_binding, only : c_char, c_null_char
+framework/mpas_c_interfacing.F:        use iso_c_binding, only : c_char, c_null_char
+framework/mpas_decomp.F:   use mpas_kind_types
+framework/mpas_decomp.F:   use mpas_derived_types
+framework/mpas_decomp.F:   use mpas_stream_manager
+framework/mpas_decomp.F:   use mpas_log
+framework/mpas_derived_types.F:!> module so that they can all be "use"d from this module to avoid circular
+framework/mpas_derived_types.F:!> needing to use the module they "belong" to.
+framework/mpas_derived_types.F:   use mpas_kind_types
+framework/mpas_derived_types.F:   use pio
+framework/mpas_derived_types.F:   use pio_types
+framework/mpas_derived_types.F:   use ESMF
+framework/mpas_derived_types.F:   use ESMF_BaseMod
+framework/mpas_derived_types.F:   use ESMF_Stubs
+framework/mpas_derived_types.F:   use ESMF_CalendarMod
+framework/mpas_derived_types.F:   use ESMF_ClockMod
+framework/mpas_derived_types.F:   use ESMF_TimeMod
+framework/mpas_derived_types.F:   use ESMF_TimeIntervalMod
+framework/mpas_dmpar.F:   use mpas_derived_types
+framework/mpas_dmpar.F:   use mpas_sort
+framework/mpas_dmpar.F:   use mpas_hash
+framework/mpas_dmpar.F:   use mpas_threading
+framework/mpas_dmpar.F:   use mpas_pool_routines
+framework/mpas_dmpar.F:   use mpas_log
+framework/mpas_dmpar.F:   use mpi
+framework/mpas_dmpar.F:   public :: mpas_dmpar_exch_group_reuse_halo_exch
+framework/mpas_dmpar.F:               write(0,*) '      MPI_THREAD_SINGLE will be used instead.'
+framework/mpas_dmpar.F:               write(0,*) '      MPI_THREAD_FUNNELED will be used instead.'
+framework/mpas_dmpar.F:               write(0,*) '      MPI_THREAD_SERIALIZED will be used instead.'
+framework/mpas_dmpar.F:               write(0,*) '      MPI_THREAD_MULTIPLE will be used instead.'
+framework/mpas_dmpar.F:               write(0,*) '      ', threadLevel ,' will be used instead.'
+framework/mpas_dmpar.F:!>  This routine aborts MPI. A call to it kills the model through the use of MPI_Abort.
+framework/mpas_dmpar.F:!>  initial steps here allows significant code-reuse and shortening of those
+framework/mpas_dmpar.F:!>  subroutines.  This implementation avoids the use of 'field' because there are
+framework/mpas_dmpar.F:!  routine mpas_dmpar_exch_group_reuse_halo_exch
+framework/mpas_dmpar.F:!>  exchange is complete. This variant reuses a previously allocated
+framework/mpas_dmpar.F:   subroutine mpas_dmpar_exch_group_reuse_halo_exch(domain, groupName, timeLevel, haloLayers, iErr)!{{{
+framework/mpas_dmpar.F:      DMPAR_DEBUG_WRITE(' -- Trying to perform a reused full exchange for group ' // trim(groupName))
+framework/mpas_dmpar.F:            DMPAR_DEBUG_WRITE(' -- Performing a full exchange for reused group ' // trim(groupName))
+framework/mpas_dmpar.F:      call mpas_log_write('       Cannot perform reuse halo exchange on group.', MPAS_LOG_ERR)
+framework/mpas_dmpar.F:   end subroutine mpas_dmpar_exch_group_reuse_halo_exch!}}}
+framework/mpas_dmpar.F:            ! because it was not found. Put it at the head of the list to make insertion quick.
+framework/mpas_dmpar.F:!>  which is used when building the size of a halo exchange buffer.
+framework/mpas_dmpar.F:!>  It is mostly used for debugging.
+framework/mpas_dmpar_types.inc:     ! These are used in mpas_block_decomp.F
+framework/mpas_domain_routines.F:   use mpas_kind_types
+framework/mpas_domain_routines.F:   use mpas_derived_types
+framework/mpas_domain_routines.F:   use mpas_pool_routines
+framework/mpas_domain_routines.F:   use mpas_dmpar
+framework/mpas_field_accessor.F:    use mpas_derived_types, only : mpas_pool_type, mpas_pool_field_info_type, &
+framework/mpas_field_accessor.F:    use mpas_kind_types, only : RKIND, StrKIND
+framework/mpas_field_accessor.F:    use mpas_pool_routines, only : mpas_pool_get_field_info, mpas_pool_get_field
+framework/mpas_field_accessor.F:    use mpas_log
+framework/mpas_field_routines.F:   use mpas_kind_types
+framework/mpas_field_routines.F:   use mpas_derived_types
+framework/mpas_field_routines.F:   use mpas_threading
+framework/mpas_field_routines.F:   use mpas_attlist
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_field_types.inc:      ! Information used by the I/O layer
+framework/mpas_forcing.F:  use mpas_derived_types
+framework/mpas_forcing.F:  use mpas_field_routines
+framework/mpas_forcing.F:  use mpas_pool_routines
+framework/mpas_forcing.F:  use mpas_timekeeping
+framework/mpas_forcing.F:  use mpas_io_streams
+framework/mpas_forcing.F:  use mpas_stream_manager
+framework/mpas_forcing.F:  use mpas_log
+framework/mpas_forcing.F:  use mpas_io_units
+framework/mpas_forcing.F:!>  forcing fields that use the forcing group clock. 'forcingGroupHead' 
+framework/mpas_forcing.F:    forcingGroupNew % forcingCycleUse = .true.
+framework/mpas_forcing.F:       forcingGroupNew % forcingCycleUse = .false.
+framework/mpas_forcing.F:    if (forcingGroupNew % forcingCycleUse) then
+framework/mpas_forcing.F:!>  in a forcing group use the same cycling forcing clock. 'streammanager'
+framework/mpas_forcing.F:!>  for this field will use the 'interpolationType' interpolation type
+framework/mpas_forcing.F:         use mpas_timekeeping
+framework/mpas_forcing.F:         use mpas_timekeeping
+framework/mpas_forcing.F:         use mpas_timekeeping
+framework/mpas_forcing.F:         use mpas_timekeeping
+framework/mpas_forcing.F:         use mpas_timekeeping
+framework/mpas_forcing.F:         use mpas_timekeeping
+framework/mpas_forcing.F:         forward_use
+framework/mpas_forcing.F:    forward_use = .true.
+framework/mpas_forcing.F:    if (present(forward)) forward_use = forward
+framework/mpas_forcing.F:       ! use constant interval
+framework/mpas_forcing.F:       ! use variable interval
+framework/mpas_forcing.F:       if (forward_use) then
+framework/mpas_forcing.F:       if (forcingGroup % forcingCycleUse .and. &
+framework/mpas_forcing.F:          if (forcingGroup % forcingCycleUse) then
+framework/mpas_forcing.F:          if (forcingGroup % forcingCycleUse) then
+framework/mpas_forcing.F:       if (forcingGroup % forcingCycleUse) then
+framework/mpas_forcing.F:!> \brief Calculate the interpolants used to perform forcing interpolation
+framework/mpas_forcing.F:!> \brief Calculate the interpolants used to perform forcing interpolation
+framework/mpas_forcing.F:!> \brief Calculate the interpolants used to perform forcing interpolation
+framework/mpas_forcing.F:!> \brief Calculate the interpolants used to perform forcing interpolation
+framework/mpas_forcing_types.inc:     logical                       :: forcingCycleUse            ! whether we cycle the forcing clock
+framework/mpas_framework.F:   use mpas_dmpar
+framework/mpas_framework.F:   use mpas_derived_types
+framework/mpas_framework.F:   use mpas_domain_routines
+framework/mpas_framework.F:   use mpas_pool_routines
+framework/mpas_framework.F:   use mpas_timer
+framework/mpas_framework.F:   use mpas_timekeeping
+framework/mpas_framework.F:   use mpas_io
+framework/mpas_framework.F:   use mpas_io_units
+framework/mpas_framework.F:   use mpas_block_decomp
+framework/mpas_framework.F:!>  This routine finalizes the MPAS framework. It calls routines related to finalizing different parts of MPAS, that are housed within the framework.
+framework/mpas_hash.F:   use mpas_derived_types
+framework/mpas_hash.F:   !   used to remove all entries from a hashtable.
+framework/mpas_io.F:   use mpas_derived_types
+framework/mpas_io.F:   use mpas_attlist
+framework/mpas_io.F:   use mpas_dmpar
+framework/mpas_io.F:   use mpas_log
+framework/mpas_io.F:   use pio
+framework/mpas_io.F:   use piolib_mod
+framework/mpas_io.F:   use pionfatt_mod
+framework/mpas_io.F:   use pio_types
+framework/mpas_io.F:#ifdef USE_PIO2
+framework/mpas_io.F:#ifdef USE_PIO2
+framework/mpas_io.F:!>  This routine sets the master io type for use with PIO.
+framework/mpas_io.F:!>  This routine sets the master io type for use with PIO to it's default
+framework/mpas_io.F:#ifdef USE_PIO2
+framework/mpas_io.F:         ! Also, check that the user is not trying to define more than one record dimension
+framework/mpas_io.F:      ! Set precision to be use for reading/writing
+framework/mpas_io.F:      ! Get the varid for use by put_att routines
+framework/mpas_io.F:      ! Keep variable information for future use
+framework/mpas_io.F:            ! OK, we have a match... just use this decomposition for the field and return
+framework/mpas_io.F:!call mpas_log_write('Found a matching decomposition that we can use')
+framework/mpas_io.F:            ! OK, we have a match... just use this decomposition for the field and return
+framework/mpas_io.F:!call mpas_log_write('Found a matching decomposition that we can use (aside from record dimension)')
+framework/mpas_io.F:!!!! Assume array was already allocated by the user
+framework/mpas_io.F:#ifdef USE_PIO2
+framework/mpas_io.F:      use mpas_c_interfacing, only : MPAS_sanitize_string
+framework/mpas_io.F:      use mpas_c_interfacing, only : MPAS_sanitize_string
+framework/mpas_io.F:#ifdef USE_PIO2
+framework/mpas_io.F:            ! Write one string at a time because the sizes differ so much (i.e. StrLen != StrKIND)
+framework/mpas_io.F:            ! Write one string at a time because the sizes differ so much (i.e. StrLen != StrKIND)
+framework/mpas_io.F:#ifdef USE_PIO2
+framework/mpas_io.F:#ifdef USE_PIO2
+framework/mpas_io.F:#ifdef USE_PIO2
+framework/mpas_io.F:#ifdef USE_PIO2
+framework/mpas_io.F:#ifdef USE_PIO2
+framework/mpas_io.F:         !     'Entering and leaving netcdf define mode causes a file sync operation to occur, 
+framework/mpas_io.F:            call mpas_log_write('MPAS IO Error: Field uses undefined dimension', MPAS_LOG_ERR)
+framework/mpas_io_streams.F:   use mpas_attlist
+framework/mpas_io_streams.F:   use mpas_derived_types
+framework/mpas_io_streams.F:   use mpas_pool_routines
+framework/mpas_io_streams.F:   use mpas_kind_types, only : StrKIND
+framework/mpas_io_streams.F:   use mpas_timekeeping
+framework/mpas_io_streams.F:   use mpas_io
+framework/mpas_io_streams.F:   use mpas_log
+framework/mpas_io_streams.F:      ! desired for a non-exact whence the original method is used. The limit of
+framework/mpas_io_streams_types.inc:      logical, dimension(:), pointer :: isAvailable => null() ! Used for reading var-arrays where one or more 
+framework/mpas_io_streams_types.inc:      ! This option is really only useful for writing debugging streams out.
+framework/mpas_io_types.inc:#ifdef USE_PIO2
+framework/mpas_io_units.F:   use mpas_kind_types
+framework/mpas_io_units.F:   logical, dimension(0:maxUnits), private, save :: unitsInUse
+framework/mpas_io_units.F:!> This routine determines a new unit that is not yet in use, and returns
+framework/mpas_io_units.F:            if (.not. unitsInUse(i)) then
+framework/mpas_io_units.F:                    unitsInUse(i) = .true.
+framework/mpas_io_units.F:                    unitsInUse(newUnit) = .true.
+framework/mpas_io_units.F:!> This routine releases a unit that is in use.
+framework/mpas_io_units.F:        unitsInUse(releasedUnit) = .false.
+framework/mpas_log.F:!>  2. Because the log module uses a pointer to a mpas_log_type instance,
+framework/mpas_log.F:   use mpas_derived_types
+framework/mpas_log.F:   use mpas_abort, only : mpas_dmpar_global_abort
+framework/mpas_log.F:      use mpas_io_units
+framework/mpas_log.F:         !< Input - optional: list of already opened unit numbers for output and error, respectively, to use
+framework/mpas_log.F:      integer :: unitNumber !< local variable used to get a unit number
+framework/mpas_log.F:      ! (From this point onward, only use the module level instance)
+framework/mpas_log.F:      !   This will be used for 1) checking if on master task, 2) inserting task ID into the name of the abort file
+framework/mpas_log.F:      ! Generate proposed file names that we will use if an open file has not already been supplied
+framework/mpas_log.F:            call mpas_dmpar_global_abort('ERROR: Log initialization failed because externally supplied log unit could not be inquired!')
+framework/mpas_log.F:            ! If not already open, we'll use the proposed name defined above
+framework/mpas_log.F:            call mpas_dmpar_global_abort('ERROR: Log initialization failed because externally supplied err unit could not be inquired!')
+framework/mpas_log.F:            ! If not already open, we'll use the proposed name defined above
+framework/mpas_log.F:         !    Note: If log is inactive, these won't actually be used, but they are always set.
+framework/mpas_log.F:         ! Set filenames that will be used
+framework/mpas_log.F:         ! Set unit numbers that will be used
+framework/mpas_log.F:!> \brief   Connects to a log file for the log module to use
+framework/mpas_log.F:!>  This routine connects to a log file for the log module to use.
+framework/mpas_log.F:!>  It uses the module-level pointer instance of the log manager.
+framework/mpas_log.F:      ! Variables used to inquire about info on a pre-existing file unit (if supplied)
+framework/mpas_log.F:            err = ior(err, err_tmp)  ! This is unnecessary because we just die with an error
+framework/mpas_log.F:            call mpas_dmpar_global_abort('ERROR: Log initialization failed because supplied unit could not be inquired!')
+framework/mpas_log.F:            call mpas_dmpar_global_abort('ERROR: Log initialization failed because supplied unit is not attached'//&
+framework/mpas_log.F:            call mpas_dmpar_global_abort('ERROR: Log initialization failed because supplied unit is not attached'//&
+framework/mpas_log.F:            call mpas_dmpar_global_abort('ERROR: Log initialization failed because supplied unit is not attached'//&
+framework/mpas_log.F:            call mpas_dmpar_global_abort('ERROR: Log initialization failed because supplied unit is not attached'//&
+framework/mpas_log.F:      use mpas_threading
+framework/mpas_log.F:         messagePrefix = ""  ! (not used)
+framework/mpas_log.F:            !    We have to treat MPAS_LOG_OUT messages separately from others because that type
+framework/mpas_log.F:      !   (use mpas_log_write, rather than writing directly to file, so that logActive is applied correctly)
+framework/mpas_log.F:      use mpi
+framework/mpas_log.F:   !>   used if the expansion indicator is of an unknown type, where the valid types
+framework/mpas_log.F:   !>   If the user prefers more specific formatting, they have to do it external
+framework/mpas_log.F:         !< Input, Optional: array of integer variable values to be used in expansion
+framework/mpas_log.F:         !< Input, Optional: array of logical variable values to be used in expansion
+framework/mpas_log.F:         !< Input, Optional: array of real variable values to be used in expansion
+framework/mpas_log.F:      character (len=ShortStrKIND) :: realFormat  !< Format string to create to use for writing real variables to log file
+framework/mpas_log.F:      character (len=ShortStrKIND) :: errVarPart ! string to use if variable expansion fails
+framework/mpas_log.F:      errVarPart = '**'  ! string to use if variable expansion fails
+framework/mpas_log.F:   use mpas_c_interfacing, only : mpas_c_to_f_string
+framework/mpas_log.F:   use iso_c_binding, only : c_char, c_int, c_ptr, c_f_pointer
+framework/mpas_log.F:   use mpas_log, only : mpas_log_write, mpas_log_escape_dollars
+framework/mpas_log.F:   use mpas_kind_types, only : StrKIND
+framework/mpas_log.F:   use mpas_derived_types, only : MPAS_LOG_OUT, MPAS_LOG_WARN, MPAS_LOG_ERR, MPAS_LOG_CRIT
+framework/mpas_particle_list_types.inc:    ! main particle type (used by particle_framework)
+framework/mpas_pool_routines.F:   use mpas_kind_types
+framework/mpas_pool_routines.F:   use mpas_derived_types
+framework/mpas_pool_routines.F:   use mpas_field_routines
+framework/mpas_pool_routines.F:   use mpas_threading
+framework/mpas_pool_routines.F:   use mpas_log
+framework/mpas_pool_routines.F:      !TODO: Make use of overrideTimeLevels. This routine needs to create a new set of time levels.
+framework/mpas_pool_routines.F:!> The recurseSubpools_in input argument defaults to false, but can be used to
+framework/mpas_pool_routines.F:!> called within a pool iteration loop, it could cause issues.
+framework/mpas_pool_routines.F:      use iso_c_binding, only : c_int, c_char
+framework/mpas_pool_routines.F:      use mpas_c_interfacing, only : mpas_f_to_c_string
+framework/mpas_pool_routines.F:           use iso_c_binding, only : c_int, c_char
+framework/mpas_sort.F:   use mpas_kind_types
+framework/mpas_sort.F:   use mpas_derived_types
+framework/mpas_sort.F:   use mpas_log
+framework/mpas_stream_list.F:    use mpas_kind_types, only : StrKIND
+framework/mpas_stream_list.F:    use mpas_log
+framework/mpas_stream_list.F:    use mpas_derived_types
+framework/mpas_stream_list.F:        use iso_c_binding, only: c_char, c_int
+framework/mpas_stream_list.F:        use mpas_c_interfacing, only : mpas_f_to_c_string, mpas_c_to_f_string
+framework/mpas_stream_list.F:              use iso_c_binding, only: c_char, c_int
+framework/mpas_stream_list_types.inc:        ! Used by list head
+framework/mpas_stream_list_types.inc:        ! Used by streams
+framework/mpas_stream_list_types.inc:        ! Used by alarms
+framework/mpas_stream_list_types.inc:        ! Used by streams and alarms
+framework/mpas_stream_manager.F:    use mpas_kind_types
+framework/mpas_stream_manager.F:    use mpas_derived_types
+framework/mpas_stream_manager.F:    use mpas_field_routines
+framework/mpas_stream_manager.F:    use mpas_pool_routines
+framework/mpas_stream_manager.F:    use mpas_timekeeping
+framework/mpas_stream_manager.F:    use mpas_log
+framework/mpas_stream_manager.F:    use mpas_io_streams
+framework/mpas_stream_manager.F:    use mpas_stream_list
+framework/mpas_stream_manager.F:    use mpas_sort
+framework/mpas_stream_manager.F:    use mpas_threading
+framework/mpas_stream_manager.F:    ! Used for reindexing connectivity arrays during stream writes by the routines prewrite_reindex() and postwrite_reindex().
+framework/mpas_stream_manager.F:    !>  clock associated with the stream handler will be used as the reference 
+framework/mpas_stream_manager.F:    !>  The optional argument ioType specifies the I/O type to use for the
+framework/mpas_stream_manager.F:        use mpas_io, only : MPAS_IO_PNETCDF
+framework/mpas_stream_manager.F:           ! and demo of how to use MPAS_stream_mgr_get_stream_interval for directions input/output.
+framework/mpas_stream_manager.F:    !> \brief Retrieves the clock used by the stream manager.
+framework/mpas_stream_manager.F:    !>  that the alarmID is used in the clock's alarm list.
+framework/mpas_stream_manager.F:    !>  Resets all alarms used by the stream manager. If the optional argument
+framework/mpas_stream_manager.F:                !    recordInterval is only used for reading, use the input alarm list in this check.
+framework/mpas_stream_manager.F:                    !    use of the recordInterval for a stream.
+framework/mpas_stream_manager.F:    !>  to be used for expanding a filename template, when it is not passed in,
+framework/mpas_stream_manager.F:    !>  the current time of the streamManager's clock is used to expand filename
+framework/mpas_stream_manager.F:        ! Use optional arguments or set defaults
+framework/mpas_stream_manager.F:    !>  to be used for expanding a filename template, when it is not passed in,
+framework/mpas_stream_manager.F:    !>  the current time of the streamManager's clock is used to expand filename
+framework/mpas_stream_manager.F:    !>  Swapping write types on a stream can cause unexpected behavior. For example:
+framework/mpas_stream_manager.F:    !>          block write routine, and again by the normal write routine will cause any
+framework/mpas_stream_manager.F:        use mpas_dmpar, only : MPI_COMM_SELF
+framework/mpas_stream_manager.F:        ! Use optional arguments or set defaults
+framework/mpas_stream_manager.F:        use mpas_dmpar, only : IO_NODE
+framework/mpas_stream_manager.F:        ! Use optional arguments or set defaults
+framework/mpas_stream_manager.F:        use mpas_dmpar, only : IO_NODE
+framework/mpas_stream_manager.F:           ! Rebuild stream if we need to, because a different file has a closer time.
+framework/mpas_stream_manager.F:        use mpas_dmpar
+framework/mpas_stream_manager.F:        character (len=*), intent(in) :: streamID !< Input: Stream name to use for building the filename
+framework/mpas_stream_manager.F:        use iso_c_binding, only : c_int, c_char
+framework/mpas_stream_manager.F:        use mpas_c_interfacing, only : mpas_c_to_f_string
+framework/mpas_stream_manager.F:             use iso_c_binding, only : c_int, c_char
+framework/mpas_stream_manager.F:        integer, parameter :: UNUSED_CELL = 0
+framework/mpas_stream_manager.F:        integer, parameter :: UNUSED_EDGE = 0
+framework/mpas_stream_manager.F:        integer, parameter :: UNUSED_VERTEX = 0
+framework/mpas_stream_manager.F:                       cellsOnCell % array(nEdgesOnCell%array(i)+1:maxEdges,i) = UNUSED_CELL
+framework/mpas_stream_manager.F:                       edgesOnCell % array(nEdgesOnCell%array(i)+1:maxEdges,i) = UNUSED_EDGE
+framework/mpas_stream_manager.F:                       verticesOnCell % array(nEdgesOnCell%array(i)+1:maxEdges,i) = UNUSED_VERTEX
+framework/mpas_stream_manager.F:                       edgesOnEdge % array(nEdgesOnEdge%array(i)+1:maxEdges2,i) = UNUSED_EDGE
+framework/mpas_stream_manager.F:!TODO: Use a short string kind here?
+framework/mpas_stream_manager.F:    !>  is returned, the optional logical argument isActive may be used to
+framework/mpas_stream_manager.F:    use mpas_c_interfacing, only : mpas_c_to_f_string
+framework/mpas_stream_manager.F:    use iso_c_binding, only : c_char, c_int, c_ptr, c_f_pointer
+framework/mpas_stream_manager.F:    use mpas_derived_types, only : MPAS_streamManager_type, &
+framework/mpas_stream_manager.F:    use mpas_stream_manager, only : MPAS_stream_mgr_create_stream, MPAS_stream_mgr_set_property
+framework/mpas_stream_manager.F:    use mpas_kind_types, only : StrKIND
+framework/mpas_stream_manager.F:    use mpas_derived_types, only : MPAS_LOG_ERR
+framework/mpas_stream_manager.F:    use mpas_log
+framework/mpas_stream_manager.F:    use mpas_io, only : MPAS_IO_SINGLE_PRECISION, MPAS_IO_DOUBLE_PRECISION, MPAS_IO_NATIVE_PRECISION, &
+framework/mpas_stream_manager.F:    use mpas_c_interfacing, only : mpas_c_to_f_string
+framework/mpas_stream_manager.F:    use iso_c_binding, only : c_char, c_int, c_ptr, c_f_pointer
+framework/mpas_stream_manager.F:    use mpas_derived_types, only : MPAS_streamManager_type, MPAS_STREAM_MGR_NOERR
+framework/mpas_stream_manager.F:    use mpas_stream_manager, only : MPAS_stream_mgr_add_pool
+framework/mpas_stream_manager.F:    use mpas_kind_types, only : StrKIND
+framework/mpas_stream_manager.F:    use mpas_c_interfacing, only : mpas_c_to_f_string
+framework/mpas_stream_manager.F:    use iso_c_binding, only : c_char, c_int, c_ptr, c_f_pointer
+framework/mpas_stream_manager.F:    use mpas_derived_types, only : MPAS_streamManager_type, MPAS_STREAM_MGR_NOERR
+framework/mpas_stream_manager.F:    use mpas_stream_manager, only : MPAS_stream_mgr_add_field
+framework/mpas_stream_manager.F:    use mpas_kind_types, only : StrKIND
+framework/mpas_stream_manager.F:    use mpas_c_interfacing, only : mpas_c_to_f_string
+framework/mpas_stream_manager.F:    use iso_c_binding, only : c_char, c_int, c_ptr, c_f_pointer
+framework/mpas_stream_manager.F:    use mpas_derived_types, only : MPAS_streamManager_type, MPAS_STREAM_MGR_NOERR, MPAS_STREAM_PROPERTY_IMMUTABLE
+framework/mpas_stream_manager.F:    use mpas_stream_manager, only : MPAS_stream_mgr_add_stream_fields, MPAS_stream_mgr_get_property
+framework/mpas_stream_manager.F:    use mpas_kind_types, only : StrKIND
+framework/mpas_stream_manager.F:    use mpas_c_interfacing, only : mpas_c_to_f_string
+framework/mpas_stream_manager.F:    use iso_c_binding, only : c_char, c_int, c_ptr, c_f_pointer
+framework/mpas_stream_manager.F:    use mpas_derived_types, only : MPAS_streamManager_type, MPAS_Clock_type, MPAS_Time_type, MPAS_TimeInterval_type, &
+framework/mpas_stream_manager.F:    use mpas_stream_manager, only : MPAS_stream_mgr_get_clock, MPAS_stream_mgr_add_alarm, MPAS_stream_mgr_set_property, &
+framework/mpas_stream_manager.F:    use mpas_kind_types, only : StrKIND
+framework/mpas_stream_manager.F:    use mpas_timekeeping, only : mpas_add_clock_alarm, mpas_set_time, mpas_get_time, mpas_set_timeInterval, mpas_get_clock_time, &
+framework/mpas_stream_manager.F:        ! Now calibrate alarm to use the stream's reference time as the time coordinate origin for the stream's output alarm.
+framework/mpas_stream_manager.F:    use mpas_c_interfacing, only : mpas_c_to_f_string
+framework/mpas_stream_manager.F:    use iso_c_binding, only : c_char, c_int, c_ptr, c_f_pointer
+framework/mpas_stream_manager.F:    use mpas_derived_types, only : MPAS_streamManager_type, MPAS_STREAM_MGR_NOERR
+framework/mpas_stream_manager.F:    use mpas_stream_manager, only : MPAS_stream_mgr_add_pkg
+framework/mpas_stream_manager.F:    use mpas_kind_types, only : StrKIND
+framework/mpas_threading.F:   use mpas_kind_types
+framework/mpas_threading.F:!>  This function returns maximum number of threads a single MPI process can use.
+framework/mpas_timekeeping.F:   use mpas_kind_types
+framework/mpas_timekeeping.F:   use mpas_derived_types
+framework/mpas_timekeeping.F:   use mpas_dmpar
+framework/mpas_timekeeping.F:   use mpas_threading
+framework/mpas_timekeeping.F:   use mpas_log
+framework/mpas_timekeeping.F:   use ESMF
+framework/mpas_timekeeping.F:   use ESMF_BaseMod
+framework/mpas_timekeeping.F:   use ESMF_Stubs
+framework/mpas_timekeeping.F:   use ESMF_CalendarMod
+framework/mpas_timekeeping.F:   use ESMF_ClockMod
+framework/mpas_timekeeping.F:   use ESMF_TimeMod
+framework/mpas_timekeeping.F:   use ESMF_TimeIntervalMod
+framework/mpas_timekeeping.F:   !>   It can be used to make the year portion of a time stamp or an expanded
+framework/mpas_timekeeping.F:   ! This is useful if the alarm's default prevRingTime, which is the current time when the alarm
+framework/mpas_timer.F:        use mpas_kind_types
+framework/mpas_timer.F:        use mpas_derived_types
+framework/mpas_timer.F:        use mpas_dmpar
+framework/mpas_timer.F:        use mpas_threading
+framework/mpas_timer.F:        use mpas_log
+framework/mpas_timer.F:        use perf_mod
+framework/mpas_timer.F:        use gptl
+framework/mpas_timer.F:          integer :: usecs, nlen, iErr, threadNum, numThreads
+framework/mpas_timer.F:                ! If the root_timer in timer_root has not been set, create it and use it for the current timer
+framework/mpas_timer.F:             call PAPIF_get_real_usec(usecs, check_flag)
+framework/mpas_timer.F:             current_timer % start_time(threadNum + 1) = usecs/1.0e6
+framework/mpas_timer.F:          integer :: usecs, nlen, iErr, threadNum
+framework/mpas_timer.F:          call PAPIF_get_real_usec(usecs, check_flag)
+framework/mpas_timer.F:          current_timer % end_time(threadNum + 1) = usecs/1.0e6
+framework/pool_hash.c: use iso_c_binding, only : c_int, c_char
+framework/pool_hash.c:      use iso_c_binding, only : c_int, c_char
+framework/random_id.c:/* Use the following interface in Fortran for seed_random()
+framework/random_id.c:/* Use the following interface in Fortran for gen_random()
+framework/random_id.c:       use iso_c_binding, only : c_int, c_char
+framework/shift_time_levs_array.inc:      ! In this subroutine, we use an array of fields as a ready-made array 
+framework/shift_time_levs_scalar.inc:         ! In this subroutine, we use an array of fields as a ready-made array 
+framework/xml_stream_parser.c: *  Stack node type used for basic syntax checking of XML
+framework/xml_stream_parser.c: *  For providing useful error messages, this routine also counts line numbers,
+framework/xml_stream_parser.c: *  is a Fortran MPI communicator used to determine which task is the master task.
+framework/xml_stream_parser.c:		/* Check that users are not attempting to add fields to an immutable stream */
+framework/xml_stream_parser.c:		/* Extract the name of the stream, and the name of the interval to use for interval */
+framework/xml_stream_parser.c: *  definitions, manager is a Fortran derived type used by the stream mananger,
+framework/xml_stream_parser.c: *  and mpi_comm is the Fortran MPI communicator used by MPAS.
+framework/xml_stream_parser.c: *  definitions, and mpi_comm is the Fortran MPI communicator used by MPAS.

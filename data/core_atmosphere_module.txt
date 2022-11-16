@@ -1,0 +1,799 @@
+core_atmosphere/core_atmosphere.und/settings.xml:    js_module_search_path=""
+core_atmosphere/diagnostics/Makefile:# Add new diagnostic modules to DIAGNOSTIC_MODULES
+core_atmosphere/diagnostics/Makefile:DIAGNOSTIC_MODULES = \
+core_atmosphere/diagnostics/Makefile:mpas_atm_diagnostics_manager.o: mpas_atm_diagnostics_utils.o $(DIAGNOSTIC_MODULES)
+core_atmosphere/diagnostics/convective_diagnostics.F:module convective_diagnostics
+core_atmosphere/diagnostics/convective_diagnostics.F:    !> \brief Set-up the convective diagnostics module
+core_atmosphere/diagnostics/convective_diagnostics.F:end module convective_diagnostics
+core_atmosphere/diagnostics/isobaric_diagnostics.F:module isobaric_diagnostics
+core_atmosphere/diagnostics/isobaric_diagnostics.F:    !> \brief Set up the isobaric diagnostics module
+core_atmosphere/diagnostics/isobaric_diagnostics.F:    !>  This routine sets up the isobaric diagnostics module, principally by
+core_atmosphere/diagnostics/isobaric_diagnostics.F:end module isobaric_diagnostics
+core_atmosphere/diagnostics/soundings.F:module soundings
+core_atmosphere/diagnostics/soundings.F:    !>  This routine should be called last among public routines in this module
+core_atmosphere/diagnostics/soundings.F:!NOTE: functions rslf and rsif are taken from module_mp_thompson temporarily for computing
+core_atmosphere/diagnostics/soundings.F:!      the diagnostic relative humidity. These two functions will be removed from this module
+core_atmosphere/diagnostics/soundings.F:end module soundings
+core_atmosphere/diagnostics/mpas_atm_diagnostic_template.F:module diagnostic_template
+core_atmosphere/diagnostics/mpas_atm_diagnostic_template.F:end module diagnostic_template
+core_atmosphere/diagnostics/mpas_atm_diagnostics_manager.F:module mpas_atm_diagnostics_manager
+core_atmosphere/diagnostics/mpas_atm_diagnostics_manager.F:        ! Prepare the diagnostics utilities module for later use by diagnostics
+core_atmosphere/diagnostics/mpas_atm_diagnostics_manager.F:        ! Take care of any needed cleanup in the diagnostics utility module
+core_atmosphere/diagnostics/mpas_atm_diagnostics_manager.F:end module mpas_atm_diagnostics_manager
+core_atmosphere/diagnostics/README:2) Create a new module for the diagnostic; the "mpas_atm_diagnostic_template.F" 
+core_atmosphere/diagnostics/README:   module file may be used as a template.
+core_atmosphere/diagnostics/README:3) Add the object file for the new diagnostic module to the definition of 
+core_atmosphere/diagnostics/README:   DIAGNOSTIC_MODULES in the Makefile, and add a dependency on the new module 
+core_atmosphere/diagnostics/pv_diagnostics.F:module pv_diagnostics
+core_atmosphere/diagnostics/pv_diagnostics.F:end module pv_diagnostics
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:module mpas_atm_diagnostics_utils
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:    !> \brief Prepares diagnostics utilities for use by diagnostics modules
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:    !>  modules.
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:end module mpas_atm_diagnostics_utils
+core_atmosphere/dynamics/mpas_atm_time_integration.F:module atm_time_integration
+core_atmosphere/dynamics/mpas_atm_time_integration.F:end module atm_time_integration
+core_atmosphere/dynamics/mpas_atm_iau.F:module mpas_atm_iau
+core_atmosphere/dynamics/mpas_atm_iau.F:end module mpas_atm_iau
+core_atmosphere/dynamics/mpas_atm_boundaries.F:module mpas_atm_boundaries
+core_atmosphere/dynamics/mpas_atm_boundaries.F:end module mpas_atm_boundaries
+core_atmosphere/mpas_atm_core.F:module atm_core
+core_atmosphere/mpas_atm_core.F:      allocate(ke_vertex(nVertLevels,nVertices+1))  ! ke_vertex is a module variable defined in mpas_atm_time_integration.F
+core_atmosphere/mpas_atm_core.F:      allocate(ke_edge(nVertLevels,nEdges+1))       ! ke_edge is a module variable defined in mpas_atm_time_integration.F
+core_atmosphere/mpas_atm_core.F:end module atm_core
+core_atmosphere/mpas_atm_core_interface.F:module atm_core_interface
+core_atmosphere/mpas_atm_core_interface.F:end module atm_core_interface
+core_atmosphere/mpas_atm_dimensions.F:module mpas_atm_dimensions
+core_atmosphere/mpas_atm_dimensions.F:end module mpas_atm_dimensions
+core_atmosphere/mpas_atm_threading.F:module mpas_atm_threading
+core_atmosphere/mpas_atm_threading.F:end module mpas_atm_threading
+core_atmosphere/physics/mpas_atmphys_packages.F: module mpas_atmphys_packages
+core_atmosphere/physics/mpas_atmphys_packages.F: end module mpas_atmphys_packages
+core_atmosphere/physics/mpas_atmphys_driver_sfclayer.F: module mpas_atmphys_driver_sfclayer
+core_atmosphere/physics/mpas_atmphys_driver_sfclayer.F: use module_sf_mynn
+core_atmosphere/physics/mpas_atmphys_driver_sfclayer.F: use module_sf_sfclay
+core_atmosphere/physics/mpas_atmphys_driver_sfclayer.F:! * module_sf_sfclay: Monin-Obukhov surface layer scheme.
+core_atmosphere/physics/mpas_atmphys_driver_sfclayer.F: end module mpas_atmphys_driver_sfclayer
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F90: module mpas_atmphys_driver_pbl
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F90: use module_bl_mynn
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F90: use module_bl_ysu
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F90:! * module_bl_ysu : YSU PBL scheme.
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F90:! * updated the call to subroutine ysu in comjunction with updating module_bl_ysu.F from WRF version 3.6.1 to
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F90:! * after updating module_bl_ysu.F to WRF version 4.0.3, corrected call to subroutine ysu to output diagnostics of
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F90: end module mpas_atmphys_driver_pbl
+core_atmosphere/physics/mpas_atmphys_constants.F: module mpas_atmphys_constants
+core_atmosphere/physics/mpas_atmphys_constants.F: end module mpas_atmphys_constants
+core_atmosphere/physics/mpas_atmphys_control.F: module mpas_atmphys_control
+core_atmosphere/physics/mpas_atmphys_control.F: end module mpas_atmphys_control
+core_atmosphere/physics/mpas_atmphys_init_microphysics.F: module mpas_atmphys_init_microphysics
+core_atmosphere/physics/mpas_atmphys_init_microphysics.F:!use module_mp_thompson, only: is_aerosol_aware,naCCN0,naCCN1,naIN0,naIN1,ntb_arc,ntb_arw,ntb_art,ntb_arr, &
+core_atmosphere/physics/mpas_atmphys_init_microphysics.F:! * added "use mpas_dmpar" at the top of the module.
+core_atmosphere/physics/mpas_atmphys_init_microphysics.F: end module mpas_atmphys_init_microphysics
+core_atmosphere/physics/mpas_atmphys_driver_radiation_sw.F: module mpas_atmphys_driver_radiation_sw
+core_atmosphere/physics/mpas_atmphys_driver_radiation_sw.F: use module_ra_cam
+core_atmosphere/physics/mpas_atmphys_driver_radiation_sw.F: use module_ra_rrtmg_sw
+core_atmosphere/physics/mpas_atmphys_driver_radiation_sw.F:! * module_ra_cam        : CAM short wave radiation code.
+core_atmosphere/physics/mpas_atmphys_driver_radiation_sw.F:! * module_ra_rrtmg_sw   : RRTMG short wave radiation code.
+core_atmosphere/physics/mpas_atmphys_driver_radiation_sw.F:! * cleaned-up the call to rrtmg_swrad after cleaning up subroutine rrtmg_swrad in module_ra_rrtmg_sw.F.
+core_atmosphere/physics/mpas_atmphys_driver_radiation_sw.F:                ! These are set in module mpas_atmphys_manager and should not be set again
+core_atmosphere/physics/mpas_atmphys_driver_radiation_sw.F: end module mpas_atmphys_driver_radiation_sw
+core_atmosphere/physics/mpas_atmphys_o3climatology.F: module mpas_atmphys_o3climatology
+core_atmosphere/physics/mpas_atmphys_o3climatology.F: use module_ra_cam_support, only: r8, getfactors
+core_atmosphere/physics/mpas_atmphys_o3climatology.F:! * moved the subroutine vinterp_ozn to its own module module_ra_rrtmg_vinterp.F in physics_wrf.
+core_atmosphere/physics/mpas_atmphys_o3climatology.F: end module mpas_atmphys_o3climatology
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F: module mpas_atmphys_lsm_noahinit
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F: use module_sf_noahlsm
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F:! noah_init_forMPAS: call lsminit from subroutine init_lsm (module mpas_atmphyse_driver_lsm.F).
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F:! * added "use mpas_kind_types" at the top of the module.
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F:          write(err_message,*) "module_sf_noahlsm.F: lsminit: out of range ISLTYP ", &
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F:       call physics_error_fatal("module_sf_noahlsm.F: lsminit: out of range value "// &
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F:       call physics_error_fatal('table sizes too small for value of lucats in module_sf_noahdrv.f')
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F:       call physics_error_fatal('module_sf_noahlsm.F: soil_veg_gen_parm: ' // &
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F:!      call wrf_error_fatal('table sizes too small for value of slcats in module_sf_noahdrv.f')
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F:       call physics_error_fatal('module_sf_noahlsm.F: soil_veg_gen_parm: ' // &
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F:                                'in module_sf_noahdrv')
+core_atmosphere/physics/mpas_atmphys_lsm_noahinit.F: end module mpas_atmphys_lsm_noahinit
+core_atmosphere/physics/mpas_atmphys_interface.F: module mpas_atmphys_interface
+core_atmosphere/physics/mpas_atmphys_interface.F:! * renamed module mpas_atmphys_interface_nhyd to mpas_atmphys_interface.
+core_atmosphere/physics/mpas_atmphys_interface.F:!in ./dyn_em/module_big_step_utilities.F):
+core_atmosphere/physics/mpas_atmphys_interface.F: end module mpas_atmphys_interface
+core_atmosphere/physics/mpas_atmphys_landuse.F: module mpas_atmphys_landuse
+core_atmosphere/physics/mpas_atmphys_landuse.F:!This module reads the file LANDUSE.TBL which defines the land type of each cell, depending on
+core_atmosphere/physics/mpas_atmphys_landuse.F: end module mpas_atmphys_landuse
+core_atmosphere/physics/mpas_atmphys_todynamics.F: module mpas_atmphys_todynamics
+core_atmosphere/physics/mpas_atmphys_todynamics.F: end module mpas_atmphys_todynamics
+core_atmosphere/physics/mpas_atmphys_utilities.F: module mpas_atmphys_utilities
+core_atmosphere/physics/mpas_atmphys_utilities.F: end module mpas_atmphys_utilities
+core_atmosphere/physics/mpas_atmphys_init.F: module mpas_atmphys_init
+core_atmosphere/physics/mpas_atmphys_init.F:! initialized the 1D ocean mixed-layer model  (code from wrf module_sf_oml)
+core_atmosphere/physics/mpas_atmphys_init.F: end module mpas_atmphys_init
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F: module mpas_atmphys_rrtmg_swinit
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F: use module_ra_rrtmg_sw
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:!Main initialization module for the RRTMG short wave radiation code, based on the MPI decomposition
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:!used in MPAS. It replaces the initialization in module_ra_rrtgm_sw.F.
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:       call physics_error_fatal('module_ra_rrtmg_sw: rrtm_swlookuptable: Can not '// &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:!  weighted using a mapping procedure in module RRTMG_SW_INIT to reduce
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F: end module mpas_atmphys_rrtmg_swinit
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F: module mpas_atmphys_driver_radiation_lw
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F: use module_ra_cam            
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F: use module_ra_rrtmg_lw
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F: use module_ra_rrtmg_vinterp
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F:! * module_ra_cam        : CAM long wave radiation code.
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F:! * module_ra_rrtmg_lw   : RRTMG long wave radiation code.
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F:! * cleaned-up the call to rrtmg_lwrad after cleaning up subroutine rrtmg_lwrad in module_ra_rrtmg_lw.F.
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F:! * substituted "use mpas_atmphys_o3climatology" with "use module_ra_rrtmg_vinterp" since we moved subroutine
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F:!   vinterp_ozn to is own module in physics_wrf.
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F:                ! These are set in module mpas_atmphys_manager and should not be set again
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F: end module mpas_atmphys_driver_radiation_lw
+core_atmosphere/physics/mpas_atmphys_vars.F: module mpas_atmphys_vars
+core_atmosphere/physics/mpas_atmphys_vars.F:! * moved the declarations of arrays delta_p,wstar_p,uoce_p,and voce_p since they are now used in both modules
+core_atmosphere/physics/mpas_atmphys_vars.F:!   module_bl_ysu.F and module_bl_mynn.F.
+core_atmosphere/physics/mpas_atmphys_vars.F:! * added the local variables cosa_p and sina_p needed in call to subroutine gwdo after updating module_bl_gwdo.F
+core_atmosphere/physics/mpas_atmphys_vars.F:!... MYNN PBL scheme (module_bl_mynn.F):
+core_atmosphere/physics/mpas_atmphys_vars.F:!... arrays only in monin_obukohv (module_sf_sfclay.F):
+core_atmosphere/physics/mpas_atmphys_vars.F:!... arrays only in mynn surface layer scheme (module_sf_mynn.F):
+core_atmosphere/physics/mpas_atmphys_vars.F:                       !is only needed in module_ra_rrtmg_sw.F to define the spectral surface
+core_atmosphere/physics/mpas_atmphys_vars.F: end module mpas_atmphys_vars
+core_atmosphere/physics/mpas_atmphys_initialize_real.F: module mpas_atmphys_initialize_real
+core_atmosphere/physics/mpas_atmphys_initialize_real.F:! * revised entire module:
+core_atmosphere/physics/mpas_atmphys_initialize_real.F:!note that this threshold is also defined in module_physics_vars.F.It is defined here to avoid
+core_atmosphere/physics/mpas_atmphys_initialize_real.F:!adding "use module_physics_vars" since this subroutine is only used for the initialization of
+core_atmosphere/physics/mpas_atmphys_initialize_real.F: end module mpas_atmphys_initialize_real
+core_atmosphere/physics/physics_wrf/module_cam_error_function.F:module error_function
+core_atmosphere/physics/physics_wrf/module_cam_error_function.F:! This module provides generic interfaces for functions that evaluate
+core_atmosphere/physics/physics_wrf/module_cam_error_function.F:   module procedure erf_r4
+core_atmosphere/physics/physics_wrf/module_cam_error_function.F:   module procedure derf
+core_atmosphere/physics/physics_wrf/module_cam_error_function.F:   module procedure erfc_r4
+core_atmosphere/physics/physics_wrf/module_cam_error_function.F:   module procedure derfc
+core_atmosphere/physics/physics_wrf/module_cam_error_function.F:   module procedure erfcx_r4
+core_atmosphere/physics/physics_wrf/module_cam_error_function.F:   module procedure derfcx
+core_atmosphere/physics/physics_wrf/module_cam_error_function.F:! The only changes in implementing this module are that the function
+core_atmosphere/physics/physics_wrf/module_cam_error_function.F:end module error_function
+core_atmosphere/physics/physics_wrf/Makefile:	module_bl_gwdo.o               \
+core_atmosphere/physics/physics_wrf/Makefile:	module_bl_mynn.o               \
+core_atmosphere/physics/physics_wrf/Makefile:	module_bl_ysu.o                \
+core_atmosphere/physics/physics_wrf/Makefile:	module_cam_error_function.o    \
+core_atmosphere/physics/physics_wrf/Makefile:	module_cam_shr_kind_mod.o      \
+core_atmosphere/physics/physics_wrf/Makefile:	module_cam_support.o           \
+core_atmosphere/physics/physics_wrf/Makefile:	module_cu_gf.mpas.o            \
+core_atmosphere/physics/physics_wrf/Makefile:	module_cu_tiedtke.o            \
+core_atmosphere/physics/physics_wrf/Makefile:	module_cu_ntiedtke.o           \
+core_atmosphere/physics/physics_wrf/Makefile:	module_cu_kfeta.o              \
+core_atmosphere/physics/physics_wrf/Makefile:	module_mp_kessler.o            \
+core_atmosphere/physics/physics_wrf/Makefile:	module_mp_radar.o              \
+core_atmosphere/physics/physics_wrf/Makefile:	module_mp_thompson.o           \
+core_atmosphere/physics/physics_wrf/Makefile:	module_mp_thompson_cldfra3.o   \
+core_atmosphere/physics/physics_wrf/Makefile:	module_mp_wsm6.o               \
+core_atmosphere/physics/physics_wrf/Makefile:	module_ra_cam.o                \
+core_atmosphere/physics/physics_wrf/Makefile:	module_ra_cam_support.o        \
+core_atmosphere/physics/physics_wrf/Makefile:	module_ra_rrtmg_lw.o           \
+core_atmosphere/physics/physics_wrf/Makefile:	module_ra_rrtmg_sw.o           \
+core_atmosphere/physics/physics_wrf/Makefile:	module_ra_rrtmg_vinterp.o      \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_bem.o                \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_bep.o                \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_bep_bem.o            \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_sfcdiags.o           \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_mynn.o               \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_noahdrv.o            \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_noahlsm.o            \
+core_atmosphere/physics/physics_wrf/Makefile:        module_sf_noahlsm_glacial_only.o \
+core_atmosphere/physics/physics_wrf/Makefile:        module_sf_noah_seaice.o        \
+core_atmosphere/physics/physics_wrf/Makefile:        module_sf_noah_seaice_drv.o    \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_oml.o                \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_sfclay.o             \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_urban.o
+core_atmosphere/physics/physics_wrf/Makefile:module_bl_mynn.o: \
+core_atmosphere/physics/physics_wrf/Makefile:	module_cam_error_function.o
+core_atmosphere/physics/physics_wrf/Makefile:module_cam_support.o: \
+core_atmosphere/physics/physics_wrf/Makefile:	module_cam_shr_kind_mod.o
+core_atmosphere/physics/physics_wrf/Makefile:module_mp_thompson.o: \
+core_atmosphere/physics/physics_wrf/Makefile:	module_mp_radar.o
+core_atmosphere/physics/physics_wrf/Makefile:module_mp_wsm6.o: \
+core_atmosphere/physics/physics_wrf/Makefile:	module_mp_radar.o
+core_atmosphere/physics/physics_wrf/Makefile:module_ra_cam.o: \
+core_atmosphere/physics/physics_wrf/Makefile:	module_cam_support.o \
+core_atmosphere/physics/physics_wrf/Makefile:	module_ra_cam_support.o
+core_atmosphere/physics/physics_wrf/Makefile:module_ra_rrtmg_lw.o: \
+core_atmosphere/physics/physics_wrf/Makefile:	module_ra_rrtmg_vinterp.o
+core_atmosphere/physics/physics_wrf/Makefile:module_ra_rrtmg_sw.o: \
+core_atmosphere/physics/physics_wrf/Makefile:	module_ra_rrtmg_lw.o \
+core_atmosphere/physics/physics_wrf/Makefile:	module_ra_rrtmg_vinterp.o
+core_atmosphere/physics/physics_wrf/Makefile:module_sf_bep.o: \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_urban.o
+core_atmosphere/physics/physics_wrf/Makefile:module_sf_bep_bem.o: \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_bem.o \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_urban.o
+core_atmosphere/physics/physics_wrf/Makefile:module_sf_mynn.o: \
+core_atmosphere/physics/physics_wrf/Makefile:	module_bl_mynn.o \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_sfclay.o
+core_atmosphere/physics/physics_wrf/Makefile:module_sf_noahdrv.o: \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_bem.o \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_bep.o \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_bep_bem.o \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_noahlsm.o \
+core_atmosphere/physics/physics_wrf/Makefile:        module_sf_noahlsm_glacial_only.o \
+core_atmosphere/physics/physics_wrf/Makefile:	module_sf_urban.o
+core_atmosphere/physics/physics_wrf/Makefile:module_sf_noahlsm_glacial_only.o: \
+core_atmosphere/physics/physics_wrf/Makefile:        module_sf_noahlsm.o
+core_atmosphere/physics/physics_wrf/Makefile:module_sf_noah_seaice_drv.o: \
+core_atmosphere/physics/physics_wrf/Makefile:        module_sf_noah_seaice.o
+core_atmosphere/physics/physics_wrf/Makefile:module_sf_noah_seaice.o: \
+core_atmosphere/physics/physics_wrf/Makefile:        module_sf_noahlsm.o
+core_atmosphere/physics/physics_wrf/module_mp_kessler.F:MODULE module_mp_kessler
+core_atmosphere/physics/physics_wrf/module_mp_kessler.F:END MODULE module_mp_kessler
+core_atmosphere/physics/physics_wrf/module_mp_wsm6.F:MODULE module_mp_wsm6
+core_atmosphere/physics/physics_wrf/module_mp_wsm6.F:   USE module_mp_radar
+core_atmosphere/physics/physics_wrf/module_mp_wsm6.F:!.. radar module.
+core_atmosphere/physics/physics_wrf/module_mp_wsm6.F:END MODULE module_mp_wsm6
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!!MODULE module_ra_rrtmg_sw
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module parrrsw
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module parrrsw
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_aer
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_aer
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_cld
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_cld
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_con
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_con
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg16
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg16
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg17
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg17
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg18
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg18
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg19
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg19
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg20
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg20
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg21
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg21
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg22
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg22
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg23
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg23
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg24
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg24
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg25
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg25
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg26
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg26
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg27
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg27
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg28
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg28
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_kg29
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_kg29
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_ref
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_ref
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_tbl
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_tbl
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_vsn
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_vsn
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrsw_wvn
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrsw_wvn
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_sw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module mcica_subcol_gen_sw
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! --------- Modules ----------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module mcica_subcol_gen_sw
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_sw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrtmg_sw_cldprmc
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrtmg_sw_cldprmc
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_sw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrtmg_sw_reftra
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrtmg_sw_reftra
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_sw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrtmg_sw_setcoef
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrtmg_sw_setcoef
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_sw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrtmg_sw_taumol
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrtmg_sw_taumol
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_sw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrtmg_sw_init
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! Moved to module_ra_rrtmg_sw for WRF
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! --------- Modules ----------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! as used in the ECMWF IFS model (see module rrsw_aer.F90 for details)
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrtmg_sw_init
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_sw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrtmg_sw_vrtqdr
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrtmg_sw_vrtqdr
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_sw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      module rrtmg_sw_spcvmc
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrtmg_sw_spcvmc
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_sw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:       module rrtmg_sw_rad
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! --------- Modules ---------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! This call to RRTMG_SW must be preceeded by a call to the module
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!   set of 224 can be restored by exchanging code in module parrrsw.f90 
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! --------- Modules ---------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! --------- Modules ----------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:      end module rrtmg_sw_rad
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:MODULE module_ra_rrtmg_sw
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:use module_ra_rrtmg_vinterp,only: vinterp_ozn
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!>   * updated module_ra_rrtmg_sw.F using module_ra_rrtmg_sw.F from WRF version 3.8, namely to update the
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:use module_model_constants,only : cp
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:USE module_wrf_error
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:USE module_state_description, ONLY : FER_MP_HIRES, FER_MP_HIRES_ADVECT, ETAMP_HWRF 
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:USE module_state_description, ONLY : FER_MP_HIRES, FER_MP_HIRES_ADVECT
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!USE module_dm
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:use module_ra_rrtmg_lw, only : inirad, o3data, relcalc, reicalc, retab
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!ldf (2013-03-11): This section of the module is moved to module_physics_rrtmg_swinit.F in
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:        CALL wrf_error_fatal ( 'module_ra_rrtmg_sw: rrtm_swlookuptable: Can not '// &
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error opening RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!  weighted using a mapping procedure in module RRTMG_SW_INIT to reduce
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_sw: error reading RRTMG_SW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:END MODULE module_ra_rrtmg_sw
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:MODULE module_ra_cam_support
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:!From volcrad.F90 module
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:!From radae.F90 module
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:!From aer_optics.F90 module
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:!From comozp.F90 module
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:!From ghg_surfvals.F90 module
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:!LDF (05-21-2011): This section of the module is moved to module_physics_ra_cam_init.F in
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:USE module_wrf_error
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:        CALL wrf_error_fatal ( 'module_ra_cam: aer_optics_initialize: Can not find unused fortran unit to read in lookup table.' )
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:     WRITE( errmess , '(A35,I4)' ) 'module_ra_cam: error reading unit ',cam_aer_unit
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:USE module_wrf_error
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:! Initialize radae module data
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:        CALL wrf_error_fatal ( 'module_ra_cam: radaeinit: Can not find unused fortran unit to read in lookup table.' )
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:     WRITE( errmess , '(A35,I4)' ) 'module_ra_cam: error reading unit ',cam_abs_unit
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:end MODULE module_ra_cam_support
+core_atmosphere/physics/physics_wrf/module_cu_kfeta.F:MODULE module_cu_kfeta
+core_atmosphere/physics/physics_wrf/module_cu_kfeta.F:!  USE module_wrf_error
+core_atmosphere/physics/physics_wrf/module_cu_kfeta.F:END MODULE module_cu_kfeta
+core_atmosphere/physics/physics_wrf/module_cu_tiedtke.F:! * used preprocessing option to replace module_model_constants with mpas_atmphys_constants; used preprocessing
+core_atmosphere/physics/physics_wrf/module_cu_tiedtke.F:module module_cu_tiedtke
+core_atmosphere/physics/physics_wrf/module_cu_tiedtke.F:     use module_model_constants, only:rd=>r_d, rv=>r_v, &
+core_atmosphere/physics/physics_wrf/module_cu_tiedtke.F:!  in this module only the mass flux convection scheme of the ecmwf is included
+core_atmosphere/physics/physics_wrf/module_cu_tiedtke.F:!  flux convection module
+core_atmosphere/physics/physics_wrf/module_cu_tiedtke.F:end module module_cu_tiedtke
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!MODULE module_ra_rrtmg_lw
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module parkind
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module parkind
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module parrrtm
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module parrrtm
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_cld
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_cld
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_con
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_con
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg01
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg01
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg02
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg02
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg03
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg03
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg04
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg04
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg05
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg05
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg06
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg06
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg07
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg07
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg08
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg08
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg09
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg09
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg10
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg10
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg11
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg11
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg12
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg12
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg13
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg13
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg14
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg14
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg15
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg15
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_kg16
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_kg16
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_ref
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_ref
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_tbl
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_tbl
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_vsn
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_vsn
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrlw_wvn
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrlw_wvn
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_lw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:  module MersenneTwister
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:    module procedure initialize_scalar, initialize_vector
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:  end module MersenneTwister
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:  module mcica_random_numbers
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:  ! Generic module to wrap random number generators. 
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:  !   The module defines a type that identifies the particular stream of random 
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:    module procedure getRandomNumber_Scalar, getRandomNumber_1D, getRandomNumber_2D
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:    module procedure initializeRandomNumberStream_S, initializeRandomNumberStream_V
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:  end module mcica_random_numbers
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_lw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module mcica_subcol_gen_lw
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! --------- Modules ----------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module mcica_subcol_gen_lw
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrtmg_lw_cldprmc
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! --------- Modules ----------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrtmg_lw_cldprmc
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_lw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrtmg_lw_rtrnmc
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! --------- Modules ----------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrtmg_lw_rtrnmc
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_lw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrtmg_lw_setcoef
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrtmg_lw_setcoef
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrtmg_lw_taumol
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrtmg_lw_taumol
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_lw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      module rrtmg_lw_init
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! ------- Modules -------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! Moved to module_ra_rrtmg_lw for WRF
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! --------- Modules ----------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! --------- Modules ----------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrtmg_lw_init
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!     path:      $Source: /cvsroot/NWP/WRFV3/phys/module_ra_rrtmg_lw.F,v $
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:       module rrtmg_lw_rad
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! -------- Modules --------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! This call to RRTMG_LW must be preceeded by a call to the module
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! --------- Modules ----------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! --------- Modules ----------
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:      end module rrtmg_lw_rad
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:MODULE module_ra_rrtmg_lw
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:use module_ra_rrtmg_vinterp,only: vinterp_ozn
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!>    * updated module_ra_rrtmg_lw.F using module_ra_rrtmg_lw.F from WRF version 3.8, namely to update the
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:use module_model_constants, only : cp
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:   USE module_state_description, ONLY : FER_MP_HIRES, FER_MP_HIRES_ADVECT, ETAMP_HWRF 
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:   USE module_state_description, ONLY : FER_MP_HIRES, FER_MP_HIRES_ADVECT
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!use module_dm
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!LDF (2013-03-15): This section of the module is moved to module_physics_rrtmg_lwinit.F in
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:        CALL wrf_error_fatal ( 'module_ra_rrtmg_lw: rrtm_lwlookuptable: Can not '// &
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error opening RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!  weighted using a mapping procedure in module RRTMG_LW_INIT to reduce
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:     WRITE( errmess , '(A,I4)' ) 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ',rrtmg_unit
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:END MODULE module_ra_rrtmg_lw
+core_atmosphere/physics/physics_wrf/module_bl_mynn.F:! * used preprocessing option to replace module_model_constants with mpas_atmphys_constants.
+core_atmosphere/physics/physics_wrf/module_bl_mynn.F:MODULE module_bl_mynn
+core_atmosphere/physics/physics_wrf/module_bl_mynn.F:  USE module_model_constants, only: &
+core_atmosphere/physics/physics_wrf/module_bl_mynn.F:  USE module_state_description, only: param_first_scalar, &
+core_atmosphere/physics/physics_wrf/module_bl_mynn.F:! The parameters below depend on stability functions of module_sf_mynn.
+core_atmosphere/physics/physics_wrf/module_bl_mynn.F:!and replace with vdfg1 is computed in module_sf_fogdes.F.
+core_atmosphere/physics/physics_wrf/module_bl_mynn.F:       !qc settling tendency is now computed in module_bl_fogdes.F, so
+core_atmosphere/physics/physics_wrf/module_bl_mynn.F:END MODULE module_bl_mynn
+core_atmosphere/physics/physics_wrf/module_cam_shr_kind_mod.F:MODULE shr_kind_mod
+core_atmosphere/physics/physics_wrf/module_cam_shr_kind_mod.F:END MODULE shr_kind_mod
+core_atmosphere/physics/physics_wrf/module_sf_bem.F:MODULE module_sf_bem
+core_atmosphere/physics/physics_wrf/module_sf_bem.F:!  Variables and constants used in the BEM module
+core_atmosphere/physics/physics_wrf/module_sf_bem.F:END MODULE module_sf_bem
+core_atmosphere/physics/physics_wrf/module_mp_thompson_cldfra3.F: module module_mp_thompson_cldfra3
+core_atmosphere/physics/physics_wrf/module_mp_thompson_cldfra3.F:!module_mp_thompson_cldfra3 contains the subroutine cal_cldfra3 which calculates the cloud fraction as a function
+core_atmosphere/physics/physics_wrf/module_mp_thompson_cldfra3.F:!subroutine cal_cldfra3 was originally copied from ./phys/module_radiation_driver.F from WRF version 3.8.1.
+core_atmosphere/physics/physics_wrf/module_mp_thompson_cldfra3.F:!     USE module_mp_thompson   , ONLY : rsif, rslf
+core_atmosphere/physics/physics_wrf/module_mp_thompson_cldfra3.F:  end module module_mp_thompson_cldfra3
+core_atmosphere/physics/physics_wrf/module_sf_oml.F:MODULE module_sf_oml
+core_atmosphere/physics/physics_wrf/module_sf_oml.F:END MODULE module_sf_oml
+core_atmosphere/physics/physics_wrf/module_sf_sfcdiags.F:MODULE module_sf_sfcdiags
+core_atmosphere/physics/physics_wrf/module_sf_sfcdiags.F:END MODULE module_sf_sfcdiags
+core_atmosphere/physics/physics_wrf/module_mp_radar.F:!.. This module is more library code whereas the individual microphysics
+core_atmosphere/physics/physics_wrf/module_mp_radar.F:MODULE module_mp_radar
+core_atmosphere/physics/physics_wrf/module_mp_radar.F:      USE module_wrf_error
+core_atmosphere/physics/physics_wrf/module_mp_radar.F:END MODULE module_mp_radar
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F:! * used preprocessing option to replace module_model_constants with mpas_atmphys_constants.
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F:MODULE module_sf_mynn
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F: use module_bl_mynn,only: tv0,mym_condensation
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F: use module_sf_sfclay,only: sfclayinit
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F:  USE module_model_constants, only: &
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F:  USE module_sf_sfclay, ONLY: sfclayinit
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F:  USE module_bl_mynn,   only: tv0, mym_condensation
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F:  USE module_wrf_error
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F:    !can be found in module_sf_sfclay.F. This subroutine returns
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F:END MODULE module_sf_mynn
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:MODULE module_sf_noahlsm
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:USE module_model_constants, only : CP, R_D, XLF, XLV, RHOWATER, STBOLT, KARMAN
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:END MODULE module_sf_noahlsm
+core_atmosphere/physics/physics_wrf/module_cam_support.F:MODULE module_cam_support
+core_atmosphere/physics/physics_wrf/module_cam_support.F:! This module contains global scope variables and routines shared by
+core_atmosphere/physics/physics_wrf/module_cam_support.F:! verbatim from the corresponding CAM modules noted below.
+core_atmosphere/physics/physics_wrf/module_cam_support.F:  use module_state_description, only: param_num_moist
+core_atmosphere/physics/physics_wrf/module_cam_support.F:  use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_cam_support.F:                                                 !qmin is never used in module_ra_cam_support.
+core_atmosphere/physics/physics_wrf/module_cam_support.F:! From cam_pio_utils (used in camuwpbl_driver module)...
+core_atmosphere/physics/physics_wrf/module_cam_support.F:!!$! Replaces function of same name in constituents module in CAM.
+core_atmosphere/physics/physics_wrf/module_cam_support.F:! Pass through routine to wrf_error_fatal that mimics endrun in module
+core_atmosphere/physics/physics_wrf/module_cam_support.F:! Replaces endrun in abortutils module in CAM.
+core_atmosphere/physics/physics_wrf/module_cam_support.F:! Replaces t_stopf in perf_mod module in CAM.
+core_atmosphere/physics/physics_wrf/module_cam_support.F:! Replaces t_startf in perf_mod module in CAM.
+core_atmosphere/physics/physics_wrf/module_cam_support.F:! Replaces outfld in cam_history module in CAM.
+core_atmosphere/physics/physics_wrf/module_cam_support.F:! Replaces addfld in cam_history module in CAM.
+core_atmosphere/physics/physics_wrf/module_cam_support.F:END MODULE module_cam_support
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice_drv.F:module module_sf_noah_seaice_drv
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice_drv.F:use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice_drv.F:  use module_sf_noah_seaice
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice_drv.F:    USE module_state_description, ONLY : NOAHUCMSCHEME
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice_drv.F:    USE module_state_description, ONLY : BEPSCHEME
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice_drv.F:    USE module_state_description, ONLY : BEP_BEMSCHEME
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice_drv.F:end module module_sf_noah_seaice_drv
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F:MODULE module_sf_bep_bem
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F:use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F:!USE module_model_constants
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F: USE module_sf_urban
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F: USE module_sf_bem
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F:! Access urban_param.tbl values through calling urban_param_init in module_physics_init
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F:!  Dimension for the array used in the BEP module
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F:!  Constant used in the BEP module
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F:!     This routine initialise the urban paramters for the BEP module
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F:                write(*,*)'ndm too small in module_sf_bep_bem, please increase to at least ', nd_u(iu)
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F:              write(*,*)'nz_um too small in module_sf_bep, please increase to at least ',numhgt_tbl(iu)+3
+core_atmosphere/physics/physics_wrf/module_sf_bep_bem.F:END MODULE module_sf_bep_bem
+core_atmosphere/physics/physics_wrf/module_bl_ysu.F:!module_bl_ysu.F was modified to accomodate both the WRF and MPAS models / 2018-12-7 
+core_atmosphere/physics/physics_wrf/module_bl_ysu.F:module module_bl_ysu
+core_atmosphere/physics/physics_wrf/module_bl_ysu.F:end module module_bl_ysu
+core_atmosphere/physics/physics_wrf/module_cu_ntiedtke.F:module module_cu_ntiedtke
+core_atmosphere/physics/physics_wrf/module_cu_ntiedtke.F:     use module_model_constants, only:rd=>r_d, rv=>r_v, &
+core_atmosphere/physics/physics_wrf/module_cu_ntiedtke.F:!  flux convection module
+core_atmosphere/physics/physics_wrf/module_cu_ntiedtke.F:end module module_cu_ntiedtke
+core_atmosphere/physics/physics_wrf/module_sf_bep.F:MODULE module_sf_bep
+core_atmosphere/physics/physics_wrf/module_sf_bep.F:use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_sf_bep.F:!USE module_model_constants
+core_atmosphere/physics/physics_wrf/module_sf_bep.F: USE module_sf_urban
+core_atmosphere/physics/physics_wrf/module_sf_bep.F:! Access urban_param.tbl values through calling urban_param_init in module_physics_init
+core_atmosphere/physics/physics_wrf/module_sf_bep.F:!  Dimension for the array used in the BEP module
+core_atmosphere/physics/physics_wrf/module_sf_bep.F:!  Constant used in the BEP module
+core_atmosphere/physics/physics_wrf/module_sf_bep.F:!     This routine initialise the urban paramters for the BEP module
+core_atmosphere/physics/physics_wrf/module_sf_bep.F:                write(*,*)'ndm too small in module_sf_bep, please increase to at least ', nd_u(iu)
+core_atmosphere/physics/physics_wrf/module_sf_bep.F:              write(*,*)'nz_um too small in module_sf_bep, please increase to at least ',numhgt_tbl(iu)+3
+core_atmosphere/physics/physics_wrf/module_sf_bep.F:END MODULE module_sf_bep
+core_atmosphere/physics/physics_wrf/module_cu_gf.mpas.F:MODULE module_cu_gf
+core_atmosphere/physics/physics_wrf/module_cu_gf.mpas.F:END MODULE module_cu_gf
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_vinterp.F:!in module_ra_rrtmg_vinterp, the subroutine vinterp_ozn was originally the same as subroutine radozn and copied
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_vinterp.F:!from module_ra_cam.F. module_ra_cam.F was itself copied from WRF 3.3.0.
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_vinterp.F:!subroutine vinterp_ozn is called from the subroutines rrtmg_lwrad (in module_ra_rrtmg_lw.F) and rrtmg_swrad (in
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_vinterp.F:!module_ra_rrtmg_sw.F) for interpolation of climatological ozone onto the MPAS pressure levels. vinterp_ozn is
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_vinterp.F: module module_ra_rrtmg_vinterp
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_vinterp.F: end module module_ra_rrtmg_vinterp
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice.F:MODULE module_sf_noah_seaice
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice.F:use module_model_constants, only : CP, R_D, XLF, XLV, RHOWATER, STBOLT
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice.F:use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice.F:  use module_sf_noahlsm, only : RD, SIGMA, CPH2O, CPICE, LSUBF, EMISSI_S, &
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice.F:END MODULE module_sf_noah_seaice
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:MODULE module_ra_cam
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:  use module_ra_cam_support
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:   USE module_wrf_error
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:!LDF (05-01-2011): This section of the module is moved to mpas_atmphys_camrad_init.F in
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:   USE module_wrf_error
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:   USE module_state_description
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:   !USE module_configure
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! from physconst module
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! these should be made read-only for other modules
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! moved to here from the module storage above, because these have to be thread-private.  JM 20100217
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:end MODULE module_ra_cam
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:MODULE module_sf_noahdrv
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:  USE module_sf_noahlsm,  only: SFLX, XLF, XLV, CP, R_D, RHOWATER, NATURAL, SHDTBL, LUTYPE, SLTYPE, STBOLT, &
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:  USE module_sf_urban,    only: urban, oasis, IRI_SCHEME
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:  USE module_sf_noahlsm_glacial_only, only: sflx_glacial
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:  USE module_sf_bep,      only: bep
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:  USE module_sf_bep_bem,  only: bep_bem
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F: use module_ra_gfdleta,  only: cal_mon_day
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F: use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:  USE module_data_gocart_dust
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:!For MPAS, the below section of the module is moved to module_physics_lsm_noahinit.F in
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:! 20130219 - No longer need these - see module_data_gocart_dust
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:         WRITE(err_message,*)"module_sf_noahdrv.F: lsminit: out of range ISLTYP ",i,j,ISLTYP( i,j )
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:      CALL wrf_message( "WARNING: message only; was fatal. module_sf_noahdrv.F: lsminit: out of range value "// &
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:      CALL wrf_error_fatal( "module_sf_noahdrv.F: lsminit: out of range value "// &
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:        USE module_wrf_error
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:          'module_sf_noahlsm.F: soil_veg_gen_parm: failure opening VEGPARM.TBL'
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:           CALL wrf_error_fatal('Table sizes too small for value of LUCATS in module_sf_noahdrv.F')
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:          'module_sf_noahlsm.F: soil_veg_gen_parm: failure opening SOILPARM.TBL'
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:           CALL wrf_error_fatal('Table sizes too small for value of SLCATS in module_sf_noahdrv.F')
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:          'module_sf_noahlsm.F: soil_veg_gen_parm: failure opening GENPARM.TBL'
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:            CALL wrf_error_fatal('NUM_SLOPE too large for slope_data array in module_sf_noahdrv')
+core_atmosphere/physics/physics_wrf/module_sf_noahdrv.F:END MODULE module_sf_noahdrv
+core_atmosphere/physics/physics_wrf/module_sf_urban.F:MODULE module_sf_urban
+core_atmosphere/physics/physics_wrf/module_sf_urban.F:use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_sf_urban.F:!     module_sf_urban
+core_atmosphere/physics/physics_wrf/module_sf_urban.F:!  the module_urban_init, so we should not declare them here.
+core_atmosphere/physics/physics_wrf/module_sf_urban.F:END MODULE module_sf_urban
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm_glacial_only.F:MODULE module_sf_noahlsm_glacial_only
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm_glacial_only.F:use module_model_constants
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm_glacial_only.F:use module_wrf_error
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm_glacial_only.F:  USE module_sf_noahlsm, ONLY : RD, SIGMA, CPH2O, CPICE, LSUBF, EMISSI_S, ROSR12
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm_glacial_only.F:  USE module_sf_noahlsm, ONLY : LVCOEF_DATA
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm_glacial_only.F:END MODULE module_sf_noahlsm_glacial_only
+core_atmosphere/physics/physics_wrf/module_sf_sfclay.F:MODULE module_sf_sfclay
+core_atmosphere/physics/physics_wrf/module_sf_sfclay.F:! MODULE-LOCAL VARIABLES, DEFINED IN SUBROUTINE SFCLAY
+core_atmosphere/physics/physics_wrf/module_sf_sfclay.F:!       adapted from module_sf_mynn.F
+core_atmosphere/physics/physics_wrf/module_sf_sfclay.F:END MODULE module_sf_sfclay
+core_atmosphere/physics/physics_wrf/module_mp_thompson.F:!module_mp_thompson was originally copied from./phys/module_mp_thompson.F from WRF version 3.8. Modifications made
+core_atmosphere/physics/physics_wrf/module_mp_thompson.F:      MODULE module_mp_thompson
+core_atmosphere/physics/physics_wrf/module_mp_thompson.F:      use module_mp_radar
+core_atmosphere/physics/physics_wrf/module_mp_thompson.F:      USE module_domain
+core_atmosphere/physics/physics_wrf/module_mp_thompson.F:      USE module_dm
+core_atmosphere/physics/physics_wrf/module_mp_thompson.F:        CALL wrf_error_fatal ( 'module_mp_thompson: table_ccnAct: '//   &
+core_atmosphere/physics/physics_wrf/module_mp_thompson.F:        WRITE(errmess, '(A,I2)') 'module_mp_thompson: opening CCN_ACTIVATE.BIN on unit ',iunit_mp_th1
+core_atmosphere/physics/physics_wrf/module_mp_thompson.F:      WRITE( errmess , '(A,I2)' ) 'module_mp_thompson: error opening CCN_ACTIVATE.BIN on unit ',iunit_mp_th1
+core_atmosphere/physics/physics_wrf/module_mp_thompson.F:      WRITE( errmess , '(A,I2)' ) 'module_mp_thompson: error reading CCN_ACTIVATE.BIN on unit ',iunit_mp_th1
+core_atmosphere/physics/physics_wrf/module_mp_thompson.F:END MODULE module_mp_thompson
+core_atmosphere/physics/physics_wrf/module_bl_gwdo.F:module module_bl_gwdo
+core_atmosphere/physics/physics_wrf/module_bl_gwdo.F:end module module_bl_gwdo
+core_atmosphere/physics/mpas_atmphys_driver_gwdo.F: module mpas_atmphys_driver_gwdo
+core_atmosphere/physics/mpas_atmphys_driver_gwdo.F: use module_bl_gwdo
+core_atmosphere/physics/mpas_atmphys_driver_gwdo.F:! * module_bl_gwdo       : parameterization of gravity wave drag over orography. 
+core_atmosphere/physics/mpas_atmphys_driver_gwdo.F:! * modified the call to subroutine gwdo following the update of module_gwdo.F to that
+core_atmosphere/physics/mpas_atmphys_driver_gwdo.F: end module mpas_atmphys_driver_gwdo
+core_atmosphere/physics/mpas_atmphys_update_surface.F: module mpas_atmphys_update_surface
+core_atmosphere/physics/mpas_atmphys_update_surface.F:!   for consistency with module_sf_noahdrv.F when itimestep = 1.
+core_atmosphere/physics/mpas_atmphys_update_surface.F: end module mpas_atmphys_update_surface
+core_atmosphere/physics/mpas_atmphys_driver_oml.F: module mpas_atmphys_driver_oml
+core_atmosphere/physics/mpas_atmphys_driver_oml.F: use module_sf_oml
+core_atmosphere/physics/mpas_atmphys_driver_oml.F: end module mpas_atmphys_driver_oml
+core_atmosphere/physics/mpas_atmphys_functions.F: module mpas_atmphys_functions
+core_atmosphere/physics/mpas_atmphys_functions.F:!NOTE: functions rslf and rsif are taken from module_mp_thompson temporarily for computing
+core_atmosphere/physics/mpas_atmphys_functions.F:!      the diagnostic relative humidity. These two functions will be removed from this module
+core_atmosphere/physics/mpas_atmphys_functions.F: end module mpas_atmphys_functions
+core_atmosphere/physics/mpas_atmphys_manager.F: module mpas_atmphys_manager
+core_atmosphere/physics/mpas_atmphys_manager.F: end module mpas_atmphys_manager
+core_atmosphere/physics/mpas_atmphys_driver_microphysics.F: module mpas_atmphys_driver_microphysics
+core_atmosphere/physics/mpas_atmphys_driver_microphysics.F: use module_mp_kessler
+core_atmosphere/physics/mpas_atmphys_driver_microphysics.F: use module_mp_thompson
+core_atmosphere/physics/mpas_atmphys_driver_microphysics.F: use module_mp_wsm6
+core_atmosphere/physics/mpas_atmphys_driver_microphysics.F:! * module_mp_kessler : Kessler cloud microphysics.
+core_atmosphere/physics/mpas_atmphys_driver_microphysics.F:! * module_mp_thompson: Thompson cloud microphysics.
+core_atmosphere/physics/mpas_atmphys_driver_microphysics.F:! * module_mp_wsm6    : WSM6 cloud microphysics.
+core_atmosphere/physics/mpas_atmphys_driver_microphysics.F:! are called at the bottom of subroutine atm_srk3 in module atm_time_integration.
+core_atmosphere/physics/mpas_atmphys_driver_microphysics.F: end module mpas_atmphys_driver_microphysics
+core_atmosphere/physics/mpas_atmphys_date_time.F: module mpas_atmphys_date_time
+core_atmosphere/physics/mpas_atmphys_date_time.F:! MPAS utility module for time management.
+core_atmosphere/physics/mpas_atmphys_date_time.F:! * added the subroutine cal_mon_day. This subroutine was copied from module_ra_gfdleta.F from WRF version 3.9.0.
+core_atmosphere/physics/mpas_atmphys_date_time.F:!   It is used in the updated module module_sf_noahdrv.F, but only if we run the urban physics option which we do
+core_atmosphere/physics/mpas_atmphys_date_time.F: end module mpas_atmphys_date_time
+core_atmosphere/physics/mpas_atmphys_camrad_init.F: module mpas_atmphys_camrad_init
+core_atmosphere/physics/mpas_atmphys_camrad_init.F: use module_ra_cam_support
+core_atmosphere/physics/mpas_atmphys_camrad_init.F:!...from physconst module:
+core_atmosphere/physics/mpas_atmphys_camrad_init.F:       call physics_error_fatal('module_ra_cam: radaeinit: Cannot find unused '//&
+core_atmosphere/physics/mpas_atmphys_camrad_init.F:       write(errmess,'(A,I4)') 'module_ra_cam: error reading CAM_ABS_DATA on unit', &
+core_atmosphere/physics/mpas_atmphys_camrad_init.F:       call physics_error_fatal('module_ra_cam: aer_optics_initialize: Cannot find unused '//&
+core_atmosphere/physics/mpas_atmphys_camrad_init.F:       write(errmess,'(A,I4)') 'module_ra_cam: error reading CAM_AEROPT_DATA on unit', &
+core_atmosphere/physics/mpas_atmphys_camrad_init.F: end module mpas_atmphys_camrad_init
+core_atmosphere/physics/mpas_atmphys_finalize.F: module mpas_atmphys_finalize
+core_atmosphere/physics/mpas_atmphys_finalize.F: use module_mp_thompson
+core_atmosphere/physics/mpas_atmphys_finalize.F: end module mpas_atmphys_finalize
+core_atmosphere/physics/mpas_atmphys_driver_lsm.F: module mpas_atmphys_driver_lsm
+core_atmosphere/physics/mpas_atmphys_driver_lsm.F: use module_sf_noahdrv
+core_atmosphere/physics/mpas_atmphys_driver_lsm.F: use module_sf_noah_seaice_drv
+core_atmosphere/physics/mpas_atmphys_driver_lsm.F: use module_sf_sfcdiags
+core_atmosphere/physics/mpas_atmphys_driver_lsm.F:!    * module_sf_noahdrv : NOAH 4-layers land surface scheme.
+core_atmosphere/physics/mpas_atmphys_driver_lsm.F:! ./physics_wrf/module_sf_noahdrv.F: main driver for the "NOAH" land-surface parameterization.
+core_atmosphere/physics/mpas_atmphys_driver_lsm.F: end module mpas_atmphys_driver_lsm
+core_atmosphere/physics/mpas_atmphys_driver.F: module mpas_atmphys_driver
+core_atmosphere/physics/mpas_atmphys_driver.F: end module mpas_atmphys_driver
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F: module mpas_atmphys_driver_pbl
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F: use module_bl_mynn
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F: use module_bl_ysu
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F:! * module_bl_ysu : YSU PBL scheme.
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F:! * updated the call to subroutine ysu in comjunction with updating module_bl_ysu.F from WRF version 3.6.1 to
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F:! * after updating module_bl_ysu.F to WRF version 4.0.3, corrected call to subroutine ysu to output diagnostics of
+core_atmosphere/physics/mpas_atmphys_driver_pbl.F: end module mpas_atmphys_driver_pbl
+core_atmosphere/physics/mpas_atmphys_driver_convection.F: module mpas_atmphys_driver_convection
+core_atmosphere/physics/mpas_atmphys_driver_convection.F: use module_cu_gf
+core_atmosphere/physics/mpas_atmphys_driver_convection.F: use module_cu_kfeta
+core_atmosphere/physics/mpas_atmphys_driver_convection.F: use module_cu_tiedtke
+core_atmosphere/physics/mpas_atmphys_driver_convection.F: use module_cu_ntiedtke
+core_atmosphere/physics/mpas_atmphys_driver_convection.F:! * module_cu_kfeta   : Kain-Fritsch convection scheme.
+core_atmosphere/physics/mpas_atmphys_driver_convection.F:! * module_cu_tiedtke : Tiedtke convection scheme.
+core_atmosphere/physics/mpas_atmphys_driver_convection.F: end module mpas_atmphys_driver_convection
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F: module mpas_atmphys_rrtmg_lwinit
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F: use module_ra_rrtmg_lw
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:!Main initialization module for the RRTMG long wave radiation code, based on the MPI decomposition
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:!used in MPAS. It replaces the initialization in module_ra_rrtgm_lw.F.
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:       call physics_error_fatal('module_ra_rrtmg_lw: rrtm_lwlookuptable: Can not '// &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:       write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:!  weighted using a mapping procedure in module RRTMG_LW_INIT to reduce
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:         write(errmess,'(A,I4)') 'module_ra_rrtmg_lw: error reading RRTMG_LW_DATA on unit ', &
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F: end module mpas_atmphys_rrtmg_lwinit
+core_atmosphere/physics/mpas_atmphys_update.F: module mpas_atmphys_update
+core_atmosphere/physics/mpas_atmphys_update.F: end module mpas_atmphys_update
+core_atmosphere/physics/mpas_atmphys_driver_cloudiness.F: module mpas_atmphys_driver_cloudiness
+core_atmosphere/physics/mpas_atmphys_driver_cloudiness.F: use module_mp_thompson_cldfra3
+core_atmosphere/physics/mpas_atmphys_driver_cloudiness.F: end module mpas_atmphys_driver_cloudiness
+core_atmosphere/utils/Makefile:	../physics/physics_wrf/module_mp_thompson.o
+core_atmosphere/utils/atmphys_build_tables_thompson.F: module atmphys_build_tables_thompson
+core_atmosphere/utils/atmphys_build_tables_thompson.F: use module_mp_thompson
+core_atmosphere/utils/atmphys_build_tables_thompson.F: end module atmphys_build_tables_thompson 

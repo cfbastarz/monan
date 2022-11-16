@@ -1,0 +1,3 @@
+driver/Makefile:	$(CPP) $(CPPFLAGS) $(CPPINCLUDES) $< > $*.f90
+driver/Makefile:	$(FC) $(FFLAGS) -c $*.f90 $(FCINCLUDES) -I../framework -I../operators -I../core_$(CORE) -I../external/esmf_time_f90
+driver/Makefile:	$(FC) $(CPPFLAGS) $(FFLAGS) -c $*.F $(CPPINCLUDES) $(FCINCLUDES) -I../framework -I../operators -I../core_$(CORE) -I../external/esmf_time_f90

@@ -1,0 +1,96 @@
+external/esmf_time_f90/ChangeLog:One-line Summary: add ShrTimeMod to ESMF.F90 module for use in wrf
+external/esmf_time_f90/MeatMod.F90:module MeatMod
+external/esmf_time_f90/MeatMod.F90:end module MeatMod
+external/esmf_time_f90/ESMF_TimeMod.F90:!     ESMF Time Module
+external/esmf_time_f90/ESMF_TimeMod.F90:      module ESMF_TimeMod
+external/esmf_time_f90/ESMF_TimeMod.F90:! !MODULE: ESMF_TimeMod
+external/esmf_time_f90/ESMF_TimeMod.F90:      module procedure ESMF_TimeGetDayOfYearInteger
+external/esmf_time_f90/ESMF_TimeMod.F90:      module procedure ESMF_TimeInc, ESMF_TimeInc2
+external/esmf_time_f90/ESMF_TimeMod.F90:      module procedure ESMF_TimeCopy
+external/esmf_time_f90/ESMF_TimeMod.F90:      module procedure ESMF_TimeDec, ESMF_TimeDec2
+external/esmf_time_f90/ESMF_TimeMod.F90:      module procedure ESMF_TimeDiff
+external/esmf_time_f90/ESMF_TimeMod.F90:      module procedure ESMF_TimeEQ
+external/esmf_time_f90/ESMF_TimeMod.F90:      module procedure ESMF_TimeNE
+external/esmf_time_f90/ESMF_TimeMod.F90:      module procedure ESMF_TimeLT
+external/esmf_time_f90/ESMF_TimeMod.F90:      module procedure ESMF_TimeGT
+external/esmf_time_f90/ESMF_TimeMod.F90:      module procedure ESMF_TimeLE
+external/esmf_time_f90/ESMF_TimeMod.F90:      module procedure ESMF_TimeGE
+external/esmf_time_f90/ESMF_TimeMod.F90:end module ESMF_TimeMod
+external/esmf_time_f90/ESMF_Stubs.F90:MODULE ESMF_Stubs
+external/esmf_time_f90/ESMF_Stubs.F90:END MODULE ESMF_Stubs
+external/esmf_time_f90/ESMF_ShrTimeMod.F90:      module ESMF_ShrTimeMod
+external/esmf_time_f90/ESMF_ShrTimeMod.F90:! !MODULE: ESMF_ShrTimeMod
+external/esmf_time_f90/ESMF_ShrTimeMod.F90:end module ESMF_ShrTimeMod
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:!     ESMF BaseTime Module
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:      module ESMF_BaseTimeMod
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:! !MODULE: ESMF_BaseTimeMod - Base ESMF time definition
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:! This module serves only as the common Time definition inherited
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:        module procedure ESMF_BaseTimeSum
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:        module procedure ESMF_BaseTimeDifference
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:        module procedure ESMF_BaseTimeQuotI,ESMF_BaseTimeQuotI8
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:        module procedure ESMF_BaseTimeEQ
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:        module procedure ESMF_BaseTimeNE
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:        module procedure ESMF_BaseTimeLT
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:        module procedure ESMF_BaseTimeGT
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:        module procedure ESMF_BaseTimeLE
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:        module procedure ESMF_BaseTimeGE
+external/esmf_time_f90/ESMF_BaseTimeMod.F90:      end module ESMF_BaseTimeMod
+external/esmf_time_f90/ESMF_BaseMod.F90:! ESMF Base Module
+external/esmf_time_f90/ESMF_BaseMod.F90:! module definition
+external/esmf_time_f90/ESMF_BaseMod.F90:      module ESMF_BaseMod
+external/esmf_time_f90/ESMF_BaseMod.F90:! !MODULE: ESMF_BaseMod - Base class for all ESMF classes
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_sfeq
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_dteq
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_pteq
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_tfeq
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_aieq
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_sfne
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_dtne
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_ptne
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_tfne
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_aine
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_dtas
+external/esmf_time_f90/ESMF_BaseMod.F90: module procedure ESMF_ptas
+external/esmf_time_f90/ESMF_BaseMod.F90:      end module ESMF_BaseMod
+external/esmf_time_f90/ESMF.F90:MODULE ESMF
+external/esmf_time_f90/ESMF.F90:END MODULE ESMF
+external/esmf_time_f90/ESMF_CalendarMod.F90:!     ESMF Calendar Module
+external/esmf_time_f90/ESMF_CalendarMod.F90:      module ESMF_CalendarMod
+external/esmf_time_f90/ESMF_CalendarMod.F90:! !MODULE: ESMF_CalendarMod
+external/esmf_time_f90/ESMF_CalendarMod.F90:end module ESMF_CalendarMod
+external/esmf_time_f90/ESMF_TimeMgr.inc:! ../../frame/module_domain.F !!!  Eliminate this dependence with
+external/esmf_time_f90/ESMF_FractionMod.F90:! ESMF Fraction Module
+external/esmf_time_f90/ESMF_FractionMod.F90:!     ESMF Fraction Module
+external/esmf_time_f90/ESMF_FractionMod.F90:      module ESMF_FractionMod
+external/esmf_time_f90/ESMF_FractionMod.F90:! !MODULE: ESMF_FractionMod
+external/esmf_time_f90/ESMF_FractionMod.F90:      end module ESMF_FractionMod
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:!     ESMF TimeInterval Module
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:module ESMF_TimeIntervalMod
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:! !MODULE: ESMF_TimeIntervalMod
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      module procedure ESMF_TimeIntervalProdI
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      module procedure ESMF_TimeIntervalProdI8
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      module procedure ESMF_TimeIntervalQuotI
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      module procedure ESMF_TimeIntervalSum
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      module procedure ESMF_TimeIntervalDiff
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      module procedure ESMF_TimeIntervalEQ
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      module procedure ESMF_TimeIntervalNE
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      module procedure ESMF_TimeIntervalLT
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      module procedure ESMF_TimeIntervalGT
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      module procedure ESMF_TimeIntervalLE
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:      module procedure ESMF_TimeIntervalGE
+external/esmf_time_f90/ESMF_TimeIntervalMod.F90:end module ESMF_TimeIntervalMod
+external/esmf_time_f90/ESMF_AlarmMod.F90:!     ESMF Alarm Module
+external/esmf_time_f90/ESMF_AlarmMod.F90:      module ESMF_AlarmMod
+external/esmf_time_f90/ESMF_AlarmMod.F90:! !MODULE: ESMF_AlarmMod
+external/esmf_time_f90/ESMF_AlarmMod.F90:! in ESMF 2.1.0+.  Note that ESMF_AlarmCreate is in a separate module to avoid
+external/esmf_time_f90/ESMF_AlarmMod.F90:      module procedure ESMF_AlarmEQ
+external/esmf_time_f90/ESMF_AlarmMod.F90:      end module ESMF_AlarmMod
+external/esmf_time_f90/ESMF_ClockMod.F90:!     ESMF Clock Module
+external/esmf_time_f90/ESMF_ClockMod.F90:      module ESMF_ClockMod
+external/esmf_time_f90/ESMF_ClockMod.F90:! !MODULE: ESMF_ClockMod
+external/esmf_time_f90/ESMF_ClockMod.F90:      end module ESMF_ClockMod
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:!     ESMF Alarm-Clock Module
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:      module ESMF_AlarmClockMod
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:! !MODULE: ESMF_AlarmClockMod
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:! Separate module that uses both ESMF_AlarmMod and ESMF_ClockMod.
+external/esmf_time_f90/ESMF_AlarmClockMod.F90:      end module ESMF_AlarmClockMod

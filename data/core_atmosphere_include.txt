@@ -1,0 +1,150 @@
+core_atmosphere/diagnostics/Makefile:	$(CPP) $(CPPFLAGS) $(PHYSICS) $(CPPINCLUDES) $< > $*.f90
+core_atmosphere/diagnostics/Makefile:	$(FC) $(FFLAGS) -c $*.f90 $(FCINCLUDES) -I../../framework -I../../operators -I../dynamics -I../physics -I../physics/physics_wrf -I../../external/esmf_time_f90
+core_atmosphere/diagnostics/Makefile:	$(FC) $(CPPFLAGS) $(PHYSICS) $(FFLAGS) -c $*.F $(CPPINCLUDES) $(FCINCLUDES) -I../../framework -I../../operators -I../dynamics -I../physics -I../physics/physics_wrf -I../../external/esmf_time_f90
+core_atmosphere/diagnostics/Registry_diagnostics.xml:<!-- Begin includes from diagnostics -->
+core_atmosphere/diagnostics/Registry_diagnostics.xml:#include "Registry_template.xml"
+core_atmosphere/diagnostics/Registry_diagnostics.xml:#include "Registry_isobaric.xml"
+core_atmosphere/diagnostics/Registry_diagnostics.xml:#include "Registry_convective.xml"
+core_atmosphere/diagnostics/Registry_diagnostics.xml:#include "Registry_pv.xml"
+core_atmosphere/diagnostics/Registry_diagnostics.xml:#include "Registry_soundings.xml"
+core_atmosphere/diagnostics/Registry_diagnostics.xml:<!-- End includes from diagnostics -->
+core_atmosphere/diagnostics/README:   Add a #include statement for this new Registry file in 
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:    !>  by setting the optional argument 'includeInactive' to .true..
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:    integer function mpas_stream_inclusion_count(fieldName, direction, includeInactive)
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:        logical, intent(in), optional :: includeInactive
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:        logical :: local_includeInactive
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:        if (present(includeInactive)) then
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:            local_includeInactive = includeInactive
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:            local_includeInactive = .false.
+core_atmosphere/diagnostics/mpas_atm_diagnostics_utils.F:            if (.not. local_includeInactive) then 
+core_atmosphere/dynamics/Makefile:	$(CPP) $(CPPFLAGS) $(PHYSICS) $(CPPINCLUDES) $< > $*.f90
+core_atmosphere/dynamics/Makefile:	$(FC) $(FFLAGS) -c $*.f90 $(FCINCLUDES) -I.. -I../../framework -I../../operators -I../physics -I../physics/physics_wrf -I../../external/esmf_time_f90
+core_atmosphere/dynamics/Makefile:	$(FC) $(CPPFLAGS) $(PHYSICS) $(FFLAGS) -c $*.F $(CPPINCLUDES) $(FCINCLUDES) -I.. -I../../framework -I../../operators -I../physics -I../physics/physics_wrf -I../../external/esmf_time_f90
+core_atmosphere/dynamics/mpas_atm_time_integration.F:      !  The gravity-waves are included in the acoustic-step integration.
+core_atmosphere/dynamics/mpas_atm_time_integration.F:        ! we are looping over all edges, but only computing on edges of owned cells. This will include updates of
+core_atmosphere/dynamics/mpas_atm_time_integration.F:               ! include 2nd-orer diffusion here 
+core_atmosphere/Makefile:	$(CPP) $(CPPFLAGS) $(CPPINCLUDES) Registry.xml > Registry_processed.xml
+core_atmosphere/Makefile:gen_includes:
+core_atmosphere/Makefile:	$(CPP) $(CPPFLAGS) $(CPPINCLUDES) Registry.xml > Registry_processed.xml
+core_atmosphere/Makefile:	$(CPP) $(CPPFLAGS) $(PHYSICS) $(CPPINCLUDES) -I./inc $< > $*.f90
+core_atmosphere/Makefile:	$(FC) $(FFLAGS) -c $*.f90 $(FCINCLUDES) -I../framework -I../operators -I./physics -I./dynamics -I./diagnostics -I./physics/physics_wrf -I../external/esmf_time_f90
+core_atmosphere/Makefile:	$(FC) $(CPPFLAGS) $(PHYSICS) $(FFLAGS) -c $*.F $(CPPINCLUDES) $(FCINCLUDES) -I./inc -I../framework -I../operators -I./physics -I./dynamics -I./diagnostics -I./physics/physics_wrf -I../external/esmf_time_f90
+core_atmosphere/mpas_atm_core_interface.F:#include "core_variables.inc"
+core_atmosphere/mpas_atm_core_interface.F:#include "domain_variables.inc"
+core_atmosphere/mpas_atm_core_interface.F:#include "setup_immutable_streams.inc"
+core_atmosphere/mpas_atm_core_interface.F:#include "block_dimension_routines.inc"
+core_atmosphere/mpas_atm_core_interface.F:#include "define_packages.inc"
+core_atmosphere/mpas_atm_core_interface.F:#include "structs_and_variables.inc"
+core_atmosphere/mpas_atm_core_interface.F:#include "namelist_call.inc"
+core_atmosphere/mpas_atm_core_interface.F:#include "namelist_defines.inc"
+core_atmosphere/physics/Makefile:	$(CPP) $(CPPFLAGS) $(COREDEF) $(HYDROSTATIC) $(CPPINCLUDES) $< > $*.f90
+core_atmosphere/physics/Makefile:	$(FC) $(FFLAGS) -c $*.f90 $(FCINCLUDES) -I./physics_wrf -I.. -I../../framework -I../../external/esmf_time_f90
+core_atmosphere/physics/Makefile:	$(FC) $(CPPFLAGS) $(COREDEF) $(HYDROSATIC) $(FFLAGS) -c $*.F $(CPPINCLUDES) $(FCINCLUDES) -I./physics_wrf -I.. -I../../framework -I../../external/esmf_time_f90
+core_atmosphere/physics/mpas_atmphys_driver_radiation_sw.F:! * modified the call to subroutine rrtmg_swrad to include the option of using the same ozone
+core_atmosphere/physics/mpas_atmphys_init.F:! * changed the argument list in the call to subroutine microphysics_init, needed to include the Thompson
+core_atmosphere/physics/mpas_atmphys_rrtmg_swinit.F:!  This file contains 14 READ statements that include the 
+core_atmosphere/physics/mpas_atmphys_driver_radiation_lw.F:! * modified the call to subroutine rrtmg_lwrad to include the option of using the same ozone
+core_atmosphere/physics/mpas_atmphys_vars.F:!          that the ice phase is included (except for the Kessler scheme which includes water
+core_atmosphere/physics/physics_wrf/Makefile:	$(CPP) $(CPPFLAGS) $(COREDEF) $(CPPINCLUDES) $< > $*.f90
+core_atmosphere/physics/physics_wrf/Makefile:	$(FC) $(FFLAGS) -c $*.f90 $(FCINCLUDES) -I.. -I../../../framework -I../../../external/esmf_time_f90
+core_atmosphere/physics/physics_wrf/Makefile:	$(FC) $(CPPFLAGS) $(COREDEF) $(FFLAGS) -c $*.F $(CPPINCLUDES) $(FCINCLUDES) -I.. -I../../../framework -I../../../external/esmf_time_f90
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:  !  Future developments include using the PDF scheme of Ben Johnson. 
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! Set up factors needed to separately include the water vapor
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! Set up factors needed to separately include the water vapor
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! Set up factors needed to separately include the water vapor
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! to adjust the optical depths since the k's include only lines.
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!-- Modifications to include output for direct and diffuse 
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:! Set incoming solar flux adjustment to include adjustment for
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!  pressures, pz (in mb), based on the hydrostatic equation and includes a 
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!>     calculation of the cloud optical properties to include the radiative effect of snow.
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!--- additional local variables and arrays needed to include additional layers between the model top
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:          !--- add extra layer to include absorption between the top of the model and the top of the atmosphere:
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_sw.F:!  This file contains 14 READ statements that include the 
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:      logical :: indirect          ! True => include indirect radiative effects of sulfate aerosols
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:! <Also include any applicable external references.> 
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:!#include <ptrrgrid.h>
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:! <Also include any applicable external references.> 
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:! <Also include any applicable external references.> 
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:! <Also include any applicable external references.> 
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:! routines are also included for making rapid estimates (well with 1%)
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:! <Also include any applicable external references.> 
+core_atmosphere/physics/physics_wrf/module_ra_cam_support.F:!   include 'netcdf.inc'
+core_atmosphere/physics/physics_wrf/module_cu_tiedtke.F:!   option to include the horizontal dependence of the array znu.
+core_atmosphere/physics/physics_wrf/module_cu_tiedtke.F:!  in this module only the mass flux convection scheme of the ecmwf is included
+core_atmosphere/physics/physics_wrf/module_cu_tiedtke.F:!     to include the cloud water and cloud ice detrained from convection
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!                    includes total from 2600 cm-1 to infinity)
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:  !  Future developments include using the PDF scheme of Ben Johnson. 
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!  Include the contribution of spectrally varying longwave emissivity
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!  then include in the integrated Planck values for this band
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!  Set up factors needed to separately include the water vapor
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!  Set up factors needed to separately include the minor gases
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!  Set up factors needed to separately include the water vapor
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!  Set up factors needed to separately include the minor gases
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:! Add one to nlayers here to include extra model layer at top of atmosphere
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!  pressures, pz (in mb), based on the hydrostatic equation and includes a 
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!>      calculation of the cloud optical properties to include the radiative effect of snow.
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!--- additional local variables and arrays needed to include additional layers between the model top
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:       !--- add extra layers to include absorption and transmission between the top of the model and the top of
+core_atmosphere/physics/physics_wrf/module_ra_rrtmg_lw.F:!  This file contains 16 READ statements that include the 
+core_atmosphere/physics/physics_wrf/module_bl_mynn.F:    !include LLJs. Banta and Pichugina (2008) show that a TKE-based 
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F:! * used preprocessing option to include the actual mean distance between cell centers.
+core_atmosphere/physics/physics_wrf/module_sf_mynn.F:       ! Boland (1978) model (include below in comments) but has an
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:!                INCLUDE DIURNAL SUN ANGLE EFFECT)
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:! INCLUDE THE LATENT HEAT EFFECTS OF FRZNG RAIN CONVERTING TO ICE ON
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:!  Modified By F. Chen (01/22/00)  to include PLaya, Lava, and White San
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:!  Modified By F. Chen (08/05/02)  to include additional parameters for the Noah
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:! Class parameter 'SLOPETYP' was included to estimate linear reservoir
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:! INCLUDE FLX1 (PRECIP-SNOW SFC) AND FLX2 (FREEZING RAIN LATENT HEAT)
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:! CHOOSE NOT TO RETAIN ANY SNOWPACK, AND INSTEAD INCLUDE IT IN SNOWMELT.
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm.F:! DETERMINE RAINFALL INFILTRATION RATE AND RUNOFF.  INCLUDE THE
+core_atmosphere/physics/physics_wrf/LICENSE:charge. UCAR requests that any WRF user include this notice on
+core_atmosphere/physics/physics_wrf/module_bl_ysu.F:!     it includes vertical diffusion in the stable atmosphere
+core_atmosphere/physics/physics_wrf/module_bl_ysu.F:         !Do not include xkzm at kpbl-1 since it changes entrainment
+core_atmosphere/physics/physics_wrf/module_bl_ysu.F:      !include LLJs. Banta and Pichugina (2008) show that a TKE-based
+core_atmosphere/physics/physics_wrf/module_cu_ntiedtke.F:!        (f) Different way to include cloud scale pressure gradients (Gregory et al. 1997;
+core_atmosphere/physics/physics_wrf/module_cu_ntiedtke.F:!     to include the cloud water and cloud ice detrained from convection
+core_atmosphere/physics/physics_wrf/module_cu_gf.mpas.F:!   * replaced variable dx with variables dxCell and areaCell, to include the impact of the mean
+core_atmosphere/physics/physics_wrf/module_cu_gf.mpas.F:!   * replaced variable ichoice with variables ichoice_deep and ichoice_shallow to include separate
+core_atmosphere/physics/physics_wrf/module_cu_gf.mpas.F:  ! basic environmental input includes moisture convergence (mconv)
+core_atmosphere/physics/physics_wrf/module_cu_gf.mpas.F:  ! basic environmental input includes moisture convergence (mconv)
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice.F:! INCLUDE THE LATENT HEAT EFFECTS OF FREEZING RAIN CONVERTING TO ICE ON
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice.F:! INCLUDE FLX1 (PRECIP-SNOW SFC) AND FLX2 (FREEZING RAIN LATENT HEAT)
+core_atmosphere/physics/physics_wrf/module_sf_noah_seaice.F:! CHOOSE NOT TO RETAIN ANY SNOWPACK, AND INSTEAD INCLUDE IT IN SNOWMELT.
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:!#include <comctl.h>
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:!#include <crdcon.h>
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:!            are also included.
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:!                               (includes Voigt line correction factor)
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! 500-800 cm^-1 H2o continuum/line overlap already included
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! 500-800 cm^-1 H2o continuum/line overlap already included
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:!            vol. 96., D5, pp 9013-9019. Also includes the effects
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! <Also include any applicable external references.>
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! include effects of clouds.
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! t**4.  fsdl does not yet include all terms
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:!   included in each region is set by pmxrgn.  The max/random overlap
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! Include allowance for surface emissivity (both numerator and denominator
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! Include allowance for surface emissivity (both numerator and denominator
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! seasonally and diurnally varying solar input.  Includes molecular,
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! Maximum number of configurations to include in solution
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:!   included in solution to fluxes
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:   logical new_term          ! Flag for configurations to include in fluxes
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! included in each region is set by pmxrgn.  
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! Normalize by total area covered by cloud configurations included
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! <Also include any applicable external references.> 
+core_atmosphere/physics/physics_wrf/module_ra_cam.F:! <Also include any applicable external references.> 
+core_atmosphere/physics/physics_wrf/module_sf_urban.F:         ! Include roof height variability in Macdonald
+core_atmosphere/physics/physics_wrf/module_sf_urban.F:! DETERMINE RAINFALL INFILTRATION RATE AND RUNOFF.  INCLUDE THE
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm_glacial_only.F:!                INCLUDE DIURNAL SUN ANGLE EFFECT)
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm_glacial_only.F:! INCLUDE THE LATENT HEAT EFFECTS OF FREEZING RAIN CONVERTING TO ICE ON
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm_glacial_only.F:! INCLUDE FLX1 (PRECIP-SNOW SFC) AND FLX2 (FREEZING RAIN LATENT HEAT)
+core_atmosphere/physics/physics_wrf/module_sf_noahlsm_glacial_only.F:! CHOOSE NOT TO RETAIN ANY SNOWPACK, AND INSTEAD INCLUDE IT IN SNOWMELT.
+core_atmosphere/physics/physics_wrf/module_mp_thompson.F:!.. users can modify include the constants for mass and/or velocity
+core_atmosphere/physics/physics_wrf/module_bl_gwdo.F:!    * made the variable dx (and local variable dxmeter) a two-dimensional array to include the impact
+core_atmosphere/physics/physics_wrf/module_bl_gwdo.F:!    additionally includes the effects of orographic anisotropy and 
+core_atmosphere/physics/mpas_atmphys_camrad_init.F:! <Also include any applicable external references.> 
+core_atmosphere/physics/mpas_atmphys_driver_lsm.F:! * added call to seaice_noah to include the parameterization of seaice for the updated Noah land surface
+core_atmosphere/physics/mpas_atmphys_driver_convection.F:!   cu_tiedtke has been updated accordingly to include the sensible heat flux.
+core_atmosphere/physics/mpas_atmphys_rrtmg_lwinit.F:!  This file contains 16 READ statements that include the 
+core_atmosphere/Registry.xml:#include "diagnostics/Registry_diagnostics.xml"
+core_atmosphere/utils/Makefile:	$(CPP) $(CPPFLAGS) $(PHYSICS) $(CPPINCLUDES) $< > $*.f90
+core_atmosphere/utils/Makefile:	$(FC) $(FFLAGS) -c $*.f90 $(FCINCLUDES) -I../../framework -I../../operators -I../physics -I../physics/physics_wrf -I../../external/esmf_time_f90
+core_atmosphere/utils/Makefile:	$(FC) $(CPPFLAGS) $(PHYSICS) $(FFLAGS) -c $*.F $(CPPINCLUDES) $(FCINCLUDES) -I../../framework -I../../operators -I../physics -I../physics/physics_wrf -I../../external/esmf_time_f90

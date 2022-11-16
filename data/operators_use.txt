@@ -1,0 +1,156 @@
+operators/mpas_geometry_utils.F:   use mpas_kind_types
+operators/mpas_geometry_utils.F:   use mpas_derived_types
+operators/mpas_geometry_utils.F:   use mpas_pool_routines
+operators/mpas_geometry_utils.F:   use mpas_constants
+operators/mpas_geometry_utils.F:   use mpas_vector_operations
+operators/mpas_geometry_utils.F:   use mpas_log
+operators/mpas_geometry_utils.F:!>  It does not work for periodic meshes because mpas_distance_plane does not!
+operators/mpas_geometry_utils.F:      use mpas_matrix_operations
+operators/mpas_geometry_utils.F:!>  Note this does not handle triangles spanning planar periodic meshes because mpas_triangle_signed_area_plane does not!
+operators/mpas_geometry_utils.F:!>  the closest valid triangle that was searched will be used, and therefore
+operators/mpas_geometry_utils.F:!>  Note this does not handle triangles spanning planar periodic meshes because
+operators/mpas_geometry_utils.F:!>  should not be used as a restart variable.  Calculating baryCellsOnVertex during
+operators/mpas_geometry_utils.F:!>  which may be of limited use.
+operators/mpas_geometry_utils.F:!>  To use this routine to build weights for interpolating from cells to vertices
+operators/mpas_geometry_utils.F:      integer, dimension(:), intent(in) :: searchVertex  !< Input: list of the vertex id to be used as the search origin for each point listed in xPoint, yPoint, XPoint
+operators/mpas_geometry_utils.F:      integer, dimension(:,:), intent(out) :: baryCellsOnPoints  !< Output: An array of dimension (3, nPoints) that contains the 3 neighboring cells to be used for the barycentric interpolation/extrapolation
+operators/mpas_geometry_utils.F:            ! If that was the owning triangle, don't do anything because we've already assigned cellsOnVertex as the triangle
+operators/mpas_geometry_utils.F:!>  Note this does not handle triangles spanning planar periodic meshes because mpas_triangle_signed_area_plane does not!
+operators/mpas_geometry_utils.F:!>  Uses cross product.  Signed area will be positive if the vertices are oriented counterclockwise.
+operators/mpas_geometry_utils.F:!>  Uses the spherical analog of Heron's formula.
+operators/mpas_geometry_utils.F:!>  This is difficult because floating point arithmetic prevents a precise
+operators/mpas_geometry_utils.F:!>  determination.  A tolerance is used to allow the point to be within the
+operators/mpas_geometry_utils.F:!>  To use this routine to interpolate from cells to vertices you can call this
+operators/mpas_geometry_utils.F:         baryCellsOnPoints    !< Input: The three cells that should be used for barycentric interpolation (or possibly extrapolation) for each point.  First dimension should be 3.
+operators/mpas_geometry_utils.F:      ! could also be last than 1 for greater use in other cases (used in general since first index is 1)
+operators/mpas_geometry_utils.F:!>  Optimized version of mpas_wachspress_coordinates uses optional cached B_i areas
+operators/mpas_geometry_utils.F:           ! always the same because B_i independent of xp,yp,zp
+operators/mpas_geometry_utils.F:           ! (COULD CACHE AND USE RESULT FROM ARRAY FOR FURTHER OPTIMIZATION)
+operators/mpas_matrix_operations.F:   use mpas_derived_types
+operators/mpas_matrix_operations.F:   use mpas_pool_routines
+operators/mpas_matrix_operations.F:   use mpas_constants
+operators/mpas_matrix_operations.F:   use mpas_log
+operators/mpas_rbf_interpolation.F:   use mpas_dmpar
+operators/mpas_rbf_interpolation.F:   use mpas_derived_types
+operators/mpas_rbf_interpolation.F:   use mpas_vector_operations
+operators/mpas_rbf_interpolation.F:   ! Initialize the geometry that will be useful from interpolation
+operators/mpas_rbf_interpolation.F:  !  at locations that vary using a function that is fixed.  This is useful
+operators/mpas_rbf_interpolation.F:  !  The last 3 routines can be used to compute coefficients for imposing both Neumann
+operators/mpas_rbf_interpolation.F:  !  (Linear basis functions can cause problems: a linear vortex flow u = y xHat - x yHat
+operators/mpas_rbf_interpolation.F:  !  The user supplies to these routines a set of sourcePoints and unitVectors
+operators/mpas_rbf_interpolation.F:  ! The first two routines compute coefficients that can be used to interpolate
+operators/mpas_rbf_interpolation.F:  !  at each source point.  These routines are useful, for example, for reconstructing
+operators/mpas_rbf_interpolation.F:  ! The last two routines compute coefficients that can be used to interpolate
+operators/mpas_rbf_interpolation.F:  !  tangent source point.  These routines are useful, for example, for computing the 
+operators/mpas_rbf_interpolation.F:!> This routine computes geometric fields that will be potentially useful for calling
+operators/mpas_rbf_interpolation.F:!>  This routine computes interpolation coefficients in 2D that can be used to reconstruct a given scalar function at varying locations.
+operators/mpas_rbf_interpolation.F:!>  This is useful for finding the location on the RBF reconstruction of a function (e.g. a heigh field) that minimizes the distantce
+operators/mpas_rbf_interpolation.F:!> This routine computes interpolation coefficients in 2D that can be used to
+operators/mpas_rbf_interpolation.F:!>  reconstruct a given scalar function at varying locations. This is useful
+operators/mpas_rbf_interpolation.F:!>   coefficients.  This is useful for finding the location on the the 
+operators/mpas_rbf_interpolation.F:!>   fieldCount - the number fields to be evaluated.  This is useful for reconstructing,
+operators/mpas_rbf_interpolation.F:!>   coefficients.  This is useful for finding the location on the the 
+operators/mpas_rbf_interpolation.F:!>   fieldCount - the number fields to be evaluated.  This is useful for reconstructing,
+operators/mpas_rbf_interpolation.F:!>  This routine computes interpolation coefficients in 3D that can be used to
+operators/mpas_rbf_interpolation.F:!>   interpolate a number of scalar functions at a given locations. This is useful
+operators/mpas_rbf_interpolation.F:!>   and because we foresee more uses for the method of this subroutine, we have not
+operators/mpas_rbf_interpolation.F:!>   coefficients - the coefficients used to interpolate a function with Dirichlet
+operators/mpas_rbf_interpolation.F:!>  This routine computes interpolation coefficients in a plane in 3D that can be used to
+operators/mpas_rbf_interpolation.F:!>   interpolate a number of scalar functions at a given locations. This is useful
+operators/mpas_rbf_interpolation.F:!>   and because we foresee more uses for the method of this subroutine, we have not
+operators/mpas_rbf_interpolation.F:!>   coefficients - the coefficients used to interpolate a function with Dirichlet
+operators/mpas_rbf_interpolation.F:!>  This routine computes interpolation coefficients in 3D that can be used to
+operators/mpas_rbf_interpolation.F:!>   interpolate a number of scalar functions at a given locations. This is useful
+operators/mpas_rbf_interpolation.F:!>   and because we foresee more uses for the method of this subroutine, we have not
+operators/mpas_rbf_interpolation.F:!>   coefficients - the coefficients used to interpolate a function with Dirichlet
+operators/mpas_rbf_interpolation.F:!>  This routine computes interpolation coefficients in 3D that can be used to
+operators/mpas_rbf_interpolation.F:!>   interpolate a number of scalar functions at a given locations. This is useful
+operators/mpas_rbf_interpolation.F:!>   and because we foresee more uses for the method of this subroutine, we have not
+operators/mpas_rbf_interpolation.F:!>     at the domain interface.  These points and their normals will be used to compute the
+operators/mpas_rbf_interpolation.F:!>   interfaceNormals - a 3D normal vector for each sourcePoint.  These vectors are only used
+operators/mpas_rbf_interpolation.F:!>     normal vector is used to compute coefficients for the normal derivative of the
+operators/mpas_rbf_interpolation.F:!>   dirichletCoefficients - the coefficients used to interpolate a function with Dirichlet
+operators/mpas_rbf_interpolation.F:!>   neumannCoefficients - the coefficients used to interpolate a function with Neumann
+operators/mpas_rbf_interpolation.F:!>  This routine computes interpolation coefficients in a plane in 3D that can be used to
+operators/mpas_rbf_interpolation.F:!>   interpolate a number of scalar functions at a given locations. This is useful
+operators/mpas_rbf_interpolation.F:!>   and because we foresee more uses for the method of this subroutine, we have not
+operators/mpas_rbf_interpolation.F:!>     at the domain interface.  These points and their normals will be used to compute the
+operators/mpas_rbf_interpolation.F:!>   interfaceNormals - a 3D normal vector for each sourcePoint.  These vectors are only used
+operators/mpas_rbf_interpolation.F:!>     normal vector is used to compute coefficients for the normal derivative of the
+operators/mpas_rbf_interpolation.F:!>   dirichletCoefficients - the coefficients used to interpolate a function with Dirichlet
+operators/mpas_rbf_interpolation.F:!>   neumannCoefficients - the coefficients used to interpolate a function with Neumann
+operators/mpas_rbf_interpolation.F:!>  This routine computes interpolation coefficients in 3D that can be used to
+operators/mpas_rbf_interpolation.F:!>   interpolate a number of scalar functions at a given locations. This is useful
+operators/mpas_rbf_interpolation.F:!>   and because we foresee more uses for the method of this subroutine, we have not
+operators/mpas_rbf_interpolation.F:!>     at the domain interface.  These points and their normals will be used to compute the
+operators/mpas_rbf_interpolation.F:!>   interfaceNormals - a 3D normal vector for each sourcePoint.  These vectors are only used
+operators/mpas_rbf_interpolation.F:!>     normal vector is used to compute coefficients for the normal derivative of the
+operators/mpas_rbf_interpolation.F:!>   dirichletCoefficients - the coefficients used to interpolate a function with Dirichlet
+operators/mpas_rbf_interpolation.F:!>   neumannCoefficients - the coefficients used to interpolate a function with Neumann
+operators/mpas_rbf_interpolation.F:!>  This routine computes interpolation coefficients in 3D that can be used to
+operators/mpas_rbf_interpolation.F:!>   interpolate a number of vector functions at a given locations. This is useful
+operators/mpas_rbf_interpolation.F:!>   and because we foresee more uses for the method of this subroutine, we have not
+operators/mpas_rbf_interpolation.F:!>   coefficients - the coefficients used to interpolate a function with Dirichlet
+operators/mpas_rbf_interpolation.F:!>   This routine computes interpolation coefficients in 3D that can be used to
+operators/mpas_rbf_interpolation.F:!>    interpolate a number of vector functions at a given locations. This is useful
+operators/mpas_rbf_interpolation.F:!>    and because we foresee more uses for the method of this subroutine, we have not
+operators/mpas_rbf_interpolation.F:!>    coefficients - the coefficients used to interpolate a function with Dirichlet
+operators/mpas_rbf_interpolation.F:!>  This routine computes interpolation coefficients in 3D that can be used to
+operators/mpas_rbf_interpolation.F:!>   interpolate a number of vector functions at a given locations. This is useful
+operators/mpas_rbf_interpolation.F:!>   and because we foresee more uses for the method of this subroutine, we have not
+operators/mpas_rbf_interpolation.F:!>   coefficients - the coefficients used to interpolate a function with Dirichlet
+operators/mpas_rbf_interpolation.F:!>  This routine computes interpolation coefficients in 3D that can be used to
+operators/mpas_rbf_interpolation.F:!>   interpolate a number of vector functions at a given locations. This is useful
+operators/mpas_rbf_interpolation.F:!>   and because we foresee more uses for the method of this subroutine, we have not
+operators/mpas_rbf_interpolation.F:!>   coefficients - the coefficients used to interpolate a function with Dirichlet
+operators/mpas_spline_interpolation.F:  use mpas_kind_types
+operators/mpas_spline_interpolation.F:!>  This routine uses boundary conditions for a natural spline, 
+operators/mpas_spline_interpolation.F:  eps1 = 0.0 ! note: could use 1e-12*xOut(nOut)
+operators/mpas_tensor_operations.F:   use mpas_derived_types
+operators/mpas_tensor_operations.F:   use mpas_pool_routines
+operators/mpas_tensor_operations.F:   use mpas_constants
+operators/mpas_tensor_operations.F:   use mpas_vector_operations
+operators/mpas_tensor_operations.F:   use mpas_matrix_operations
+operators/mpas_tensor_operations.F:   use mpas_dmpar
+operators/mpas_tensor_operations.F:   use mpas_log
+operators/mpas_tracer_advection_helpers.F:   use mpas_kind_types
+operators/mpas_tracer_advection_helpers.F:   use mpas_derived_types
+operators/mpas_tracer_advection_helpers.F:   use mpas_pool_routines
+operators/mpas_tracer_advection_helpers.F:   use mpas_sort
+operators/mpas_tracer_advection_helpers.F:   use mpas_geometry_utils
+operators/mpas_tracer_advection_helpers.F:   use mpas_log
+operators/mpas_tracer_advection_helpers.F:      use mpas_hash
+operators/mpas_tracer_advection_helpers.F:           ! Build unique list of cells used for advection on edge
+operators/mpas_tracer_advection_mono.F:   use mpas_kind_types
+operators/mpas_tracer_advection_mono.F:   use mpas_derived_types
+operators/mpas_tracer_advection_mono.F:   use mpas_pool_routines
+operators/mpas_tracer_advection_mono.F:   use mpas_log
+operators/mpas_tracer_advection_mono.F:   use mpas_tracer_advection_helpers
+operators/mpas_tracer_advection_mono.F:      integer, dimension(:, :), pointer, optional :: edgeSignOnCell_in !< Input - optional: Sign for flux from edge on each cell. Used for bit-reproducibility
+operators/mpas_tracer_advection_mono.F:        ! Initialize variables for use in this iTracer iteration
+operators/mpas_tracer_advection_mono.F:        !  low order upwind vertical flux (monotonic and diffused)
+operators/mpas_tracer_advection_mono.F:        !  low order upwind horizontal flux (monotinc and diffused)
+operators/mpas_tracer_advection_mono.F:      use mpas_dmpar
+operators/mpas_tracer_advection_mono.F:        call mpas_log_write('Monotonic advection cannot be used with less than 3 halos.', MPAS_LOG_CRIT)
+operators/mpas_tracer_advection_std.F:   use mpas_kind_types
+operators/mpas_tracer_advection_std.F:   use mpas_derived_types
+operators/mpas_tracer_advection_std.F:   use mpas_pool_routines
+operators/mpas_tracer_advection_std.F:   use mpas_log
+operators/mpas_tracer_advection_std.F:   use mpas_tracer_advection_helpers
+operators/mpas_tracer_advection_std.F:      integer, dimension(:, :), pointer, optional :: edgeSignOnCell_in !< Input - optional: Sign for flux from edge on each cell. Used for bit-reproducibility
+operators/mpas_tracer_advection_std.F:        ! Initialize variables for use in this iTracer iteration
+operators/mpas_vector_operations.F:   use mpas_derived_types
+operators/mpas_vector_operations.F:   use mpas_pool_routines
+operators/mpas_vector_operations.F:   use mpas_constants
+operators/mpas_vector_operations.F:   use mpas_log
+operators/mpas_vector_operations.F:!> This routine computes geometric fields that will be potentially useful for calling
+operators/mpas_vector_operations.F:!> included in the mpas_initialize_vectors subroutine because the
+operators/mpas_vector_reconstruction.F:  use mpas_derived_types
+operators/mpas_vector_reconstruction.F:  use mpas_pool_routines
+operators/mpas_vector_reconstruction.F:  use mpas_constants
+operators/mpas_vector_reconstruction.F:  use mpas_rbf_interpolation
+operators/mpas_vector_reconstruction.F:  use mpas_vector_operations
+operators/mpas_vector_reconstruction.F:!>  Purpose: pre-compute coefficients used by the reconstruct() routine
+operators/mpas_vector_reconstruction.F:!>  Output: grid % coeffs_reconstruct - coefficients used to reconstruct 
+operators/mpas_vector_reconstruction.F:    ! stored arrays used during compute procedure
+operators/mpas_vector_reconstruction.F:    ! stored arrays used during compute procedure

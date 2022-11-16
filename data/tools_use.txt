@@ -1,0 +1,92 @@
+tools/input_gen/streams_gen.c:								fprintf(stderr, "Warning: Unable to add packages \"%s\" to var_array \"%s\" in stream \"%s\" because \"runtime_format=separate_file\".\n", varpackages, subname, name);
+tools/input_gen/streams_gen.c:								fprintf(stderr, "Warning: Unable to add packages \"%s\" to var \"%s\" in stream \"%s\" because \"runtime_format=separate_file\".\n", varpackages, subname, name);
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_derived_types\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_pool_routines\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_io_units\n");
+tools/registry/gen_inc.c:	fortprintf(fd2, "      use mpas_derived_types\n");
+tools/registry/gen_inc.c:	fortprintf(fd2, "      use mpas_pool_routines\n");
+tools/registry/gen_inc.c:	fortprintf(fd2, "      use mpas_io_units\n");
+tools/registry/gen_inc.c:	fortprintf(fd2, "      use mpas_abort, only : mpas_dmpar_global_abort\n");
+tools/registry/gen_inc.c:	fortprintf(fd2, "      use mpas_log, only : mpas_log_write\n");
+tools/registry/gen_inc.c:		fortprintf(fd, "      use mpas_log, only : mpas_log_write, mpas_log_escape_dollars\n");
+tools/registry/gen_inc.c:		fortprintf(fd, "            call mpas_log_write('    The following values will be used for variables in this record:')\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_derived_types\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_pool_routines\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_io_units\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_log, only : mpas_log_write\n");
+tools/registry/gen_inc.c:	// Define all namelist options that will be used
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_derived_types\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_decomp\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_pool_routines\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_io_units\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_abort, only : mpas_dmpar_global_abort\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_log, only : mpas_log_write\n");
+tools/registry/gen_inc.c:				fortprintf(fd, "            call mpas_dmpar_global_abort('ERROR: Decomposition method \'\'%s\'\' used by dimension \'\'%s\'\' does not exist.')\n", dimdecomp, dimname);
+tools/registry/gen_inc.c:			// If Packages are defined, write else clause
+tools/registry/gen_inc.c:						// If Packages are defined, write else clause
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_derived_types\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_pool_routines\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_io_units\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_io, only : MPAS_REAL_FILLVAL, MPAS_INT_FILLVAL, MPAS_CHAR_FILLVAL\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "   use MPAS_derived_types, only : MPAS_streamManager_type, &\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "   use MPAS_stream_manager, only : MPAS_stream_mgr_create_stream, MPAS_stream_mgr_set_property, &\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "   use mpas_io_units\n\n");
+tools/registry/gen_inc.c:				/* Loop over streams listed within the stream (only use immutable streams) */
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_derived_types\n");
+tools/registry/gen_inc.c:	fortprintf(fd, "      use mpas_io_units\n");
+tools/registry/Registry.xsd:									<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<!-- The definition attribute is used to define a dimension based on other pre-defined dimensions -->
+tools/registry/Registry.xsd:									<xs:attribute name="definition"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="units"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="description"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="type"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<!-- The default_value attribute defines the default value of the namelist option. This is used if the option is omitted from a namelist file. -->
+tools/registry/Registry.xsd:									<xs:attribute name="default_value"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="units"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="description"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="possible_values"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:						<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:						<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:						<xs:attribute name="type"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:						<!-- The filename_template attribute defines the template used for either opening files, or creating new files. -->
+tools/registry/Registry.xsd:						<xs:attribute name="filename_template"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:						<xs:attribute name="filename_interval"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:						<xs:attribute name="immutable"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:						<xs:attribute name="immutable"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:						<xs:attribute name="output_interval"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:						<xs:attribute name="input_interval"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:								 Within the code all constituent variables are merged into a one higher dimension array, for ease of use.
+tools/registry/Registry.xsd:												<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:												<!-- The array_group attribute is used to group variables within the var_array for ease of use. -->
+tools/registry/Registry.xsd:												<xs:attribute name="array_group"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:												<xs:attribute name="name_in_code"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:												<xs:attribute name="units"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:												<xs:attribute name="description"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:												<xs:attribute name="packages"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="type"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="dimensions"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="persistence"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="default_value"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="packages"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="type"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="dimensions"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:									<xs:attribute name="name_in_code"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="units"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="description"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="default_value"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="persistence"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:									<xs:attribute name="packages"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:						<xs:attribute name="name"  type="xs:string" use="required"/>
+tools/registry/Registry.xsd:						<xs:attribute name="time_levs"  type="xs:int" use="required"/>
+tools/registry/Registry.xsd:						<xs:attribute name="packages"  type="xs:string" use="optional"/>
+tools/registry/Registry.xsd:			<xs:attribute name="model" type="xs:string" use="required"/>
+tools/registry/Registry.xsd:			<xs:attribute name="core" type="xs:string" use="required"/>
+tools/registry/Registry.xsd:			<xs:attribute name="version" type="xs:string" use="required"/>
+tools/registry/parse.c:		fprintf(stderr, "       You may use the name_in_code attribute to give them the same name inside the model,\n");
