@@ -13,7 +13,7 @@ COMO (...)
 QUEREMOS (...)
 PARA (...)
 
-### Critérios de aceite de conclusão da Issue
+### :clipboard: Critérios de aceite de conclusão da Issue
 
 _(... são os requisitos que a issue deve superar para ser considerada finalizada)_
 
@@ -37,6 +37,6 @@ _(... descrição das etapas das tarefas executadas)_
 
 _(... problemas técnicos reais apresentados durante a execução das atividades)_
 
-### Conclusão
+### :white_check_mark: Conclusão
 
 _(... texto que sintetiza a finalização da issue, destacando aspectos positivos e negativos)_
