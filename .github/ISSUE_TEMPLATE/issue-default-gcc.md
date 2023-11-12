@@ -43,6 +43,6 @@ _(... problemas técnicos reais apresentados durante a execução das atividades
 
 _(... texto que sintetiza a finalização da issue, destacando aspectos positivos e negativos)_
 
-## :spiral_calendar: Future Work
+## :spiral_calendar: Trabalhos Futuros
 
 _(... caso a issue demande trabalhos futuros detalhar aqui e marcar o campo "Future Work" ao lado para "Sim")_
