@@ -7,36 +7,42 @@ assignees: ''
 
 ---
 
-### User Story
+## :people_holding_hands: User Story
 
 COMO (...)
 QUEREMOS (...)
 PARA (...)
 
-### :clipboard: Critérios de aceite de conclusão da Issue
+## :clipboard: Critérios de aceite de conclusão da Issue
 
-_(... são os requisitos que a issue deve superar para ser considerada finalizada)_
+_(... são os requisitos que a issue deve superar para ser considerada finalizada, utilizar checkboxes)_
+- [ ] ...
+- [ ] ...
 
-### Detalhamento adicional da atividade
+## :pencil: Detalhamento adicional da atividade
 
 _(... espaço para detalhar melhor o que deve ser realizado)_
 
-### Impactos
+## :comet: Impactos
 
 _(... consequência técnica encontrada durante a execução da issue)_
 
-### Dependências
+## :link: Dependências
 
 _(... issues e requisitos que devem ser executados previamente)_
 
-### Solução
+## :hammer_and_wrench: Solução
 
 _(... descrição das etapas das tarefas executadas)_
 
-### Problemas encontrados
+## :rotating_light: Problemas encontrados
 
 _(... problemas técnicos reais apresentados durante a execução das atividades)_
 
-### :white_check_mark: Conclusão
+## :white_check_mark: Conclusão
 
 _(... texto que sintetiza a finalização da issue, destacando aspectos positivos e negativos)_
+
+## :spiral_calendar: Future Work
+
+_(... caso a issue demande trabalhos futuros detalhar aqui e marcar o campo "Future Work" ao lado para "Sim")_
